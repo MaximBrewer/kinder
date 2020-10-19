@@ -1,0 +1,99 @@
+@import "../fonts/bubbleboddyneue/stylesheet.css";
+@import "variables";
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
+
+.nhy-app {
+    color: $white;
+    font-family: "bubbleboddy_neue_trialregular", sans-serif;
+    background: #a2a2a2;
+    margin-bottom: -200px;
+    padding-bottom: 200px;
+    font-size: 20px;
+    input,
+    button,
+    textarea {
+        font-size: 20px;
+        color: #ffffff;
+    }
+    * {
+        outline: none !important;
+    }
+    .h1 {
+        font-size: 56px;
+        line-height: 64px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        text-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
+        font-weight: bold;
+        color: $white;
+    }
+    .flex {
+        display: flex;
+    }
+    .space-between {
+        justify-content: space-between;
+    }
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+    .flex-end {
+        align-items: flex-end;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .mb-1 {
+        margin-bottom: 12px;
+    }
+    .pt-5 {
+        padding-top: 60px;
+    }
+
+    .gift-select {
+        width: 404px;
+        &.scroll-bar {
+            width: 430px;
+        }
+        .gift {
+            width: 128px;
+            height: 128px;
+            border-radius: 10px;
+            background: $white;
+            padding: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            &.active,
+            &:hover {
+                border-color: $red;
+            }
+            & > div {
+                width: 112px;
+                height: 112px;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+@keyframes buttonNhy {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scaleX(1.2) scaleY(0.8);
+    }
+    50% {
+        transform: scaleX(0.8) scaleY(1.2);
+    }
+    75% {
+        transform: scaleX(1.1) scaleY(1.1);
+    }
+}
+
+@import "sections/promo";
+@import "sections/form";
+@import "sections/gifts";
+@import "sections/faq";

@@ -1,0 +1,17 @@
+.form-hny {
+    padding: 64px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    & > p {
+        max-width: 615px;
+        font-size: 28px;
+    }
+    .order-form {
+        width: 548px;
+        margin-right: 40px;
+        & > div {
+            margin-bottom: 12px;
+        }
+    }
+}

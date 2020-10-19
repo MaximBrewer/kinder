@@ -1,0 +1,63 @@
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .component-timeline .timeline-item.is-active:not(:first-child) .caption-link {
+        width: 56px;
+    }
+    .component-timeline .timeline-item.is-active:not(:first-child) .caption-link span {
+        line-height: 24px;
+    }  
+}
+
+@media all and (min-width: 1440px) and (-ms-high-contrast: none), (-ms-high-contrast: active)  {
+    .story-cover-wrapper .story-slide-type-intro .kinder-multicolor-title {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 599px){
+    .story-slide-type-content .cta-button a .button-cta-label .label-item {
+        left: 34px;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px){
+    .paragraph--type--product-tabs .field--name-tabs > .field__item .backgroundTabsPopup .boxTabsPopup .descriptionTabsPopup .field--name-title {
+        font-size: 30px;
+    }
+}
+@media (min-width: 900px) {
+    .paragraph--type--kinder-story-crispy-goodness .paragraph-content h2::after {
+        transform: translateX(8.22222vw) scaleX(1);
+    }
+}
+@media (min-width: 900px){
+    .paragraph--type--kinder-story-magical-moments .field--name-title::before {
+        right: -8.33333vw;
+    }
+    .paragraph--type--kinder-ingredient-hub .js-carousel-ingredient-hub-slider .field--name-html-title p .show-dash-mobile,
+    .paragraph--type--kinder-ingredient-hub .js-carousel-ingredient-hub-slider .field--name-html-title p span,
+    .show-dash-mobile {
+        display: none;
+    }     
+}
+
+.paragraph--type--product-tabs .field--name-tabs > .field__item .backgroundTabsPopup .boxTabsPopup .descriptionTabsPopup .field--name-title {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+.paragraph--type--kinder-main-carousel-home .carousel-button.carousel-button-prev,
+.paragraph--type--kinder-main-carousel-home .carousel-button.carousel-button-next {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px){
+  .ingredient-header .paragraph-content .kinder-multicolor-title {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    font-size: 12vw;
+  }
+}
