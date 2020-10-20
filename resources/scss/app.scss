@@ -1,11 +1,43 @@
-@import "../fonts/bubbleboddyneue/stylesheet.css";
+@import "../fonts/stylesheet.css";
 @import "variables";
 @import "~slick-carousel/slick/slick.scss";
 @import "~slick-carousel/slick/slick-theme.scss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
 .nhy-app {
+    .promo-wrapper{
+        background-image: url(../img/bg/1.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .form-wrapper{
+        background-image: url(../img/bg/2.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .example-wrapper{
+        background-image: url(../img/bg/1.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .gifts-wrapper{
+        background-image: url(../img/bg/2.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .faq-wrapper{
+        background-image: url(../img/bg/1.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
     color: $white;
-    font-family: "bubbleboddy_neue_trialregular", sans-serif;
+    font-family: "bubbleboddy_neue", sans-serif;
     background: #a2a2a2;
     margin-bottom: -200px;
     padding-bottom: 200px;
@@ -15,6 +47,7 @@
     textarea {
         font-size: 20px;
         color: #ffffff;
+        font-family: "bubbleboddy_neue", sans-serif;
     }
     * {
         outline: none !important;

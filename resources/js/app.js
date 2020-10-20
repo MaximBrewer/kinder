@@ -16,12 +16,12 @@ const App = () => {
     const toForm = () => scrollToElement(formEl);
     return (
         <React.Fragment>
-            <Promo /><hr />
+            <div className="promo-wrapper"><Promo /></div>
             <a ref={formEl}></a>
-            <Form /><hr />
-            <Example toForm={toForm} /><hr />
-            <Gifts /><hr />
-            <Faq />
+            <div className="form-wrapper"><Form /></div>
+            <div className="example-wrapper"><Example toForm={toForm} /></div>
+            <div className="gifts-wrapper"><Gifts /></div>
+            <div className="faq-wrapper"><Faq /></div>
         </React.Fragment >
     );
 }

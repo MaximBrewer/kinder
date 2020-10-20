@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'bubbleboddy_neue';
+    src: url('bubbleboddy-neue-bold-trial.eot');
+    src: url('bubbleboddy-neue-bold-trial.eot?#iefix') format('embedded-opentype'),
+         url('bubbleboddy-neue-bold-trial.woff2') format('woff2'),
+         url('bubbleboddy-neue-bold-trial.woff') format('woff'),
+         url('bubbleboddy-neue-bold-trial.ttf') format('truetype'),
+         url('bubbleboddy-neue-bold-trial.svg#bubbleboddy_neue_trialbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'bubbleboddy_neue';
+    src: url('bubbleboddy-neue-extra-bold-trial.eot');
+    src: url('bubbleboddy-neue-extra-bold-trial.eot?#iefix') format('embedded-opentype'),
+         url('bubbleboddy-neue-extra-bold-trial.woff2') format('woff2'),
+         url('bubbleboddy-neue-extra-bold-trial.woff') format('woff'),
+         url('bubbleboddy-neue-extra-bold-trial.ttf') format('truetype'),
+         url('bubbleboddy-neue-extra-bold-trial.svg#bubbleboddy_neue_trialXBd') format('svg');
+    font-weight: 900;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'bubbleboddy_neue_inline';
+    src: url('bubbleboddy-neue-extrabold-inline-trial.eot');
+    src: url('bubbleboddy-neue-extrabold-inline-trial.eot?#iefix') format('embedded-opentype'),
+         url('bubbleboddy-neue-extrabold-inline-trial.woff2') format('woff2'),
+         url('bubbleboddy-neue-extrabold-inline-trial.woff') format('woff'),
+         url('bubbleboddy-neue-extrabold-inline-trial.ttf') format('truetype'),
+         url('bubbleboddy-neue-extrabold-inline-trial.svg#bubbleboddy_neue_inlineXBd') format('svg');
+    font-weight: 900;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'bubbleboddy_neue';
+    src: url('bubbleboddy-neue-light-trial.eot');
+    src: url('bubbleboddy-neue-light-trial.eot?#iefix') format('embedded-opentype'),
+         url('bubbleboddy-neue-light-trial.woff2') format('woff2'),
+         url('bubbleboddy-neue-light-trial.woff') format('woff'),
+         url('bubbleboddy-neue-light-trial.ttf') format('truetype'),
+         url('bubbleboddy-neue-light-trial.svg#bubbleboddy_neue_triallight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'bubbleboddy_neue';
+    src: url('bubbleboddy-neue-thin-trial.eot');
+    src: url('bubbleboddy-neue-thin-trial.eot?#iefix') format('embedded-opentype'),
+         url('bubbleboddy-neue-thin-trial.woff2') format('woff2'),
+         url('bubbleboddy-neue-thin-trial.woff') format('woff'),
+         url('bubbleboddy-neue-thin-trial.ttf') format('truetype'),
+         url('bubbleboddy-neue-thin-trial.svg#bubbleboddy_neue_trialthin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'bubbleboddy_neue';
+    src: url('bubbleboddy-neue-trial.eot');
+    src: url('bubbleboddy-neue-trial.eot?#iefix') format('embedded-opentype'),
+         url('bubbleboddy-neue-trial.woff2') format('woff2'),
+         url('bubbleboddy-neue-trial.woff') format('woff'),
+         url('bubbleboddy-neue-trial.ttf') format('truetype'),
+         url('bubbleboddy-neue-trial.svg#bubbleboddy_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
