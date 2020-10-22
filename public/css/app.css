@@ -542,7 +542,6 @@
 
 .nhy-app .form-wrapper:after,
 .nhy-app .gifts-wrapper:after {
-  margin-top: -3vw;
   z-index: 1;
   position: relative;
   background-image: url(/images/bottomwave.png?c6d4c6e11afe328942d2f28159bbfa1a);
