@@ -38,6 +38,8 @@
     }
     .nhy-container {
         max-width: 1440px;
+        z-index: 10;
+        position: relative;    
         width: 100%;
         box-sizing: border-box;
         padding: 0 10rem;
