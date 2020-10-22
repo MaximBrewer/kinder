@@ -16,12 +16,36 @@ const App = () => {
     const toForm = () => scrollToElement(formEl);
     return (
         <React.Fragment>
-            <div className="promo-wrapper"><Promo /></div>
-            <a ref={formEl}></a>
-            <div className="form-wrapper"><Form /></div>
-            <div className="example-wrapper"><Example toForm={toForm} /></div>
-            <div className="gifts-wrapper"><Gifts /></div>
-            <div className="faq-wrapper"><Faq /></div>
+            <div className={`promo-mobile-header`}></div>
+            <div className="promo-wrapper">
+                <div className="nhy-container">
+                    <Promo toForm={toForm} />
+                </div>
+            </div>
+            <div className="form-wrapper">
+                <div>
+                    <div className="nhy-container">
+                        <Form formEl={formEl} />
+                    </div>
+                </div>
+            </div>
+            <div className="example-wrapper">
+                <div className="nhy-container">
+                    <Example toForm={toForm} />
+                </div>
+            </div>
+            <div className="gifts-wrapper">
+                <div>
+                    <div className="nhy-container">
+                        <Gifts />
+                    </div>
+                </div>
+            </div>
+            <div className="faq-wrapper">
+                <div className="nhy-container">
+                    <Faq />
+                </div>
+            </div>
         </React.Fragment >
     );
 }

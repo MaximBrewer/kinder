@@ -23987,10 +23987,10 @@ module.exports.polyfill = function(object) {
 
 /***/ }),
 
-/***/ "./node_modules/react-custom-scrollbars/lib/Scrollbars/defaultRenderElements.js":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/react-custom-scrollbars/lib/Scrollbars/defaultRenderElements.js ***!
-  \**************************************************************************************/
+/***/ "./node_modules/react-custom-scrollbars-with-mobile/lib/Scrollbars/defaultRenderElements.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/react-custom-scrollbars-with-mobile/lib/Scrollbars/defaultRenderElements.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24075,10 +24075,10 @@ function renderThumbVerticalDefault(_ref4) {
 
 /***/ }),
 
-/***/ "./node_modules/react-custom-scrollbars/lib/Scrollbars/index.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/react-custom-scrollbars/lib/Scrollbars/index.js ***!
-  \**********************************************************************/
+/***/ "./node_modules/react-custom-scrollbars-with-mobile/lib/Scrollbars/index.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/react-custom-scrollbars-with-mobile/lib/Scrollbars/index.js ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24107,29 +24107,29 @@ var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-type
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _isString = __webpack_require__(/*! ../utils/isString */ "./node_modules/react-custom-scrollbars/lib/utils/isString.js");
+var _isString = __webpack_require__(/*! ../utils/isString */ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/isString.js");
 
 var _isString2 = _interopRequireDefault(_isString);
 
-var _getScrollbarWidth = __webpack_require__(/*! ../utils/getScrollbarWidth */ "./node_modules/react-custom-scrollbars/lib/utils/getScrollbarWidth.js");
+var _getScrollbarWidth = __webpack_require__(/*! ../utils/getScrollbarWidth */ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getScrollbarWidth.js");
 
 var _getScrollbarWidth2 = _interopRequireDefault(_getScrollbarWidth);
 
-var _returnFalse = __webpack_require__(/*! ../utils/returnFalse */ "./node_modules/react-custom-scrollbars/lib/utils/returnFalse.js");
+var _returnFalse = __webpack_require__(/*! ../utils/returnFalse */ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/returnFalse.js");
 
 var _returnFalse2 = _interopRequireDefault(_returnFalse);
 
-var _getInnerWidth = __webpack_require__(/*! ../utils/getInnerWidth */ "./node_modules/react-custom-scrollbars/lib/utils/getInnerWidth.js");
+var _getInnerWidth = __webpack_require__(/*! ../utils/getInnerWidth */ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getInnerWidth.js");
 
 var _getInnerWidth2 = _interopRequireDefault(_getInnerWidth);
 
-var _getInnerHeight = __webpack_require__(/*! ../utils/getInnerHeight */ "./node_modules/react-custom-scrollbars/lib/utils/getInnerHeight.js");
+var _getInnerHeight = __webpack_require__(/*! ../utils/getInnerHeight */ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getInnerHeight.js");
 
 var _getInnerHeight2 = _interopRequireDefault(_getInnerHeight);
 
-var _styles = __webpack_require__(/*! ./styles */ "./node_modules/react-custom-scrollbars/lib/Scrollbars/styles.js");
+var _styles = __webpack_require__(/*! ./styles */ "./node_modules/react-custom-scrollbars-with-mobile/lib/Scrollbars/styles.js");
 
-var _defaultRenderElements = __webpack_require__(/*! ./defaultRenderElements */ "./node_modules/react-custom-scrollbars/lib/Scrollbars/defaultRenderElements.js");
+var _defaultRenderElements = __webpack_require__(/*! ./defaultRenderElements */ "./node_modules/react-custom-scrollbars-with-mobile/lib/Scrollbars/defaultRenderElements.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -24388,9 +24388,10 @@ var Scrollbars = function (_Component) {
                 trackVertical = this.trackVertical,
                 thumbHorizontal = this.thumbHorizontal,
                 thumbVertical = this.thumbVertical;
+            var mobile = this.props.mobile;
 
             view.addEventListener('scroll', this.handleScroll);
-            if (!(0, _getScrollbarWidth2["default"])()) return;
+            if (!(0, _getScrollbarWidth2["default"])(mobile)) return;
             trackHorizontal.addEventListener('mouseenter', this.handleTrackMouseEnter);
             trackHorizontal.addEventListener('mouseleave', this.handleTrackMouseLeave);
             trackHorizontal.addEventListener('mousedown', this.handleHorizontalTrackMouseDown);
@@ -24411,9 +24412,10 @@ var Scrollbars = function (_Component) {
                 trackVertical = this.trackVertical,
                 thumbHorizontal = this.thumbHorizontal,
                 thumbVertical = this.thumbVertical;
+            var mobile = this.props.mobile;
 
             view.removeEventListener('scroll', this.handleScroll);
-            if (!(0, _getScrollbarWidth2["default"])()) return;
+            if (!(0, _getScrollbarWidth2["default"])(mobile)) return;
             trackHorizontal.removeEventListener('mouseenter', this.handleTrackMouseEnter);
             trackHorizontal.removeEventListener('mouseleave', this.handleTrackMouseLeave);
             trackHorizontal.removeEventListener('mousedown', this.handleHorizontalTrackMouseDown);
@@ -24699,10 +24701,11 @@ var Scrollbars = function (_Component) {
         value: function _update(callback) {
             var _props4 = this.props,
                 onUpdate = _props4.onUpdate,
-                hideTracksWhenNotNeeded = _props4.hideTracksWhenNotNeeded;
+                hideTracksWhenNotNeeded = _props4.hideTracksWhenNotNeeded,
+                mobile = _props4.mobile;
 
             var values = this.getValues();
-            if ((0, _getScrollbarWidth2["default"])()) {
+            if ((0, _getScrollbarWidth2["default"])(mobile)) {
                 var scrollLeft = values.scrollLeft,
                     clientWidth = values.clientWidth,
                     scrollWidth = values.scrollWidth;
@@ -24747,9 +24750,7 @@ var Scrollbars = function (_Component) {
         value: function render() {
             var _this7 = this;
 
-            var scrollbarWidth = (0, _getScrollbarWidth2["default"])();
             /* eslint-disable no-unused-vars */
-
             var _props5 = this.props,
                 onScroll = _props5.onScroll,
                 onScrollFrame = _props5.onScrollFrame,
@@ -24774,8 +24775,12 @@ var Scrollbars = function (_Component) {
                 autoHeightMax = _props5.autoHeightMax,
                 style = _props5.style,
                 children = _props5.children,
-                props = _objectWithoutProperties(_props5, ['onScroll', 'onScrollFrame', 'onScrollStart', 'onScrollStop', 'onUpdate', 'renderView', 'renderTrackHorizontal', 'renderTrackVertical', 'renderThumbHorizontal', 'renderThumbVertical', 'tagName', 'hideTracksWhenNotNeeded', 'autoHide', 'autoHideTimeout', 'autoHideDuration', 'thumbSize', 'thumbMinSize', 'universal', 'autoHeight', 'autoHeightMin', 'autoHeightMax', 'style', 'children']);
+                mobile = _props5.mobile,
+                props = _objectWithoutProperties(_props5, ['onScroll', 'onScrollFrame', 'onScrollStart', 'onScrollStop', 'onUpdate', 'renderView', 'renderTrackHorizontal', 'renderTrackVertical', 'renderThumbHorizontal', 'renderThumbVertical', 'tagName', 'hideTracksWhenNotNeeded', 'autoHide', 'autoHideTimeout', 'autoHideDuration', 'thumbSize', 'thumbMinSize', 'universal', 'autoHeight', 'autoHeightMin', 'autoHeightMax', 'style', 'children', 'mobile']);
             /* eslint-enable no-unused-vars */
+
+
+            var scrollbarWidth = (0, _getScrollbarWidth2["default"])(mobile);
 
             var didMountUniversal = this.state.didMountUniversal;
 
@@ -24785,7 +24790,9 @@ var Scrollbars = function (_Component) {
                 maxHeight: autoHeightMax
             }), style);
 
-            var viewStyle = _extends({}, _styles.viewStyleDefault, {
+            var baseViewStyle = (0, _getScrollbarWidth.isForcedMobile)(mobile) ? _styles.viewStyleMobile : _styles.viewStyleDefault;
+
+            var viewStyle = _extends({}, baseViewStyle, {
                 // Hide scrollbars by setting a negative margin
                 marginRight: scrollbarWidth ? -scrollbarWidth : 0,
                 marginBottom: scrollbarWidth ? -scrollbarWidth : 0
@@ -24856,7 +24863,8 @@ Scrollbars.propTypes = {
     autoHeightMax: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
     universal: _propTypes2["default"].bool,
     style: _propTypes2["default"].object,
-    children: _propTypes2["default"].node
+    children: _propTypes2["default"].node,
+    mobile: _propTypes2["default"].bool
 };
 
 Scrollbars.defaultProps = {
@@ -24874,15 +24882,16 @@ Scrollbars.defaultProps = {
     autoHeight: false,
     autoHeightMin: 0,
     autoHeightMax: 200,
-    universal: false
+    universal: false,
+    mobile: false
 };
 
 /***/ }),
 
-/***/ "./node_modules/react-custom-scrollbars/lib/Scrollbars/styles.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/react-custom-scrollbars/lib/Scrollbars/styles.js ***!
-  \***********************************************************************/
+/***/ "./node_modules/react-custom-scrollbars-with-mobile/lib/Scrollbars/styles.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/react-custom-scrollbars-with-mobile/lib/Scrollbars/styles.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24892,6 +24901,10 @@ Scrollbars.defaultProps = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.disableSelectStyleReset = exports.disableSelectStyle = exports.thumbVerticalStyleDefault = exports.thumbHorizontalStyleDefault = exports.trackVerticalStyleDefault = exports.trackHorizontalStyleDefault = exports.viewStyleUniversalInitial = exports.viewStyleAutoHeight = exports.viewStyleMobile = exports.viewStyleDefault = exports.containerStyleAutoHeight = exports.containerStyleDefault = undefined;
+
+var _getScrollbarWidth = __webpack_require__(/*! ../utils/getScrollbarWidth */ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getScrollbarWidth.js");
+
 var containerStyleDefault = exports.containerStyleDefault = {
     position: 'relative',
     overflow: 'hidden',
@@ -24910,6 +24923,18 @@ var viewStyleDefault = exports.viewStyleDefault = {
     left: 0,
     right: 0,
     bottom: 0,
+    overflow: 'scroll',
+    WebkitOverflowScrolling: 'touch'
+};
+
+var viewStyleMobile = exports.viewStyleMobile = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    paddingRight: _getScrollbarWidth.MOBILE_SCROLLBAR_WIDTH + 'px',
+    paddingBottom: _getScrollbarWidth.MOBILE_SCROLLBAR_WIDTH + 'px',
     overflow: 'scroll',
     WebkitOverflowScrolling: 'touch'
 };
@@ -24961,10 +24986,10 @@ var disableSelectStyleReset = exports.disableSelectStyleReset = {
 
 /***/ }),
 
-/***/ "./node_modules/react-custom-scrollbars/lib/index.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/react-custom-scrollbars/lib/index.js ***!
-  \***********************************************************/
+/***/ "./node_modules/react-custom-scrollbars-with-mobile/lib/index.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-custom-scrollbars-with-mobile/lib/index.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24976,7 +25001,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Scrollbars = undefined;
 
-var _Scrollbars = __webpack_require__(/*! ./Scrollbars */ "./node_modules/react-custom-scrollbars/lib/Scrollbars/index.js");
+var _Scrollbars = __webpack_require__(/*! ./Scrollbars */ "./node_modules/react-custom-scrollbars-with-mobile/lib/Scrollbars/index.js");
 
 var _Scrollbars2 = _interopRequireDefault(_Scrollbars);
 
@@ -24987,10 +25012,10 @@ exports.Scrollbars = _Scrollbars2["default"];
 
 /***/ }),
 
-/***/ "./node_modules/react-custom-scrollbars/lib/utils/getInnerHeight.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/react-custom-scrollbars/lib/utils/getInnerHeight.js ***!
-  \**************************************************************************/
+/***/ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getInnerHeight.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getInnerHeight.js ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25013,10 +25038,10 @@ function getInnerHeight(el) {
 
 /***/ }),
 
-/***/ "./node_modules/react-custom-scrollbars/lib/utils/getInnerWidth.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/react-custom-scrollbars/lib/utils/getInnerWidth.js ***!
-  \*************************************************************************/
+/***/ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getInnerWidth.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getInnerWidth.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25039,10 +25064,10 @@ function getInnerWidth(el) {
 
 /***/ }),
 
-/***/ "./node_modules/react-custom-scrollbars/lib/utils/getScrollbarWidth.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/react-custom-scrollbars/lib/utils/getScrollbarWidth.js ***!
-  \*****************************************************************************/
+/***/ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getScrollbarWidth.js":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/react-custom-scrollbars-with-mobile/lib/utils/getScrollbarWidth.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25052,7 +25077,7 @@ function getInnerWidth(el) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports["default"] = getScrollbarWidth;
+exports.isForcedMobile = exports.MOBILE_SCROLLBAR_WIDTH = undefined;
 
 var _domCss = __webpack_require__(/*! dom-css */ "./node_modules/dom-css/index.js");
 
@@ -25062,8 +25087,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var scrollbarWidth = false;
 
-function getScrollbarWidth() {
-    if (scrollbarWidth !== false) return scrollbarWidth;
+var MOBILE_SCROLLBAR_WIDTH = exports.MOBILE_SCROLLBAR_WIDTH = 12;
+
+var getScrollbarWidth = function getScrollbarWidth(forceMobile) {
+    if (scrollbarWidth !== false) return scrollbarWidth || (forceMobile ? MOBILE_SCROLLBAR_WIDTH : 0);
     /* istanbul ignore else */
     if (typeof document !== 'undefined') {
         var div = document.createElement('div');
@@ -25081,15 +25108,22 @@ function getScrollbarWidth() {
     } else {
         scrollbarWidth = 0;
     }
-    return scrollbarWidth || 0;
-}
+
+    return scrollbarWidth || (forceMobile ? MOBILE_SCROLLBAR_WIDTH : 0);
+};
+
+var isForcedMobile = exports.isForcedMobile = function isForcedMobile(forceMobile) {
+    return forceMobile && getScrollbarWidth();
+};
+
+exports["default"] = getScrollbarWidth;
 
 /***/ }),
 
-/***/ "./node_modules/react-custom-scrollbars/lib/utils/isString.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/react-custom-scrollbars/lib/utils/isString.js ***!
-  \********************************************************************/
+/***/ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/isString.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/react-custom-scrollbars-with-mobile/lib/utils/isString.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25106,10 +25140,10 @@ function isString(maybe) {
 
 /***/ }),
 
-/***/ "./node_modules/react-custom-scrollbars/lib/utils/returnFalse.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/react-custom-scrollbars/lib/utils/returnFalse.js ***!
-  \***********************************************************************/
+/***/ "./node_modules/react-custom-scrollbars-with-mobile/lib/utils/returnFalse.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/react-custom-scrollbars-with-mobile/lib/utils/returnFalse.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -65239,20 +65273,34 @@ var App = function App() {
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "promo-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_promo__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    ref: formEl
+    className: "promo-mobile-header"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "promo-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nhy-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_promo__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    toForm: toForm
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_form__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nhy-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_form__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    formEl: formEl
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "example-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nhy-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_example__WEBPACK_IMPORTED_MODULE_5__["default"], {
     toForm: toForm
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "gifts-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_gifts__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nhy-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_gifts__WEBPACK_IMPORTED_MODULE_6__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "faq-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_faq__WEBPACK_IMPORTED_MODULE_7__["default"], null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nhy-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_faq__WEBPACK_IMPORTED_MODULE_7__["default"], null))));
 };
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('appNhy'));
@@ -65276,9 +65324,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function Example(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "promo-hny"
+    className: "example-hny"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "h1"
+    className: "h1",
+    style: {
+      maxWidth: "110rem"
+    }
   }, "\u0422\u0430\u043A\u043E\u0435 \u0432\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u0443\u0447\u0438\u0442 \u0432\u0430\u0448 \u0440\u0435\u0431\u0451\u043D\u043E\u043A!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: {
       maxWidth: "700px"
@@ -65311,6 +65362,7 @@ function Example(props) {
     style: {
       display: "inline-block",
       padding: "11px 42px",
+      fontSize: "20px",
       textTransform: "uppercase"
     }
   }))));
@@ -65333,6 +65385,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/counter */ "./resources/js/utils/counter.js");
 /* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/icons */ "./resources/js/utils/icons.js");
+/* harmony import */ var react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-custom-scrollbars-with-mobile */ "./node_modules/react-custom-scrollbars-with-mobile/lib/index.js");
+/* harmony import */ var react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_3__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -65344,6 +65410,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -65387,6 +65454,67 @@ function Faq() {
       questions = _useState2[0],
       setQuestion = _useState2[1];
 
+  function renderView(_ref) {
+    var style = _ref.style,
+        props = _objectWithoutProperties(_ref, ["style"]);
+
+    var viewStyle = {
+      paddingRight: 26
+    };
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({
+      className: "box",
+      style: _objectSpread(_objectSpread({}, style), viewStyle)
+    }, props));
+  }
+
+  function renderThumbHorizontal(_ref2) {
+    var style = _ref2.style,
+        props = _objectWithoutProperties(_ref2, ["style"]);
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+  }
+
+  function renderTrackHorizontal(_ref3) {
+    var style = _ref3.style,
+        props = _objectWithoutProperties(_ref3, ["style"]);
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+  }
+
+  function renderTrackVertical(_ref4) {
+    var style = _ref4.style,
+        props = _objectWithoutProperties(_ref4, ["style"]);
+
+    var trackStyle = {
+      width: "16px",
+      padding: "4px",
+      borderRadius: "8px",
+      backgroundColor: "#E54C2E",
+      position: "absolute",
+      right: 0,
+      bottom: 0,
+      top: 0
+    };
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({
+      style: _objectSpread(_objectSpread({}, style), trackStyle)
+    }, props));
+  }
+
+  function renderThumbVertical(_ref5) {
+    var style = _ref5.style,
+        props = _objectWithoutProperties(_ref5, ["style"]);
+
+    var thumbStyle = {
+      width: "8px",
+      height: "102px",
+      borderRadius: "4px",
+      backgroundColor: "#ffffff"
+    };
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({
+      style: _objectSpread(_objectSpread({}, style), thumbStyle)
+    }, props));
+  }
+
   var openQuestion = function openQuestion(index) {
     setQuestion(function (prevState) {
       var newQ = [];
@@ -65404,8 +65532,22 @@ function Faq() {
     className: "faq-hny"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h1"
-  }, "\u0421\u041F\u0420\u041E\u0421\u0418\u0422\u0415 \u0414\u0415\u0414\u0410 \u041C\u041E\u0420\u041E\u0417\u0410"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u041E\u0442\u0432\u0435\u0442\u044B \u043D\u0430 \u0441\u0430\u043C\u044B\u0435 \u0447\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B \u2013 \u0437\u0434\u0435\u0441\u044C. \u0415\u0441\u043B\u0438 \u0432\u044B \u043D\u0435 \u043D\u0430\u0448\u043B\u0438 \u043E\u0442\u0432\u0435\u0442\u0430 \u043D\u0430 \u0441\u0432\u043E\u0439 \u0432\u043E\u043F\u0440\u043E\u0441,\u043D\u0430\u043F\u0438\u0448\u0438\u0442\u0435 \u043D\u0430\u043C: kinder@newyear.com."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "\u041E\u0441\u0442\u0430\u043B\u0438\u0441\u044C \u0432\u043E\u043F\u0440\u043E\u0441\u044B?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u0435 \u0414\u0435\u0434\u0430 \u041C\u043E\u0440\u043E\u0437\u0430"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0435\u0441\u043B\u0438 \u0432\u044B \u043D\u0435 \u043D\u0430\u0448\u043B\u0438 \u043E\u0442\u0432\u0435\u0442\u0430 \u043D\u0430 \u0441\u0432\u043E\u0439 \u0432\u043E\u043F\u0440\u043E\u0441, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u043D\u0430\u043F\u0438\u0448\u0438\u0442\u0435 \u043D\u0430 kinder@newyear.com."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "faq"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_3__["Scrollbars"], {
+    style: {
+      height: 600
+    },
+    renderView: renderView,
+    renderThumbHorizontal: renderThumbHorizontal,
+    renderThumbVertical: renderThumbVertical,
+    renderTrackHorizontal: renderTrackHorizontal,
+    renderTrackVertical: renderTrackVertical,
+    mobile: true
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      paddingRight: "10px"
+    }
   }, questions.map(function (item, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: index,
@@ -65428,7 +65570,7 @@ function Faq() {
         maxHeight: item.isOpen ? "100%" : "0"
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, item.answer)));
-  })));
+  })))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Faq);
@@ -65538,6 +65680,9 @@ var customModalStyles = {
     fontSize: "28px",
     textAlign: "center",
     color: "#ffffff"
+  },
+  overlay: {
+    zIndex: 100
   }
 };
 
@@ -65570,7 +65715,9 @@ function Form(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-hny"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    ref: props.formEl
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h1"
   }, "\u0417\u0410\u041F\u041E\u041B\u041D\u0418\u0422\u0415 \u0417\u0410\u042F\u0412\u041A\u0423"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0420\u0430\u0441\u0441\u043A\u0430\u0436\u0438\u0442\u0435 \u043E \u0433\u043B\u0430\u0432\u043D\u044B\u0445 \u0434\u043E\u0441\u0442\u0438\u0436\u0435\u043D\u0438\u044F\u0445 \u0440\u0435\u0431\u0451\u043D\u043A\u0430 \u0432 \u044D\u0442\u043E\u043C \u0433\u043E\u0434\u0443, \u0435\u0433\u043E \u0445\u043E\u0431\u0431\u0438 \u0438 \u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u043E\u0434\u0430\u0440\u043E\u043A, \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u043F\u043E\u0434\u0430\u0440\u0438\u0442 \u0414\u0435\u0434 \u041C\u043E\u0440\u043E\u0437"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex"
@@ -65726,8 +65873,8 @@ function Form(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_custom_scrollbars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-custom-scrollbars */ "./node_modules/react-custom-scrollbars/lib/index.js");
-/* harmony import */ var react_custom_scrollbars__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_custom_scrollbars__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-custom-scrollbars-with-mobile */ "./node_modules/react-custom-scrollbars-with-mobile/lib/index.js");
+/* harmony import */ var react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_checkbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/checkbox */ "./resources/js/utils/checkbox.js");
@@ -66010,14 +66157,20 @@ function Gifts(props) {
       fontSize: "28px",
       textAlign: "center",
       color: "#ffffff"
+    },
+    overlay: {
+      zIndex: 100
     }
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "gifts-hny"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "h1"
+    className: "h1",
+    style: {
+      maxWidth: "90rem"
+    }
   }, "\u041D\u041E\u0412\u041E\u0413\u041E\u0414\u041D\u042F\u042F \u041A\u041E\u041B\u041B\u0415\u041A\u0426\u0418\u042F \u041F\u041E\u0414\u0410\u0420\u041A\u041E\u0412 \u041E\u0422 KINDER"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "flex flex-end"
+    className: "flex " + (window.innerWidth >= 1024 && "flex-end")
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "toys-watch"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -66035,20 +66188,24 @@ function Gifts(props) {
     className: "gift-select scroll-bar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "h3 text-center mb-1"
-  }, "\u0414\u0420\u0423\u0413\u0418\u0415 \u041F\u0420\u041E\u0414\u0423\u041A\u0422\u042B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_custom_scrollbars__WEBPACK_IMPORTED_MODULE_0__["Scrollbars"], {
-    style: {
+  }, "\u0414\u0420\u0423\u0413\u0418\u0415 \u041F\u0420\u041E\u0414\u0423\u041A\u0422\u042B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_0__["Scrollbars"], {
+    style: window.innerWidth < 1024 ? {
+      height: 324
+    } : {
       height: 404
     },
     renderView: renderView,
     renderThumbHorizontal: renderThumbHorizontal,
     renderThumbVertical: renderThumbVertical,
     renderTrackHorizontal: renderTrackHorizontal,
-    renderTrackVertical: renderTrackVertical
+    renderTrackVertical: renderTrackVertical,
+    mobile: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "flex space-between flex-wrap",
     style: {
-      marginTop: "-10px"
+      paddingRight: "10px"
     }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "flex space-between flex-wrap"
   }, gifts.map(function (item, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "gift",
@@ -66058,29 +66215,29 @@ function Gifts(props) {
         backgroundImage: "url(" + item.img + ")"
       }
     }));
-  }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "shops"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "h2"
   }, "\u041A\u0443\u043F\u0438\u0442\u044C:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "flex space-between"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
-    href: "#",
+    href: "https://www.utkonos.ru/search/kinder/cat/52?&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020",
     style: {
       backgroundImage: "url(/img/shops/utkonos.png)"
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
-    href: "#",
+    href: "https://pokupki.market.yandex.ru/search?cvredirect=2&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020&text=%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D1%80&glfilter=7893318%3A10715858",
     style: {
-      backgroundImage: "url(/img/shops/beru.png)"
+      backgroundImage: "url(/img/shops/yandex.png)"
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
-    href: "#",
+    href: "https://www.ozon.ru/brand/kinder-138860371/?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020",
     style: {
       backgroundImage: "url(/img/shops/ozon.png)"
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
-    href: "#",
+    href: "https://www.vprok.ru/catalog/1450/shokolad-batonchiki/brend/kinder?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020",
     style: {
       backgroundImage: "url(/img/shops/cross.png)"
     }
@@ -66122,10 +66279,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/counter */ "./resources/js/utils/counter.js");
+/* harmony import */ var _utils_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/button */ "./resources/js/utils/button.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
-function Promo() {
+
+
+function Promo(props) {
+  var toForm = props.toForm;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "promo-hny"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66137,7 +66300,10 @@ function Promo() {
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h1 h1-plus"
-  }, "\u0414\u0435\u0434\u043E\u043C \u041C\u043E\u0440\u043E\u0437\u043E\u043C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u0435 \u0441\u0432\u043E\u0435\u043C\u0443 \u0440\u0435\u0431\u0451\u043D\u043A\u0443 \u0432\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u0432\u0438\u0434\u0435\u043E\u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0441 \u0414\u0435\u0434\u043E\u043C \u041C\u043E\u0440\u043E\u0437\u043E\u043C!"));
+  }, "\u0414\u0435\u0434\u043E\u043C \u041C\u043E\u0440\u043E\u0437\u043E\u043C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u0435 \u0440\u0435\u0431\u0451\u043D\u043A\u0443 \u0432\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u0432\u0438\u0434\u0435\u043E\u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0441\xA0\u0414\u0435\u0434\u0443\u0448\u043A\u043E\u0439 \u041C\u043E\u0440\u043E\u0437\u043E\u043C!!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    text: "\u041F\u041E\u0414\u0410\u0420\u0418\u0422\u042C \u041F\u0420\u0418\u041A\u041B\u042E\u0427\u0415\u041D\u0418\u0415",
+    onClick: toForm
+  }));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Promo);
@@ -66168,26 +66334,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function Button(props) {
   var style = props.style;
 
-  var styles = _objectSpread({
-    borderRadius: "100px",
-    borderWidth: "3px",
-    backgroundColor: "#f3410e",
-    cursor: 'pointer',
-    boxShadow: null,
-    lineHeight: "32px",
-    padding: "11px 22px",
-    borderColor: "#ffffff",
-    borderStyle: "solid",
-    color: "#ffffff",
-    fontSize: "18px",
-    textAlign: "center",
-    '&:hover': {
-      borderColor: "#dedede"
-    }
-  }, style);
+  var styles = _objectSpread({}, style);
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({}, props, {
-    style: styles
+    style: styles,
+    className: 'nhy-btn'
   }), props.text);
 }
 
@@ -66656,7 +66807,7 @@ __webpack_require__.r(__webpack_exports__);
 function scrollToElement(ref) {
   var elem = ref.current;
   if (!elem) return false;
-  var toY = (elem.getBoundingClientRect().top + document.scrollingElement.scrollTop) * 1 - 68,
+  var toY = (elem.getBoundingClientRect().top + document.scrollingElement.scrollTop) * 1 - 40,
       fromY = document.scrollingElement.scrollTop * 1,
       scrollY = fromY * 1,
       oldTimestamp = null;
@@ -66937,9 +67088,9 @@ function Previews(props) {
   }), {
     style: dropZoneStyles
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", getInputProps()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    style: {
+    style: window.innerWidth >= 1024 ? {
       whiteSpace: "nowrap"
-    }
+    } : {}
   }, "\u0417\u0410\u0413\u0420\u0423\u0417\u0418\u0422\u042C \u0424\u041E\u0422\u041E \u0420\u0415\u0411\u0415\u041D\u041A\u0410")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     style: thumbsContainer
   }, thumbs));

@@ -1,4 +1,4 @@
-import { Scrollbars } from 'react-custom-scrollbars';
+import { Scrollbars } from 'react-custom-scrollbars-with-mobile';
 import React, { useState } from "react";
 import Checkbox from '../utils/checkbox'
 import Carousel from '../utils/carousel'
@@ -11,8 +11,8 @@ Modal.setAppElement('#appNhy')
 const gifts = [
     {
         img: '/img/gifts/1.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }, 
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }, 
+            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' },
+            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' },
             { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
         ]
     },
@@ -203,14 +203,17 @@ function Gifts(props) {
             fontSize: "28px",
             textAlign: "center",
             color: "#ffffff"
+        },
+        overlay: {
+            zIndex: 100
         }
     };
 
 
     return (
         <div className="gifts-hny">
-            <div className="h1">НОВОГОДНЯЯ КОЛЛЕКЦИЯ ПОДАРКОВ ОТ KINDER</div>
-            <div className="flex flex-end">
+            <div className="h1" style={{ maxWidth: "90rem" }}>НОВОГОДНЯЯ КОЛЛЕКЦИЯ ПОДАРКОВ ОТ KINDER</div>
+            <div className={`flex ` + (window.innerWidth >= 1024 && `flex-end`)}>
                 <div className="toys-watch">
                     <div className="h3">Посмотрите игрушки внутри</div>
                     <div className="img-big">
@@ -224,19 +227,22 @@ function Gifts(props) {
                 </div>
                 <div className="gift-select scroll-bar">
                     <div className="h3 text-center mb-1">ДРУГИЕ ПРОДУКТЫ</div>
-                    <Scrollbars style={{ height: 404 }}
+                    <Scrollbars style={window.innerWidth < 1024 ? { height: 324 } : { height: 404 }}
                         renderView={renderView}
                         renderThumbHorizontal={renderThumbHorizontal}
                         renderThumbVertical={renderThumbVertical}
                         renderTrackHorizontal={renderTrackHorizontal}
                         renderTrackVertical={renderTrackVertical}
+                        mobile={true}
                     >
-                        <div className="flex space-between flex-wrap" style={{ marginTop: "-10px" }}>
-                            {gifts.map((item, index) => (
-                                <div className={`gift`} key={index}>
-                                    <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
-                                </div>
-                            ))}
+                        <div style={{ paddingRight: "10px" }}>
+                            <div className="flex space-between flex-wrap">
+                                {gifts.map((item, index) => (
+                                    <div className={`gift`} key={index}>
+                                        <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </Scrollbars>
                 </div>
@@ -244,10 +250,10 @@ function Gifts(props) {
             <div className={`shops`}>
                 <div className="h2">Купить:</div>
                 <div className={`flex space-between`}>
-                    <a href="#" style={{backgroundImage: "url(/img/shops/utkonos.png)"}}></a>
-                    <a href="#" style={{backgroundImage: "url(/img/shops/beru.png)"}}></a>
-                    <a href="#" style={{backgroundImage: "url(/img/shops/ozon.png)"}}></a>
-                    <a href="#" style={{backgroundImage: "url(/img/shops/cross.png)"}}></a>
+                    <a href="https://www.utkonos.ru/search/kinder/cat/52?&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" style={{ backgroundImage: "url(/img/shops/utkonos.png)" }}></a>
+                    <a href="https://pokupki.market.yandex.ru/search?cvredirect=2&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020&text=%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D1%80&glfilter=7893318%3A10715858" style={{ backgroundImage: "url(/img/shops/yandex.png)" }}></a>
+                    <a href="https://www.ozon.ru/brand/kinder-138860371/?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" style={{ backgroundImage: "url(/img/shops/ozon.png)" }}></a>
+                    <a href="https://www.vprok.ru/catalog/1450/shokolad-batonchiki/brend/kinder?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" style={{ backgroundImage: "url(/img/shops/cross.png)" }}></a>
                 </div>
             </div>
             <Modal
@@ -258,7 +264,7 @@ function Gifts(props) {
             >
 
                 <div onClick={closeModal} style={{ cursor: "pointer" }}><Close style={{ height: "52px", position: "absolute", right: "16px", top: "16px" }} /></div>
-                <Carousel items={state.items}/>
+                <Carousel items={state.items} />
             </Modal>
         </div>
     );

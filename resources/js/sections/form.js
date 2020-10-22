@@ -46,6 +46,9 @@ const customModalStyles = {
         fontSize: "28px",
         textAlign: "center",
         color: "#ffffff"
+    },
+    overlay: {
+        zIndex: 100
     }
 };
 
@@ -74,6 +77,7 @@ function Form(props) {
 
     return (
         <div className="form-hny">
+            <a ref={props.formEl}></a>
             <div className="h1">ЗАПОЛНИТЕ ЗАЯВКУ</div>
             <p>Расскажите о главных достижениях ребёнка в этом году, его хобби и выберите подарок, который подарит Дед Мороз</p>
             <div className="flex">
@@ -120,7 +124,7 @@ function Form(props) {
                 </div>
                 <div className="gift-select pt-5">
                     <div className="h3 text-center mb-1">ВЫБЕРИТЕ ПОДАРОК</div>
-                    <div className="flex space-between flex-wrap" style={{marginTop:"-10px"}}>
+                    <div className="flex space-between flex-wrap" style={{ marginTop: "-10px" }}>
                         {gifts.map((item, index) => (
                             <div className={`gift` + (index ? `` : ` active`)} key={index}>
                                 <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>

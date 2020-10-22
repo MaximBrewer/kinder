@@ -4,8 +4,7 @@ export default function scrollToElement(ref) {
     let toY =
         (elem.getBoundingClientRect().top +
             document.scrollingElement.scrollTop) *
-        1 -
-        68,
+        1 - 40,
         fromY = document.scrollingElement.scrollTop * 1,
         scrollY = fromY * 1,
         oldTimestamp = null;

@@ -85,7 +85,7 @@ function Previews(props) {
         <div className="dz-wrapper">
             <div {...getRootProps({ className: 'dropzone' })} style={dropZoneStyles}>
                 <input {...getInputProps()} />
-                <span style={{whiteSpace: "nowrap"}}>ЗАГРУЗИТЬ ФОТО РЕБЕНКА</span>
+                <span style={window.innerWidth >= 1024 ? { whiteSpace: "nowrap" } : {}}>ЗАГРУЗИТЬ ФОТО РЕБЕНКА</span>
             </div>
             <aside style={thumbsContainer}>
                 {thumbs}

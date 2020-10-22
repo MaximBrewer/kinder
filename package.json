@@ -23,6 +23,7 @@
         "react": "^16.13.1",
         "react-custom-scroll": "^4.2.1",
         "react-custom-scrollbars": "^4.2.1",
+        "react-custom-scrollbars-with-mobile": "^4.2.2",
         "react-dom": "^16.13.1",
         "react-dropdown-select": "^4.5.2",
         "react-dropzone": "^11.2.0",

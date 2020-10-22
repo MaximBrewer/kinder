@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Counter from '../utils/counter';
 import { ArrowDown } from "../utils/icons"
+import { Scrollbars } from 'react-custom-scrollbars-with-mobile';
 
 function Faq() {
+
+
     const [questions, setQuestion] = useState([
         {
             question: "Что это за проект?",
@@ -46,6 +49,62 @@ function Faq() {
         },
     ]);
 
+    function renderView({ style, ...props }) {
+        const viewStyle = {
+            paddingRight: 26
+        };
+        return (
+            <div
+                className="box"
+                style={{ ...style, ...viewStyle }}
+                {...props} />
+        );
+    }
+
+    function renderThumbHorizontal({ style, ...props }) {
+        return (
+            <div />
+        );
+    }
+
+    function renderTrackHorizontal({ style, ...props }) {
+        return (
+            <div />
+        );
+    }
+
+    function renderTrackVertical({ style, ...props }) {
+        const trackStyle = {
+            width: "16px",
+            padding: "4px",
+            borderRadius: "8px",
+            backgroundColor: "#E54C2E",
+            position: "absolute",
+            right: 0,
+            bottom: 0,
+            top: 0
+        };
+        return (
+            <div
+                style={{ ...style, ...trackStyle }}
+                {...props} />
+        );
+    }
+
+    function renderThumbVertical({ style, ...props }) {
+        const thumbStyle = {
+            width: "8px",
+            height: "102px",
+            borderRadius: "4px",
+            backgroundColor: "#ffffff",
+        };
+        return (
+            <div
+                style={{ ...style, ...thumbStyle }}
+                {...props} />
+        );
+    }
+
     const openQuestion = (index) => {
         setQuestion(prevState => {
             let newQ = [];
@@ -59,15 +118,26 @@ function Faq() {
 
     return (
         <div className="faq-hny">
-            <div className="h1">СПРОСИТЕ ДЕДА МОРОЗА</div>
-            <p>Ответы на самые часто задаваемые вопросы – здесь. Если вы не нашли ответа на свой вопрос,напишите нам: kinder@newyear.com.</p>
+            <div className="h1">Остались вопросы?<br />Спросите Деда Мороза</div>
+            <p>если вы не нашли ответа на свой вопрос, <br />напишите на kinder@newyear.com.</p>
             <div className="faq">
-                {questions.map((item, index) => (
-                    <div key={index} className="faq-item">
-                        <div onClick={(e) => openQuestion(index)} className="question">{item.question} <ArrowDown style={{ fill: "#ffffff", stroke: "#ffffff", width: "17px", height: "11px" }} /></div>
-                        <div className="answer" style={{ maxHeight: item.isOpen ? "100%" : "0" }}><div>{item.answer}</div></div>
+                <Scrollbars style={{ height: 600 }}
+                    renderView={renderView}
+                    renderThumbHorizontal={renderThumbHorizontal}
+                    renderThumbVertical={renderThumbVertical}
+                    renderTrackHorizontal={renderTrackHorizontal}
+                    renderTrackVertical={renderTrackVertical}
+                    mobile={true}
+                >
+                    <div style={{ paddingRight: "10px" }}>
+                        {questions.map((item, index) => (
+                            <div key={index} className="faq-item">
+                                <div onClick={(e) => openQuestion(index)} className="question">{item.question} <ArrowDown style={{ fill: "#ffffff", stroke: "#ffffff", width: "17px", height: "11px" }} /></div>
+                                <div className="answer" style={{ maxHeight: item.isOpen ? "100%" : "0" }}><div>{item.answer}</div></div>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </Scrollbars>
             </div>
         </div>
     );
