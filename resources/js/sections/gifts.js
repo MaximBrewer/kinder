@@ -1,7 +1,9 @@
 import { Scrollbars } from 'react-custom-scrollbars-with-mobile';
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Checkbox from '../utils/checkbox'
 import Carousel from '../utils/carousel'
+import Slider from "react-slick";
+import { ArrowPrew, ArrowNext } from "../utils/icons";
 import Modal from 'react-modal';
 import { Close, Ok, Vk, Instagram, Lens } from "../utils/icons"
 import { gifts } from "../data/gifts";
@@ -34,53 +36,103 @@ function Gifts(props) {
             isOpen: true
         }));
     }
+    const setting = {
+        arrows: false,
+        infinite: true,
+        dots: false,
+        speed: 300,
+        auto: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
+
+    const sliderEl = useRef();
 
     return (
         <div className="gifts-hny">
             <div className="h1" style={{ maxWidth: "90rem" }}>НОВОГОДНЯЯ КОЛЛЕКЦИЯ ПОДАРКОВ ОТ KINDER</div>
-            <div className={`flex ` + (window.innerWidth >= 1024 && `flex-end`)}>
-                <div className="toys-watch">
-                    <div className="h3">Посмотрите игрушки внутри</div>
-                    <div className="img-big">
-                        <div style={{ backgroundImage: `url(` + gifts[0].img + `)` }}></div>
-                    </div>
-                    <div className={`lens-wrapper`} onClick={openModal}>
-                        <div>Нажмите на лупу, чтобы посмотреть игрушки внутри</div>
-                        <Lens />
-                    </div>
-                    <p>{gifts[0].toys[0].title}</p>
-                </div>
-                <div className="gift-select scroll-bar">
-                    <div className="h3 text-center mb-1">ДРУГИЕ ПРОДУКТЫ</div>
-                    <Scrollbars style={window.innerWidth < 1024 ? { height: 324 } : { height: 404 }}
-                        renderView={renderView}
-                        renderThumbHorizontal={renderThumbHorizontal}
-                        renderThumbVertical={renderThumbVertical}
-                        renderTrackHorizontal={renderTrackHorizontal}
-                        renderTrackVertical={renderTrackVertical}
-                        mobile={true}
+            {window.innerWidth < 768 ?
+                <div className="hny-carousel-form">
+                    <a
+                        className="btn-control"
+                        onClick={() => {
+                            sliderEl.current.slickPrev();
+                        }}
                     >
-                        <div style={{ paddingRight: "10px" }}>
-                            <div className="flex space-between flex-wrap">
-                                {gifts.map((item, index) => (
-                                    <div className={`gift`} key={index}>
+                        <ArrowPrew />
+                    </a>
+                    <div style={{ height: "90%", width: "90%", marginLeft: "5px", marginRight: "5px", borderRadius: "10px", backgroundColor: "#ffffff",}}>
+                        <Slider {...setting} ref={sliderEl}>
+                            {gifts.map((item, index) => (
+                                <div className="toys-watch">
+                                    <div className="h3">Посмотрите игрушки внутри</div>
+                                    <div className="img-big">
                                         <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
                                     </div>
-                                ))}
-                            </div>
-                        </div>
-                    </Scrollbars>
+                                    <div className={`lens-wrapper`} onClick={openModal}>
+                                        <div>Нажмите на лупу, чтобы посмотреть игрушки внутри</div>
+                                        <Lens />
+                                    </div>
+                                    <p>{item.toys[0].title}</p>
+                                </div>
+                            ))}
+                        </Slider>
+                    </div>
+                    <a
+                        className="btn-control"
+                        onClick={() => {
+                            sliderEl.current.slickNext();
+                        }}
+                    >
+                        <ArrowNext />
+                    </a>
                 </div>
-            </div>
+                :
+                <div className={`flex ` + (window.innerWidth >= 1024 && `flex-end`)}>
+                    <div className="toys-watch">
+                        <div className="h3">Посмотрите игрушки внутри</div>
+                        <div className="img-big">
+                            <div style={{ backgroundImage: `url(` + gifts[0].img + `)` }}></div>
+                        </div>
+                        <div className={`lens-wrapper`} onClick={openModal}>
+                            <div>Нажмите на лупу, чтобы посмотреть игрушки внутри</div>
+                            <Lens />
+                        </div>
+                        <p>{gifts[0].toys[0].title}</p>
+                    </div>
+                    <div className="gift-select scroll-bar">
+                        <div className="h3 text-center mb-1">ДРУГИЕ ПРОДУКТЫ</div>
+                        <Scrollbars style={window.innerWidth < 1024 ? { height: 324 } : { height: 404 }}
+                            renderView={renderView}
+                            renderThumbHorizontal={renderThumbHorizontal}
+                            renderThumbVertical={renderThumbVertical}
+                            renderTrackHorizontal={renderTrackHorizontal}
+                            renderTrackVertical={renderTrackVertical}
+                            mobile={true}
+                        >
+                            <div style={{ paddingRight: "10px" }}>
+                                <div className="flex space-between flex-wrap">
+                                    {gifts.map((item, index) => (
+                                        <div className={`gift`} key={index}>
+                                            <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </Scrollbars>
+                    </div>
+                </div>
+
+            }
             <div className={`shops`}>
                 <div className="h2">Купить:</div>
-                <div className={`flex space-between`}>
-                    <a href="https://www.utkonos.ru/search/kinder/cat/52?&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" style={{ backgroundImage: "url(/img/shops/utkonos.png)" }}></a>
-                    <a href="https://pokupki.market.yandex.ru/search?cvredirect=2&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020&text=%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D1%80&glfilter=7893318%3A10715858" style={{ backgroundImage: "url(/img/shops/yandex.png)" }}></a>
-                    <a href="https://www.ozon.ru/brand/kinder-138860371/?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" style={{ backgroundImage: "url(/img/shops/ozon.png)" }}></a>
-                    <a href="https://www.vprok.ru/catalog/1450/shokolad-batonchiki/brend/kinder?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" style={{ backgroundImage: "url(/img/shops/cross.png)" }}></a>
+                <div className={`logos`}>
+                    <div><a href="https://www.utkonos.ru/search/kinder/cat/52?&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" style={{ backgroundImage: "url(/img/shops/utkonos.png)" }}></a></div>
+                    <div><a href="https://pokupki.market.yandex.ru/search?cvredirect=2&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020&text=%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D1%80&glfilter=7893318%3A10715858" style={{ backgroundImage: "url(/img/shops/yandex.png)" }}></a></div>
+                    <div><a href="https://www.ozon.ru/brand/kinder-138860371/?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" style={{ backgroundImage: "url(/img/shops/ozon.png)" }}></a></div>
+                    <div><a href="https://www.vprok.ru/catalog/1450/shokolad-batonchiki/brend/kinder?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" style={{ backgroundImage: "url(/img/shops/cross.png)" }}></a></div>
                 </div>
-            </div>
+            </div >
             <Modal
                 isOpen={state.isOpen}
                 // onAfterOpen={afterOpenModal}
@@ -91,7 +143,7 @@ function Gifts(props) {
                 <div onClick={closeModal} style={{ cursor: "pointer" }}><Close style={{ height: "52px", position: "absolute", right: "16px", top: "16px" }} /></div>
                 <Carousel items={state.items} />
             </Modal>
-        </div>
+        </div >
     );
 }
 

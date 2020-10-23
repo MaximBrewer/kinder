@@ -6,6 +6,7 @@ import Checkbox from '../utils/checkbox'
 import Button from '../utils/button'
 import Upload from '../utils/upload'
 import Modal from 'react-modal';
+import { ArrowPrewMobile, ArrowNextMobile } from "../utils/icons";
 import { Close, Ok, Vk, Instagram } from "../utils/icons"
 import { gifts } from "../data/gifts";
 import { hobby as hobbyOptions } from "../data/hobby";
@@ -17,6 +18,7 @@ import { styles as customModalStyles } from "../styles/modal";
 import { Scrollbars } from 'react-custom-scrollbars-with-mobile';
 import { renderView, renderThumbHorizontal, renderTrackHorizontal, renderTrackVertical, renderThumbVertical } from '../utils/scrollbars'
 import axios from "axios";
+import Slider from "react-slick";
 
 Modal.setAppElement('#appNhy')
 
@@ -92,6 +94,18 @@ function Form(props) {
     });
 
 
+    const setting = {
+        arrows: false,
+        infinite: true,
+        dots: false,
+        speed: 300,
+        auto: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
+
+    const sliderEl = useRef();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let formData = new FormData();
@@ -108,7 +122,7 @@ function Form(props) {
                 "Content-Type": "multipart/form-data",
             }
         }).then(() => openModal()).catch(() => null);
-        
+
     }
 
     return (
@@ -146,38 +160,69 @@ function Form(props) {
                             <Upload setFiles={setFiles} />
                         </div>
                         <div>
-                            <Button text={`ОТПРАВИТЬ ЗАЯВКУ`} style={{ display: "block", width: "100%" }} type="submit" />
+                            <button style={{ width: "100%" }} className={'visible-sm nhy-btn'} type="submit">{`ОТПРАВИТЬ ЗАЯВКУ`}</button>
                         </div>
                     </div>
                 </div>
-                <div className="gift-select pt-5 visible-sm">
+                <div className="gift-select">
                     <div className="h3 text-center mb-1">ВЫБЕРИТЕ ПОДАРОК</div>
-
-                    <Scrollbars style={window.innerWidth < 1024 ? { height: 324 } : { height: 404 }}
-                        renderView={renderView}
-                        renderThumbHorizontal={renderThumbHorizontal}
-                        renderThumbVertical={renderThumbVertical}
-                        renderTrackHorizontal={renderTrackHorizontal}
-                        renderTrackVertical={renderTrackVertical}
-                        mobile={true}
-                    >
-                        <div style={{ paddingRight: "10px" }}>
-                            <div className="flex space-between flex-wrap">
-                                {gifts.map((item, index) => (
-                                    <div className={`gift` + (state.giftValue && state.giftValue.id == item.id ? ` active` : ``)} key={index} onClick={(e) => chooseGift(item)}>
-                                        <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
-                                    </div>
-                                ))}
+                    {window.innerWidth < 768 ?
+                        <div className="hny-carousel-form">
+                            <a
+                                className="btn-control"
+                                onClick={() => {
+                                    sliderEl.current.slickPrev();
+                                }}
+                            >
+                                <ArrowPrewMobile />
+                            </a>
+                            <div style={{ height: "80%", width: "80%", marginLeft: "20px", marginRight: "20px", borderRadius: "10px", backgroundColor: "#ffffff", padding: "10px" }}>
+                                <Slider {...setting} ref={sliderEl}>
+                                    {gifts.map((item, index) => (
+                                        <div key={index}>
+                                            <div className={`img-wrapper`}>
+                                                <div className={`img`} style={{ backgroundImage: 'url(' + item.img + ')' }} />
+                                            </div>
+                                        </div>
+                                    ))}
+                                </Slider>
                             </div>
+                            <a
+                                className="btn-control"
+                                onClick={() => {
+                                    sliderEl.current.slickNext();
+                                }}
+                            >
+                                <ArrowNextMobile />
+                            </a>
                         </div>
-                    </Scrollbars>
+                        :
+                        <Scrollbars style={window.innerWidth < 1024 ? { height: 324 } : { height: 404 }}
+                            renderView={renderView}
+                            renderThumbHorizontal={renderThumbHorizontal}
+                            renderThumbVertical={renderThumbVertical}
+                            renderTrackHorizontal={renderTrackHorizontal}
+                            renderTrackVertical={renderTrackVertical}
+                            mobile={true}
+                        >
+                            <div style={{ paddingRight: "10px" }}>
+                                <div className="flex space-between flex-wrap">
+                                    {gifts.map((item, index) => (
+                                        <div className={`gift` + (state.giftValue && state.giftValue.id == item.id ? ` active` : ``)} key={index} onClick={(e) => chooseGift(item)}>
+                                            <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </Scrollbars>}
                 </div>
+                <div className="checkbox-wrapper">
+                    <Checkbox>
+                        Cогласен(-на) с правилами {state.checked}
+                    </Checkbox>
+                </div>
+                <div className={'hidden-sm'}><button style={{ width: "100%" }} className={'nhy-btn'} type="submit">{`ОТПРАВИТЬ ЗАЯВКУ`}</button><br /><br /><br /></div>
             </form>
-            <div className="checkbox-wrapper">
-                <Checkbox>
-                    Cогласен(-на) с правилами {state.checked}
-                </Checkbox>
-            </div>
             <Modal
                 isOpen={state.isOpen}
                 // onAfterOpen={afterOpenModal}

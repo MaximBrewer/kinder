@@ -21,9 +21,15 @@
     width: 100%;
     > p {
         max-width: 813px;
-        font-size: 28px;
+        text-transform: uppercase;
+        font-size: 15px;
+        text-align: center;
         color: #ffffff;
         text-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
+        @media (min-width: 768px) {
+            text-transform: none;
+            font-size: 28px;
+        }
     }
     .faq {
         overflow: hidden;
@@ -45,21 +51,32 @@
                 background-color: #f3410e;
                 cursor: pointer;
                 box-shadow: none;
-                line-height: 32px;
                 border-style: solid;
                 padding: 11px 22px;
                 border-color: #ffffff;
                 color: #ffffff;
+                font-size: 15px;
+                @media (min-width: 768px) {
+                    line-height: 32px;
+                    font-size: 20px;
+                }
             }
             .answer {
                 overflow: hidden;
                 max-height: 0;
+                font-size: 13px;
+                @media (min-width: 768px) {
+                    font-size: 20px;
+                }
                 & > div {
                     cursor: pointer;
                     box-shadow: none;
-                    line-height: 32px;
-                    padding: 5px 22px;
+                    padding: 15px 22px;
                     color: #ffffff;
+                    @media (min-width: 768px) {
+                        padding: 5px 22px;
+                        line-height: 32px;
+                    }
                 }
             }
         }

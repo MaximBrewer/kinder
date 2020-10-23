@@ -1,6 +1,26 @@
 import React from 'react'
 import { Checked, Unchecked } from '../utils/icons'
 
+
+const Styles = {
+    button: {
+        background: 'transparent',
+        border: '0',
+        display: 'flex',
+        outline: '0',
+        cursor: 'pointer',
+        textAlign: 'left'
+    },
+
+    check: {
+        marginRight: '1rem'
+    },
+
+    content: {
+        padding: ".8rem 0"
+    }
+}
+
 export default class Button extends React.Component {
     constructor(props) {
         super(props)
@@ -39,26 +59,5 @@ export default class Button extends React.Component {
                 </div>
             </button>
         )
-    }
-}
-
-const Styles = {
-    button: {
-        background: 'transparent',
-        border: '0',
-        marginBottom: '0.5rem',
-        display: 'flex',
-        outline: '0',
-        marginRight: '0.5rem',
-        cursor: 'pointer',
-        textAlign: 'left'
-    },
-
-    check: {
-        marginRight: '1rem'
-    },
-
-    content: {
-        lineHeight: "40px"
     }
 }

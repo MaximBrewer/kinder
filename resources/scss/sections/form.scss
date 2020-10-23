@@ -1,4 +1,12 @@
 .form-hny {
+    .checkbox-wrapper {
+        button {
+            margin: 2rem auto;
+            @media (min-width: 768px) {
+                margin: 0 0.5rem 0.5rem 0;
+            }
+        }
+    }
     position: relative;
     top: -12vw;
     > p {
@@ -82,5 +90,29 @@
     @media (min-width: 768px) {
         top: -4vw;
         max-width: 960px;
+    }
+}
+
+.hny-carousel-form {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    .btn-control {
+        cursor: pointer;
+    }
+    .img-wrapper {
+        padding-top: 100%;
+        position: relative;
+        .img {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            height: 80%;
+            width: 80%;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
     }
 }

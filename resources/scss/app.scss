@@ -135,13 +135,19 @@
         font-family: "bubbleboddy_neue", sans-serif;
     }
     .h1 {
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 24px;
+        line-height: 29px;
+        text-align: center;
         margin-bottom: 16px;
         text-transform: uppercase;
         text-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
         font-weight: bold;
         color: $white;
+        @media (min-width: 768px) {
+            text-align: left;
+            font-size: 30px;
+            line-height: 36px;
+        }
         @media (min-width: 1024px) {
             font-size: 56px;
             line-height: 64px;
@@ -170,7 +176,17 @@
     }
 
     .gift-select {
-        width: 324px;
+        width: 200px;
+        margin: 0 auto;
+        @media (min-width: 375px) {
+            width: 260px;
+        }
+        @media (min-width: 414px) {
+            width: 304px;
+        }
+        @media (min-width: 768px) {
+            width: 324px;
+        }
         &.scroll-bar {
             width: 388px;
             @media (min-width: 1024px) {
@@ -199,7 +215,7 @@
             }
         }
         @media (min-width: 1024px) {
-            width: 424px;
+            width: 448px;
             .gift {
                 width: 128px;
                 height: 128px;

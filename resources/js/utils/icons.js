@@ -89,5 +89,21 @@ export function ArrowDown(props) {
     );
 }
 
+export function ArrowPrewMobile(props) {
+    return (
+        <svg width="50" height="58" viewBox="0 0 50 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48 54.9808L3 29L48 3.01924L48 54.9808Z" fill="#07A1F3" stroke="white" stroke-width="3" />
+        </svg>
+    );
+}
+export function ArrowNextMobile(props) {
+    return (
+        <svg width="50" height="58" viewBox="0 0 50 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 3.01924L47 29L2 54.9808L2 3.01924Z" fill="#07A1F3" stroke="white" stroke-width="3" />
+        </svg>
+
+    );
+}
+
 
 

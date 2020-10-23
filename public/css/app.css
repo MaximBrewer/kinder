@@ -570,13 +570,22 @@
 }
 
 .nhy-app .h1 {
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
   margin-bottom: 16px;
   text-transform: uppercase;
   text-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
   font-weight: bold;
   color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .nhy-app .h1 {
+    text-align: left;
+    font-size: 30px;
+    line-height: 36px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -615,7 +624,26 @@
 }
 
 .nhy-app .gift-select {
-  width: 324px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 375px) {
+  .nhy-app .gift-select {
+    width: 260px;
+  }
+}
+
+@media (min-width: 414px) {
+  .nhy-app .gift-select {
+    width: 304px;
+  }
+}
+
+@media (min-width: 768px) {
+  .nhy-app .gift-select {
+    width: 324px;
+  }
 }
 
 .nhy-app .gift-select.scroll-bar {
@@ -654,7 +682,7 @@
 
 @media (min-width: 1024px) {
   .nhy-app .gift-select {
-    width: 424px;
+    width: 448px;
   }
 
   .nhy-app .gift-select .gift {
@@ -1167,6 +1195,16 @@
   top: -12vw;
 }
 
+.form-hny .checkbox-wrapper button {
+  margin: 2rem auto;
+}
+
+@media (min-width: 768px) {
+  .form-hny .checkbox-wrapper button {
+    margin: 0 0.5rem 0.5rem 0;
+  }
+}
+
 .form-hny > p {
   font-size: 20px;
 }
@@ -1284,16 +1322,43 @@
   }
 }
 
+.hny-carousel-form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hny-carousel-form .btn-control {
+  cursor: pointer;
+}
+
+.hny-carousel-form .img-wrapper {
+  padding-top: 100%;
+  position: relative;
+}
+
+.hny-carousel-form .img-wrapper .img {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 80%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .gifts-hny {
   position: relative;
-  top: -2vw;
+  top: -0.1vw;
   padding-bottom: 2vw;
   max-width: 100%;
 }
 
-@media (max-width: 1023px) {
+@media (min-width: 1024px) {
   .gifts-hny {
-    top: -0.1vw;
+    top: -2vw;
   }
 }
 
@@ -1302,21 +1367,33 @@
   text-align: center;
   background: #b6e6ff;
   padding-top: 24px;
-  margin-right: 10px;
-  max-width: 460px;
+  width: 368px;
   border-radius: 10px;
 }
 
-@media (max-width: 1023px) {
+@media (min-width: 768px) {
   .gifts-hny .toys-watch {
-    width: 368px;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gifts-hny .toys-watch {
+    max-width: 460px;
   }
 }
 
 .gifts-hny .toys-watch .h3 {
-  font-size: 28px;
-  color: #e4491f;
+  font-size: 15px;
   margin-bottom: 10px;
+  color: #e4491f;
+}
+
+@media (min-width: 768px) {
+  .gifts-hny .toys-watch .h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
 }
 
 .gifts-hny .toys-watch .img-big {
@@ -1327,31 +1404,56 @@
 }
 
 .gifts-hny .toys-watch .img-big > div {
-  width: 203px;
-  height: 203px;
+  width: 140px;
+  height: 140px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+@media (min-width: 768px) {
+  .gifts-hny .toys-watch .img-big > div {
+    width: 203px;
+    height: 203px;
+  }
+}
+
 .gifts-hny .toys-watch .lens-wrapper {
   cursor: pointer;
-  max-width: 250px;
+  max-width: 180px;
   margin: 0 auto 10px;
-  font-size: 12px;
+  font-size: 8px;
   color: #07a1f3;
   border-radius: 50px;
-  padding: 6px 18px;
+  padding: 0px 18px;
+  align-items: center;
   display: flex;
+  text-align: left;
   background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .gifts-hny .toys-watch .lens-wrapper {
+    font-size: 12px;
+    padding: 6px 18px;
+    text-align: center;
+    max-width: 250px;
+  }
 }
 
 .gifts-hny .toys-watch > p {
   background-color: #fff;
-  font-size: 18px;
-  padding: 23px;
+  font-size: 14px;
+  padding: 16px;
   margin: 0;
   color: #07a1f3;
+}
+
+@media (min-width: 768px) {
+  .gifts-hny .toys-watch > p {
+    font-size: 18px;
+    padding: 23px;
+  }
 }
 
 .gifts-hny .shops {
@@ -1365,20 +1467,26 @@
   color: #ffffff;
 }
 
-.gifts-hny .shops a {
-  min-width: 212px;
-  height: 50px;
+.gifts-hny .shops .logos div {
+  width: 212px;
+  margin: 1rem auto 0;
+}
+
+.gifts-hny .shops .logos a {
+  padding-top: 25%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: #fff;
   display: block;
-  border-radius: 25px;
+  border-radius: 60px;
+  background-size: 60%;
 }
 
-@media (max-width: 1023px) {
-  .gifts-hny .shops a {
-    min-width: 152px;
-    background-size: 80%;
+@media (min-width: 768px) {
+  .gifts-hny .shops .logos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 
@@ -1428,9 +1536,18 @@
 
 .faq-hny > p {
   max-width: 813px;
-  font-size: 28px;
+  text-transform: uppercase;
+  font-size: 15px;
+  text-align: center;
   color: #ffffff;
   text-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 768px) {
+  .faq-hny > p {
+    text-transform: none;
+    font-size: 28px;
+  }
 }
 
 .faq-hny .faq {
@@ -1457,24 +1574,44 @@
   background-color: #f3410e;
   cursor: pointer;
   box-shadow: none;
-  line-height: 32px;
   border-style: solid;
   padding: 11px 22px;
   border-color: #ffffff;
   color: #ffffff;
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  .faq-hny .faq .faq-item .question {
+    line-height: 32px;
+    font-size: 20px;
+  }
 }
 
 .faq-hny .faq .faq-item .answer {
   overflow: hidden;
   max-height: 0;
+  font-size: 13px;
+}
+
+@media (min-width: 768px) {
+  .faq-hny .faq .faq-item .answer {
+    font-size: 20px;
+  }
 }
 
 .faq-hny .faq .faq-item .answer > div {
   cursor: pointer;
   box-shadow: none;
-  line-height: 32px;
-  padding: 5px 22px;
+  padding: 15px 22px;
   color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .faq-hny .faq .faq-item .answer > div {
+    padding: 5px 22px;
+    line-height: 32px;
+  }
 }
 
 .example-wrapper {
@@ -1576,13 +1713,20 @@
 
 .example-hny {
   position: relative;
-  padding-bottom: 12rem;
+  padding-bottom: 2rem;
 }
 
-.example-hny h1,
-.example-hny .h1 {
-  max-width: 100rem;
-  margin-right: 20rem;
+@media (min-width: 768px) {
+  .example-hny {
+    padding-bottom: 12rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .example-hny h1,
+  .example-hny .h1 {
+    margin-right: 20rem;
+  }
 }
 
 @media (min-width: 1024px) {
