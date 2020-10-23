@@ -14,6 +14,8 @@ import { from as fromOptions } from "../data/from";
 import { achieve as achieveGirlsOptions } from "../data/girls/achieve";
 import { achieve as achieveBoysOptions } from "../data/boys/achieve";
 import { styles as customModalStyles } from "../styles/modal";
+import { Scrollbars } from 'react-custom-scrollbars-with-mobile';
+import { renderView, renderThumbHorizontal, renderTrackHorizontal, renderTrackVertical, renderThumbVertical } from '../utils/scrollbars'
 import axios from "axios";
 
 Modal.setAppElement('#appNhy')
@@ -150,13 +152,25 @@ function Form(props) {
                 </div>
                 <div className="gift-select pt-5 visible-sm">
                     <div className="h3 text-center mb-1">ВЫБЕРИТЕ ПОДАРОК</div>
-                    <div className="flex space-between flex-wrap">
-                        {gifts.map((item, index) => (
-                            <div className={`gift` + (state.giftValue && state.giftValue.id == item.id ? ` active` : ``)} key={index} onClick={(e) => chooseGift(item)}>
-                                <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
+
+                    <Scrollbars style={window.innerWidth < 1024 ? { height: 324 } : { height: 404 }}
+                        renderView={renderView}
+                        renderThumbHorizontal={renderThumbHorizontal}
+                        renderThumbVertical={renderThumbVertical}
+                        renderTrackHorizontal={renderTrackHorizontal}
+                        renderTrackVertical={renderTrackVertical}
+                        mobile={true}
+                    >
+                        <div style={{ paddingRight: "10px" }}>
+                            <div className="flex space-between flex-wrap">
+                                {gifts.map((item, index) => (
+                                    <div className={`gift` + (state.giftValue && state.giftValue.id == item.id ? ` active` : ``)} key={index} onClick={(e) => chooseGift(item)}>
+                                        <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    </Scrollbars>
                 </div>
             </form>
             <div className="checkbox-wrapper">

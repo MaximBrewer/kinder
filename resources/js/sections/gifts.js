@@ -4,104 +4,12 @@ import Checkbox from '../utils/checkbox'
 import Carousel from '../utils/carousel'
 import Modal from 'react-modal';
 import { Close, Ok, Vk, Instagram, Lens } from "../utils/icons"
+import { gifts } from "../data/gifts";
+import { styles as customModalStyles } from "../styles/modal";
+import { renderView, renderThumbHorizontal, renderTrackHorizontal, renderTrackVertical, renderThumbVertical } from '../utils/scrollbars'
 
 Modal.setAppElement('#appNhy')
 
-
-const gifts = [
-    {
-        img: '/img/gifts/1.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' },
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' },
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/2.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/3.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/4.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/5.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/6.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/7.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/8.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/9.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/1.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/2.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/3.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/4.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/5.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Chocolate' }
-        ]
-    },
-    {
-        img: '/img/gifts/6.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/7.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/8.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-    {
-        img: '/img/gifts/9.png', title: 'Chocolate', toys: [
-            { img: '/img/toys/1.png', title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!' }
-        ]
-    },
-]
 
 function Gifts(props) {
     const { customStyles } = props;
@@ -126,89 +34,6 @@ function Gifts(props) {
             isOpen: true
         }));
     }
-    function renderView({ style, ...props }) {
-        const viewStyle = {
-            paddingRight: 26
-        };
-        return (
-            <div
-                className="box"
-                style={{ ...style, ...viewStyle }}
-                {...props} />
-        );
-    }
-
-    function renderThumbHorizontal({ style, ...props }) {
-        return (
-            <div />
-        );
-    }
-
-    function renderTrackHorizontal({ style, ...props }) {
-        return (
-            <div />
-        );
-    }
-
-    function renderTrackVertical({ style, ...props }) {
-        const trackStyle = {
-            width: "16px",
-            padding: "4px",
-            borderRadius: "8px",
-            backgroundColor: "#ffffff",
-            position: "absolute",
-            right: 0,
-            bottom: 0,
-            top: 0
-        };
-        return (
-            <div
-                style={{ ...style, ...trackStyle }}
-                {...props} />
-        );
-    }
-
-    function renderThumbVertical({ style, ...props }) {
-        const thumbStyle = {
-            width: "8px",
-            height: "102px",
-            borderRadius: "4px",
-            backgroundColor: "#E54C2E"
-        };
-        return (
-            <div
-                style={{ ...style, ...thumbStyle }}
-                {...props} />
-        );
-    }
-
-    const customModalStyles = {
-        content: {
-            borderWidth: "0",
-            backgroundColor: "#07A1F3",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundImage: "url(/img/popup-bg.png)",
-            backgroundSize: "cover",
-            boxShadow: "0px 0px 79px #000000",
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            padding: "60px",
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-            maxWidth: "660px",
-            borderRadius: "40px",
-            fontSize: "28px",
-            textAlign: "center",
-            color: "#ffffff"
-        },
-        overlay: {
-            zIndex: 100
-        }
-    };
-
 
     return (
         <div className="gifts-hny">
