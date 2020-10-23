@@ -130,91 +130,93 @@ function Form(props) {
             <a ref={props.formEl}></a>
             <div className="h1">ЗАПОЛНИТЕ ЗАЯВКУ</div>
             <p>Расскажите о главных достижениях ребёнка в этом году, его хобби и выберите подарок, который подарит Дед Мороз</p>
-            <form className="order-form-flex" onSubmit={handleSubmit}>
-                <div className="order-form">
-                    <div className="form-flex">
-                        <div>
-                            <BoySelect onChange={onBoysChange} value={state.boysValue} />
+            <form onSubmit={handleSubmit}>
+                <div className="order-form-flex">
+                    <div className="order-form">
+                        <div className="form-flex">
+                            <div>
+                                <BoySelect onChange={onBoysChange} value={state.boysValue} />
+                            </div>
+                            <div>
+                                <GirlSelect onChange={onGirlsChange} value={state.girlsValue} />
+                            </div>
                         </div>
                         <div>
-                            <GirlSelect onChange={onGirlsChange} value={state.girlsValue} />
-                        </div>
-                    </div>
-                    <div>
-                        <Select options={ageOptions} placeholder={`Возраст`} onChange={(e) => setState(prevState => ({ ...prevState, ageValue: e }))} value={state.ageValue} />
-                    </div>
-                    <div>
-                        <Select options={state.achieveOptions} onChange={(e) => setState(prevState => ({ ...prevState, achieveValue: e }))} value={state.achieveValue} placeholder={`Достижение`} />
-                    </div>
-                    <div>
-                        <Select options={hobbyOptions} placeholder={`Хобби`} onChange={(e) => setState(prevState => ({ ...prevState, hobbyValue: e }))} value={state.hobbyValue} />
-                    </div>
-                    <div>
-                        <Select options={fromOptions} placeholder={`От кого?`} required />
-                    </div>
-                    <div>
-                        <input type="email" placeholder={`E-mail`} onChange={emailChange} value={state.emailValue} required />
-                    </div>
-                    <div className="form-flex">
-                        <div>
-                            <Upload setFiles={setFiles} />
+                            <Select options={ageOptions} placeholder={`Возраст`} onChange={(e) => setState(prevState => ({ ...prevState, ageValue: e }))} value={state.ageValue} />
                         </div>
                         <div>
-                            <button style={{ width: "100%" }} className={'visible-sm nhy-btn'} type="submit">{`ОТПРАВИТЬ ЗАЯВКУ`}</button>
+                            <Select options={state.achieveOptions} onChange={(e) => setState(prevState => ({ ...prevState, achieveValue: e }))} value={state.achieveValue} placeholder={`Достижение`} />
+                        </div>
+                        <div>
+                            <Select options={hobbyOptions} placeholder={`Хобби`} onChange={(e) => setState(prevState => ({ ...prevState, hobbyValue: e }))} value={state.hobbyValue} />
+                        </div>
+                        <div>
+                            <Select options={fromOptions} placeholder={`От кого?`} required />
+                        </div>
+                        <div>
+                            <input type="email" placeholder={`E-mail`} onChange={emailChange} value={state.emailValue} required />
+                        </div>
+                        <div className="form-flex">
+                            <div>
+                                <Upload setFiles={setFiles} />
+                            </div>
+                            <div>
+                                <button style={{ width: "100%" }} className={'visible-sm nhy-btn'} type="submit">{`ОТПРАВИТЬ ЗАЯВКУ`}</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="gift-select">
-                    <div className="h3 text-center mb-1">ВЫБЕРИТЕ ПОДАРОК</div>
-                    {window.innerWidth < 768 ?
-                        <div className="hny-carousel-form">
-                            <a
-                                className="btn-control"
-                                onClick={() => {
-                                    sliderEl.current.slickPrev();
-                                }}
-                            >
-                                <ArrowPrewMobile />
-                            </a>
-                            <div style={{ height: "80%", width: "80%", marginLeft: "20px", marginRight: "20px", borderRadius: "10px", backgroundColor: "#ffffff", padding: "10px" }}>
-                                <Slider {...setting} ref={sliderEl}>
-                                    {gifts.map((item, index) => (
-                                        <div key={index}>
-                                            <div className={`img-wrapper`}>
-                                                <div className={`img`} style={{ backgroundImage: 'url(' + item.img + ')' }} />
+                    <div className="gift-select">
+                        <div className="h3 text-center mb-1">ВЫБЕРИТЕ ПОДАРОК</div>
+                        {window.innerWidth < 768 ?
+                            <div className="hny-carousel-form">
+                                <a
+                                    className="btn-control"
+                                    onClick={() => {
+                                        sliderEl.current.slickPrev();
+                                    }}
+                                >
+                                    <ArrowPrewMobile />
+                                </a>
+                                <div style={{ height: "80%", width: "80%", marginLeft: "20px", marginRight: "20px", borderRadius: "10px", backgroundColor: "#ffffff", padding: "10px" }}>
+                                    <Slider {...setting} ref={sliderEl}>
+                                        {gifts.map((item, index) => (
+                                            <div key={index}>
+                                                <div className={`img-wrapper`}>
+                                                    <div className={`img`} style={{ backgroundImage: 'url(' + item.img + ')' }} />
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
-                                </Slider>
-                            </div>
-                            <a
-                                className="btn-control"
-                                onClick={() => {
-                                    sliderEl.current.slickNext();
-                                }}
-                            >
-                                <ArrowNextMobile />
-                            </a>
-                        </div>
-                        :
-                        <Scrollbars style={window.innerWidth < 1024 ? { height: 324 } : { height: 404 }}
-                            renderView={renderView}
-                            renderThumbHorizontal={renderThumbHorizontal}
-                            renderThumbVertical={renderThumbVertical}
-                            renderTrackHorizontal={renderTrackHorizontal}
-                            renderTrackVertical={renderTrackVertical}
-                            mobile={true}
-                        >
-                            <div style={{ paddingRight: "10px" }}>
-                                <div className="flex space-between flex-wrap">
-                                    {gifts.map((item, index) => (
-                                        <div className={`gift` + (state.giftValue && state.giftValue.id == item.id ? ` active` : ``)} key={index} onClick={(e) => chooseGift(item)}>
-                                            <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </Slider>
                                 </div>
+                                <a
+                                    className="btn-control"
+                                    onClick={() => {
+                                        sliderEl.current.slickNext();
+                                    }}
+                                >
+                                    <ArrowNextMobile />
+                                </a>
                             </div>
-                        </Scrollbars>}
+                            :
+                            <Scrollbars style={window.innerWidth < 1024 ? { height: 324 } : { height: 404 }}
+                                renderView={renderView}
+                                renderThumbHorizontal={renderThumbHorizontal}
+                                renderThumbVertical={renderThumbVertical}
+                                renderTrackHorizontal={renderTrackHorizontal}
+                                renderTrackVertical={renderTrackVertical}
+                                mobile={true}
+                            >
+                                <div style={{ paddingRight: "10px" }}>
+                                    <div className="flex space-between flex-wrap">
+                                        {gifts.map((item, index) => (
+                                            <div className={`gift` + (state.giftValue && state.giftValue.id == item.id ? ` active` : ``)} key={index} onClick={(e) => chooseGift(item)}>
+                                                <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </Scrollbars>}
+                    </div>
                 </div>
                 <div className="checkbox-wrapper">
                     <Checkbox>
