@@ -65307,6 +65307,151 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 
 /***/ }),
 
+/***/ "./resources/js/data/age.js":
+/*!**********************************!*\
+  !*** ./resources/js/data/age.js ***!
+  \**********************************/
+/*! exports provided: age */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "age", function() { return age; });
+var age = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/data/boys/achieve.js":
+/*!*******************************************!*\
+  !*** ./resources/js/data/boys/achieve.js ***!
+  \*******************************************/
+/*! exports provided: achieve */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "achieve", function() { return achieve; });
+var achieve = ["Пошёл в детский сад.", "Пошёл в первый класс.", "Научился считать.", "Прочитал первую книгу.", "Прочитал много книг.", "Научился кататься на велосипеде.", "Научился кататься на коньках.", "Научился кататься на лыжах.", "Научился кататься на роликах.", "Участвовал в спортивных соревнованиях.", "Выиграл в спортивных соревнованиях.", "Выучил таблицу умножения", "Выучил первое стихотворение.", "Замечательно закончил четверть.", "Начал играть на музыкальном инструменте.", "Научился плавать.", "Начал заниматься в спортивной секции.", "Начал заниматься танцами! ", "Появился домашний питомец! ", "Научился готовить.", "Начал заниматься пением.", "Выиграл школьную олимпиаду.", "Участвовал в школьной олимпиаде.", "Начал заниматься в театральном кружке"].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/data/from.js":
+/*!***********************************!*\
+  !*** ./resources/js/data/from.js ***!
+  \***********************************/
+/*! exports provided: from */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "from", function() { return from; });
+var from = ["Родители", "Мама", "Папа", "Бабушка", "Дедушка", "Бабушка и дедушка", "Сестра", "Брат", "Тётя", "Дядя", "Дядя и тётя", "Учитель", "Родственники", "Друзья", "Друг", "Крёстные", "Крёстный", "Крёстная", "Воспитатель"].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/data/gifts.js":
+/*!************************************!*\
+  !*** ./resources/js/data/gifts.js ***!
+  \************************************/
+/*! exports provided: gifts */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "gifts", function() { return gifts; });
+var gifts = [{
+  id: 1,
+  img: '/img/gifts/1.png',
+  title: 'Chocolate'
+}, {
+  id: 2,
+  img: '/img/gifts/2.png',
+  title: 'Chocolate'
+}, {
+  id: 3,
+  img: '/img/gifts/3.png',
+  title: 'Chocolate'
+}, {
+  id: 4,
+  img: '/img/gifts/4.png',
+  title: 'Chocolate'
+}, {
+  id: 5,
+  img: '/img/gifts/5.png',
+  title: 'Chocolate'
+}, {
+  id: 6,
+  img: '/img/gifts/6.png',
+  title: 'Chocolate'
+}, {
+  id: 7,
+  img: '/img/gifts/7.png',
+  title: 'Chocolate'
+}, {
+  id: 8,
+  img: '/img/gifts/8.png',
+  title: 'Chocolate'
+}, {
+  id: 9,
+  img: '/img/gifts/9.png',
+  title: 'Chocolate'
+}];
+
+/***/ }),
+
+/***/ "./resources/js/data/girls/achieve.js":
+/*!********************************************!*\
+  !*** ./resources/js/data/girls/achieve.js ***!
+  \********************************************/
+/*! exports provided: achieve */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "achieve", function() { return achieve; });
+var achieve = ["Пошла в детский сад.", "Пошла в первый класс.", "Научилась считать.", "Прочитала первую книгу.", "Прочитала много книг.", "Научилась кататься на велосипеде.", "Научилась кататься на коньках.", "Научилась кататься на лыжах.", "Научилась кататься на роликах.", "Участвовала в спортивных соревнованиях.", "Выиграла в спортивных соревнованиях.", "Выучила таблицу умножения.", "Выучила первое стихотворение.", "Замечательно закончила четверть.", "Начала играть на музыкальном инструменте.", "Научилась плавать.", "Начала заниматься в спортивной секции.", "Начала заниматься танцами.", "Появился домашний питомец.", "Научилась готовить.", "Начала заниматься пением.", "Выиграла школьную олимпиаду.", "Участвовала в школьной олимпиаде.", "Начала заниматься в театральном кружке."].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
+
+/***/ }),
+
+/***/ "./resources/js/data/hobby.js":
+/*!************************************!*\
+  !*** ./resources/js/data/hobby.js ***!
+  \************************************/
+/*! exports provided: hobby */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hobby", function() { return hobby; });
+var hobby = ["Любишь играть в футбол!", "Любишь играть в баскетбол!", "Любишь играть в волейбол.", "Любишь играть в хоккей.", "Любишь играть в теннис.", "Любишь играть в шашки.", "Любишь играть в шахматы.", "Любишь играть в настольные игры.", "Любишь играть на музыкальных инструментах.", "Любишь кататься на коньках.", "Любишь кататься на самокате.", "Любишь кататься на скейтборде!", "Любишь кататься на роликах.", "Любишь кататься на велосипеде!", "Любишь кататься на лыжах!", "Любишь танцевать!", "Любишь рисовать.", "Любишь петь.", "Любишь читать.", "Любишь собирать пазлы.", "Любишь плавать.", "Любишь слушать сказки.", "Любишь смотреть мультфильмы.", "Любишь слушать музыку!"].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/sections/example.js":
 /*!******************************************!*\
   !*** ./resources/js/sections/example.js ***!
@@ -65598,7 +65743,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/icons */ "./resources/js/utils/icons.js");
-/* harmony import */ var _utils_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/input */ "./resources/js/utils/input.js");
+/* harmony import */ var _data_gifts__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../data/gifts */ "./resources/js/data/gifts.js");
+/* harmony import */ var _data_hobby__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../data/hobby */ "./resources/js/data/hobby.js");
+/* harmony import */ var _data_age__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../data/age */ "./resources/js/data/age.js");
+/* harmony import */ var _data_from__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../data/from */ "./resources/js/data/from.js");
+/* harmony import */ var _data_girls_achieve__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../data/girls/achieve */ "./resources/js/data/girls/achieve.js");
+/* harmony import */ var _data_boys_achieve__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../data/boys/achieve */ "./resources/js/data/boys/achieve.js");
+/* harmony import */ var _styles_modal__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../styles/modal */ "./resources/js/styles/modal.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_16__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -65627,91 +65780,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var fromOptions = ["Родители", "Мама", "Папа", "Бабушка", "Дедушка", "Бабушка и дедушка", "Сестра", "Брат", "Тётя", "Дядя", "Дядя и тётя", "Учитель", "Родственники", "Друзья", "Друг", "Крёстные", "Крёстный", "Крёстная", "Воспитатель"].map(function (item, index) {
-  return {
-    value: item,
-    label: item
-  };
-});
-var ageOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function (item, index) {
-  return {
-    value: item,
-    label: item
-  };
-});
-var achieveGirlsOptions = ["Пошла в детский сад.", "Пошла в первый класс.", "Научилась считать.", "Прочитала первую книгу.", "Прочитала много книг.", "Научилась кататься на велосипеде.", "Научилась кататься на коньках.", "Научилась кататься на лыжах.", "Научилась кататься на роликах.", "Участвовала в спортивных соревнованиях.", "Выиграла в спортивных соревнованиях.", "Выучила таблицу умножения.", "Выучила первое стихотворение.", "Замечательно закончила четверть.", "Начала играть на музыкальном инструменте.", "Научилась плавать.", "Начала заниматься в спортивной секции.", "Начала заниматься танцами.", "Появился домашний питомец.", "Научилась готовить.", "Начала заниматься пением.", "Выиграла школьную олимпиаду.", "Участвовала в школьной олимпиаде.", "Начала заниматься в театральном кружке."].map(function (item, index) {
-  return {
-    value: item,
-    label: item
-  };
-});
-var achieveBoysOptions = ["Пошёл в детский сад.", "Пошёл в первый класс.", "Научился считать.", "Прочитал первую книгу.", "Прочитал много книг.", "Научился кататься на велосипеде.", "Научился кататься на коньках.", "Научился кататься на лыжах.", "Научился кататься на роликах.", "Участвовал в спортивных соревнованиях.", "Выиграл в спортивных соревнованиях.", "Выучил таблицу умножения", "Выучил первое стихотворение.", "Замечательно закончил четверть.", "Начал играть на музыкальном инструменте.", "Научился плавать.", "Начал заниматься в спортивной секции.", "Начал заниматься танцами! ", "Появился домашний питомец! ", "Научился готовить.", "Начал заниматься пением.", "Выиграл школьную олимпиаду.", "Участвовал в школьной олимпиаде.", "Начал заниматься в театральном кружке"].map(function (item, index) {
-  return {
-    value: item,
-    label: item
-  };
-});
-var hobbyOptions = ["Любишь играть в футбол!", "Любишь играть в баскетбол!", "Любишь играть в волейбол.", "Любишь играть в хоккей.", "Любишь играть в теннис.", "Любишь играть в шашки.", "Любишь играть в шахматы.", "Любишь играть в настольные игры.", "Любишь играть на музыкальных инструментах.", "Любишь кататься на коньках.", "Любишь кататься на самокате.", "Любишь кататься на скейтборде!", "Любишь кататься на роликах.", "Любишь кататься на велосипеде!", "Любишь кататься на лыжах!", "Любишь танцевать!", "Любишь рисовать.", "Любишь петь.", "Любишь читать.", "Любишь собирать пазлы.", "Любишь плавать.", "Любишь слушать сказки.", "Любишь смотреть мультфильмы.", "Любишь слушать музыку!"].map(function (item, index) {
-  return {
-    value: item,
-    label: item
-  };
-});
-var gifts = [{
-  img: '/img/gifts/1.png',
-  title: 'Chocolate'
-}, {
-  img: '/img/gifts/2.png',
-  title: 'Chocolate'
-}, {
-  img: '/img/gifts/3.png',
-  title: 'Chocolate'
-}, {
-  img: '/img/gifts/4.png',
-  title: 'Chocolate'
-}, {
-  img: '/img/gifts/5.png',
-  title: 'Chocolate'
-}, {
-  img: '/img/gifts/6.png',
-  title: 'Chocolate'
-}, {
-  img: '/img/gifts/7.png',
-  title: 'Chocolate'
-}, {
-  img: '/img/gifts/8.png',
-  title: 'Chocolate'
-}, {
-  img: '/img/gifts/9.png',
-  title: 'Chocolate'
-}];
+
+
+
+
+
+
+
 react_modal__WEBPACK_IMPORTED_MODULE_7___default.a.setAppElement('#appNhy');
-var customModalStyles = {
-  content: {
-    borderWidth: "0",
-    backgroundColor: "#07A1F3",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: "url(/img/popup-bg.png)",
-    backgroundSize: "cover",
-    boxShadow: "0px 0px 79px #000000",
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    padding: "60px",
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    maxWidth: "660px",
-    borderRadius: "40px",
-    fontSize: "28px",
-    textAlign: "center",
-    color: "#ffffff"
-  },
-  overlay: {
-    zIndex: 100
-  }
-};
 
 function Form(props) {
   var customStyles = props.customStyles;
@@ -65732,10 +65808,6 @@ function Form(props) {
     });
   }
 
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-  };
-
   var onBoysChange = function onBoysChange(e) {
     console.log(e);
     setState(function (prevState) {
@@ -65743,19 +65815,18 @@ function Form(props) {
         girlsValue: null,
         boysValue: e,
         achieveValue: null,
-        achieveOptions: achieveBoysOptions
+        achieveOptions: _data_boys_achieve__WEBPACK_IMPORTED_MODULE_14__["achieve"]
       });
     });
   };
 
   var onGirlsChange = function onGirlsChange(e) {
-    console.log(e);
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
         boysValue: null,
         girlsValue: e,
         achieveValue: null,
-        achieveOptions: achieveGirlsOptions
+        achieveOptions: _data_girls_achieve__WEBPACK_IMPORTED_MODULE_13__["achieve"]
       });
     });
   };
@@ -65769,18 +65840,59 @@ function Form(props) {
     });
   };
 
+  var setFiles = function setFiles(files) {
+    setState(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        photo: files[0]
+      });
+    });
+  };
+
+  var chooseGift = function chooseGift(gift) {
+    setState(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        giftValue: gift
+      });
+    });
+  };
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     boysValue: null,
     girlsValue: null,
     achieveValue: null,
     emailValue: '',
+    hobbyValue: null,
+    ageValue: null,
+    giftValue: null,
     achieveOptions: [],
     checked: false,
-    isOpen: false
+    isOpen: false,
+    photo: null
   }),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
+
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    var formData = new FormData();
+    formData.append("photo", state.photo);
+    formData.append("name", state.boysValue ? state.boysValue.value : state.girlsValue.value);
+    formData.append("achieve", state.achieveValue.value);
+    formData.append("email", state.emailValue);
+    formData.append("hobby", state.hobbyValue.value);
+    formData.append("age", state.ageValue.value);
+    formData.append("gift", state.giftValue.id);
+    axios__WEBPACK_IMPORTED_MODULE_16___default.a.post("/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    }).then(function () {
+      return alert(1);
+    })["catch"](function () {
+      return null;
+    });
+  };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-hny"
@@ -65802,8 +65914,16 @@ function Form(props) {
     onChange: onGirlsChange,
     value: state.girlsValue
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    options: ageOptions,
-    placeholder: "\u0412\u043E\u0437\u0440\u0430\u0441\u0442"
+    options: _data_age__WEBPACK_IMPORTED_MODULE_11__["age"],
+    placeholder: "\u0412\u043E\u0437\u0440\u0430\u0441\u0442",
+    onChange: function onChange(e) {
+      return setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          ageValue: e
+        });
+      });
+    },
+    value: state.ageValue
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
     options: state.achieveOptions,
     onChange: function onChange(e) {
@@ -65816,10 +65936,18 @@ function Form(props) {
     value: state.achieveValue,
     placeholder: "\u0414\u043E\u0441\u0442\u0438\u0436\u0435\u043D\u0438\u0435"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    options: hobbyOptions,
-    placeholder: "\u0425\u043E\u0431\u0431\u0438"
+    options: _data_hobby__WEBPACK_IMPORTED_MODULE_10__["hobby"],
+    placeholder: "\u0425\u043E\u0431\u0431\u0438",
+    onChange: function onChange(e) {
+      return setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          hobbyValue: e
+        });
+      });
+    },
+    value: state.hobbyValue
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    options: fromOptions,
+    options: _data_from__WEBPACK_IMPORTED_MODULE_12__["from"],
     placeholder: "\u041E\u0442 \u043A\u043E\u0433\u043E?",
     required: true
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -65830,7 +65958,9 @@ function Form(props) {
     required: true
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-flex"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_upload__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_upload__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    setFiles: setFiles
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_5__["default"], {
     text: "\u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C \u0417\u0410\u042F\u0412\u041A\u0423",
     style: {
       display: "block",
@@ -65842,14 +65972,14 @@ function Form(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h3 text-center mb-1"
   }, "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u041F\u041E\u0414\u0410\u0420\u041E\u041A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex space-between flex-wrap",
-    style: {
-      marginTop: "-10px"
-    }
-  }, gifts.map(function (item, index) {
+    className: "flex space-between flex-wrap"
+  }, _data_gifts__WEBPACK_IMPORTED_MODULE_9__["gifts"].map(function (item, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "gift" + (index ? "" : " active"),
-      key: index
+      className: "gift" + (state.giftValue && state.giftValue.id == item.id ? " active" : ""),
+      key: index,
+      onClick: function onClick(e) {
+        return chooseGift(item);
+      }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       style: {
         backgroundImage: "url(" + item.img + ")"
@@ -65861,7 +65991,7 @@ function Form(props) {
     isOpen: state.isOpen // onAfterOpen={afterOpenModal}
     ,
     onRequestClose: closeModal,
-    style: customModalStyles
+    style: _styles_modal__WEBPACK_IMPORTED_MODULE_15__["styles"]
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     onClick: closeModal,
     style: {
@@ -66358,6 +66488,45 @@ function Promo(props) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Promo);
+
+/***/ }),
+
+/***/ "./resources/js/styles/modal.js":
+/*!**************************************!*\
+  !*** ./resources/js/styles/modal.js ***!
+  \**************************************/
+/*! exports provided: styles */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+var styles = {
+  content: {
+    borderWidth: "0",
+    backgroundColor: "#07A1F3",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: "url(/img/popup-bg.png)",
+    backgroundSize: "cover",
+    boxShadow: "0px 0px 79px #000000",
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    padding: "60px",
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    maxWidth: "660px",
+    borderRadius: "40px",
+    fontSize: "28px",
+    textAlign: "center",
+    color: "#ffffff"
+  },
+  overlay: {
+    zIndex: 100
+  }
+};
 
 /***/ }),
 
@@ -67143,114 +67312,6 @@ function ArrowDown(props) {
 
 /***/ }),
 
-/***/ "./resources/js/utils/input.js":
-/*!*************************************!*\
-  !*** ./resources/js/utils/input.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-var customStyles = {
-  option: function option(provided, state) {
-    return _objectSpread({
-      backgroundColor: "#f3410e",
-      color: "#ffffff"
-    }, provided);
-  },
-  valueContainer: function valueContainer(provided, state) {
-    return _objectSpread({}, provided);
-  },
-  menu: function menu(provided, state) {
-    return _objectSpread({
-      color: "#424242"
-    }, provided);
-  },
-  menuList: function menuList(provided, state) {
-    return _objectSpread({}, provided);
-  },
-  menuPortal: function menuPortal(provided, state) {
-    return _objectSpread({}, provided);
-  },
-  singleValue: function singleValue(provided, state) {
-    var color = "#ffffff";
-    var padding = "0";
-    var opacity = state.isDisabled ? 0.5 : 1;
-    var transition = 'opacity 300ms';
-    return _objectSpread(_objectSpread({}, provided), {}, {
-      opacity: opacity,
-      transition: transition,
-      color: color,
-      padding: padding
-    });
-  },
-  input: function input(provided, state) {
-    return _objectSpread({
-      color: "#ffffff"
-    }, provided);
-  },
-  control: function control(provided, state) {
-    var rest = {
-      borderRadius: "100px",
-      borderWidth: "3px",
-      backgroundColor: "#f3410e",
-      cursor: 'pointer',
-      boxShadow: null,
-      lineHeight: "32px",
-      padding: "5px 22px",
-      borderColor: "#ffffff",
-      color: "#ffffff",
-      '&:hover': {
-        borderColor: "#dedede"
-      }
-    };
-    return _objectSpread(_objectSpread({}, provided), rest);
-  },
-  dropdownIndicator: function dropdownIndicator(provided, state) {
-    return _objectSpread(_objectSpread({}, provided), {}, {
-      color: "#ffffff",
-      '&:hover': {
-        color: "#ffffff"
-      }
-    });
-  },
-  placeholder: function placeholder(provided, state) {
-    return _objectSpread(_objectSpread({}, provided), {}, {
-      color: "#ffffff"
-    });
-  },
-  indicatorSeparator: function indicatorSeparator(provided, state) {
-    return _objectSpread(_objectSpread({}, provided), {}, {
-      width: 0
-    });
-  },
-  indicatorsContainer: function indicatorsContainer(provided, state) {
-    return _objectSpread({}, provided);
-  }
-};
-
-function Input(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
-    styles: customStyles
-  }, props));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Input);
-
-/***/ }),
-
 /***/ "./resources/js/utils/scroll-to-ref.js":
 /*!*********************************************!*\
   !*** ./resources/js/utils/scroll-to-ref.js ***!
@@ -67520,6 +67581,7 @@ function Previews(props) {
           preview: URL.createObjectURL(file)
         });
       }));
+      props.setFiles(acceptedFiles);
     }
   }),
       getRootProps = _useDropzone.getRootProps,

@@ -62,6 +62,7 @@ function Previews(props) {
             setFiles(acceptedFiles.map(file => Object.assign(file, {
                 preview: URL.createObjectURL(file)
             })));
+            props.setFiles(acceptedFiles)
         }
     });
 
