@@ -1,16 +1,119 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Select from '../utils/select'
+import GirlSelect from '../utils/girl-select'
+import BoySelect from '../utils/boy-select'
 import Checkbox from '../utils/checkbox'
 import Button from '../utils/button'
 import Upload from '../utils/upload'
 import Modal from 'react-modal';
 import { Close, Ok, Vk, Instagram } from "../utils/icons"
+import Input from "../utils/input";
 
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-]
+const fromOptions = [
+    "Родители",
+    "Мама",
+    "Папа",
+    "Бабушка",
+    "Дедушка",
+    "Бабушка и дедушка",
+    "Сестра",
+    "Брат",
+    "Тётя",
+    "Дядя",
+    "Дядя и тётя",
+    "Учитель",
+    "Родственники",
+    "Друзья",
+    "Друг",
+    "Крёстные",
+    "Крёстный",
+    "Крёстная",
+    "Воспитатель"
+].map((item, index) => ({ value: item, label: item }));
+
+const ageOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item, index) => ({ value: item, label: item }));
+
+const achieveGirlsOptions = [
+    "Пошла в детский сад.",
+    "Пошла в первый класс.",
+    "Научилась считать.",
+    "Прочитала первую книгу.",
+    "Прочитала много книг.",
+    "Научилась кататься на велосипеде.",
+    "Научилась кататься на коньках.",
+    "Научилась кататься на лыжах.",
+    "Научилась кататься на роликах.",
+    "Участвовала в спортивных соревнованиях.",
+    "Выиграла в спортивных соревнованиях.",
+    "Выучила таблицу умножения.",
+    "Выучила первое стихотворение.",
+    "Замечательно закончила четверть.",
+    "Начала играть на музыкальном инструменте.",
+    "Научилась плавать.",
+    "Начала заниматься в спортивной секции.",
+    "Начала заниматься танцами.",
+    "Появился домашний питомец.",
+    "Научилась готовить.",
+    "Начала заниматься пением.",
+    "Выиграла школьную олимпиаду.",
+    "Участвовала в школьной олимпиаде.",
+    "Начала заниматься в театральном кружке."
+].map((item, index) => ({ value: item, label: item }));
+
+const achieveBoysOptions = [
+    "Пошёл в детский сад.",
+    "Пошёл в первый класс.",
+    "Научился считать.",
+    "Прочитал первую книгу.",
+    "Прочитал много книг.",
+    "Научился кататься на велосипеде.",
+    "Научился кататься на коньках.",
+    "Научился кататься на лыжах.",
+    "Научился кататься на роликах.",
+    "Участвовал в спортивных соревнованиях.",
+    "Выиграл в спортивных соревнованиях.",
+    "Выучил таблицу умножения",
+    "Выучил первое стихотворение.",
+    "Замечательно закончил четверть.",
+    "Начал играть на музыкальном инструменте.",
+    "Научился плавать.",
+    "Начал заниматься в спортивной секции.",
+    "Начал заниматься танцами! ",
+    "Появился домашний питомец! ",
+    "Научился готовить.",
+    "Начал заниматься пением.",
+    "Выиграл школьную олимпиаду.",
+    "Участвовал в школьной олимпиаде.",
+    "Начал заниматься в театральном кружке"
+].map((item, index) => ({ value: item, label: item }));
+
+const hobbyOptions = [
+    "Любишь играть в футбол!",
+    "Любишь играть в баскетбол!",
+    "Любишь играть в волейбол.",
+    "Любишь играть в хоккей.",
+    "Любишь играть в теннис.",
+    "Любишь играть в шашки.",
+    "Любишь играть в шахматы.",
+    "Любишь играть в настольные игры.",
+    "Любишь играть на музыкальных инструментах.",
+    "Любишь кататься на коньках.",
+    "Любишь кататься на самокате.",
+    "Любишь кататься на скейтборде!",
+    "Любишь кататься на роликах.",
+    "Любишь кататься на велосипеде!",
+    "Любишь кататься на лыжах!",
+    "Любишь танцевать!",
+    "Любишь рисовать.",
+    "Любишь петь.",
+    "Любишь читать.",
+    "Любишь собирать пазлы.",
+    "Любишь плавать.",
+    "Любишь слушать сказки.",
+    "Любишь смотреть мультфильмы.",
+    "Любишь слушать музыку!"
+].map((item, index) => ({ value: item, label: item }));
+
 const gifts = [
     { img: '/img/gifts/1.png', title: 'Chocolate' },
     { img: '/img/gifts/2.png', title: 'Chocolate' },
@@ -55,12 +158,6 @@ const customModalStyles = {
 function Form(props) {
     const { customStyles } = props;
 
-    const [state, setState] = useState({
-        checked: false,
-        isOpen: false
-    });
-
-
     function closeModal() {
         setState(prevState => ({
             ...prevState,
@@ -75,54 +172,87 @@ function Form(props) {
         }));
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    const onBoysChange = (e) => {
+        console.log(e);
+        setState(prevState => ({
+            ...prevState,
+            girlsValue: null,
+            boysValue: e,
+            achieveValue: null,
+            achieveOptions: achieveBoysOptions,
+        }))
+    }
+
+    const onGirlsChange = (e) => {
+        console.log(e);
+        setState(prevState => ({
+            ...prevState,
+            boysValue: null,
+            girlsValue: e,
+            achieveValue: null,
+            achieveOptions: achieveGirlsOptions,
+        }))
+    }
+
+    const emailChange = (e) => {
+        const eventTarget = e.target;
+        setState(prevState => ({ ...prevState, emailValue: eventTarget.value }))
+    } 
+
+    const [state, setState] = useState({
+        boysValue: null,
+        girlsValue: null,
+        achieveValue: null,
+        emailValue: '',
+        achieveOptions: [],
+        checked: false,
+        isOpen: false
+    });
+
     return (
         <div className="form-hny">
             <a ref={props.formEl}></a>
             <div className="h1">ЗАПОЛНИТЕ ЗАЯВКУ</div>
             <p>Расскажите о главных достижениях ребёнка в этом году, его хобби и выберите подарок, который подарит Дед Мороз</p>
-            <div className="flex">
+            <form className="order-form-flex" onSubmit={handleSubmit}>
                 <div className="order-form">
-                    <div className="flex space-between">
-                        <div style={{ width: "48%" }}>
-                            <Button text={`Мальчик`} style={{
-                                display: "block", width: "100%",
-                                background: "#FFFFFF",
-                                border: "3px solid #07A1F3", color: "#07A1F3"
-                            }} onClick={() => { alert(1) }} />
+                    <div className="form-flex">
+                        <div>
+                            <BoySelect onChange={onBoysChange} value={state.boysValue} />
                         </div>
-                        <div style={{ width: "48%" }}>
-                            <Button text={`Девочка`} style={{
-                                display: "block", width: "100%",
-                                background: "#FFFFFF",
-                                border: "3px solid #f3410e", color: "#f3410e"
-                            }} onClick={() => { alert(2) }} />
+                        <div>
+                            <GirlSelect onChange={onGirlsChange} value={state.girlsValue} />
                         </div>
                     </div>
                     <div>
-                        <Select options={options} placeholder={`Возраст`} />
+                        <Select options={ageOptions} placeholder={`Возраст`} />
                     </div>
                     <div>
-                        <Select options={options} placeholder={`Достижение`} />
+                        <Select options={state.achieveOptions} onChange={(e) => setState(prevState => ({ ...prevState, achieveValue: e }))} value={state.achieveValue} placeholder={`Достижение`} />
                     </div>
                     <div>
-                        <Select options={options} placeholder={`Хобби`} />
+                        <Select options={hobbyOptions} placeholder={`Хобби`} />
                     </div>
                     <div>
-                        <Select options={options} placeholder={`От кого?`} />
+                        <Select options={fromOptions} placeholder={`От кого?`} required />
                     </div>
                     <div>
-                        <Select options={options} />
+                        <input type="email" placeholder={`E-mail`} onChange={emailChange} value={state.emailValue} required />
                     </div>
-                    <div className="flex space-between">
-                        <div style={{ width: "48%" }}>
+                    <div className="form-flex">
+                        <div>
                             <Upload />
                         </div>
-                        <div style={{ width: "48%" }}>
-                            <Button text={`ОТПРАВИТЬ ЗАЯВКУ`} style={{ display: "block", width: "100%" }} onClick={openModal} />
+                        <div>
+                            <Button text={`ОТПРАВИТЬ ЗАЯВКУ`} style={{ display: "block", width: "100%" }} type="submit" />
                         </div>
                     </div>
                 </div>
-                <div className="gift-select pt-5">
+                <div className="gift-select pt-5 visible-sm">
                     <div className="h3 text-center mb-1">ВЫБЕРИТЕ ПОДАРОК</div>
                     <div className="flex space-between flex-wrap" style={{ marginTop: "-10px" }}>
                         {gifts.map((item, index) => (
@@ -132,7 +262,7 @@ function Form(props) {
                         ))}
                     </div>
                 </div>
-            </div>
+            </form>
             <div className="checkbox-wrapper">
                 <Checkbox>
                     Cогласен(-на) с правилами {state.checked}

@@ -5,7 +5,7 @@ function Button(props) {
     const styles = {
         ...style
     }
-    return (<div {...props} style={styles} className={'nhy-btn'}>{props.text}</div>);
+    return (<button {...props} style={styles} className={'nhy-btn'}>{props.text}</button>);
 }
 
 export default Button;

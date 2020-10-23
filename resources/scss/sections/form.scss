@@ -1,26 +1,86 @@
 .form-hny {
     position: relative;
-    top: -4vw;
-    max-width: 960px;
-    & > p {
-        max-width: 615px;
-        font-size: 28px;
+    top: -12vw;
+    > p {
+        font-size: 20px;
+        @media (min-width: 768px) {
+            max-width: 615px;
+            font-size: 28px;
+        }
+    }
+    .order-form-flex {
+        @media (min-width: 768px) {
+            display: flex;
+        }
     }
     .order-form {
-        width: 548px;
-        margin-right: 40px;
-        & > div {
+        input[type="text"],
+        input[type="email"] {
+            border-radius: 30px;
+            border-width: 3px;
+            background-color: rgb(243, 65, 14);
+            cursor: pointer;
+            line-height: 32px;
+            padding: 7px 30px;
+            border-color: rgb(255, 255, 255);
+            letter-spacing: -1px;
+            border-style: solid;
+            display: block;
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            width: 100%;
+            color: #ffffff;
+            &::placeholder {
+                color: #ffffff;
+            }
+        }
+        > div {
             margin-bottom: 12px;
         }
-    }
-    @media (max-width: 1279px) {
-        .order-form {
-            width: 508px;
+        .form-flex {
+            margin-bottom: 0;
+            > div {
+                margin-bottom: 12px;
+                .boy-select {
+                    display: block;
+                    width: 100%;
+                    background: #ffffff;
+                    border: 3px solid #07a1f3;
+                    color: #07a1f3;
+                }
+                .girl-select {
+                    display: block;
+                    width: 100%;
+                    background: #ffffff;
+                    border: 3px solid #f3410e;
+                    color: #07a1f3;
+                }
+            }
+            @media (min-width: 768px) {
+                width: 100%;
+                margin-bottom: 12px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > div {
+                    width: 48%;
+                    margin-bottom: 0;
+                }
+            }
         }
-    }
-    @media (max-width: 1023px) {
-        .order-form {
+        @media (min-width: 768px) {
+            margin-right: 40px;
             width: 368px;
         }
+        @media (min-width: 1024px) {
+            width: 508px;
+        }
+        @media (min-width: 1280px) {
+            width: 548px;
+        }
+    }
+    @media (min-width: 768px) {
+        top: -4vw;
+        max-width: 960px;
     }
 }

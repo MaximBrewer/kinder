@@ -25,6 +25,7 @@ const customStyles = {
     }),
     menu: (provided, state) => ({
         color: "#424242",
+        overflow: "hidden",
         ...provided,
     }),
     menuList: (provided, state) => ({
@@ -83,7 +84,11 @@ const customStyles = {
 
 
 function Select(props) {
-    return (<ReactSelect styles={customStyles} {...props} />);
+    return (<ReactSelect
+        theme={theme => ({
+            ...theme,
+            borderRadius: 30
+        })} styles={customStyles} {...props} />);
 }
 
 export default Select;

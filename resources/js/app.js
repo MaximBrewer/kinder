@@ -18,8 +18,10 @@ const App = () => {
         <React.Fragment>
             <div className={`promo-mobile-header`}></div>
             <div className="promo-wrapper">
-                <div className="nhy-container">
-                    <Promo toForm={toForm} />
+                <div>
+                    <div className="nhy-container">
+                        <Promo toForm={toForm} />
+                    </div>
                 </div>
             </div>
             <div className="form-wrapper">
@@ -30,8 +32,10 @@ const App = () => {
                 </div>
             </div>
             <div className="example-wrapper">
-                <div className="nhy-container">
-                    <Example toForm={toForm} />
+                <div>
+                    <div className="nhy-container">
+                        <Example toForm={toForm} />
+                    </div>
                 </div>
             </div>
             <div className="gifts-wrapper">

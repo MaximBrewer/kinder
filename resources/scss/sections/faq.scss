@@ -1,3 +1,21 @@
+.faq-wrapper {
+    @media (min-width: 1024px) {
+        background-image: url(../../img/bg/4.jpg);
+        background-position: right top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 48px;
+        min-height: 56.3vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 6vw;
+        margin-top: -11vw;
+        margin-bottom: -16vw;
+        padding-bottom: 6vw;
+        margin-bottom: -11vw;
+    }
+}
 .faq-hny {
     padding: 64px 0;
     width: 100%;

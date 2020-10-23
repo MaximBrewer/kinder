@@ -65276,11 +65276,11 @@ var App = function App() {
     className: "promo-mobile-header"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "promo-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nhy-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_promo__WEBPACK_IMPORTED_MODULE_3__["default"], {
     toForm: toForm
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nhy-container"
@@ -65288,11 +65288,11 @@ var App = function App() {
     formEl: formEl
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "example-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nhy-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_example__WEBPACK_IMPORTED_MODULE_5__["default"], {
     toForm: toForm
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "gifts-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nhy-container"
@@ -65326,10 +65326,7 @@ function Example(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "example-hny"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "h1",
-    style: {
-      maxWidth: "110rem"
-    }
+    className: "h1"
   }, "\u0422\u0430\u043A\u043E\u0435 \u0432\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u0443\u0447\u0438\u0442 \u0432\u0430\u0448 \u0440\u0435\u0431\u0451\u043D\u043E\u043A!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: {
       maxWidth: "700px"
@@ -65419,35 +65416,39 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Faq() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
     question: "Что это за проект?",
-    answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто! Вы пишете пиьсмо Деду Морозу через специальную форму. Мы снимаем для вас уникальное видеопоздравление от Деда Мороза, в котором он поздравит Вашего ребенка с Новым Годом и подарит ему Киндер подарок",
-    isOpen: false
+    answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто: Вы – отправляете заявку Kinder Деду Морозу через специальную форму и Дедушка записывает для вас уникальное, интерактивное, видеопоздравление, в котором он поздравит детишек с Новым Годом и передаст им Kinder подарок.",
+    isOpen: true
   }, {
     question: "Как мне отправить заявку?",
-    answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто! Вы пишете пиьсмо Деду Морозу через специальную форму. Мы снимаем для вас уникальное видеопоздравление от Деда Мороза, в котором он поздравит Вашего ребенка с Новым Годом и подарит ему Киндер подарок",
+    answer: "Специально для вас мы создали простую форму на главной странице проекта. Вам нужно всего лишь заполнить все поля и  нажать на кнопку «отправить заявку». И не забудьте выбрать Kinder подарок",
     isOpen: false
   }, {
     question: "Через сколько будет готово видео?",
-    answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто! Вы пишете пиьсмо Деду Морозу через специальную форму. Мы снимаем для вас уникальное видеопоздравление от Деда Мороза, в котором он поздравит Вашего ребенка с Новым Годом и подарит ему Киндер подарок",
+    answer: "Kinder Дедушке Морозу приходит очень и очень много заявок, поэтому производство видео может до четырых-пяти дней, с момента прохождения проверки заявки.",
     isOpen: false
   }, {
-    question: "Что делать, если я не получил свое видео?",
-    answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто! Вы пишете пиьсмо Деду Морозу через специальную форму. Мы снимаем для вас уникальное видеопоздравление от Деда Мороза, в котором он поздравит Вашего ребенка с Новым Годом и подарит ему Киндер подарок",
+    question: "Что мне делать, если я не получил свое видео?",
+    answer: " Напишите нам  info@kindernewyear.ru и мы поможем отыскать ваше видеопоздравление",
     isOpen: false
   }, {
     question: "Что мне делать, если подарка, который я выбрал, нет в магазине?",
-    answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто! Вы пишете пиьсмо Деду Морозу через специальную форму. Мы снимаем для вас уникальное видеопоздравление от Деда Мороза, в котором он поздравит Вашего ребенка с Новым Годом и подарит ему Киндер подарок",
+    answer: "Если вам не удалось найти нужный подарок, просто отправьте заявку еще раз с новым Kinder подарком.",
     isOpen: false
   }, {
-    question: "Что делать, если мне пришло письмо, что заявка не прошла модерацию?",
-    answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто! Вы пишете пиьсмо Деду Морозу через специальную форму. Мы снимаем для вас уникальное видеопоздравление от Деда Мороза, в котором он поздравит Вашего ребенка с Новым Годом и подарит ему Киндер подарок",
+    question: "Что мне делать, если мне пришло письмо, что заявка не прошла модерацию?",
+    answer: "Пришлите нам заявку повторно. При заполнении анкеты, учтите причину отказа в прошлой заявке!",
     isOpen: false
   }, {
     question: "На какой продукции Kinder я могу увидеть дополненную реальность?",
-    answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто! Вы пишете пиьсмо Деду Морозу через специальную форму. Мы снимаем для вас уникальное видеопоздравление от Деда Мороза, в котором он поздравит Вашего ребенка с Новым Годом и подарит ему Киндер подарок",
+    answer: "В активации участвуют упаковки Kinder с новогодним дизайном, кроме упаковок Kinder Сюрприз 20г/60г/100г/220г, Kinder Joy 20г, Kinder Фигурный Шоколад 55г/110г, Kinder Schoko-bons 46г/125г.",
     isOpen: false
   }, {
     question: "После считывания QR-кода не могу запустить дополненную реальность. Что делать?",
-    answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто! Вы пишете пиьсмо Деду Морозу через специальную форму. Мы снимаем для вас уникальное видеопоздравление от Деда Мороза, в котором он поздравит Вашего ребенка с Новым Годом и подарит ему Киндер подарок",
+    answer: "После считывания QR-кода у вас откроется страница с кнопкой «Начать». По клику на кнопку появится системной всплывающее окно с запросом на доступ к Камере. Разрешите доступ к Камере и дождитесь загрузки страницы. Далее на экране появится анимация или сообщение о необходимости навести камеру на упаковку. Следуйте инструкции. Если у вас останутся вопросы, свяжитесь с нами через форму обратной связи.",
+    isOpen: false
+  }, {
+    question: "Чем сканировать QR-код?",
+    answer: "Отсканировать QR-код можно с помощью следующих приложений: встроенная «Камера» смартфона, «VK», «QR-ридер» или через браузер «Chrome». В верхней/нижней части экрана (в зависимости от устройства) появится ссылка перехода, по клику на неё откроется страница игры.",
     isOpen: false
   }]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -65589,18 +65590,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/select */ "./resources/js/utils/select.js");
-/* harmony import */ var _utils_checkbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/checkbox */ "./resources/js/utils/checkbox.js");
-/* harmony import */ var _utils_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/button */ "./resources/js/utils/button.js");
-/* harmony import */ var _utils_upload__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/upload */ "./resources/js/utils/upload.js");
-/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
-/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/icons */ "./resources/js/utils/icons.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+/* harmony import */ var _utils_girl_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/girl-select */ "./resources/js/utils/girl-select.js");
+/* harmony import */ var _utils_boy_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/boy-select */ "./resources/js/utils/boy-select.js");
+/* harmony import */ var _utils_checkbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/checkbox */ "./resources/js/utils/checkbox.js");
+/* harmony import */ var _utils_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/button */ "./resources/js/utils/button.js");
+/* harmony import */ var _utils_upload__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/upload */ "./resources/js/utils/upload.js");
+/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
+/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/icons */ "./resources/js/utils/icons.js");
+/* harmony import */ var _utils_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/input */ "./resources/js/utils/input.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -65613,6 +65611,11 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -65620,16 +65623,40 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var options = [{
-  value: 'chocolate',
-  label: 'Chocolate'
-}, {
-  value: 'strawberry',
-  label: 'Strawberry'
-}, {
-  value: 'vanilla',
-  label: 'Vanilla'
-}];
+
+
+
+
+var fromOptions = ["Родители", "Мама", "Папа", "Бабушка", "Дедушка", "Бабушка и дедушка", "Сестра", "Брат", "Тётя", "Дядя", "Дядя и тётя", "Учитель", "Родственники", "Друзья", "Друг", "Крёстные", "Крёстный", "Крёстная", "Воспитатель"].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
+var ageOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
+var achieveGirlsOptions = ["Пошла в детский сад.", "Пошла в первый класс.", "Научилась считать.", "Прочитала первую книгу.", "Прочитала много книг.", "Научилась кататься на велосипеде.", "Научилась кататься на коньках.", "Научилась кататься на лыжах.", "Научилась кататься на роликах.", "Участвовала в спортивных соревнованиях.", "Выиграла в спортивных соревнованиях.", "Выучила таблицу умножения.", "Выучила первое стихотворение.", "Замечательно закончила четверть.", "Начала играть на музыкальном инструменте.", "Научилась плавать.", "Начала заниматься в спортивной секции.", "Начала заниматься танцами.", "Появился домашний питомец.", "Научилась готовить.", "Начала заниматься пением.", "Выиграла школьную олимпиаду.", "Участвовала в школьной олимпиаде.", "Начала заниматься в театральном кружке."].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
+var achieveBoysOptions = ["Пошёл в детский сад.", "Пошёл в первый класс.", "Научился считать.", "Прочитал первую книгу.", "Прочитал много книг.", "Научился кататься на велосипеде.", "Научился кататься на коньках.", "Научился кататься на лыжах.", "Научился кататься на роликах.", "Участвовал в спортивных соревнованиях.", "Выиграл в спортивных соревнованиях.", "Выучил таблицу умножения", "Выучил первое стихотворение.", "Замечательно закончил четверть.", "Начал играть на музыкальном инструменте.", "Научился плавать.", "Начал заниматься в спортивной секции.", "Начал заниматься танцами! ", "Появился домашний питомец! ", "Научился готовить.", "Начал заниматься пением.", "Выиграл школьную олимпиаду.", "Участвовал в школьной олимпиаде.", "Начал заниматься в театральном кружке"].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
+var hobbyOptions = ["Любишь играть в футбол!", "Любишь играть в баскетбол!", "Любишь играть в волейбол.", "Любишь играть в хоккей.", "Любишь играть в теннис.", "Любишь играть в шашки.", "Любишь играть в шахматы.", "Любишь играть в настольные игры.", "Любишь играть на музыкальных инструментах.", "Любишь кататься на коньках.", "Любишь кататься на самокате.", "Любишь кататься на скейтборде!", "Любишь кататься на роликах.", "Любишь кататься на велосипеде!", "Любишь кататься на лыжах!", "Любишь танцевать!", "Любишь рисовать.", "Любишь петь.", "Любишь читать.", "Любишь собирать пазлы.", "Любишь плавать.", "Любишь слушать сказки.", "Любишь смотреть мультфильмы.", "Любишь слушать музыку!"].map(function (item, index) {
+  return {
+    value: item,
+    label: item
+  };
+});
 var gifts = [{
   img: '/img/gifts/1.png',
   title: 'Chocolate'
@@ -65658,7 +65685,7 @@ var gifts = [{
   img: '/img/gifts/9.png',
   title: 'Chocolate'
 }];
-react_modal__WEBPACK_IMPORTED_MODULE_5___default.a.setAppElement('#appNhy');
+react_modal__WEBPACK_IMPORTED_MODULE_7___default.a.setAppElement('#appNhy');
 var customModalStyles = {
   content: {
     borderWidth: "0",
@@ -65689,14 +65716,6 @@ var customModalStyles = {
 function Form(props) {
   var customStyles = props.customStyles;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    checked: false,
-    isOpen: false
-  }),
-      _useState2 = _slicedToArray(_useState, 2),
-      state = _useState2[0],
-      setState = _useState2[1];
-
   function closeModal() {
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
@@ -65713,83 +65732,113 @@ function Form(props) {
     });
   }
 
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+  };
+
+  var onBoysChange = function onBoysChange(e) {
+    console.log(e);
+    setState(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        girlsValue: null,
+        boysValue: e,
+        achieveValue: null,
+        achieveOptions: achieveBoysOptions
+      });
+    });
+  };
+
+  var onGirlsChange = function onGirlsChange(e) {
+    console.log(e);
+    setState(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        boysValue: null,
+        girlsValue: e,
+        achieveValue: null,
+        achieveOptions: achieveGirlsOptions
+      });
+    });
+  };
+
+  var emailChange = function emailChange(e) {
+    var eventTarget = e.target;
+    setState(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        emailValue: eventTarget.value
+      });
+    });
+  };
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    boysValue: null,
+    girlsValue: null,
+    achieveValue: null,
+    emailValue: '',
+    achieveOptions: [],
+    checked: false,
+    isOpen: false
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      state = _useState2[0],
+      setState = _useState2[1];
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-hny"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     ref: props.formEl
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h1"
-  }, "\u0417\u0410\u041F\u041E\u041B\u041D\u0418\u0422\u0415 \u0417\u0410\u042F\u0412\u041A\u0423"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0420\u0430\u0441\u0441\u043A\u0430\u0436\u0438\u0442\u0435 \u043E \u0433\u043B\u0430\u0432\u043D\u044B\u0445 \u0434\u043E\u0441\u0442\u0438\u0436\u0435\u043D\u0438\u044F\u0445 \u0440\u0435\u0431\u0451\u043D\u043A\u0430 \u0432 \u044D\u0442\u043E\u043C \u0433\u043E\u0434\u0443, \u0435\u0433\u043E \u0445\u043E\u0431\u0431\u0438 \u0438 \u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u043E\u0434\u0430\u0440\u043E\u043A, \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u043F\u043E\u0434\u0430\u0440\u0438\u0442 \u0414\u0435\u0434 \u041C\u043E\u0440\u043E\u0437"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex"
+  }, "\u0417\u0410\u041F\u041E\u041B\u041D\u0418\u0422\u0415 \u0417\u0410\u042F\u0412\u041A\u0423"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0420\u0430\u0441\u0441\u043A\u0430\u0436\u0438\u0442\u0435 \u043E \u0433\u043B\u0430\u0432\u043D\u044B\u0445 \u0434\u043E\u0441\u0442\u0438\u0436\u0435\u043D\u0438\u044F\u0445 \u0440\u0435\u0431\u0451\u043D\u043A\u0430 \u0432 \u044D\u0442\u043E\u043C \u0433\u043E\u0434\u0443, \u0435\u0433\u043E \u0445\u043E\u0431\u0431\u0438 \u0438 \u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u043E\u0434\u0430\u0440\u043E\u043A, \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u043F\u043E\u0434\u0430\u0440\u0438\u0442 \u0414\u0435\u0434 \u041C\u043E\u0440\u043E\u0437"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    className: "order-form-flex",
+    onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "order-form"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex space-between"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: {
-      width: "48%"
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    text: "\u041C\u0430\u043B\u044C\u0447\u0438\u043A",
-    style: {
-      display: "block",
-      width: "100%",
-      background: "#FFFFFF",
-      border: "3px solid #07A1F3",
-      color: "#07A1F3"
-    },
-    onClick: function onClick() {
-      alert(1);
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: {
-      width: "48%"
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    text: "\u0414\u0435\u0432\u043E\u0447\u043A\u0430",
-    style: {
-      display: "block",
-      width: "100%",
-      background: "#FFFFFF",
-      border: "3px solid #f3410e",
-      color: "#f3410e"
-    },
-    onClick: function onClick() {
-      alert(2);
-    }
+    className: "form-flex"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_boy_select__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    onChange: onBoysChange,
+    value: state.boysValue
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_girl_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    onChange: onGirlsChange,
+    value: state.girlsValue
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    options: options,
+    options: ageOptions,
     placeholder: "\u0412\u043E\u0437\u0440\u0430\u0441\u0442"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    options: options,
+    options: state.achieveOptions,
+    onChange: function onChange(e) {
+      return setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          achieveValue: e
+        });
+      });
+    },
+    value: state.achieveValue,
     placeholder: "\u0414\u043E\u0441\u0442\u0438\u0436\u0435\u043D\u0438\u0435"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    options: options,
+    options: hobbyOptions,
     placeholder: "\u0425\u043E\u0431\u0431\u0438"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    options: options,
-    placeholder: "\u041E\u0442 \u043A\u043E\u0433\u043E?"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    options: options
+    options: fromOptions,
+    placeholder: "\u041E\u0442 \u043A\u043E\u0433\u043E?",
+    required: true
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "email",
+    placeholder: "E-mail",
+    onChange: emailChange,
+    value: state.emailValue,
+    required: true
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex space-between"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: {
-      width: "48%"
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_upload__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: {
-      width: "48%"
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: "form-flex"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_upload__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_5__["default"], {
     text: "\u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C \u0417\u0410\u042F\u0412\u041A\u0423",
     style: {
       display: "block",
       width: "100%"
     },
-    onClick: openModal
+    type: "submit"
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "gift-select pt-5"
+    className: "gift-select pt-5 visible-sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h3 text-center mb-1"
   }, "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u041F\u041E\u0414\u0410\u0420\u041E\u041A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -65808,7 +65857,7 @@ function Form(props) {
     }));
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "checkbox-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_checkbox__WEBPACK_IMPORTED_MODULE_2__["default"], null, "C\u043E\u0433\u043B\u0430\u0441\u0435\u043D(-\u043D\u0430) \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 ", state.checked)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_5___default.a, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_checkbox__WEBPACK_IMPORTED_MODULE_4__["default"], null, "C\u043E\u0433\u043B\u0430\u0441\u0435\u043D(-\u043D\u0430) \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 ", state.checked)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_7___default.a, {
     isOpen: state.isOpen // onAfterOpen={afterOpenModal}
     ,
     onRequestClose: closeModal,
@@ -65818,7 +65867,7 @@ function Form(props) {
     style: {
       cursor: "pointer"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["Close"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_8__["Close"], {
     style: {
       height: "52px",
       position: "absolute",
@@ -65832,7 +65881,7 @@ function Form(props) {
     style: {
       marginRight: "12px"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["Instagram"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_8__["Instagram"], {
     style: {
       height: "28px",
       fill: "#ffffff"
@@ -65842,7 +65891,7 @@ function Form(props) {
     style: {
       marginRight: "12px"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["Ok"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_8__["Ok"], {
     style: {
       height: "28px",
       fill: "#ffffff"
@@ -65852,7 +65901,7 @@ function Form(props) {
     style: {
       marginRight: "12px"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["Vk"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_8__["Vk"], {
     style: {
       height: "28px",
       fill: "#ffffff"
@@ -66292,21 +66341,175 @@ function Promo(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "promo-hny"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "h1"
+    className: "h1 visible-sm"
   }, "\u0432\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "h1"
+    className: "h1 visible-sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0441"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "/img/promo-logo.png",
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "h1 h1-plus"
-  }, "\u0414\u0435\u0434\u043E\u043C \u041C\u043E\u0440\u043E\u0437\u043E\u043C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u0435 \u0440\u0435\u0431\u0451\u043D\u043A\u0443 \u0432\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u0432\u0438\u0434\u0435\u043E\u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0441\xA0\u0414\u0435\u0434\u0443\u0448\u043A\u043E\u0439 \u041C\u043E\u0440\u043E\u0437\u043E\u043C!!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: "h1 h1-plus visible-sm"
+  }, "\u0414\u0435\u0434\u043E\u043C \u041C\u043E\u0440\u043E\u0437\u043E\u043C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "h1 hidden-sm"
+  }, "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u0441 Kinder \u0414\u0435\u0434\u043E\u043C \u041C\u043E\u0440\u043E\u0437\u043E\u043C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u0435 \u0440\u0435\u0431\u0451\u043D\u043A\u0443 \u0432\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u0432\u0438\u0434\u0435\u043E\u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0441\xA0\u0414\u0435\u0434\u0443\u0448\u043A\u043E\u0439 \u041C\u043E\u0440\u043E\u0437\u043E\u043C!!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     text: "\u041F\u041E\u0414\u0410\u0420\u0418\u0422\u042C \u041F\u0420\u0418\u041A\u041B\u042E\u0427\u0415\u041D\u0418\u0415",
     onClick: toForm
   }));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Promo);
+
+/***/ }),
+
+/***/ "./resources/js/utils/boy-select.js":
+/*!******************************************!*\
+  !*** ./resources/js/utils/boy-select.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.browser.esm.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+ // clearIndicator
+// group
+// groupHeading
+// loadingIndicator
+// loadingMessage
+// menu
+// menuList
+// menuPortal
+// multiValue
+// multiValueLabel
+// multiValueRemove
+// noOptionsMessage
+
+var colors = {
+  blue: "#0782F3",
+  red: "#E54C2E",
+  white: "#ffffff"
+};
+var names = ["Адам", "Адиль", "Азамат", "Азатик", "Айдарка", "Али", "Алим", "Альберт", "Аман", "Амин", "Амир", "Андрюша", "Анзор", "Антоша", "Арам", "Аркаша", "Армен", "Арсен", "Артур", "Аслан", "Астемыр", "Афоня", "Ахмат", "Ахмед", "Ашот", "Бахтияр", "Богдаша", "Боречка", "Булат", "Вадимка", "Валерочка", "Валечка", "Ванечка", "Васечка", "Вильдан", "Виталик", "Витечка", "Владик", "Вовочка", "Гаврюша", "Гарри", "Гамлет", "Гаяз", "Геночка", "Герман", "Глебушка", "Гордеюшка", "Гошенька", "Гришенька", "Давид", "Дамир", "Данечка", "Данияр", "Дарим", "Даян", "Демид", "Дениска", "Джамиль", "Димочка", "Добрыня", "Дорджи", "Дорофеюшка", "Евсеюшка", "Егорка", "Елисеюшка", "Ёся", "Ефимка", "Ждан", "Женечка", "Захарчик", "Ибрагим", "Игорь", "Ильдан", "Ильдарушка", "Ильнур", "Ильхам", "Илюшка", "Имран", "Иналь", "Ислам", "Камиль", "Кантемир", "Карим", "Кеша", "Кирюша", "Климушка", "Коленька", "Костенька", "Кузя", "Левушка", "Лёня", "Лешенька", "Магомед", "Максимка", "Маратик", "Марк", "Матвей", "Мирон", "Мишенька", "Муслим", "Назарчик", "Наиль", "Никитка", "Олежка", "Пашенька", "Петечка", "Платоша", "Потап", "Прохор", "Радик", "Рамиль", "Рашитик", "Ренатик", "Риналь", "Роберт", "Родион", "Ромочка", "Руслан", "Рустамчик", "Рустэмчик", "Сава", "Самвел", "Санечка", "Святослав", "Сева", "Сема", "Сеня", "Сереженька", "Славик", "Стасик", "Степочка", "Султанчик", "Тарасик", "Тарлан", "Тема", "Тигран", "Тима", "Тимур", "Толечка", "Трофимушка", "Фарид", "Федечка", "Филя", "Хабиб", "Харитоша", "Шамиль", "Эдгарс", "Эдик", "Эльдар", "Эрнест", "Юлик", "Юрочка", "Явдат", "Ян", "Ярик", "Яша", "Внучок", "Дружок"];
+
+var options = function options() {
+  return names.map(function (item, index) {
+    return {
+      value: item,
+      label: item
+    };
+  });
+};
+
+var customStyles = {
+  option: function option(provided, state) {
+    return _objectSpread({
+      backgroundColor: "#f3410e",
+      color: colors.blue
+    }, provided);
+  },
+  valueContainer: function valueContainer(provided, state) {
+    return _objectSpread({}, provided);
+  },
+  menu: function menu(provided, state) {
+    return _objectSpread(_objectSpread({
+      color: "#424242",
+      overflow: "hidden"
+    }, provided), {}, {
+      color: colors.blue
+    });
+  },
+  menuList: function menuList(provided, state) {
+    return _objectSpread({}, provided);
+  },
+  menuPortal: function menuPortal(provided, state) {
+    return _objectSpread({}, provided);
+  },
+  singleValue: function singleValue(provided, state) {
+    var color = colors.blue;
+    var padding = "0";
+    var opacity = state.isDisabled ? 0.5 : 1;
+    var transition = 'opacity 300ms';
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      opacity: opacity,
+      transition: transition,
+      color: color,
+      padding: padding
+    });
+  },
+  input: function input(provided, state) {
+    return _objectSpread({
+      color: colors.blue
+    }, provided);
+  },
+  control: function control(provided, state) {
+    var rest = {
+      borderRadius: "30px",
+      borderWidth: "3px",
+      backgroundColor: colors.white,
+      cursor: 'pointer',
+      boxShadow: null,
+      lineHeight: "32px",
+      padding: "5px 22px",
+      borderColor: window.innerWidth >= 768 ? colors.blue : colors.blue,
+      color: colors.blue,
+      '&:hover': {
+        borderColor: window.innerWidth >= 768 ? colors.blue : colors.blue
+      }
+    };
+    return _objectSpread(_objectSpread({}, provided), rest);
+  },
+  dropdownIndicator: function dropdownIndicator(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      color: colors.blue,
+      '&:hover': {
+        color: colors.blue
+      }
+    });
+  },
+  placeholder: function placeholder(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      color: colors.blue
+    });
+  },
+  indicatorSeparator: function indicatorSeparator(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      color: colors.blue,
+      width: 0
+    });
+  },
+  indicatorsContainer: function indicatorsContainer(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      color: colors.blue
+    });
+  }
+};
+
+function Select(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({
+    options: options(),
+    placeholder: "\u041C\u0430\u043B\u044C\u0447\u0438\u043A",
+    theme: function theme(_theme) {
+      return _objectSpread(_objectSpread({}, _theme), {}, {
+        borderRadius: 30,
+        color: colors.blue
+      });
+    },
+    styles: customStyles
+  }, props));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Select);
 
 /***/ }),
 
@@ -66336,7 +66539,7 @@ function Button(props) {
 
   var styles = _objectSpread({}, style);
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({}, props, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", _extends({}, props, {
     style: styles,
     className: 'nhy-btn'
   }), props.text);
@@ -66621,6 +66824,152 @@ function Counter() {
 
 /***/ }),
 
+/***/ "./resources/js/utils/girl-select.js":
+/*!*******************************************!*\
+  !*** ./resources/js/utils/girl-select.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.browser.esm.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+ // clearIndicator
+// group
+// groupHeading
+// loadingIndicator
+// loadingMessage
+// menu
+// menuList
+// menuPortal
+// multiValue
+// multiValueLabel
+// multiValueRemove
+// noOptionsMessage
+
+var colors = {
+  blue: "#0782F3",
+  red: "#E54C2E",
+  white: "#ffffff"
+};
+var names = ["Аврора", "Агата", "Аглая", "Аделина", "Адель", "Адиля", "Азалия", "Аидочка", "Аиша", "Айгуль", "Айша", "Аленочка", "Алечка", "Алима", "Алиночка", "Алисочка", "Алиюшечка", "Алия", "Аллочка", "Алсу", "Альбиночка", "Альфиюша", "Амелия", "Амина", "Амира", "Анаит", "Анжелика", "Анжелочка", "Анечка", "Ани", "Аниса", "Анфисочка", "Ариана", "Ариша", "Асма", "Ася", "Ая", "Белла", "Валенька", "Валида", "Варечка", "Василиса", "Васима", "Венера", "Вероника", "Верочка", "Викуля", "Виолетта", "Виточка", "Галенька", "Гаяне", "Гретта", "Гузель", "Гульнара", "Гуля", "Дамира", "Даниэла", "Даночка", "Дарина", "Дария", "Дашенька", "Дианочка", "Диля", "Диляра", "Динара", "Диночка", "Евдокия", "Евочка", "Есения", "Жанночка", "Женечка", "Заира", "Закия", "Залина", "Зара", "Зиля", "Зиночка", "Златочка", "Зоечка", "Зуличка", "Зухра", "Ильнура", "Инга", "Инесса", "Инночка", "Ирада", "Иришка", "Ия", "Камила", "Карима", "Кариночка", "Каролина", "Катенька", "Кира", "Кирочка", "Клава", "Кларочка", "Кристиночка", "Ксюшенька", "Лада", "Ладочка", "Ланочка", "Ларисочка", "Лейла", "Леночка", "Лерочка", "Лесечка", "Лианочка", "Лидочка", "Лиза", "Лика", "Лилечка", "Линочка", "Луиза", "Любочка", "Людочка", "Ляйсан", "Мадина", "Маечка", "Малика", "Марго", "Мариночка", "Марточка", "Марфуша", "Марьям", "Марьяна", "Машенька", "Мелисса", "Милана", "Милена", "Милочка", "Мирослава", "Мирочка", "Наденька", "Надира", "Наиля", "Нарима", "Настенька", "Наташенька", "Нелечка", "Нигара", "Никуля", "Ниночка", "Нонна", "Нурия", "Оксаночка", "Олеся", "Олечка", "Оливия", "Офелия", "Пелагея", "Поля", "Рада", "Радима", "Раечка", "Ралина", "Рашида", "Региночка", "Ренаточка", "Риммочка", "Риточка", "Розочка", "Руслана", "Рушаночка", "Сабина", "Сабиночка", "Садия", "Саида", "Салия", "Самира", "Сарра", "Сашенька", "Света", "Серафима", "Славочка", "Славочка", "Снежаночка", "Сонечка", "Софочка", "Станислава", "Стефания", "Сюзанночка", "Талия", "Танюша", "Тася", "Тая", "Тома", "Тонечка", "Улечка", "Фаиля", "Фаина", "Фатима", "Чулпан", "Шакира", "Шамиля", "Шурочка", "Эвелиночка", "Элечка", "Элиночка", "Эльзочка", "Эммочка", "Юленька", "Яночка", "Ярослава", "Ясмина", "Яся", "Внученька"];
+
+var options = function options() {
+  return names.map(function (item, index) {
+    return {
+      value: item,
+      label: item
+    };
+  });
+};
+
+var customStyles = {
+  option: function option(provided, state) {
+    return _objectSpread({
+      backgroundColor: "#f3410e",
+      color: colors.red
+    }, provided);
+  },
+  valueContainer: function valueContainer(provided, state) {
+    return _objectSpread({}, provided);
+  },
+  menu: function menu(provided, state) {
+    return _objectSpread(_defineProperty({
+      color: "#424242",
+      overflow: "hidden"
+    }, "color", colors.red), provided);
+  },
+  menuList: function menuList(provided, state) {
+    return _objectSpread({}, provided);
+  },
+  menuPortal: function menuPortal(provided, state) {
+    return _objectSpread({}, provided);
+  },
+  singleValue: function singleValue(provided, state) {
+    var color = colors.red;
+    var padding = "0";
+    var opacity = state.isDisabled ? 0.5 : 1;
+    var transition = 'opacity 300ms';
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      opacity: opacity,
+      transition: transition,
+      color: color,
+      padding: padding
+    });
+  },
+  input: function input(provided, state) {
+    return _objectSpread({
+      color: colors.red
+    }, provided);
+  },
+  control: function control(provided, state) {
+    var rest = {
+      borderRadius: "30px",
+      borderWidth: "3px",
+      backgroundColor: colors.white,
+      cursor: 'pointer',
+      boxShadow: null,
+      lineHeight: "32px",
+      padding: "5px 22px",
+      borderColor: window.innerWidth >= 768 ? colors.red : colors.blue,
+      color: colors.red,
+      '&:hover': {
+        borderColor: window.innerWidth >= 768 ? colors.red : colors.blue
+      }
+    };
+    return _objectSpread(_objectSpread({}, provided), rest);
+  },
+  dropdownIndicator: function dropdownIndicator(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      color: colors.red,
+      '&:hover': {
+        color: colors.red
+      }
+    });
+  },
+  placeholder: function placeholder(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      color: colors.red
+    });
+  },
+  indicatorSeparator: function indicatorSeparator(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      width: 0
+    });
+  },
+  indicatorsContainer: function indicatorsContainer(provided, state) {
+    return _objectSpread({}, provided);
+  }
+};
+
+function Select(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({
+    options: options(),
+    placeholder: "\u0414\u0435\u0432\u043E\u0447\u043A\u0430",
+    theme: function theme(_theme) {
+      return _objectSpread(_objectSpread({}, _theme), {}, {
+        borderRadius: 30
+      });
+    },
+    styles: customStyles
+  }, props));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Select);
+
+/***/ }),
+
 /***/ "./resources/js/utils/icons.js":
 /*!*************************************!*\
   !*** ./resources/js/utils/icons.js ***!
@@ -66794,6 +67143,114 @@ function ArrowDown(props) {
 
 /***/ }),
 
+/***/ "./resources/js/utils/input.js":
+/*!*************************************!*\
+  !*** ./resources/js/utils/input.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var customStyles = {
+  option: function option(provided, state) {
+    return _objectSpread({
+      backgroundColor: "#f3410e",
+      color: "#ffffff"
+    }, provided);
+  },
+  valueContainer: function valueContainer(provided, state) {
+    return _objectSpread({}, provided);
+  },
+  menu: function menu(provided, state) {
+    return _objectSpread({
+      color: "#424242"
+    }, provided);
+  },
+  menuList: function menuList(provided, state) {
+    return _objectSpread({}, provided);
+  },
+  menuPortal: function menuPortal(provided, state) {
+    return _objectSpread({}, provided);
+  },
+  singleValue: function singleValue(provided, state) {
+    var color = "#ffffff";
+    var padding = "0";
+    var opacity = state.isDisabled ? 0.5 : 1;
+    var transition = 'opacity 300ms';
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      opacity: opacity,
+      transition: transition,
+      color: color,
+      padding: padding
+    });
+  },
+  input: function input(provided, state) {
+    return _objectSpread({
+      color: "#ffffff"
+    }, provided);
+  },
+  control: function control(provided, state) {
+    var rest = {
+      borderRadius: "100px",
+      borderWidth: "3px",
+      backgroundColor: "#f3410e",
+      cursor: 'pointer',
+      boxShadow: null,
+      lineHeight: "32px",
+      padding: "5px 22px",
+      borderColor: "#ffffff",
+      color: "#ffffff",
+      '&:hover': {
+        borderColor: "#dedede"
+      }
+    };
+    return _objectSpread(_objectSpread({}, provided), rest);
+  },
+  dropdownIndicator: function dropdownIndicator(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      color: "#ffffff",
+      '&:hover': {
+        color: "#ffffff"
+      }
+    });
+  },
+  placeholder: function placeholder(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      color: "#ffffff"
+    });
+  },
+  indicatorSeparator: function indicatorSeparator(provided, state) {
+    return _objectSpread(_objectSpread({}, provided), {}, {
+      width: 0
+    });
+  },
+  indicatorsContainer: function indicatorsContainer(provided, state) {
+    return _objectSpread({}, provided);
+  }
+};
+
+function Input(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
+    styles: customStyles
+  }, props));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Input);
+
+/***/ }),
+
 /***/ "./resources/js/utils/scroll-to-ref.js":
 /*!*********************************************!*\
   !*** ./resources/js/utils/scroll-to-ref.js ***!
@@ -66891,7 +67348,8 @@ var customStyles = {
   },
   menu: function menu(provided, state) {
     return _objectSpread({
-      color: "#424242"
+      color: "#424242",
+      overflow: "hidden"
     }, provided);
   },
   menuList: function menuList(provided, state) {
@@ -66959,6 +67417,11 @@ var customStyles = {
 
 function Select(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({
+    theme: function theme(_theme) {
+      return _objectSpread(_objectSpread({}, _theme), {}, {
+        borderRadius: 30
+      });
+    },
     styles: customStyles
   }, props));
 }
