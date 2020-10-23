@@ -101,11 +101,11 @@ function Form(props) {
         formData.append("age", state.ageValue.value);
         formData.append("gift", state.giftValue.id);
 
-        axios.post("/upload", formData, {
+        axios.post("/patch", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             }
-        }).then(() => alert(1)).catch(() => null);
+        }).then(() => openModal()).catch(() => null);
         
     }
 

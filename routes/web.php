@@ -12,7 +12,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('app');
-});
+Route::get('/', '\App\Http\Controllers\SiteController@index');
+Route::post('/patch', '\App\Http\Controllers\SiteController@patch');

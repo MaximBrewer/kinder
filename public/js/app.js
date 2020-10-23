@@ -65883,12 +65883,12 @@ function Form(props) {
     formData.append("hobby", state.hobbyValue.value);
     formData.append("age", state.ageValue.value);
     formData.append("gift", state.giftValue.id);
-    axios__WEBPACK_IMPORTED_MODULE_16___default.a.post("/upload", formData, {
+    axios__WEBPACK_IMPORTED_MODULE_16___default.a.post("/patch", formData, {
       headers: {
         "Content-Type": "multipart/form-data"
       }
     }).then(function () {
-      return alert(1);
+      return openModal();
     })["catch"](function () {
       return null;
     });
