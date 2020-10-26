@@ -628,34 +628,6 @@
   margin: 0 auto;
 }
 
-@media (min-width: 375px) {
-  .nhy-app .gift-select {
-    width: 260px;
-  }
-}
-
-@media (min-width: 414px) {
-  .nhy-app .gift-select {
-    width: 304px;
-  }
-}
-
-@media (min-width: 768px) {
-  .nhy-app .gift-select {
-    width: 324px;
-  }
-}
-
-.nhy-app .gift-select.scroll-bar {
-  width: 388px;
-}
-
-@media (min-width: 1024px) {
-  .nhy-app .gift-select.scroll-bar {
-    width: 440px;
-  }
-}
-
 .nhy-app .gift-select .gift {
   width: 102px;
   height: 102px;
@@ -680,9 +652,37 @@
   background-repeat: no-repeat;
 }
 
+@media (min-width: 375px) {
+  .nhy-app .gift-select {
+    width: 260px;
+  }
+}
+
+@media (min-width: 414px) {
+  .nhy-app .gift-select {
+    width: 304px;
+  }
+}
+
+@media (min-width: 768px) {
+  .nhy-app .gift-select {
+    width: 364px;
+  }
+}
+
+.nhy-app .gift-select.scroll-bar {
+  width: 388px;
+}
+
+@media (min-width: 1024px) {
+  .nhy-app .gift-select.scroll-bar {
+    width: 440px;
+  }
+}
+
 @media (min-width: 1024px) {
   .nhy-app .gift-select {
-    width: 448px;
+    width: 498px;
   }
 
   .nhy-app .gift-select .gift {
@@ -1545,6 +1545,7 @@
 
 @media (min-width: 768px) {
   .faq-hny > p {
+    text-align: left;
     text-transform: none;
     font-size: 28px;
   }
@@ -1561,7 +1562,7 @@
   border-width: 3px;
   border-style: solid;
   border-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(0, 0, 0, 0.35);
 }
 
 .faq-hny .faq .faq-item .question {

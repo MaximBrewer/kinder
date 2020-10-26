@@ -27,6 +27,7 @@
         color: #ffffff;
         text-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
         @media (min-width: 768px) {
+            text-align: left;
             text-transform: none;
             font-size: 28px;
         }
@@ -40,7 +41,7 @@
             border-width: 3px;
             border-style: solid;
             border-color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.35);
+            background-color: rgba(0, 0, 0, 0.35);
             .question {
                 margin: -3px;
                 display: flex;

@@ -123,7 +123,7 @@ function Faq() {
     return (
         <div className="faq-hny">
             <div className="h1">Остались вопросы?<br />Спросите Деда Мороза</div>
-            <p>если вы не нашли ответа на свой вопрос, <br />напишите на kinder@newyear.com.</p>
+            <p>Если вы не нашли ответа на свой вопрос, <br />напишите на info@kindernewyear.ru.</p>
             <div className="faq">
                 <Scrollbars style={{ height: 600 }}
                     renderView={renderView}
