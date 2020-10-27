@@ -402,6 +402,15 @@
   opacity: 0.75;
 }
 
+body {
+  margin: 0;
+  min-height: 100%;
+  background-color: #faf5ed;
+  font-family: inherit;
+  font-size: 16px;
+  color: inherit;
+}
+
 .nhy-app {
   background-color: #e54c2e;
   color: #ffffff;
