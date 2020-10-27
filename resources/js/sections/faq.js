@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Counter from '../utils/counter';
 import { ArrowDown } from "../utils/icons"
 import { Scrollbars } from 'react-custom-scrollbars-with-mobile';
+import parse from 'html-react-parser';
 
 function Faq() {
 
@@ -13,7 +14,7 @@ function Faq() {
         },
         {
             question: "Как мне отправить заявку?",
-            answer: "Специально для вас мы создали простую форму на главной странице проекта. Вам нужно всего лишь заполнить все поля и  нажать на кнопку «отправить заявку». И не забудьте выбрать Kinder подарок",
+            answer: "Специально для вас мы создали простую форму на главной странице проекта. Вам нужно всего лишь заполнить все поля и нажать на кнопку «отправить заявку». И не забудьте выбрать Kinder подарок",
             isOpen: false
         },
         {
@@ -23,7 +24,7 @@ function Faq() {
         },
         {
             question: "Что мне делать, если я не получил свое видео?",
-            answer: " Напишите нам  info@kindernewyear.ru и мы поможем отыскать ваше видеопоздравление",
+            answer: "Напишите нам <a href=\"mailto:info@kindernewyear.ru\">info@kindernewyear.ru</a> и мы поможем отыскать ваше видеопоздравление",
             isOpen: false
         },
         {
@@ -123,7 +124,7 @@ function Faq() {
     return (
         <div className="faq-hny">
             <div className="h1">Остались вопросы?<br />Спросите Деда Мороза</div>
-            <p>Если вы не нашли ответа на свой вопрос, <br />напишите на info@kindernewyear.ru.</p>
+            <p>Если вы не нашли ответа на свой вопрос, <br />напишите на <a href="mailto:info@kindernewyear.ru">info@kindernewyear.ru</a>.</p>
             <div className="faq">
                 <Scrollbars style={{ height: 600 }}
                     renderView={renderView}
@@ -137,7 +138,7 @@ function Faq() {
                         {questions.map((item, index) => (
                             <div key={index} className="faq-item">
                                 <div onClick={(e) => openQuestion(index)} className="question">{item.question} <ArrowDown style={{ fill: "#ffffff", stroke: "#ffffff", width: "17px", height: "11px" }} /></div>
-                                <div className="answer" style={{ maxHeight: item.isOpen ? "100%" : "0" }}><div>{item.answer}</div></div>
+                                <div className="answer" style={{ maxHeight: item.isOpen ? "100%" : "0" }}><div>{parse(item.answer)}</div></div>
                             </div>
                         ))}
                     </div>

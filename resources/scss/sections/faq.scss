@@ -26,6 +26,9 @@
         text-align: center;
         color: #ffffff;
         text-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
+        a{
+            color:#ffffff;
+        }
         @media (min-width: 768px) {
             text-align: left;
             text-transform: none;
@@ -66,6 +69,9 @@
                 overflow: hidden;
                 max-height: 0;
                 font-size: 13px;
+                a{
+                    color:#ffffff;
+                }
                 @media (min-width: 768px) {
                     font-size: 20px;
                 }
