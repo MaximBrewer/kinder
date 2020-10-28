@@ -67245,154 +67245,510 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "gifts", function() { return gifts; });
 var gifts = [{
   id: 1,
-  img: '/img/gifts/1.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }, {
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }, {
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/календарь/календарь.png',
+  title: 'Набор кондитерских изделий Kinder® Maxi Mix «Новогодний календарь», 237&nbsp;г',
+  description: 'Новый год — волшебный праздник, который все ждут с нетерпением. Сделайте ожидание ещё более радостным и запоминающимся вместе с новогодним календарём Kinder®!<br/>В новогоднем календаре Kinder® 31 окошко (по одному на каждый день декабря). Открывайте по одному каждый день, находите спрятанные подарки Kinder® и выполняйте увлекательные задания.<br/>Новогодний календарь Kinder® поможет создать радостные моменты для ребёнка каждый день, пока он ждёт наступление Нового Года!<br/><br/>В наборе:<ul><li>фигурный молочный шоколад Kinder® — 5 шт.;</li><li>шоколад молочный Kinder® Chocolate Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate Happy — 6 шт.;</li><li>вафли Kinder Bueno Mini — 6 шт.</li><ul>',
+  toys: []
 }, {
   id: 2,
-  img: '/img/gifts/2.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/календарь/календарь2.png',
+  title: 'Набор кондитерских изделий Kinder® Maxi Mix «Новогодний календарь», 237&nbsp;г',
+  description: 'Новый год — волшебный праздник, который все ждут с нетерпением. Сделайте ожидание ещё более радостным и запоминающимся вместе с новогодним календарём Kinder®!<br/>В новогоднем календаре Kinder® 31 окошко (по одному на каждый день декабря). Открывайте по одному каждый день, находите спрятанные подарки Kinder® и выполняйте увлекательные задания.<br/>Новогодний календарь Kinder® поможет создать радостные моменты для ребёнка каждый день, пока он ждёт наступление Нового Года!<br/><br/>В наборе:<ul><li>фигурный молочный шоколад Kinder® — 5 шт.;</li><li>шоколад молочный Kinder® Chocolate Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate Happy — 6 шт.;</li><li>вафли Kinder Bueno Mini — 6 шт.</li><ul>',
+  toys: []
 }, {
   id: 3,
-  img: '/img/gifts/3.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/игрушка/1.png',
+  title: 'Набор кондитерский изделий Kinder® Mix с подарком, 137,5&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® и плюшевой игрушкой — прекрасный подарок для ребёнка!<br/><br/>В наборе:<ul><li>вафли Kinder Bueno —  1 шт.; </li><li>шоколад молочный Kinder® Chocolate (50 г) — 1 шт.;</li><li>шоколад молочный Kinder® Maxi — 1 шт.; </li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт;</li><li>плюшевая игрушка.</li></ul>',
+  toys: []
 }, {
   id: 4,
-  img: '/img/gifts/4.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/игрушка/2.png',
+  title: 'Набор кондитерский изделий Kinder® Mix с подарком, 137,5&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® и плюшевой игрушкой — прекрасный подарок для ребёнка!<br/><br/>В наборе:<ul><li>вафли Kinder Bueno —  1 шт.; </li><li>шоколад молочный Kinder® Chocolate (50 г) — 1 шт.;</li><li>шоколад молочный Kinder® Maxi — 1 шт.; </li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт;</li><li>плюшевая игрушка.</li></ul>',
+  toys: []
 }, {
   id: 5,
-  img: '/img/gifts/5.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/игрушка/3.png',
+  title: 'Набор кондитерский изделий Kinder® Mix с подарком, 137,5&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® и плюшевой игрушкой — прекрасный подарок для ребёнка!<br/><br/>В наборе:<ul><li>вафли Kinder Bueno —  1 шт.; </li><li>шоколад молочный Kinder® Chocolate (50 г) — 1 шт.;</li><li>шоколад молочный Kinder® Maxi — 1 шт.; </li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт;</li><li>плюшевая игрушка.</li></ul>',
+  toys: []
 }, {
   id: 6,
-  img: '/img/gifts/6.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/игрушка/4.png',
+  title: 'Набор кондитерский изделий Kinder® Mix с подарком, 137,5&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® и плюшевой игрушкой — прекрасный подарок для ребёнка!<br/><br/>В наборе:<ul><li>вафли Kinder Bueno —  1 шт.; </li><li>шоколад молочный Kinder® Chocolate (50 г) — 1 шт.;</li><li>шоколад молочный Kinder® Maxi — 1 шт.; </li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт;</li><li>плюшевая игрушка.</li></ul>',
+  toys: []
 }, {
   id: 7,
-  img: '/img/gifts/7.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/игрушка/5.png',
+  title: 'Набор кондитерский изделий Kinder® Mix с подарком, 137,5&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® и плюшевой игрушкой — прекрасный подарок для ребёнка!<br/><br/>В наборе:<ul><li>вафли Kinder Bueno —  1 шт.; </li><li>шоколад молочный Kinder® Chocolate (50 г) — 1 шт.;</li><li>шоколад молочный Kinder® Maxi — 1 шт.; </li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт;</li><li>плюшевая игрушка.</li></ul>',
+  toys: []
 }, {
   id: 8,
-  img: '/img/gifts/8.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/рожкиоленя/1.png',
+  title: 'Набор кондитерский изделий Kinder® Mix «Рожки оленя», 167&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® и игрушкой — прекрасный подарок для ребёнка!<br/>Перевоплотиться в симпатичного новогоднего оленёнка? Это то, что нужно, для праздничного настроения!<br/><br/>В наборе:<ul><li>шоколад молочный Kinder® Chocolate Mini — 10 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками Mini — 10 шт.;</li><li>вафли Kinder Bueno Mini — 10 шт.;</li><li>плюшевая игрушка.</li><ul>',
+  toys: []
 }, {
   id: 9,
-  img: '/img/gifts/9.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/рожкиоленя/2.png',
+  title: 'Набор кондитерский изделий Kinder® Mix «Рожки оленя», 167&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® и игрушкой — прекрасный подарок для ребёнка!<br/>Перевоплотиться в симпатичного новогоднего оленёнка? Это то, что нужно, для праздничного настроения!<br/><br/>В наборе:<ul><li>шоколад молочный Kinder® Chocolate Mini — 10 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками Mini — 10 шт.;</li><li>вафли Kinder Bueno Mini — 10 шт.;</li><li>плюшевая игрушка.</li><ul>',
+  toys: []
 }, {
   id: 10,
-  img: '/img/gifts/1.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/kinder_mix.png',
+  title: 'Набор кондитерский изделий Kinder® Mix «Кормушка для птиц», 99,7&nbsp;г',
+  description: 'Любимые продукты Kinder® в упаковке в виде кормушки для птиц, которую можно повесить на дерево — прекрасный подарок для ребёнка!<br/><br/>В наборе:<ul><li>шоколад молочный Kinder® Maxi —  2 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт.;</li><li>шоколад молочный Kinder® Chocolate Mini — 3 шт.;</li><li>вафли Kinder Bueno Mini — 3 шт.</li><ul>',
+  toys: []
 }, {
   id: 11,
-  img: '/img/gifts/2.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/mix223/1.png',
+  title: 'Набор кондитерский изделий Kinder® Maxi Mix, 223&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка! В этом году в уникальном дизайне с героями любимого мультфильма «Маша и Медведь».<br/><br/>В наборе:<ul><li>яйцо Kinder Сюрприз — 1 шт.;</li><li>вафли Kinder Bueno — 1 шт.;</li><li>шоколад молочный Kinder® Chocolate (50 г) — 1 шт.;</li><li>шоколад молочный Kinder® Maxi — 3 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками — 2 шт.</li><ul>',
+  toys: []
 }, {
   id: 12,
-  img: '/img/gifts/3.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/mix223/2.png',
+  title: 'Набор кондитерский изделий Kinder® Maxi Mix, 223&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка! В этом году в уникальном дизайне с героями любимого мультфильма «Маша и Медведь».<br/><br/>В наборе:<ul><li>яйцо Kinder Сюрприз — 1 шт.;</li><li>вафли Kinder Bueno — 1 шт.;</li><li>шоколад молочный Kinder® Chocolate (50 г) — 1 шт.;</li><li>шоколад молочный Kinder® Maxi — 3 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками — 2 шт.</li><ul>',
+  toys: []
 }, {
   id: 13,
-  img: '/img/gifts/4.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/mix106/1.png',
+  title: 'Набор кондитерский изделий Kinder® Mix, 106,5&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка! В этом году в уникальном дизайне с героями любимого мультфильма «Маша и Медведь».<br/><br/>В наборе:<ul><li>яйцо Kinder Сюрприз — 1 шт.;</li><li>шоколад молочный Kinder® Maxi —  3 шт.; </li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт.</li><ul>',
+  toys: []
 }, {
   id: 14,
-  img: '/img/gifts/5.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Chocolate'
-  }]
+  img: '/img/products/mix106/2.png',
+  title: 'Набор кондитерский изделий Kinder® Mix, 106,5&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка! В этом году в уникальном дизайне с героями любимого мультфильма «Маша и Медведь».<br/><br/>В наборе:<ul><li>яйцо Kinder Сюрприз — 1 шт.;</li><li>шоколад молочный Kinder® Maxi —  3 шт.; </li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт.</li><ul>',
+  toys: []
 }, {
   id: 15,
-  img: '/img/gifts/6.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/mix187.png',
+  title: 'Набор кондитерский изделий Kinder® Mix с новогодней игрой «Рождественская деревня», 187&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка!<br/><br/>А внутри — интересная игра. Соберите волшебную рождественскую деревню. Наслаждайтесь счастливыми моментами веселья и творчества с Kinder®!<br/><br/>В наборе:<ul><li>шоколад молочный Kinder® Chocolate Mini — 11 шт.;</li><li>фигурный молочный шоколад Kinder® — 5 шт.;</li><li>конфеты из молочного шоколада Kinder Schoko-Bons —  46 г.;</li><li>настольно-печатная игра.</li><ul>',
+  toys: []
 }, {
   id: 16,
-  img: '/img/gifts/7.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/фигурка/1.png',
+  title: 'Фигурный молочный шоколад Kinder Сюрприз с игрушкой, 36&nbsp;г',
+  description: 'Фигурный молочный шоколад Kinder Сюрприз в форме новогодних персонажей и с игрушкой создан дарить праздничное настроение!',
+  toys: []
 }, {
   id: 17,
-  img: '/img/gifts/8.png',
-  title: 'Chocolate',
-  toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
-  }]
+  img: '/img/products/фигурка/2.png',
+  title: 'Фигурный молочный шоколад Kinder Сюрприз с игрушкой, 36&nbsp;г',
+  description: 'Фигурный молочный шоколад Kinder Сюрприз в форме новогодних персонажей и с игрушкой создан дарить праздничное настроение!',
+  toys: []
 }, {
   id: 18,
-  img: '/img/gifts/9.png',
-  title: 'Chocolate',
+  img: '/img/products/фигурка/3.png',
+  title: 'Фигурный молочный шоколад Kinder Сюрприз с игрушкой, 36&nbsp;г',
+  description: 'Фигурный молочный шоколад Kinder Сюрприз в форме новогодних персонажей и с игрушкой создан дарить праздничное настроение!',
+  toys: []
+}, {
+  id: 19,
+  img: '/img/products/фигурка/4.png',
+  title: 'Фигурный молочный шоколад Kinder Сюрприз с игрушкой, 36&nbsp;г',
+  description: 'Фигурный молочный шоколад Kinder Сюрприз в форме новогодних персонажей и с игрушкой создан дарить праздничное настроение!',
+  toys: []
+}, {
+  id: 20,
+  img: '/img/products/фигурка/5.png',
+  title: 'Фигурный молочный шоколад Kinder Сюрприз с игрушкой, 36&nbsp;г',
+  description: 'Фигурный молочный шоколад Kinder Сюрприз в форме новогодних персонажей и с игрушкой создан дарить праздничное настроение!',
+  toys: []
+}, {
+  id: 21,
+  img: '/img/products/choc_T4/1.png',
+  title: 'Шоколад молочный Kinder® Chocolate с молочной начинкой, 50&nbsp;г',
+  description: 'Вкусный молочный шоколад Kinder® в новогодней упаковке поможет создать новогоднее настроение!',
+  toys: []
+}, {
+  id: 22,
+  img: '/img/products/choc_T4/2.png',
+  title: 'Шоколад молочный Kinder® Chocolate с молочной начинкой, 50&nbsp;г',
+  description: 'Вкусный молочный шоколад Kinder® в новогодней упаковке поможет создать новогоднее настроение!',
+  toys: []
+}, {
+  id: 23,
+  img: '/img/products/choc_T4/3.png',
+  title: 'Шоколад молочный Kinder® Chocolate с молочной начинкой, 50&nbsp;г',
+  description: 'Вкусный молочный шоколад Kinder® в новогодней упаковке поможет создать новогоднее настроение!',
+  toys: []
+}, {
+  id: 23,
+  img: '/img/products/Choc_T8/1.png',
+  title: 'Шоколад молочный Kinder® Chocolate с молочной начинкой, 100&nbsp;г',
+  description: 'Вкусный молочный шоколад Kinder® в новогодней упаковке поможет создать новогоднее настроение!',
+  toys: []
+}, {
+  id: 24,
+  img: '/img/products/Choc_T8/2.png',
+  title: 'Шоколад молочный Kinder® Chocolate с молочной начинкой, 100&nbsp;г',
+  description: 'Вкусный молочный шоколад Kinder® в новогодней упаковке поможет создать новогоднее настроение!',
+  toys: []
+}, {
+  id: 25,
+  img: '/img/products/Choc_T8/3.png',
+  title: 'Шоколад молочный Kinder® Chocolate с молочной начинкой, 100&nbsp;г',
+  description: 'Вкусный молочный шоколад Kinder® в новогодней упаковке поможет создать новогоднее настроение!',
+  toys: []
+}, {
+  id: 26,
+  img: '/img/products/1.png',
+  title: 'Шоколад молочный Kinder® Chocolate с молочной начинкой, 150&nbsp;г',
+  description: 'Вкусный молочный шоколад Kinder® в новогодней упаковке поможет создать новогоднее настроение!',
+  toys: []
+}, {
+  id: 27,
+  img: '/img/products/star.png',
+  title: 'Набор кондитерский изделий Kinder® Mini Mix, 34&nbsp;г',
+  description: 'Какая новогодняя ёлка без звёздочки? Новогодний набор Kinder® в форме звезды можно использовать как украшение, а внутри ребёнка ждёт любимый молочный шоколад!<br/><br/>В наборе:<ul><li>шоколад молочный Kinder® Chocolate Mini — 3 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками Mini — 1 шт.;</li><li>вафли Kinder Bueno Mini — 1 шт.</li></ul>',
+  toys: []
+}, {
+  id: 28,
+  img: '/img/products/дедмороз/1_55.png',
+  title: 'Фигурный молочный шоколад Kinder® Дед Мороз, 55&nbsp;г',
+  description: 'Любимый молочный шоколад Kinder® в форме Дедушки Мороза!',
+  toys: []
+}, {
+  id: 29,
+  img: '/img/products/дедмороз/1_100.png',
+  title: 'Фигурный молочный шоколад Kinder® Дед Мороз, 110&nbsp;г',
+  description: 'Любимый молочный шоколад Kinder® в форме Дедушки Мороза!',
+  toys: []
+}, {
+  id: 30,
+  img: '/img/products/Happy_moments.png',
+  title: 'Набор кондитерский изделий Kinder® Happy Moments, 242&nbsp;г',
+  description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка!<br/><br/>В наборе:<ul><li>шоколад молочный Kinder® Chocolate Mini — 12 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками Mini — 8 шт.;</li><li>конфеты из молочного шоколада Kinder Schoko-Bons — 9 шт.;</li><li>вафли Kinder Bueno Mini — 7 шт.;</li><li>вафли Kinder Bueno White Mini — 7 шт.</li></ul>',
+  toys: []
+}, {
+  id: 31,
+  img: '/img/products/Мастерская.png',
+  title: 'Шоколад Молочный Kinder® Chocolate с новогодней игрой «Мастерская Деда Мороза», 200&nbsp;г',
+  description: 'Любимый молочный шоколад Kinder® и новогодняя игра — прекрасный подарок для ребёнка! Ведь в мастерской у Дедушки Мороза много интересного.',
+  toys: []
+}, {
+  id: 32,
+  img: '/img/products/киндерджой/1.png',
+  title: 'Кондитерское изделие Kinder Joy с игрушкой, 20&nbsp;г',
+  description: 'Двухслойная паста на основе молока и какао и покрытые какао вафельные шарики с молочным кремом внутри — двойная порция радости! А игрушки из специальной новогодней коллекции подарят ребёнку особенное настроение, чтобы сделать Новый Год ещё более весёлым.',
   toys: [{
-    img: '/img/toys/1.png',
-    title: 'Kinder Сюрприз 220 г для мальчиков. Порадуйте ребёнка любимым Kinder Сюрприз с особой новогодней коллекцией игрушек!'
+    img: '/img/toys/20g/1.png'
+  }, {
+    img: '/img/toys/20g/2.png'
+  }, {
+    img: '/img/toys/20g/3.png'
+  }, {
+    img: '/img/toys/20g/4.png'
+  }, {
+    img: '/img/toys/20g/5.png'
   }]
+}, {
+  id: 33,
+  img: '/img/products/киндерджой/2.png',
+  title: 'Кондитерское изделие Kinder Joy с игрушкой, 20&nbsp;г',
+  description: 'Двухслойная паста на основе молока и какао и покрытые какао вафельные шарики с молочным кремом внутри — двойная порция радости! А игрушки из специальной новогодней коллекции подарят ребёнку особенное настроение, чтобы сделать Новый Год ещё более весёлым.',
+  toys: [{
+    img: '/img/toys/20g/1.png'
+  }, {
+    img: '/img/toys/20g/2.png'
+  }, {
+    img: '/img/toys/20g/3.png'
+  }, {
+    img: '/img/toys/20g/4.png'
+  }, {
+    img: '/img/toys/20g/5.png'
+  }]
+}, {
+  id: 34,
+  img: '/img/products/киндерджой/3.png',
+  title: 'Кондитерское изделие Kinder Joy с игрушкой, 20&nbsp;г',
+  description: 'Двухслойная паста на основе молока и какао и покрытые какао вафельные шарики с молочным кремом внутри — двойная порция радости! А игрушки из специальной новогодней коллекции подарят ребёнку особенное настроение, чтобы сделать Новый Год ещё более весёлым.',
+  toys: [{
+    img: '/img/toys/20g/1.png'
+  }, {
+    img: '/img/toys/20g/2.png'
+  }, {
+    img: '/img/toys/20g/3.png'
+  }, {
+    img: '/img/toys/20g/4.png'
+  }, {
+    img: '/img/toys/20g/5.png'
+  }]
+}, {
+  id: 35,
+  img: '/img/products/киндерджой/4.png',
+  title: 'Кондитерское изделие Kinder Joy с игрушкой, 20&nbsp;г',
+  description: 'Двухслойная паста на основе молока и какао и покрытые какао вафельные шарики с молочным кремом внутри — двойная порция радости! А игрушки из специальной новогодней коллекции подарят ребёнку особенное настроение, чтобы сделать Новый Год ещё более весёлым.',
+  toys: [{
+    img: '/img/toys/20g/1.png'
+  }, {
+    img: '/img/toys/20g/2.png'
+  }, {
+    img: '/img/toys/20g/3.png'
+  }, {
+    img: '/img/toys/20g/4.png'
+  }, {
+    img: '/img/toys/20g/5.png'
+  }]
+}, {
+  id: 36,
+  img: '/img/products/kinderx3.png',
+  title: 'Kinder Сюрприз Т3 Новый год',
+  description: 'Игрушка, молочный шоколад и радостное ожидание сюрприза в тройном размере — праздничного настроения станет ещё больше!',
+  toys: []
+}, {
+  id: 37,
+  img: '/img/products/mix199/1.png',
+  title: 'Набор кондитерский изделий Kinder® Mix, 199&nbsp;г ',
+  description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка! В этом году в уникальном дизайне с героями любимого мультфильма «Маша и Медведь».<br/><br/>В наборе:<ul><li>яйцо Kinder Сюрприз — 1 шт.;</li><li>вафли Kinder Bueno — 1 шт.;</li><li>шоколад молочный Kinder® Chocolate (50 г) — 1 шт.;</li><li>шоколад молочный Kinder® Maxi — 3 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт.</li><ul>',
+  toys: []
+}, {
+  id: 38,
+  img: '/img/products/mix199/2.png',
+  title: 'Набор кондитерский изделий Kinder® Mix, 199&nbsp;г ',
+  description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка! В этом году в уникальном дизайне с героями любимого мультфильма «Маша и Медведь».<br/><br/>В наборе:<ul><li>яйцо Kinder Сюрприз — 1 шт.;</li><li>вафли Kinder Bueno — 1 шт.;</li><li>шоколад молочный Kinder® Chocolate (50 г) — 1 шт.;</li><li>шоколад молочный Kinder® Maxi — 3 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт.</li><ul>',
+  toys: []
+}, {
+  id: 39,
+  img: '/img/products/киндерсюрприз220г/1.png',
+  title: 'Яйцо Kinder Сюрприз c игрушкой внутри, 220&nbsp;г',
+  description: 'Всё, за что дети так любят Kinder Сюрприз, в специальном большом формате. Большие новогодние игрушки, вкусный молочный шоколад и радостное ожидание сюрприза!',
+  toys: [{
+    img: '/img/toys/220g/1.png'
+  }, {
+    img: '/img/toys/220g/2.png'
+  }, {
+    img: '/img/toys/220g/3.png'
+  }]
+}, {
+  id: 40,
+  img: '/img/products/киндерсюрприз220г/2.png',
+  title: 'Яйцо Kinder Сюрприз c игрушкой внутри, 220&nbsp;г',
+  description: 'Всё, за что дети так любят Kinder Сюрприз, в специальном большом формате. Большие новогодние игрушки, вкусный молочный шоколад и радостное ожидание сюрприза!',
+  toys: [{
+    img: '/img/toys/220g/4.png'
+  }, {
+    img: '/img/toys/220g/5.png'
+  }, {
+    img: '/img/toys/220g/6.png'
+  }]
+}, {
+  id: 41,
+  img: '/img/products/киндерсюрприз20г/1.png',
+  title: 'Яйцо Kinder Сюрприз c игрушкой внутри, 20&nbsp;г',
+  description: 'Новогодняя игрушка, молочный шоколад и радостное ожидание сюрприза — это ещё не всё! Kinder Сюрприз можно повесить на ёлку, и праздничного настроения станет ещё больше!',
+  toys: [{
+    img: '/img/toys/20g/11.png'
+  }, {
+    img: '/img/toys/20g/12.png'
+  }, {
+    img: '/img/toys/20g/13.png'
+  }, {
+    img: '/img/toys/20g/14.png'
+  }, {
+    img: '/img/toys/20g/15.png'
+  }, {
+    img: '/img/toys/20g/16.png'
+  }, {
+    img: '/img/toys/20g/17.png'
+  }, {
+    img: '/img/toys/20g/18.png'
+  }]
+}, {
+  id: 42,
+  img: '/img/products/киндерсюрприз20г/2.png',
+  title: 'Яйцо Kinder Сюрприз c игрушкой внутри, 20&nbsp;г',
+  description: 'Новогодняя игрушка, молочный шоколад и радостное ожидание сюрприза — это ещё не всё! Kinder Сюрприз можно повесить на ёлку, и праздничного настроения станет ещё больше!',
+  toys: [{
+    img: '/img/toys/20g/11.png'
+  }, {
+    img: '/img/toys/20g/12.png'
+  }, {
+    img: '/img/toys/20g/13.png'
+  }, {
+    img: '/img/toys/20g/14.png'
+  }, {
+    img: '/img/toys/20g/15.png'
+  }, {
+    img: '/img/toys/20g/16.png'
+  }, {
+    img: '/img/toys/20g/17.png'
+  }, {
+    img: '/img/toys/20g/18.png'
+  }]
+}, {
+  id: 43,
+  img: '/img/products/киндерсюрприз20г/3.png',
+  title: 'Яйцо Kinder Сюрприз c игрушкой внутри, 20&nbsp;г',
+  description: 'Новогодняя игрушка, молочный шоколад и радостное ожидание сюрприза — это ещё не всё! Kinder Сюрприз можно повесить на ёлку, и праздничного настроения станет ещё больше!',
+  toys: [{
+    img: '/img/toys/20g/11.png'
+  }, {
+    img: '/img/toys/20g/12.png'
+  }, {
+    img: '/img/toys/20g/13.png'
+  }, {
+    img: '/img/toys/20g/14.png'
+  }, {
+    img: '/img/toys/20g/15.png'
+  }, {
+    img: '/img/toys/20g/16.png'
+  }, {
+    img: '/img/toys/20g/17.png'
+  }, {
+    img: '/img/toys/20g/18.png'
+  }]
+}, {
+  id: 44,
+  img: '/img/products/киндерсюрприз20г/4.png',
+  title: 'Яйцо Kinder Сюрприз c игрушкой внутри, 20&nbsp;г',
+  description: 'Новогодняя игрушка, молочный шоколад и радостное ожидание сюрприза — это ещё не всё! Kinder Сюрприз можно повесить на ёлку, и праздничного настроения станет ещё больше!',
+  toys: [{
+    img: '/img/toys/20g/11.png'
+  }, {
+    img: '/img/toys/20g/12.png'
+  }, {
+    img: '/img/toys/20g/13.png'
+  }, {
+    img: '/img/toys/20g/14.png'
+  }, {
+    img: '/img/toys/20g/15.png'
+  }, {
+    img: '/img/toys/20g/16.png'
+  }, {
+    img: '/img/toys/20g/17.png'
+  }, {
+    img: '/img/toys/20g/18.png'
+  }]
+}, {
+  id: 45,
+  img: '/img/products/киндерсюрприз20г/5.png',
+  title: 'Яйцо Kinder Сюрприз c игрушкой внутри, 20&nbsp;г',
+  description: 'Новогодняя игрушка, молочный шоколад и радостное ожидание сюрприза — это ещё не всё! Kinder Сюрприз можно повесить на ёлку, и праздничного настроения станет ещё больше!',
+  toys: [{
+    img: '/img/toys/20g/11.png'
+  }, {
+    img: '/img/toys/20g/12.png'
+  }, {
+    img: '/img/toys/20g/13.png'
+  }, {
+    img: '/img/toys/20g/14.png'
+  }, {
+    img: '/img/toys/20g/15.png'
+  }, {
+    img: '/img/toys/20g/16.png'
+  }, {
+    img: '/img/toys/20g/17.png'
+  }, {
+    img: '/img/toys/20g/18.png'
+  }]
+}, {
+  id: 46,
+  img: '/img/products/киндерсюрприз20г/6.png',
+  title: 'Яйцо Kinder Сюрприз c игрушкой внутри, 20&nbsp;г',
+  description: 'Новогодняя игрушка, молочный шоколад и радостное ожидание сюрприза — это ещё не всё! Kinder Сюрприз можно повесить на ёлку, и праздничного настроения станет ещё больше!',
+  toys: [{
+    img: '/img/toys/20g/11.png'
+  }, {
+    img: '/img/toys/20g/12.png'
+  }, {
+    img: '/img/toys/20g/13.png'
+  }, {
+    img: '/img/toys/20g/14.png'
+  }, {
+    img: '/img/toys/20g/15.png'
+  }, {
+    img: '/img/toys/20g/16.png'
+  }, {
+    img: '/img/toys/20g/17.png'
+  }, {
+    img: '/img/toys/20g/18.png'
+  }]
+}, {
+  id: 47,
+  img: '/img/products/киндермакси/1.png',
+  title: 'Яйцо Kinder Сюрприз Maxi c игрушкой внутри, 100&nbsp;г',
+  description: 'Всё, за что дети так любят Kinder Сюрприз, в специальном большом формате. Большие новогодние игрушки, вкусный молочный шоколад и радостное ожидание сюрприза!',
+  toys: [{
+    img: '/img/toys/100g/1.png'
+  }, {
+    img: '/img/toys/100g/2.png'
+  }, {
+    img: '/img/toys/100g/3.png'
+  }, {
+    img: '/img/toys/100g/4.png'
+  }, {
+    img: '/img/toys/100g/5.png'
+  }]
+}, {
+  id: 48,
+  img: '/img/products/киндермакси/2.png',
+  title: 'Яйцо Kinder Сюрприз Maxi c игрушкой внутри, 100&nbsp;г',
+  description: 'Всё, за что дети так любят Kinder Сюрприз, в специальном большом формате. Большие новогодние игрушки, вкусный молочный шоколад и радостное ожидание сюрприза!',
+  toys: [{
+    img: '/img/toys/100g/1.png'
+  }, {
+    img: '/img/toys/100g/2.png'
+  }, {
+    img: '/img/toys/100g/3.png'
+  }, {
+    img: '/img/toys/100g/4.png'
+  }, {
+    img: '/img/toys/100g/5.png'
+  }]
+}, {
+  id: 49,
+  img: '/img/products/киндермакси/3.png',
+  title: 'Яйцо Kinder Сюрприз Maxi c игрушкой внутри, 100&nbsp;г',
+  description: 'Всё, за что дети так любят Kinder Сюрприз, в специальном большом формате. Большие новогодние игрушки, вкусный молочный шоколад и радостное ожидание сюрприза!',
+  toys: [{
+    img: '/img/toys/100g/1.png'
+  }, {
+    img: '/img/toys/100g/2.png'
+  }, {
+    img: '/img/toys/100g/3.png'
+  }, {
+    img: '/img/toys/100g/4.png'
+  }, {
+    img: '/img/toys/100g/5.png'
+  }]
+}, {
+  id: 50,
+  img: '/img/products/киндермакси/4.png',
+  title: 'Яйцо Kinder Сюрприз Maxi c игрушкой внутри, 100&nbsp;г',
+  description: 'Всё, за что дети так любят Kinder Сюрприз, в специальном большом формате. Большие новогодние игрушки, вкусный молочный шоколад и радостное ожидание сюрприза!',
+  toys: [{
+    img: '/img/toys/100g/1.png'
+  }, {
+    img: '/img/toys/100g/2.png'
+  }, {
+    img: '/img/toys/100g/3.png'
+  }, {
+    img: '/img/toys/100g/4.png'
+  }, {
+    img: '/img/toys/100g/5.png'
+  }]
+}, {
+  id: 51,
+  img: '/img/products/bons.45.png',
+  title: 'Конфеты Kinder Shoko-Bons, 46 г/125&nbsp;г.',
+  description: 'Kinder Schoko-Bons — шоколад Kinder® в форме конфетки. Это весёлое лакомство, которым так легко и радостно делиться друг с другом, в специальном новогоднем дизайне!',
+  toys: []
+}, {
+  id: 53,
+  img: '/img/products/metr.png',
+  title: 'Шоколад молочный Kinder® Chocolate с молочной начинкой, 300&nbsp;г.',
+  description: 'Целых полметра любимого молочного шоколада Kinder® в новогодней упаковке — прекрасный подарок для ребёнка!',
+  toys: []
 }];
 
 /***/ }),
@@ -68125,16 +68481,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils_checkbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/checkbox */ "./resources/js/utils/checkbox.js");
-/* harmony import */ var _utils_carousel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/carousel */ "./resources/js/utils/carousel.js");
-/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
-/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_slick__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/icons */ "./resources/js/utils/icons.js");
-/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
-/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _data_gifts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../data/gifts */ "./resources/js/data/gifts.js");
-/* harmony import */ var _styles_modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/modal */ "./resources/js/styles/modal.js");
-/* harmony import */ var _utils_scrollbars__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/scrollbars */ "./resources/js/utils/scrollbars.js");
+/* harmony import */ var html_react_parser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! html-react-parser */ "./node_modules/html-react-parser/index.js");
+/* harmony import */ var html_react_parser__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(html_react_parser__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_checkbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/checkbox */ "./resources/js/utils/checkbox.js");
+/* harmony import */ var _utils_carousel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/carousel */ "./resources/js/utils/carousel.js");
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_slick__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/icons */ "./resources/js/utils/icons.js");
+/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
+/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _data_gifts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../data/gifts */ "./resources/js/data/gifts.js");
+/* harmony import */ var _styles_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/modal */ "./resources/js/styles/modal.js");
+/* harmony import */ var _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/scrollbars */ "./resources/js/utils/scrollbars.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -68166,7 +68524,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-react_modal__WEBPACK_IMPORTED_MODULE_6___default.a.setAppElement('#appNhy');
+
+react_modal__WEBPACK_IMPORTED_MODULE_7___default.a.setAppElement('#appNhy');
 
 function Gifts(props) {
   var customStyles = props.customStyles;
@@ -68174,7 +68533,7 @@ function Gifts(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
     checked: false,
     isOpen: false,
-    items: _data_gifts__WEBPACK_IMPORTED_MODULE_7__["gifts"][0].toys
+    gift: _data_gifts__WEBPACK_IMPORTED_MODULE_8__["gifts"][0]
   }),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
@@ -68205,6 +68564,16 @@ function Gifts(props) {
     slidesToShow: 1,
     slidesToScroll: 1
   };
+
+  var chooseProduct = function chooseProduct(e, index) {
+    e.preventDefault();
+    setState(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        gift: _data_gifts__WEBPACK_IMPORTED_MODULE_8__["gifts"][index]
+      });
+    });
+  };
+
   var sliderEl = Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "gifts-hny"
@@ -68220,7 +68589,7 @@ function Gifts(props) {
     onClick: function onClick() {
       sliderEl.current.slickPrev();
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_5__["ArrowPrew"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["ArrowPrew"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     style: {
       height: "90%",
       width: "90%",
@@ -68229,9 +68598,9 @@ function Gifts(props) {
       borderRadius: "10px",
       backgroundColor: "#ffffff"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_slick__WEBPACK_IMPORTED_MODULE_4___default.a, _extends({}, setting, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_slick__WEBPACK_IMPORTED_MODULE_5___default.a, _extends({}, setting, {
     ref: sliderEl
-  }), _data_gifts__WEBPACK_IMPORTED_MODULE_7__["gifts"].map(function (item, index) {
+  }), _data_gifts__WEBPACK_IMPORTED_MODULE_8__["gifts"].map(function (item, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "toys-watch"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -68245,28 +68614,63 @@ function Gifts(props) {
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "lens-wrapper",
       onClick: openModal
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043B\u0443\u043F\u0443, \u0447\u0442\u043E\u0431\u044B \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0438\u0433\u0440\u0443\u0448\u043A\u0438 \u0432\u043D\u0443\u0442\u0440\u0438"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_5__["Lens"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, item.toys[0].title));
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043B\u0443\u043F\u0443, \u0447\u0442\u043E\u0431\u044B \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0438\u0433\u0440\u0443\u0448\u043A\u0438 \u0432\u043D\u0443\u0442\u0440\u0438"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["Lens"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, item.toys[0].title));
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
     className: "btn-control",
     onClick: function onClick() {
       sliderEl.current.slickNext();
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_5__["ArrowNext"], null))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["ArrowNext"], null))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "flex " + (window.innerWidth >= 1024 && "flex-end")
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "toys-watch"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "h3"
-  }, "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0438\u0433\u0440\u0443\u0448\u043A\u0438 \u0432\u043D\u0443\u0442\u0440\u0438"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "img-big"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "img-big",
     style: {
-      backgroundImage: "url(" + _data_gifts__WEBPACK_IMPORTED_MODULE_7__["gifts"][0].img + ")"
+      position: "relative"
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, state.gift.toys && state.gift.toys.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "h3",
+    style: {
+      position: "absolute",
+      width: "100%",
+      left: 0,
+      top: "10px"
+    }
+  }, "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0438\u0433\u0440\u0443\u0448\u043A\u0438 \u0432\u043D\u0443\u0442\u0440\u0438") : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+    src: state.gift.img,
+    alt: "",
+    style: {
+      width: "100%"
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    style: {
+      position: "absolute",
+      width: "100%",
+      height: "53px",
+      left: 0,
+      bottom: "0"
+    }
+  }, state.gift.toys && state.gift.toys.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "lens-wrapper",
     onClick: openModal
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043B\u0443\u043F\u0443, \u0447\u0442\u043E\u0431\u044B \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0438\u0433\u0440\u0443\u0448\u043A\u0438 \u0432\u043D\u0443\u0442\u0440\u0438"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_5__["Lens"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, _data_gifts__WEBPACK_IMPORTED_MODULE_7__["gifts"][0].toys[0].title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043B\u0443\u043F\u0443, \u0447\u0442\u043E\u0431\u044B \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0438\u0433\u0440\u0443\u0448\u043A\u0438 \u0432\u043D\u0443\u0442\u0440\u0438"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["Lens"], null)) : "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", {
+    className: "title"
+  }, html_react_parser__WEBPACK_IMPORTED_MODULE_2___default()(state.gift.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "description"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_custom_scrollbars_with_mobile__WEBPACK_IMPORTED_MODULE_0__["Scrollbars"], {
+    style: window.innerWidth < 1024 ? {
+      height: 56
+    } : {
+      height: 56
+    },
+    renderView: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderView"],
+    renderThumbHorizontal: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderThumbHorizontal"],
+    renderThumbVertical: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderThumbVertical"],
+    renderTrackHorizontal: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderTrackHorizontal"],
+    renderTrackVertical: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderTrackVertical"],
+    mobile: true
+  }, html_react_parser__WEBPACK_IMPORTED_MODULE_2___default()(state.gift.description)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "gift-select scroll-bar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "h3 text-center mb-1"
@@ -68276,11 +68680,11 @@ function Gifts(props) {
     } : {
       height: 404
     },
-    renderView: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_9__["renderView"],
-    renderThumbHorizontal: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_9__["renderThumbHorizontal"],
-    renderThumbVertical: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_9__["renderThumbVertical"],
-    renderTrackHorizontal: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_9__["renderTrackHorizontal"],
-    renderTrackVertical: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_9__["renderTrackVertical"],
+    renderView: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderView"],
+    renderThumbHorizontal: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderThumbHorizontal"],
+    renderThumbVertical: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderThumbVertical"],
+    renderTrackHorizontal: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderTrackHorizontal"],
+    renderTrackVertical: _utils_scrollbars__WEBPACK_IMPORTED_MODULE_10__["renderTrackVertical"],
     mobile: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     style: {
@@ -68288,10 +68692,13 @@ function Gifts(props) {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "flex space-between flex-wrap"
-  }, _data_gifts__WEBPACK_IMPORTED_MODULE_7__["gifts"].map(function (item, index) {
+  }, _data_gifts__WEBPACK_IMPORTED_MODULE_8__["gifts"].map(function (item, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "gift",
-      key: index
+      key: index,
+      onClick: function onClick(e) {
+        return chooseProduct(e, index);
+      }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       style: {
         backgroundImage: "url(" + item.img + ")"
@@ -68323,25 +68730,25 @@ function Gifts(props) {
     style: {
       backgroundImage: "url(/img/shops/cross.png)"
     }
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_6___default.a, {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_7___default.a, {
     isOpen: state.isOpen // onAfterOpen={afterOpenModal}
     ,
     onRequestClose: closeModal,
-    style: _styles_modal__WEBPACK_IMPORTED_MODULE_8__["styles"]
+    style: _styles_modal__WEBPACK_IMPORTED_MODULE_9__["styles"]
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     onClick: closeModal,
     style: {
       cursor: "pointer"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_5__["Close"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["Close"], {
     style: {
       height: "52px",
       position: "absolute",
       right: "16px",
       top: "16px"
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_carousel__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    items: state.items
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_carousel__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    items: state.gift.toys
   })));
 }
 

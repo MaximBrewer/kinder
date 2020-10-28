@@ -1,5 +1,6 @@
 import { Scrollbars } from 'react-custom-scrollbars-with-mobile';
 import React, { useState, useRef } from "react";
+import Parser from 'html-react-parser';
 import Checkbox from '../utils/checkbox'
 import Carousel from '../utils/carousel'
 import Slider from "react-slick";
@@ -19,7 +20,7 @@ function Gifts(props) {
     const [state, setState] = useState({
         checked: false,
         isOpen: false,
-        items: gifts[0].toys
+        gift: gifts[0]
     });
 
 
@@ -46,6 +47,14 @@ function Gifts(props) {
         slidesToScroll: 1
     };
 
+    const chooseProduct = (e, index) => {
+        e.preventDefault();
+        setState(prevState => ({
+            ...prevState,
+            gift: gifts[index]
+        }));
+    }
+
     const sliderEl = useRef();
 
     return (
@@ -61,7 +70,7 @@ function Gifts(props) {
                     >
                         <ArrowPrew />
                     </a>
-                    <div style={{ height: "90%", width: "90%", marginLeft: "5px", marginRight: "5px", borderRadius: "10px", backgroundColor: "#ffffff",}}>
+                    <div style={{ height: "90%", width: "90%", marginLeft: "5px", marginRight: "5px", borderRadius: "10px", backgroundColor: "#ffffff", }}>
                         <Slider {...setting} ref={sliderEl}>
                             {gifts.map((item, index) => (
                                 <div className="toys-watch">
@@ -90,15 +99,28 @@ function Gifts(props) {
                 :
                 <div className={`flex ` + (window.innerWidth >= 1024 && `flex-end`)}>
                     <div className="toys-watch">
-                        <div className="h3">Посмотрите игрушки внутри</div>
-                        <div className="img-big">
-                            <div style={{ backgroundImage: `url(` + gifts[0].img + `)` }}></div>
+                        <div className="img-big" style={{ position: "relative" }}>
+                            {(state.gift.toys && state.gift.toys.length) ? <div className="h3" style={{ position: "absolute", width: "100%", left: 0, top: "10px" }}>Посмотрите игрушки внутри</div> : ``}
+                            <img src={state.gift.img} alt={``} style={{ width: "100%" }} />
+                            <div style={{ position: "absolute", width: "100%", height: "53px", left: 0, bottom: "0" }}>
+                                {(state.gift.toys && state.gift.toys.length) ? <div className={`lens-wrapper`} onClick={openModal}>
+                                    <div>Нажмите на лупу, чтобы посмотреть игрушки внутри</div>
+                                    <Lens />
+                                </div> : ``}
+                            </div>
                         </div>
-                        <div className={`lens-wrapper`} onClick={openModal}>
-                            <div>Нажмите на лупу, чтобы посмотреть игрушки внутри</div>
-                            <Lens />
+                        <h4 className={`title`}>{Parser(state.gift.title)}</h4>
+                        <div className={`description`}>
+                            <Scrollbars style={window.innerWidth < 1024 ? { height: 56 } : { height: 56 }}
+                                renderView={renderView}
+                                renderThumbHorizontal={renderThumbHorizontal}
+                                renderThumbVertical={renderThumbVertical}
+                                renderTrackHorizontal={renderTrackHorizontal}
+                                renderTrackVertical={renderTrackVertical}
+                                mobile={true}
+                            >{Parser(state.gift.description)}
+                            </Scrollbars>
                         </div>
-                        <p>{gifts[0].toys[0].title}</p>
                     </div>
                     <div className="gift-select scroll-bar">
                         <div className="h3 text-center mb-1">ДРУГИЕ ПРОДУКТЫ</div>
@@ -113,7 +135,7 @@ function Gifts(props) {
                             <div style={{ paddingRight: "10px" }}>
                                 <div className="flex space-between flex-wrap">
                                     {gifts.map((item, index) => (
-                                        <div className={`gift`} key={index}>
+                                        <div className={`gift`} key={index} onClick={(e) => chooseProduct(e, index)}>
                                             <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
                                         </div>
                                     ))}
@@ -141,7 +163,7 @@ function Gifts(props) {
             >
 
                 <div onClick={closeModal} style={{ cursor: "pointer" }}><Close style={{ height: "52px", position: "absolute", right: "16px", top: "16px" }} /></div>
-                <Carousel items={state.items} />
+                <Carousel items={state.gift.toys} />
             </Modal>
         </div >
     );
