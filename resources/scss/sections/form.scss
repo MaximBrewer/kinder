@@ -105,12 +105,12 @@
         position: relative;
         .img {
             position: absolute;
-            top: 10%;
-            left: 10%;
-            height: 80%;
-            width: 80%;
+            height: 100%;
+            width: 100%;
+            top:0;
+            left:0;
             background-position: center;
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
         }
     }

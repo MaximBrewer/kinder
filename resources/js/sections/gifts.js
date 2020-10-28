@@ -73,16 +73,29 @@ function Gifts(props) {
                     <div style={{ height: "90%", width: "90%", marginLeft: "5px", marginRight: "5px", borderRadius: "10px", backgroundColor: "#ffffff", }}>
                         <Slider {...setting} ref={sliderEl}>
                             {gifts.map((item, index) => (
-                                <div className="toys-watch">
-                                    <div className="h3">Посмотрите игрушки внутри</div>
+                                <div className="toys-watch" key={index}>
                                     <div className="img-big">
-                                        <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
+                                        {(item.toys && item.toys.length) ? <div className="h3" style={{ position: "absolute", width: "100%", left: 0, top: "10px" }}>Посмотрите игрушки внутри</div> : ``}
+                                        <img src={item.img} alt={``} style={{ width: "100%" }} />
+                                        <div style={{ position: "absolute", width: "100%", height: "53px", left: 0, bottom: "0" }}>
+                                            {(item.toys && item.toys.length) ? <div className={`lens-wrapper`} onClick={openModal}>
+                                                <div>Нажмите на лупу, чтобы посмотреть игрушки внутри</div>
+                                                <Lens />
+                                            </div> : ``}
+                                        </div>
                                     </div>
-                                    <div className={`lens-wrapper`} onClick={openModal}>
-                                        <div>Нажмите на лупу, чтобы посмотреть игрушки внутри</div>
-                                        <Lens />
-                                    </div>
-                                    <p>{item.toys[0].title}</p>
+                                    <h4 className={`title`}>{Parser(item.title)}</h4>
+                                    {/* <div className={`description`}>
+                                        <Scrollbars style={window.innerWidth < 1024 ? { height: 56 } : { height: 56 }}
+                                            renderView={renderView}
+                                            renderThumbHorizontal={renderThumbHorizontal}
+                                            renderThumbVertical={renderThumbVertical}
+                                            renderTrackHorizontal={renderTrackHorizontal}
+                                            renderTrackVertical={renderTrackVertical}
+                                            mobile={true}
+                                        >{Parser(item.description)}
+                                        </Scrollbars>
+                                    </div> */}
                                 </div>
                             ))}
                         </Slider>
@@ -135,7 +148,7 @@ function Gifts(props) {
                             <div style={{ paddingRight: "10px" }}>
                                 <div className="flex space-between flex-wrap">
                                     {gifts.map((item, index) => (
-                                        <div className={`gift` + (state.gift.id == item.id ? ` active` : ``)}  key={index} onClick={(e) => chooseProduct(e, index)}>
+                                        <div className={`gift` + (state.gift.id == item.id ? ` active` : ``)} key={index} onClick={(e) => chooseProduct(e, index)}>
                                             <div style={{ backgroundImage: `url(` + item.img + `)` }} ></div>
                                         </div>
                                     ))}
