@@ -85,14 +85,14 @@ export const gifts = [
     },
     {
         id: 13,
-        img: '/img/products/mix106/1.png',
+        img: '/img/products/Mix106/1.png',
         title: 'Набор кондитерский изделий Kinder® Mix, 106,5&nbsp;г',
         description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка! В этом году в уникальном дизайне с героями любимого мультфильма «Маша и Медведь».<br/><br/>В наборе:<ul><li>яйцо Kinder Сюрприз — 1 шт.;</li><li>шоколад молочный Kinder® Maxi —  3 шт.; </li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт.</li><ul>',
         toys: []
     },
     {
         id: 14,
-        img: '/img/products/mix106/2.png',
+        img: '/img/products/Mix106/2.png',
         title: 'Набор кондитерский изделий Kinder® Mix, 106,5&nbsp;г',
         description: 'Новогодний набор с любимыми продуктами Kinder® — прекрасный подарок для ребёнка! В этом году в уникальном дизайне с героями любимого мультфильма «Маша и Медведь».<br/><br/>В наборе:<ul><li>яйцо Kinder Сюрприз — 1 шт.;</li><li>шоколад молочный Kinder® Maxi —  3 шт.; </li><li>шоколад молочный Kinder® Chocolate со злаками — 1 шт.</li><ul>',
         toys: []
