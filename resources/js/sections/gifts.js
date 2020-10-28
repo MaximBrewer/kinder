@@ -135,8 +135,8 @@ function Gifts(props) {
                             <div style={{ paddingRight: "10px" }}>
                                 <div className="flex space-between flex-wrap">
                                     {gifts.map((item, index) => (
-                                        <div className={`gift`} key={index} onClick={(e) => chooseProduct(e, index)}>
-                                            <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
+                                        <div className={`gift` + (state.gift.id == item.id ? ` active` : ``)}  key={index} onClick={(e) => chooseProduct(e, index)}>
+                                            <div style={{ backgroundImage: `url(` + item.img + `)` }} ></div>
                                         </div>
                                     ))}
                                 </div>

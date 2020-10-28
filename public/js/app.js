@@ -68694,7 +68694,7 @@ function Gifts(props) {
     className: "flex space-between flex-wrap"
   }, _data_gifts__WEBPACK_IMPORTED_MODULE_8__["gifts"].map(function (item, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: "gift",
+      className: "gift" + (state.gift.id == item.id ? " active" : ""),
       key: index,
       onClick: function onClick(e) {
         return chooseProduct(e, index);
