@@ -1457,7 +1457,7 @@ body {
   text-align: center;
   background: #b6e6ff;
   padding-top: 24px;
-  width: 368px;
+  max-width: 368px;
   border-radius: 10px;
 }
 
