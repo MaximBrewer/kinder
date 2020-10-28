@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', '\App\Http\Controllers\SiteController@index');
+Route::get('/live', '\App\Http\Controllers\SiteController@live');
 Route::post('/patch', '\App\Http\Controllers\SiteController@patch');

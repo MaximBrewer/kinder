@@ -11,6 +11,10 @@ class SiteController extends Controller
     {
         return view('app');
     }
+    public function live()
+    {
+        return view('live');
+    }
     public function patch(Request $request)
     {
         return true;
