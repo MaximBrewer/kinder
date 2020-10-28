@@ -693,6 +693,7 @@ body {
 @media (min-width: 768px) {
   .nhy-app .gift-select {
     width: 364px;
+    margin: 0 auto 0 0;
   }
 }
 
