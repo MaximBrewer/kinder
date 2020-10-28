@@ -31,11 +31,16 @@ body {
         font-size: 18px;
         text-align: center;
         position: relative;
+        display:inline-block;
+        text-decoration: none;
         &:hover {
             border-color: #dedede;
         }
         &:active {
             top: 1px;
+        }
+        &.nhy-btn-blue {
+            background-color: #07a1f3;
         }
     }
     .nhy-container {

@@ -440,6 +440,8 @@ body {
   font-size: 18px;
   text-align: center;
   position: relative;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .nhy-app .nhy-btn:hover {
@@ -448,6 +450,10 @@ body {
 
 .nhy-app .nhy-btn:active {
   top: 1px;
+}
+
+.nhy-app .nhy-btn.nhy-btn-blue {
+  background-color: #07a1f3;
 }
 
 .nhy-app .nhy-container {
@@ -975,6 +981,7 @@ body {
     font-size: 20px;
     margin-left: 0;
     margin-right: 0;
+    min-width: 350px;
     max-width: 100%;
   }
 }
@@ -983,6 +990,7 @@ body {
   .promo-hny .nhy-btn {
     padding: 1.5rem 4rem;
     font-size: 24px;
+    min-width: 420px;
   }
 }
 
@@ -1078,13 +1086,15 @@ body {
   .promo-hny .counter-khny p {
     font-size: 20px;
     line-height: 24px;
+    margin-top: -10px;
   }
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1024px) {
   .promo-hny .counter-khny p {
     font-size: 30px;
     line-height: 32px;
+    margin-top: 10px;
   }
 }
 
@@ -1104,7 +1114,7 @@ body {
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
   .promo-hny .counter-khny .counter-inner {
     transform: none;
   }
