@@ -415,8 +415,9 @@ body {
   background-color: #e54c2e;
   color: #ffffff;
   font-family: "bubbleboddy_neue", sans-serif;
-  margin-bottom: -200px;
-  padding-bottom: 200px;
+  margin-bottom: -8.6vw;
+  padding-bottom: 8.6vw;
+  overflow: hidden;
   font-size: 20px;
 }
 
