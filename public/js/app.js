@@ -67477,7 +67477,7 @@ function Example(props) {
       top: "0",
       left: "0"
     },
-    src: "http://www.youtube.com/embed/M7lc1UVf-VE",
+    src: "//www.youtube.com/embed/M7lc1UVf-VE",
     frameBorder: "0"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "text-center"
