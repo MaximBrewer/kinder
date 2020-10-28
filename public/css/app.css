@@ -1396,13 +1396,7 @@ body {
 
 @media (min-width: 1024px) {
   .form-hny .order-form {
-    width: 508px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .form-hny .order-form {
-    width: 548px;
+    width: 488px;
   }
 }
 
