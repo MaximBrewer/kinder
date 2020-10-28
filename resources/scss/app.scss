@@ -42,13 +42,26 @@ body {
         max-width: 1440px;
         z-index: 1;
         position: relative;
-        width: 100%;
+        width: 100vw;
         box-sizing: border-box;
         padding: 0 2rem;
         margin-left: auto;
         margin-right: auto;
         display: flex;
         justify-content: center;
+        @media (min-width: 768px) {
+            padding: 0 4rem;
+        }
+    }
+    .nhy-menu-container {
+        max-width: 1440px;
+        z-index: 1;
+        position: relative;
+        width: 100vw;
+        box-sizing: border-box;
+        padding: 0 2rem;
+        margin-left: auto;
+        margin-right: auto;
         @media (min-width: 768px) {
             padding: 0 4rem;
         }
@@ -247,6 +260,72 @@ body {
     }
     75% {
         transform: scaleX(1.1) scaleY(1.1);
+    }
+}
+
+.promo-outer {
+    display: flex;
+    @media (min-width: 768px) {
+        background-image: url(../img/bg/1.jpg);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    > div.sidebar-wrapper {
+        max-width: 172px;
+        padding-top: 112px;
+        min-height: 100%;
+        margin-right: 23px;
+        background: url(../img/bg/snow-fall.png) no-repeat center bottom 16vw/80%,
+            linear-gradient(
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 100%
+            ),
+            #3399ff;
+        .sidebar {
+            ul {
+                padding: 0;
+                margin: 0;
+                li {
+                    list-style: outside none;
+                    padding: 0 10px;
+                    margin: 0 0 17px 0;
+                    text-align: center;
+                    a {
+                        font-family: RotondaC;
+                        font-weight: bold;
+                        color: #ffffff;
+                        font-size: 20.4159px;
+                        line-height: 23px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+.sidebar-mobile {
+    ul {
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        li {
+            list-style: outside none;
+            padding: 0 10px;
+            margin: 0 0 17px 0;
+            text-align: center;
+            a {
+                font-family: RotondaC;
+                font-weight: bold;
+                color: #ffffff;
+                font-size: 20.4159px;
+                line-height: 23px;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+        }
     }
 }
 

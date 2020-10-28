@@ -453,7 +453,7 @@ body {
   max-width: 1440px;
   z-index: 1;
   position: relative;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
   padding: 0 2rem;
   margin-left: auto;
@@ -464,6 +464,23 @@ body {
 
 @media (min-width: 768px) {
   .nhy-app .nhy-container {
+    padding: 0 4rem;
+  }
+}
+
+.nhy-app .nhy-menu-container {
+  max-width: 1440px;
+  z-index: 1;
+  position: relative;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .nhy-app .nhy-menu-container {
     padding: 0 4rem;
   }
 }
@@ -741,6 +758,73 @@ body {
   }
 }
 
+.promo-outer {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .promo-outer {
+    background-image: url(/images/1.jpg?7939d382ef63fc3af962d568e79bcd3f);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.promo-outer > div.sidebar-wrapper {
+  max-width: 172px;
+  padding-top: 112px;
+  min-height: 100%;
+  margin-right: 23px;
+  background: url(/images/snow-fall.png?bfec9d0600353d81c7c492234b70afd1) no-repeat center bottom 16vw/80%, linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%), #3399ff;
+}
+
+.promo-outer > div.sidebar-wrapper .sidebar ul {
+  padding: 0;
+  margin: 0;
+}
+
+.promo-outer > div.sidebar-wrapper .sidebar ul li {
+  list-style: outside none;
+  padding: 0 10px;
+  margin: 0 0 17px 0;
+  text-align: center;
+}
+
+.promo-outer > div.sidebar-wrapper .sidebar ul li a {
+  font-family: RotondaC;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 20.4159px;
+  line-height: 23px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.sidebar-mobile ul {
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.sidebar-mobile ul li {
+  list-style: outside none;
+  padding: 0 10px;
+  margin: 0 0 17px 0;
+  text-align: center;
+}
+
+.sidebar-mobile ul li a {
+  font-family: RotondaC;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 20.4159px;
+  line-height: 23px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
 .promo-wrapper {
   position: relative;
   padding-top: 48px;
@@ -824,10 +908,6 @@ body {
 
 @media (min-width: 768px) {
   .promo-wrapper {
-    background-image: url(/images/1.jpg?7939d382ef63fc3af962d568e79bcd3f);
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: cover;
     min-height: 56.3vw;
     display: flex;
     justify-content: center;

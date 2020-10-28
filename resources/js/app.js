@@ -17,10 +17,46 @@ const App = () => {
     return (
         <React.Fragment>
             <div className={`promo-mobile-header`}></div>
-            <div className="promo-wrapper">
-                <div>
-                    <div className="nhy-container">
-                        <Promo toForm={toForm} />
+            <div className="promo-outer">
+                <div className={`sidebar-wrapper visible-sm`}>
+                    <div className={`sidebar`}>
+                        <ul>
+                            <li>
+                                <a href="#">ПРАВИЛА АКЦИИ</a>
+                            </li>
+                            <li>
+                                <a href="#">ОЖИВляй УПАКОВКИ</a>
+                            </li>
+                            <li>
+                                <a href="#">ПОДАРКИ kinder</a>
+                            </li>
+                            <li>
+                                <a href="#">F.A.Q.</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="promo-wrapper">
+                    <div>
+                        <div className="nhy-menu-container">
+                            <div className={`sidebar-mobile hidden-sm`}>
+                                <ul>
+                                    <li>
+                                        <a href="#">ПРАВИЛА АКЦИИ</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">ОЖИВляй УПАКОВКИ</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">ПОДАРКИ kinder</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">F.A.Q.</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <Promo toForm={toForm} />
+                        </div>
                     </div>
                 </div>
             </div>
