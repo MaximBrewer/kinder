@@ -6,13 +6,13 @@ export const gifts = [
         description: 'Новый год — волшебный праздник, который все ждут с нетерпением. Сделайте ожидание ещё более радостным и запоминающимся вместе с новогодним календарём Kinder®!<br/>В новогоднем календаре Kinder® 31 окошко (по одному на каждый день декабря). Открывайте по одному каждый день, находите спрятанные подарки Kinder® и выполняйте увлекательные задания.<br/>Новогодний календарь Kinder® поможет создать радостные моменты для ребёнка каждый день, пока он ждёт наступление Нового Года!<br/><br/>В наборе:<ul><li>фигурный молочный шоколад Kinder® — 5 шт.;</li><li>шоколад молочный Kinder® Chocolate Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate Happy — 6 шт.;</li><li>вафли Kinder Bueno Mini — 6 шт.</li><ul>',
         toys: []
     },
-    {
-        id: 2,
-        img: '/img/products/календарь/календарь2.png',
-        title: 'Набор кондитерских изделий Kinder® Maxi Mix «Новогодний календарь», 237&nbsp;г',
-        description: 'Новый год — волшебный праздник, который все ждут с нетерпением. Сделайте ожидание ещё более радостным и запоминающимся вместе с новогодним календарём Kinder®!<br/>В новогоднем календаре Kinder® 31 окошко (по одному на каждый день декабря). Открывайте по одному каждый день, находите спрятанные подарки Kinder® и выполняйте увлекательные задания.<br/>Новогодний календарь Kinder® поможет создать радостные моменты для ребёнка каждый день, пока он ждёт наступление Нового Года!<br/><br/>В наборе:<ul><li>фигурный молочный шоколад Kinder® — 5 шт.;</li><li>шоколад молочный Kinder® Chocolate Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate Happy — 6 шт.;</li><li>вафли Kinder Bueno Mini — 6 шт.</li><ul>',
-        toys: []
-    },
+    // {
+    //     id: 2,
+    //     img: '/img/products/календарь/календарь2.png',
+    //     title: 'Набор кондитерских изделий Kinder® Maxi Mix «Новогодний календарь», 237&nbsp;г',
+    //     description: 'Новый год — волшебный праздник, который все ждут с нетерпением. Сделайте ожидание ещё более радостным и запоминающимся вместе с новогодним календарём Kinder®!<br/>В новогоднем календаре Kinder® 31 окошко (по одному на каждый день декабря). Открывайте по одному каждый день, находите спрятанные подарки Kinder® и выполняйте увлекательные задания.<br/>Новогодний календарь Kinder® поможет создать радостные моменты для ребёнка каждый день, пока он ждёт наступление Нового Года!<br/><br/>В наборе:<ul><li>фигурный молочный шоколад Kinder® — 5 шт.;</li><li>шоколад молочный Kinder® Chocolate Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate со злаками Mini — 7 шт.;</li><li>шоколад молочный Kinder® Chocolate Happy — 6 шт.;</li><li>вафли Kinder Bueno Mini — 6 шт.</li><ul>',
+    //     toys: []
+    // },
     {
         id: 3,
         img: '/img/products/игрушка/1.png',
@@ -230,19 +230,34 @@ export const gifts = [
         description: 'Двухслойная паста на основе молока и какао и покрытые какао вафельные шарики с молочным кремом внутри — двойная порция радости! А игрушки из специальной новогодней коллекции подарят ребёнку особенное настроение, чтобы сделать Новый Год ещё более весёлым.',
         toys: [
             {
-                img: '/img/toys/20g/1.png',
+                img: '/img/toys/kinderjoy/1.jpg',
             },
             {
-                img: '/img/toys/20g/2.png',
+                img: '/img/toys/kinderjoy/2.jpg',
             },
             {
-                img: '/img/toys/20g/3.png',
+                img: '/img/toys/kinderjoy/3.jpg',
             },
             {
-                img: '/img/toys/20g/4.png',
+                img: '/img/toys/kinderjoy/4.jpg',
             },
             {
-                img: '/img/toys/20g/5.png',
+                img: '/img/toys/kinderjoy/5.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/6.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/7.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/8.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/9.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/10.jpg',
             },
         ]
     },
@@ -253,19 +268,34 @@ export const gifts = [
         description: 'Двухслойная паста на основе молока и какао и покрытые какао вафельные шарики с молочным кремом внутри — двойная порция радости! А игрушки из специальной новогодней коллекции подарят ребёнку особенное настроение, чтобы сделать Новый Год ещё более весёлым.',
         toys: [
             {
-                img: '/img/toys/20g/1.png',
+                img: '/img/toys/kinderjoy/1.jpg',
             },
             {
-                img: '/img/toys/20g/2.png',
+                img: '/img/toys/kinderjoy/2.jpg',
             },
             {
-                img: '/img/toys/20g/3.png',
+                img: '/img/toys/kinderjoy/3.jpg',
             },
             {
-                img: '/img/toys/20g/4.png',
+                img: '/img/toys/kinderjoy/4.jpg',
             },
             {
-                img: '/img/toys/20g/5.png',
+                img: '/img/toys/kinderjoy/5.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/6.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/7.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/8.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/9.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/10.jpg',
             },
         ]
     },
@@ -276,19 +306,34 @@ export const gifts = [
         description: 'Двухслойная паста на основе молока и какао и покрытые какао вафельные шарики с молочным кремом внутри — двойная порция радости! А игрушки из специальной новогодней коллекции подарят ребёнку особенное настроение, чтобы сделать Новый Год ещё более весёлым.',
         toys: [
             {
-                img: '/img/toys/20g/1.png',
+                img: '/img/toys/kinderjoy/1.jpg',
             },
             {
-                img: '/img/toys/20g/2.png',
+                img: '/img/toys/kinderjoy/2.jpg',
             },
             {
-                img: '/img/toys/20g/3.png',
+                img: '/img/toys/kinderjoy/3.jpg',
             },
             {
-                img: '/img/toys/20g/4.png',
+                img: '/img/toys/kinderjoy/4.jpg',
             },
             {
-                img: '/img/toys/20g/5.png',
+                img: '/img/toys/kinderjoy/5.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/6.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/7.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/8.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/9.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/10.jpg',
             },
         ]
     },
@@ -299,19 +344,34 @@ export const gifts = [
         description: 'Двухслойная паста на основе молока и какао и покрытые какао вафельные шарики с молочным кремом внутри — двойная порция радости! А игрушки из специальной новогодней коллекции подарят ребёнку особенное настроение, чтобы сделать Новый Год ещё более весёлым.',
         toys: [
             {
-                img: '/img/toys/20g/1.png',
+                img: '/img/toys/kinderjoy/1.jpg',
             },
             {
-                img: '/img/toys/20g/2.png',
+                img: '/img/toys/kinderjoy/2.jpg',
             },
             {
-                img: '/img/toys/20g/3.png',
+                img: '/img/toys/kinderjoy/3.jpg',
             },
             {
-                img: '/img/toys/20g/4.png',
+                img: '/img/toys/kinderjoy/4.jpg',
             },
             {
-                img: '/img/toys/20g/5.png',
+                img: '/img/toys/kinderjoy/5.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/6.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/7.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/8.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/9.jpg',
+            },
+            {
+                img: '/img/toys/kinderjoy/10.jpg',
             },
         ]
     },
@@ -343,13 +403,13 @@ export const gifts = [
         description: 'Всё, за что дети так любят Kinder Сюрприз, в специальном большом формате. Большие новогодние игрушки, вкусный молочный шоколад и радостное ожидание сюрприза!',
         toys: [
             {
-                img: '/img/toys/220g/1.png',
+                img: '/img/toys/220g/4.png',
             },
             {
-                img: '/img/toys/220g/2.png',
+                img: '/img/toys/220g/5.png',
             },
             {
-                img: '/img/toys/220g/3.png',
+                img: '/img/toys/220g/6.png',
             },
         ]
     },
@@ -360,13 +420,13 @@ export const gifts = [
         description: 'Всё, за что дети так любят Kinder Сюрприз, в специальном большом формате. Большие новогодние игрушки, вкусный молочный шоколад и радостное ожидание сюрприза!',
         toys: [
             {
-                img: '/img/toys/220g/4.png',
+                img: '/img/toys/220g/1.png',
             },
             {
-                img: '/img/toys/220g/5.png',
+                img: '/img/toys/220g/2.png',
             },
             {
-                img: '/img/toys/220g/6.png',
+                img: '/img/toys/220g/3.png',
             },
         ]
     },
