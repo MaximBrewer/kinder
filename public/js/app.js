@@ -68852,7 +68852,7 @@ function Promo(props) {
     text: "\u041F\u041E\u0414\u0410\u0420\u0418\u0422\u042C \u041F\u0420\u0418\u041A\u041B\u042E\u0427\u0415\u041D\u0418\u0415",
     onClick: toForm
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "https://quality.prod.kinder.com/ru/ru/kinder-liven-up-the-picture",
+    href: "/live-frame",
     className: "nhy-btn nhy-btn-blue",
     style: {
       marginTop: "20px"
