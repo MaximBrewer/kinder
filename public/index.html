@@ -4,27 +4,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="/css/app.css" rel="stylesheet" />
         <script type="text/javascript">
-            function scrollToElementById() {
-                alert(100);
-                // let elem = document.getElementById(event.target.dataset.target);
-                // if (!elem) return false;
-                // let toY =
-                //     (elem.getBoundingClientRect().top +
-                //         document.scrollingElement.scrollTop) *
-                //     1;
-
-                // if (window.parent.postMessage) {
-                //     window.parent.postMessage(
-                //         {
-                //             scrolltop: toY
-                //         },
-                //         "*"
-                //     );
-                // }
-                // return false;
-            }
-        </script>
-        <script type="text/javascript">
             if (parent.postMessage) {
                 parent.postMessage(
                     {
@@ -64,6 +43,30 @@
             }
             window.addEventListener("load", function() {
                 bdi_resizeIframe();
+                [].forEach.call(
+                    document.getElementsByClassName("scroll-to-target"),
+                    function(element) {
+                        element.addEventListener("click", function() {
+                            let elem = document.getElementById(
+                                event.target.dataset.target
+                            );
+                            if (!elem) return false;
+                            let toY =
+                                (elem.getBoundingClientRect().top +
+                                    document.scrollingElement.scrollTop) *
+                                1;
+                            if (window.parent.postMessage) {
+                                window.parent.postMessage(
+                                    {
+                                        scrolltop: toY
+                                    },
+                                    "*"
+                                );
+                            }
+                            return false;
+                        });
+                    }
+                );
             });
             window.addEventListener("load", bdi_resizeIframe);
             var bdiTO;
@@ -104,7 +107,7 @@
                             <li>
                                 <a
                                     href="javascript:;"
-                                    onclick="scrollToElementById"
+                                    class="scroll-to-target"
                                     data-target="giftsEl"
                                     >ПОДАРКИ kinder</a
                                 >
