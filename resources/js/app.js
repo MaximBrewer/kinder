@@ -7,6 +7,19 @@ import Gifts from "./sections/gifts";
 import Faq from "./sections/faq";
 window.axios = axios;
 
+// Enable pusher logging - don't include this in production
+Pusher.logToConsole = true;
+
+var pusher = new Pusher('c354da67c98f8f62d901', {
+    cluster: 'eu'
+  });
+
+var channel = pusher.subscribe('kinder');
+
+channel.bind('tick', function ({ count }) {
+    alert(JSON.stringify(count));
+});
+
 
 ReactDOM.render(<Counter />, document.getElementById('counterEl'));
 ReactDOM.render(<Form />, document.getElementById('formEl'));

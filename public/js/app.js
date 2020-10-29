@@ -67104,7 +67104,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-window.axios = axios__WEBPACK_IMPORTED_MODULE_2___default.a;
+window.axios = axios__WEBPACK_IMPORTED_MODULE_2___default.a; // Enable pusher logging - don't include this in production
+
+Pusher.logToConsole = true;
+var pusher = new Pusher('c354da67c98f8f62d901', {
+  cluster: 'eu'
+});
+var channel = pusher.subscribe('kinder');
+channel.bind('tick', function (_ref) {
+  var count = _ref.count;
+  alert(JSON.stringify(count));
+});
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('counterEl'));
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_form__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById('formEl'));
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_gifts__WEBPACK_IMPORTED_MODULE_5__["default"], null), document.getElementById('giftsEl'));
