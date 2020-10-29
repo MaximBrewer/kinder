@@ -1,7 +1,6 @@
 import React from "react";
 import Counter from '../utils/counter';
 import Button from '../utils/button';
-import { size } from "lodash";
 
 function Promo(props) {
     const { toForm } = props;

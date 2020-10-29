@@ -68829,9 +68829,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/counter */ "./resources/js/utils/counter.js");
 /* harmony import */ var _utils_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/button */ "./resources/js/utils/button.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
-
 
 
 
