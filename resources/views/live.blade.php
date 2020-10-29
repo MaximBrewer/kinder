@@ -38,12 +38,13 @@
         //   window.addEventListener('message', resize_frame, false);
         // }
 
-
-        parent.postMessage({
-            css: {
-                height: "100vh"
-            }
-        }, '*');
+        window.addEventListener('load', function() {
+            parent.postMessage({
+                css: {
+                    height: "100vh"
+                }
+            }, '*');
+        })
 
         // document.getElementById("iframe").style.height = parent.innerHeight + "px";
 
