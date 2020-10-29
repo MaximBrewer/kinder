@@ -223,9 +223,9 @@
             }
         }
         window.addEventListener('load', function() {
-            bdi_resizeIframe();
+            setTimeout(bdi_resizeIframe, 500);
         });
-        window.addEventListener('load', bdi_resizeIframe);
+        // window.addEventListener('load', bdi_resizeIframe);
         var bdiTO;
         window.addEventListener('resize', function() {
             clearTimeout(bdiTO);
