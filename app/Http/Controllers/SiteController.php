@@ -15,6 +15,10 @@ class SiteController extends Controller
     {
         return view('live');
     }
+    public function liveIframe()
+    {
+        return view('live-iframe');
+    }
     public function patch(Request $request)
     {
         return true;
