@@ -71,12 +71,12 @@
         window.addEventListener('load', function() {
             setTimeout(bdi_resizeIframe, 500);
         });
-        // // window.addEventListener('load', bdi_resizeIframe);
-        // var bdiTO;
-        // window.addEventListener('resize', function() {
-        //     clearTimeout(bdiTO);
-        //     bdiTO = setTimeout(bdi_resizeIframe, 500);
-        // });
+        window.addEventListener('load', bdi_resizeIframe);
+        var bdiTO;
+        window.addEventListener('resize', function() {
+            clearTimeout(bdiTO);
+            bdiTO = setTimeout(bdi_resizeIframe, 500);
+        });
 
         // // Back to top
         // document.getElementsByClassName('.back_to_top').length &&
