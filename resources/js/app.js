@@ -28,7 +28,7 @@ const App = () => {
                                 <a href="#">ПРАВИЛА АКЦИИ</a>
                             </li>
                             <li>
-                                <a href="/live">ОЖИВляй УПАКОВКИ</a>
+                                <a href="https://www.kinder.com/ru/ru/kinder-liven-up-the-picture" target="_blank">ОЖИВляй УПАКОВКИ</a>
                             </li>
                             <li>
                                 <a href="#" onClick={(e) => { e.preventDefault(); scrollToElement(giftsEl) }}>ПОДАРКИ kinder</a>
