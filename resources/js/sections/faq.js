@@ -4,7 +4,9 @@ import { ArrowDown } from "../utils/icons"
 import { Scrollbars } from 'react-custom-scrollbars-with-mobile';
 import parse from 'html-react-parser';
 
-function Faq() {
+function Faq(props) {
+
+    const { faqEl } = props;
 
     const [questions, setQuestion] = useState([
         {
@@ -122,7 +124,7 @@ function Faq() {
     }
 
     return (
-        <div className="faq-hny">
+        <div className="faq-hny" ref={faqEl}>
             <div className="h1">Остались вопросы?<br />Спросите Деда Мороза</div>
             <p>Если вы не нашли ответа на свой вопрос, <br />напишите на <a href="mailto:info@kindernewyear.ru">info@kindernewyear.ru</a>.</p>
             <div className="faq">

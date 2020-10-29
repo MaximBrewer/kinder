@@ -79,14 +79,14 @@ const App = () => {
             </div>
             <div className="gifts-wrapper">
                 <div>
-                    <div className="nhy-container" ref={giftsEl}>
-                        <Gifts />
+                    <div className="nhy-container">
+                        <Gifts  giftsEl={giftsEl} />
                     </div>
                 </div>
             </div>
-            <div className="faq-wrapper" ref={faqEl}>
+            <div className="faq-wrapper">
                 <div className="nhy-container">
-                    <Faq />
+                    <Faq  faqEl={faqEl} />
                 </div>
             </div>
         </React.Fragment >

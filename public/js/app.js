@@ -67175,14 +67175,16 @@ var App = function App() {
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "gifts-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nhy-container",
-    ref: giftsEl
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_gifts__WEBPACK_IMPORTED_MODULE_6__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "faq-wrapper",
-    ref: faqEl
+    className: "nhy-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_gifts__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    giftsEl: giftsEl
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "faq-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nhy-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_faq__WEBPACK_IMPORTED_MODULE_7__["default"], null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_faq__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    faqEl: faqEl
+  }))));
 };
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('appNhy'));
@@ -67954,7 +67956,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Faq() {
+function Faq(props) {
+  var faqEl = props.faqEl;
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
     question: "Что это за проект?",
     answer: "Уникальная возможность подарить детям веру в Деда Мороза! Всё очень просто: Вы отправляете заявку Kinder Деду Морозу через специальную форму – и Дедушка записывает для вас уникальное интерактивное видеопоздравление, в котором он поздравит детишек с Новым годом и передаст им Kinder-подарок.",
@@ -68071,7 +68075,8 @@ function Faq() {
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "faq-hny"
+    className: "faq-hny",
+    ref: faqEl
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h1"
   }, "\u041E\u0441\u0442\u0430\u043B\u0438\u0441\u044C \u0432\u043E\u043F\u0440\u043E\u0441\u044B?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u0435 \u0414\u0435\u0434\u0430 \u041C\u043E\u0440\u043E\u0437\u0430"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0415\u0441\u043B\u0438 \u0432\u044B \u043D\u0435 \u043D\u0430\u0448\u043B\u0438 \u043E\u0442\u0432\u0435\u0442\u0430 \u043D\u0430 \u0441\u0432\u043E\u0439 \u0432\u043E\u043F\u0440\u043E\u0441, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u043D\u0430\u043F\u0438\u0448\u0438\u0442\u0435 \u043D\u0430 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -68582,7 +68587,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 react_modal__WEBPACK_IMPORTED_MODULE_7___default.a.setAppElement('#appNhy');
 
 function Gifts(props) {
-  var customStyles = props.customStyles;
+  var customStyles = props.customStyles,
+      giftsEl = props.giftsEl;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
     checked: false,
@@ -68635,7 +68641,8 @@ function Gifts(props) {
     className: "h1",
     style: {
       maxWidth: "90rem"
-    }
+    },
+    ref: giftsEl
   }, "\u041D\u041E\u0412\u041E\u0413\u041E\u0414\u041D\u042F\u042F \u041A\u041E\u041B\u041B\u0415\u041A\u0426\u0418\u042F \u041F\u041E\u0414\u0410\u0420\u041A\u041E\u0412 \u041E\u0422 KINDER"), window.innerWidth < 768 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "hny-carousel-form"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {

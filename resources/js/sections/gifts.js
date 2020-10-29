@@ -15,7 +15,7 @@ Modal.setAppElement('#appNhy')
 
 
 function Gifts(props) {
-    const { customStyles } = props;
+    const { customStyles, giftsEl } = props;
 
     const [state, setState] = useState({
         checked: false,
@@ -59,7 +59,7 @@ function Gifts(props) {
 
     return (
         <div className="gifts-hny">
-            <div className="h1" style={{ maxWidth: "90rem" }}>НОВОГОДНЯЯ КОЛЛЕКЦИЯ ПОДАРКОВ ОТ KINDER</div>
+            <div className="h1" style={{ maxWidth: "90rem" }} ref={giftsEl}>НОВОГОДНЯЯ КОЛЛЕКЦИЯ ПОДАРКОВ ОТ KINDER</div>
             {window.innerWidth < 768 ?
                 <div className="hny-carousel-form">
                     <a
