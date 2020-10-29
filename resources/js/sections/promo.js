@@ -13,7 +13,7 @@ function Promo(props) {
             <Counter />
             <p>Оставьте заявку и подарите ребёнку волшебное видеоприключение с&nbsp;Дедушкой Морозом!!</p>
             <Button text={`ПОДАРИТЬ ПРИКЛЮЧЕНИЕ`} onClick={toForm} /><br/>
-            <a href="/live-frame" className="nhy-btn nhy-btn-blue" style={{marginTop: "20px"}}>ОЖИВЛЯЙ УПАКОВКИ</a>
+            <a href="/live" className="nhy-btn nhy-btn-blue" style={{marginTop: "20px"}}>ОЖИВЛЯЙ УПАКОВКИ</a>
         </div>
     );
 }
