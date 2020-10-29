@@ -40,7 +40,9 @@
 
         window.addEventListener('load', function() {
             parent.postMessage({
-                height: "100vh"
+                css: {
+                    height: "100vh"
+                }
             }, '*');
         })
 
