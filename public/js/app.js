@@ -67098,7 +67098,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sections_example__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sections/example */ "./resources/js/sections/example.js");
 /* harmony import */ var _sections_gifts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sections/gifts */ "./resources/js/sections/gifts.js");
 /* harmony import */ var _sections_faq__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./sections/faq */ "./resources/js/sections/faq.js");
-/* harmony import */ var _utils_scroll_to_ref__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/scroll-to-ref */ "./resources/js/utils/scroll-to-ref.js");
+/* harmony import */ var _utils_scroll_parent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/scroll-parent */ "./resources/js/utils/scroll-parent.js");
 
 
 
@@ -67107,6 +67107,7 @@ window.axios = axios__WEBPACK_IMPORTED_MODULE_2___default.a;
 
 
 
+ // import scrollToElement from "./utils/scroll-to-ref";
 
 
 
@@ -67114,7 +67115,7 @@ var App = function App() {
   var formEl = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
 
   var toForm = function toForm() {
-    return Object(_utils_scroll_to_ref__WEBPACK_IMPORTED_MODULE_8__["default"])(formEl);
+    return Object(_utils_scroll_parent__WEBPACK_IMPORTED_MODULE_9__["default"])(formEl);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67128,7 +67129,7 @@ var App = function App() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
   }, "\u041F\u0420\u0410\u0412\u0418\u041B\u0410 \u0410\u041A\u0426\u0418\u0418")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "/ru/ru/kinder-liven-up-the-picture"
+    href: "/live"
   }, "\u041E\u0416\u0418\u0412\u043B\u044F\u0439 \u0423\u041F\u0410\u041A\u041E\u0412\u041A\u0418")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
   }, "\u041F\u041E\u0414\u0410\u0420\u041A\u0418 kinder")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -69713,9 +69714,9 @@ function ArrowNextMobile(props) {
 
 /***/ }),
 
-/***/ "./resources/js/utils/scroll-to-ref.js":
+/***/ "./resources/js/utils/scroll-parent.js":
 /*!*********************************************!*\
-  !*** ./resources/js/utils/scroll-to-ref.js ***!
+  !*** ./resources/js/utils/scroll-parent.js ***!
   \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -69723,41 +69724,19 @@ function ArrowNextMobile(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return scrollToElement; });
+var bdi_scrollTop = function bdi_scrollTop(scrolltop) {
+  if (window.parent.postMessage) {
+    window.parent.postMessage({
+      scrolltop: scrolltop
+    }, '*');
+  }
+};
+
 function scrollToElement(ref) {
   var elem = ref.current;
   if (!elem) return false;
-  var toY = (elem.getBoundingClientRect().top + document.scrollingElement.scrollTop) * 1 - 40,
-      fromY = document.scrollingElement.scrollTop * 1,
-      scrollY = fromY * 1,
-      oldTimestamp = null;
-
-  function step(newTimestamp) {
-    if (oldTimestamp !== null) {
-      if (fromY < toY) {
-        scrollY += 100;
-
-        if (scrollY >= toY) {
-          document.scrollingElement.scrollTop = toY;
-          return false;
-        }
-
-        document.scrollingElement.scrollTop = scrollY;
-      } else {
-        scrollY -= 100;
-        document.scrollingElement.scrollTop = scrollY;
-
-        if (scrollY <= toY) {
-          document.scrollingElement.scrollTop = toY;
-          return false;
-        }
-      }
-    }
-
-    oldTimestamp = newTimestamp;
-    window.requestAnimationFrame(step);
-  }
-
-  window.requestAnimationFrame(step);
+  var toY = (elem.getBoundingClientRect().top + document.scrollingElement.scrollTop) * 1 - 40;
+  bdi_scrollTop(toY);
   return false;
 }
 ;

@@ -9,7 +9,8 @@ import Example from './sections/example';
 import Gifts from './sections/gifts';
 import Faq from './sections/faq';
 
-import scrollToElement from "./utils/scroll-to-ref";
+// import scrollToElement from "./utils/scroll-to-ref";
+import scrollToElement from "./utils/scroll-parent";
 
 const App = () => {
     const formEl = useRef(null);
@@ -25,7 +26,7 @@ const App = () => {
                                 <a href="#">ПРАВИЛА АКЦИИ</a>
                             </li>
                             <li>
-                                <a href="/ru/ru/kinder-liven-up-the-picture">ОЖИВляй УПАКОВКИ</a>
+                                <a href="/live">ОЖИВляй УПАКОВКИ</a>
                             </li>
                             <li>
                                 <a href="#">ПОДАРКИ kinder</a>
