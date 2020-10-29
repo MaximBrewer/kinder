@@ -2,10 +2,8 @@
     position: relative;
     top: -0.1vw;
     padding-bottom: 2vw;
-    max-width: 100%;
-    @media (min-width: 1024px) {
-        top: -2vw;
-    }
+    width: 100%;
+    max-width: 1024px;
     .toys-watch {
         overflow: hidden;
         text-align: center;
@@ -74,24 +72,26 @@
                 padding: 23px;
             }
         }
-        h4.title{
+        h4.title {
             font-size: 18px;
             text-align: center;
-            color: #007CBE;
+            color: #007cbe;
             padding: 0 23px;
             margin: 6px 0;
         }
-        .description{
+        .description {
             font-style: normal;
             font-weight: normal;
             font-size: 13px;
             text-align: left;
-            padding:0 23px 26px;
-            color: #007CBE;
+            padding: 0 23px 26px;
+            color: #007cbe;
+            p {
+                margin-top: 0;
+            }
         }
     }
     .shops {
-        max-width: 900px;
         .h2 {
             margin: 30px;
             font-size: 30px;

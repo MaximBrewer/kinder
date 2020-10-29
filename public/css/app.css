@@ -659,75 +659,42 @@ body {
 }
 
 .nhy-app .gift-select {
-  width: 200px;
   margin: 0 auto;
 }
 
-.nhy-app .gift-select .gift {
-  width: 102px;
-  height: 102px;
-  border-radius: 10px;
-  background: #ffffff;
-  margin-bottom: 10px;
-  cursor: pointer;
-  border: 1px solid transparent;
-  overflow: hidden;
+.nhy-app .gift-select .gifts-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.nhy-app .gift-select .gift.active,
-.nhy-app .gift-select .gift:hover {
-  border-color: #f3410e;
+.nhy-app .gift-select .gift {
+  width: 33.3333%;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 5px solid transparent;
 }
 
 .nhy-app .gift-select .gift > div {
-  width: 100%;
-  height: 100%;
+  border-radius: 10px;
+  padding-top: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.nhy-app .gift-select .gift.active > div,
+.nhy-app .gift-select .gift:hover > div {
+  box-shadow: 0px 0px 2px 4px #f3410e;
 }
 
 .nhy-app .gift-select .h3 {
   font-size: 26px;
 }
 
-@media (min-width: 375px) {
-  .nhy-app .gift-select {
-    width: 260px;
-  }
-}
-
-@media (min-width: 414px) {
-  .nhy-app .gift-select {
-    width: 304px;
-  }
-}
-
 @media (min-width: 768px) {
   .nhy-app .gift-select {
-    width: 364px;
-    margin: 0 auto 0 0;
-  }
-}
-
-.nhy-app .gift-select.scroll-bar {
-  width: 388px;
-}
-
-@media (min-width: 1024px) {
-  .nhy-app .gift-select.scroll-bar {
-    width: 440px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .nhy-app .gift-select {
-    width: 498px;
-  }
-
-  .nhy-app .gift-select .gift {
-    width: 128px;
-    height: 128px;
+    width: 48%;
+    margin: 0 auto 0 2%;
   }
 }
 
@@ -1295,6 +1262,8 @@ body {
 }
 
 .form-hny {
+  width: 100%;
+  max-width: 1024px;
   position: relative;
   top: -12vw;
 }
@@ -1402,21 +1371,14 @@ body {
 
 @media (min-width: 768px) {
   .form-hny .order-form {
-    margin-right: 40px;
-    width: 368px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .form-hny .order-form {
-    width: 488px;
+    width: 48%;
+    margin-right: 2%;
   }
 }
 
 @media (min-width: 768px) {
   .form-hny {
-    top: -4vw;
-    max-width: 960px;
+    top: 0vw;
   }
 }
 
@@ -1451,13 +1413,8 @@ body {
   position: relative;
   top: -0.1vw;
   padding-bottom: 2vw;
-  max-width: 100%;
-}
-
-@media (min-width: 1024px) {
-  .gifts-hny {
-    top: -2vw;
-  }
+  width: 100%;
+  max-width: 1024px;
 }
 
 .gifts-hny .toys-watch {
@@ -1556,7 +1513,7 @@ body {
 .gifts-hny .toys-watch h4.title {
   font-size: 18px;
   text-align: center;
-  color: #007CBE;
+  color: #007cbe;
   padding: 0 23px;
   margin: 6px 0;
 }
@@ -1567,11 +1524,11 @@ body {
   font-size: 13px;
   text-align: left;
   padding: 0 23px 26px;
-  color: #007CBE;
+  color: #007cbe;
 }
 
-.gifts-hny .shops {
-  max-width: 900px;
+.gifts-hny .toys-watch .description p {
+  margin-top: 0;
 }
 
 .gifts-hny .shops .h2 {

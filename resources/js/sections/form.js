@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Select from '../utils/select'
 import GirlSelect from '../utils/girl-select'
 import BoySelect from '../utils/boy-select'
@@ -8,7 +8,6 @@ import Upload from '../utils/upload'
 import Modal from 'react-modal';
 import { ArrowPrewMobile, ArrowNextMobile } from "../utils/icons";
 import { Close, Ok, Vk, Instagram } from "../utils/icons"
-import { gifts } from "../data/gifts";
 import { hobby as hobbyOptions } from "../data/hobby";
 import { age as ageOptions } from "../data/age";
 import { from as fromOptions } from "../data/from";
@@ -90,7 +89,8 @@ function Form(props) {
         achieveOptions: [],
         checked: false,
         isOpen: false,
-        photo: null
+        photo: null,
+        contHeight: 0
     });
 
 
@@ -105,6 +105,15 @@ function Form(props) {
     };
 
     const sliderEl = useRef();
+    const contEl = useRef();
+
+
+    useEffect(() => {
+        setState(prevState => ({
+            ...prevState,
+            contHeight: contEl.current.offsetWidth
+        }));
+    }, [contEl.current]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -126,7 +135,7 @@ function Form(props) {
     }
 
     return (
-        <div className="form-hny">
+        <React.Fragment>
             <a ref={props.formEl}></a>
             <div className="h1">ЗАПОЛНИТЕ ЗАЯВКУ</div>
             <p>Расскажите о главных достижениях ребёнка в этом году, его хобби и выберите подарок, который подарит Дед Мороз</p>
@@ -179,7 +188,7 @@ function Form(props) {
                                 </a>
                                 <div style={{ height: "80%", width: "80%", marginLeft: "20px", marginRight: "20px", borderRadius: "10px", backgroundColor: "#ffffff", padding: "10px" }}>
                                     <Slider {...setting} ref={sliderEl}>
-                                        {gifts.map((item, index) => (
+                                        {window.App.data.gifts.map((item, index) => (
                                             <div key={index}>
                                                 <div className={`img-wrapper`}>
                                                     <div className={`img`} style={{ backgroundImage: 'url(' + item.img + ')' }} />
@@ -198,24 +207,24 @@ function Form(props) {
                                 </a>
                             </div>
                             :
-                            <Scrollbars style={window.innerWidth < 1024 ? { height: 324 } : { height: 404 }}
-                                renderView={renderView}
-                                renderThumbHorizontal={renderThumbHorizontal}
-                                renderThumbVertical={renderThumbVertical}
-                                renderTrackHorizontal={renderTrackHorizontal}
-                                renderTrackVertical={renderTrackVertical}
-                                mobile={true}
-                            >
-                                <div style={{ paddingRight: "10px" }}>
-                                    <div className="flex space-between flex-wrap">
-                                        {gifts.map((item, index) => (
+                            <div style={{ height: state.contHeight }}>
+                                <Scrollbars style={{ height: "100%" }}
+                                    renderView={renderView}
+                                    renderThumbHorizontal={renderThumbHorizontal}
+                                    renderThumbVertical={renderThumbVertical}
+                                    renderTrackHorizontal={renderTrackHorizontal}
+                                    renderTrackVertical={renderTrackVertical}
+                                    mobile={true}
+                                >
+                                    <div className="gifts-container" ref={contEl}>
+                                        {window.App.data.gifts.map((item, index) => (
                                             <div className={`gift` + (state.giftValue && state.giftValue.id == item.id ? ` active` : ``)} key={index} onClick={(e) => chooseGift(item)}>
                                                 <div style={{ backgroundImage: `url(` + item.img + `)` }}></div>
                                             </div>
                                         ))}
                                     </div>
-                                </div>
-                            </Scrollbars>}
+                                </Scrollbars>
+                            </div>}
                     </div>
                 </div>
                 <div className="checkbox-wrapper">
@@ -241,7 +250,7 @@ function Form(props) {
                     <a href={`#`} style={{ marginRight: "12px" }}><Vk style={{ height: "28px", fill: "#ffffff" }} /></a>
                 </div>
             </Modal>
-        </div>
+        </React.Fragment>
     );
 }
 

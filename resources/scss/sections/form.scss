@@ -1,4 +1,8 @@
 .form-hny {
+    width: 100%;
+    max-width: 1024px;
+    position: relative;
+    top: -12vw;
     .checkbox-wrapper {
         button {
             margin: 2rem auto;
@@ -7,8 +11,6 @@
             }
         }
     }
-    position: relative;
-    top: -12vw;
     > p {
         font-size: 20px;
         @media (min-width: 768px) {
@@ -77,18 +79,16 @@
             }
         }
         @media (min-width: 768px) {
-            margin-right: 40px;
-            width: 368px;
+            width:48%;
+            margin-right:2%;
         }
         @media (min-width: 1024px) {
-            width: 488px;
         }
         @media (min-width: 1280px) {
         }
     }
     @media (min-width: 768px) {
-        top: -4vw;
-        max-width: 960px;
+        top: 0vw;
     }
 }
 

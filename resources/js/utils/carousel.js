@@ -32,7 +32,7 @@ export default function Carousel(props) {
                     {items.map((item, index) => (
                         <div key={index}>
                             <div className={`img-wrapper`}>
-                                <div className={`img`} style={{ backgroundImage: 'url(' + item.img + ')' }} />
+                                <div className={`img`} style={{ backgroundImage: 'url(' + item + ')' }} />
                             </div>
                         </div>
                     ))}

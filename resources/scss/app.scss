@@ -206,56 +206,46 @@ body {
     }
 
     .gift-select {
-        width: 200px;
         margin: 0 auto;
+        .gifts-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
         .gift {
-            width: 102px;
-            height: 102px;
-            border-radius: 10px;
-            background: $white;
-            margin-bottom: 10px;
+            width: 33.3333%;
             cursor: pointer;
-            border: 1px solid transparent;
-            overflow: hidden;
-            &.active,
-            &:hover {
-                border-color: $red;
-            }
+            box-sizing: border-box;
+            border: 5px solid transparent;
             & > div {
-                width: 100%;
-                height: 100%;
+                border-radius: 10px;
+                padding-top: 100%;
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;
+            }
+            &.active > div,
+            &:hover > div {
+                box-shadow: 0px 0px 2px 4px $red;
             }
         }
         .h3 {
             font-size: 26px;
         }
         @media (min-width: 375px) {
-            width: 260px;
         }
         @media (min-width: 414px) {
-            width: 304px;
         }
         @media (min-width: 768px) {
-            width: 364px;
-            margin: 0 auto 0 0;
+            width: 48%;
+            margin: 0 auto 0 2%;
         }
         &.scroll-bar {
-            width: 388px;
             @media (min-width: 1024px) {
-                width: 440px;
             }
         }
         @media (min-width: 1024px) {
-            width: 498px;
             .gift {
-                width: 128px;
-                height: 128px;
                 & > div {
-                    // width: 112px;
-                    // height: 112px;
                 }
             }
         }
