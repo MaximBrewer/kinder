@@ -207,7 +207,8 @@
         </div>
         <script src="/js/app.js"></script>
         <script type="text/javascript">
-            function scrollToElement() {
+            function scrollToElement(event) {
+                console.log(event.target.dataset)
                 let elem = document.getElementById(event.target.dataset.target);
                 if (!elem) return false;
                 let toY =
