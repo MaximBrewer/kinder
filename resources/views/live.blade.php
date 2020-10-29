@@ -11,8 +11,7 @@
 <body style="margin:0;padding:0;">
     <iframe src="/live-iframe" style="height:100vh;width:100%;margin:0;padding:0;" frameborder="0" id="iframe"></iframe>
     <script type="text/javascript">
-        console.log(parent)
-        document.getElementById("iframe").style.height = window.innerHeight + "px";
+        document.getElementById("iframe").style.height = parent.innerHeight + "px";
 
         function bdi_resizeIframe() {
             if (parent.postMessage) {
