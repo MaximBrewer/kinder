@@ -201,6 +201,43 @@
                 ** В&nbsp;активации участвуют наборы кондитерских изделий Kinder Mini Mix 106,5г; Kinder Mix 199г и Kinder Maxi Mix 223г. </p>
         </div>
     </section>
+    <script type="text/javascript">
+        function bdi_resizeIframe() {
+            if (parent.postMessage) {
+                var body = document.getElementsByTagName("BODY")[0];
+                body.style.height = 'auto';
+                var height = document.body.scrollHeight;
+                parent.postMessage({
+                    css: {
+                        height: height
+                    }
+                }, '*');
+            }
+        }
+
+        function bdi_scrollTop(scrolltop) {
+            if (parent.postMessage) {
+                parent.postMessage({
+                    scrolltop: scrolltop
+                }, '*');
+            }
+        }
+        window.addEventListener('load', function() {
+            bdi_resizeIframe();
+        });
+        window.addEventListener('load', bdi_resizeIframe);
+        var bdiTO;
+        window.addEventListener('resize', function() {
+            clearTimeout(bdiTO);
+            bdiTO = setTimeout(bdi_resizeIframe, 500);
+        });
+
+        // Back to top
+        document.getElementsByClassName('.back_to_top').length &&
+            document.getElementsByClassName('.back_to_top')[0].addEventListener('click', function() {
+                bdi_scrollTop(0)
+            });
+    </script>
     <script src="/assets/js/vendors.js"></script>
     <script src="/assets/js/bundle.js"></script>
 </body>
