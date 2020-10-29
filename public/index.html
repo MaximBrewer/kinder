@@ -27,7 +27,7 @@
                             <li>
                                 <a
                                     href="javascript:;"
-                                    onclick="scrollToElement"
+                                    onclick="scrollToId"
                                     data-target="giftsEl"
                                     >ПОДАРКИ kinder</a
                                 >
@@ -35,7 +35,7 @@
                             <li>
                                 <a
                                     href="javascript:;"
-                                    onclick="scrollToElement"
+                                    onclick="scrollToId"
                                     data-target="faqEl"
                                     >F.A.Q.</a
                                 >
@@ -63,7 +63,7 @@
                                     <li>
                                         <a
                                             href="javascript:;"
-                                            onclick="scrollToElement"
+                                            onclick="scrollToId"
                                             data-target="giftsEl"
                                             >ПОДАРКИ kinder</a
                                         >
@@ -71,7 +71,7 @@
                                     <li>
                                         <a
                                             href="javascript:;"
-                                            onclick="scrollToElement"
+                                            onclick="scrollToId"
                                             data-target="faqEl"
                                             >F.A.Q.</a
                                         >
@@ -101,7 +101,7 @@
                                 </p>
                                 <button
                                     href="javascript:;"
-                                    onclick="scrollToElement"
+                                    onclick="scrollToId"
                                     class="nhy-btn"
                                     data-target="formEl"
                                 >
@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="text-center">
                                     <button
-                                        onclick="scrollToElement"
+                                        onclick="scrollToId"
                                         data-target="formEl"
                                         class="nhy-btn"
                                         style="display: inline-block; padding: 11px 42px; font-size: 20px; text-transform: uppercase"
@@ -207,7 +207,7 @@
         </div>
         <script src="/js/app.js"></script>
         <script type="text/javascript">
-            function scrollToElement(event) {
+            function scrollToId(event) {
                 event.preventDefault()
                 alert(event.target.dataset)
                 let elem = document.getElementById(event.target.dataset.target);
