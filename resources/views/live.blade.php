@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <iframe src="/live" style="width:100vw;height:100vh;"></iframe>
+    <iframe src="/live-iframe" style="height:100vh;margin:0;padding:0;"></iframe>
     <script type="text/javascript">
         function bdi_resizeIframe() {
             if (parent.postMessage) {
