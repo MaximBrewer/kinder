@@ -38,28 +38,28 @@
         //   window.addEventListener('message', resize_frame, false);
         // }
 
-        window.addEventListener('load', function() {
-            parent.postMessage({
-                css: {
-                    height: "100vh"
-                }
-            }, '*');
-        })
+        // window.addEventListener('load', function() {
+        //     parent.postMessage({
+        //         css: {
+        //             height: "100vh"
+        //         }
+        //     }, '*');
+        // })
 
         // document.getElementById("iframe").style.height = parent.innerHeight + "px";
 
-        // function bdi_resizeIframe() {
-        //     if (parent.postMessage) {
-        //         var body = document.getElementsByTagName("BODY")[0];
-        //         body.style.height = 'auto';
-        //         var height = document.body.scrollHeight;
-        //         parent.postMessage({
-        //             css: {
-        //                 height: height
-        //             }
-        //         }, '*');
-        //     }
-        // }
+        function bdi_resizeIframe() {
+            if (parent.postMessage) {
+                var body = document.getElementsByTagName("BODY")[0];
+                body.style.height = 'auto';
+                var height = document.body.scrollHeight;
+                parent.postMessage({
+                    css: {
+                        height: height
+                    }
+                }, '*');
+            }
+        }
 
         // function bdi_scrollTop(scrolltop) {
         //     if (parent.postMessage) {
@@ -68,9 +68,9 @@
         //         }, '*');
         //     }
         // }
-        // window.addEventListener('load', function() {
-        //     setTimeout(bdi_resizeIframe, 500);
-        // });
+        window.addEventListener('load', function() {
+            setTimeout(bdi_resizeIframe, 500);
+        });
         // // window.addEventListener('load', bdi_resizeIframe);
         // var bdiTO;
         // window.addEventListener('resize', function() {
