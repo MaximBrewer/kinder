@@ -67098,7 +67098,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sections_example__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sections/example */ "./resources/js/sections/example.js");
 /* harmony import */ var _sections_gifts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sections/gifts */ "./resources/js/sections/gifts.js");
 /* harmony import */ var _sections_faq__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./sections/faq */ "./resources/js/sections/faq.js");
-/* harmony import */ var _utils_scroll_parent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/scroll-parent */ "./resources/js/utils/scroll-parent.js");
+/* harmony import */ var _utils_scroll_parent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/scroll-parent */ "./resources/js/utils/scroll-parent.js");
 
 
 
@@ -67113,9 +67113,11 @@ window.axios = axios__WEBPACK_IMPORTED_MODULE_2___default.a;
 
 var App = function App() {
   var formEl = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+  var giftsEl = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+  var faqEl = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
 
   var toForm = function toForm() {
-    return Object(_utils_scroll_parent__WEBPACK_IMPORTED_MODULE_9__["default"])(formEl);
+    return Object(_utils_scroll_parent__WEBPACK_IMPORTED_MODULE_8__["default"])(formEl);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67165,9 +67167,11 @@ var App = function App() {
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "gifts-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nhy-container"
+    className: "nhy-container",
+    ref: giftsEl
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_gifts__WEBPACK_IMPORTED_MODULE_6__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "faq-wrapper"
+    className: "faq-wrapper",
+    ref: faqEl
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nhy-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_faq__WEBPACK_IMPORTED_MODULE_7__["default"], null))));

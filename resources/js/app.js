@@ -14,6 +14,8 @@ import scrollToElement from "./utils/scroll-parent";
 
 const App = () => {
     const formEl = useRef(null);
+    const giftsEl = useRef(null);
+    const faqEl = useRef(null);
     const toForm = () => scrollToElement(formEl);
     return (
         <React.Fragment>
@@ -77,12 +79,12 @@ const App = () => {
             </div>
             <div className="gifts-wrapper">
                 <div>
-                    <div className="nhy-container">
+                    <div className="nhy-container" ref={giftsEl}>
                         <Gifts />
                     </div>
                 </div>
             </div>
-            <div className="faq-wrapper">
+            <div className="faq-wrapper" ref={faqEl}>
                 <div className="nhy-container">
                     <Faq />
                 </div>
