@@ -8,7 +8,7 @@
     <title>Kinder New Year</title>
 </head>
 
-<body>
+<body style="margin:0;padding:0;">
     <iframe src="/live-iframe" style="height:100vh;width:100%;margin:0;padding:0;" frameborder="0"></iframe>
     <script type="text/javascript">
         function bdi_resizeIframe() {
