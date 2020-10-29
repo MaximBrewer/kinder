@@ -253,7 +253,7 @@ a {
     bottom: -50px;
     height: 106px;
     width: 100%;
-    background-image: url(../../../img/promo-snowdrift.png);
+    background-image: url(../img/promo-snowdrift.png);
     background-repeat: repeat-x;
     background-size: contain;
     background-position: 50%;
@@ -623,7 +623,7 @@ a {
     z-index: 1;
     top: -50px;
     height: 106px;
-    background-image: url(../../../img/promo-snowdrift.png);
+    background-image: url(../img/promo-snowdrift.png);
     background-repeat: repeat-x;
     background-size: contain;
     background-position: 50%;
@@ -641,7 +641,7 @@ a {
 .steps__wave {
     top: calc(100% - 48px);
     height: 48px;
-    background-image: url(../../../img/wave_1.svg);
+    background-image: url(../img/wave_1.svg);
     background-size: 100% 100%;
 }
 .steps__container {
@@ -983,7 +983,7 @@ a {
     width: 100%;
     height: 52px;
     z-index: 1;
-    background-image: url(../../../img/wave_2.svg);
+    background-image: url(../img/wave_2.svg);
     background-size: 100% 100%;
 }
 .qr__title {
