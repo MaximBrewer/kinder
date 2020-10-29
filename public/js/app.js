@@ -67133,9 +67133,17 @@ var App = function App() {
   }, "\u041F\u0420\u0410\u0412\u0418\u041B\u0410 \u0410\u041A\u0426\u0418\u0418")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/live"
   }, "\u041E\u0416\u0418\u0412\u043B\u044F\u0439 \u0423\u041F\u0410\u041A\u041E\u0412\u041A\u0418")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#"
+    href: "#",
+    onClick: function onClick(e) {
+      e.preventDefault();
+      Object(_utils_scroll_parent__WEBPACK_IMPORTED_MODULE_8__["default"])(giftsEl);
+    }
   }, "\u041F\u041E\u0414\u0410\u0420\u041A\u0418 kinder")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#"
+    href: "#",
+    onClick: function onClick(e) {
+      e.preventDefault();
+      Object(_utils_scroll_parent__WEBPACK_IMPORTED_MODULE_8__["default"])(faqEl);
+    }
   }, "F.A.Q."))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "promo-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -31,10 +31,10 @@ const App = () => {
                                 <a href="/live">ОЖИВляй УПАКОВКИ</a>
                             </li>
                             <li>
-                                <a href="#">ПОДАРКИ kinder</a>
+                                <a href="#" onClick={(e) => { e.preventDefault(); scrollToElement(giftsEl) }}>ПОДАРКИ kinder</a>
                             </li>
                             <li>
-                                <a href="#">F.A.Q.</a>
+                                <a href="#" onClick={(e) => { e.preventDefault(); scrollToElement(faqEl) }}>F.A.Q.</a>
                             </li>
                         </ul>
                     </div>
