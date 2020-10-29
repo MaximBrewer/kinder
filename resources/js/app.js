@@ -25,7 +25,7 @@ const App = () => {
                                 <a href="#">ПРАВИЛА АКЦИИ</a>
                             </li>
                             <li>
-                                <a href="#">ОЖИВляй УПАКОВКИ</a>
+                                <a href="/ru/ru/kinder-liven-up-the-picture">ОЖИВляй УПАКОВКИ</a>
                             </li>
                             <li>
                                 <a href="#">ПОДАРКИ kinder</a>

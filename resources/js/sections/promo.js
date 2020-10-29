@@ -14,7 +14,7 @@ function Promo(props) {
             <Counter />
             <p>Оставьте заявку и подарите ребёнку волшебное видеоприключение с&nbsp;Дедушкой Морозом!!</p>
             <Button text={`ПОДАРИТЬ ПРИКЛЮЧЕНИЕ`} onClick={toForm} /><br/>
-            <a href="https://kinder.com/ru/ru//kinder-liven-up-the-picture" className="nhy-btn nhy-btn-blue" style={{marginTop: "20px"}}>ОЖИВЛЯЙ УПАКОВКИ</a>
+            <a href="https://quality.prod.kinder.com/ru/ru/kinder-liven-up-the-picture" className="nhy-btn nhy-btn-blue" style={{marginTop: "20px"}}>ОЖИВЛЯЙ УПАКОВКИ</a>
         </div>
     );
 }
