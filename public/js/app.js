@@ -69754,7 +69754,7 @@ var bdi_scrollTop = function bdi_scrollTop(scrolltop) {
 function scrollToElement(ref) {
   var elem = ref.current;
   if (!elem) return false;
-  var toY = (elem.getBoundingClientRect().top + document.scrollingElement.scrollTop) * 1 - 40;
+  var toY = (elem.getBoundingClientRect().top + document.scrollingElement.scrollTop) * 1;
   bdi_scrollTop(toY);
   return false;
 }

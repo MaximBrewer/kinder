@@ -9,7 +9,7 @@ const bdi_scrollTop = (scrolltop) => {
 export default function scrollToElement(ref) {
     let elem = ref.current;
     if (!elem) return false;
-    let toY = (elem.getBoundingClientRect().top + document.scrollingElement.scrollTop) * 1 - 40;
+    let toY = (elem.getBoundingClientRect().top + document.scrollingElement.scrollTop) * 1;
     bdi_scrollTop(toY);
     return false;
 };
