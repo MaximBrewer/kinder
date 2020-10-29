@@ -11,7 +11,7 @@ import { gifts } from "../data/gifts";
 import { styles as customModalStyles } from "../styles/modal";
 import { renderView, renderThumbHorizontal, renderTrackHorizontal, renderTrackVertical, renderThumbVertical } from '../utils/scrollbars'
 
-Modal.setAppElement('#appNhy')
+Modal.setAppElement('#giftsEl')
 
 
 function Gifts(props) {

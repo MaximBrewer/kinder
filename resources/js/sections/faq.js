@@ -124,28 +124,24 @@ function Faq(props) {
     }
 
     return (
-        <div className="faq-hny">
-            <div className="h1" ref={faqEl}>Остались вопросы?<br />Спросите Деда Мороза</div>
-            <p>Если вы не нашли ответа на свой вопрос, <br />напишите на <a href="mailto:info@kindernewyear.ru">info@kindernewyear.ru</a>.</p>
-            <div className="faq">
-                <Scrollbars style={{ height: 600 }}
-                    renderView={renderView}
-                    renderThumbHorizontal={renderThumbHorizontal}
-                    renderThumbVertical={renderThumbVertical}
-                    renderTrackHorizontal={renderTrackHorizontal}
-                    renderTrackVertical={renderTrackVertical}
-                    mobile={true}
-                >
-                    <div style={{ paddingRight: "10px" }}>
-                        {questions.map((item, index) => (
-                            <div key={index} className="faq-item">
-                                <div onClick={(e) => openQuestion(index)} className="question">{item.question} <ArrowDown style={{ fill: "#ffffff", stroke: "#ffffff", width: "17px", height: "11px" }} /></div>
-                                <div className="answer" style={{ maxHeight: item.isOpen ? "100%" : "0" }}><div>{parse(item.answer)}</div></div>
-                            </div>
-                        ))}
-                    </div>
-                </Scrollbars>
-            </div>
+        <div className="faq">
+            <Scrollbars style={{ height: 600 }}
+                renderView={renderView}
+                renderThumbHorizontal={renderThumbHorizontal}
+                renderThumbVertical={renderThumbVertical}
+                renderTrackHorizontal={renderTrackHorizontal}
+                renderTrackVertical={renderTrackVertical}
+                mobile={true}
+            >
+                <div style={{ paddingRight: "10px" }}>
+                    {questions.map((item, index) => (
+                        <div key={index} className="faq-item">
+                            <div onClick={(e) => openQuestion(index)} className="question">{item.question} <ArrowDown style={{ fill: "#ffffff", stroke: "#ffffff", width: "17px", height: "11px" }} /></div>
+                            <div className="answer" style={{ maxHeight: item.isOpen ? "100%" : "0" }}><div>{parse(item.answer)}</div></div>
+                        </div>
+                    ))}
+                </div>
+            </Scrollbars>
         </div>
     );
 }

@@ -20,7 +20,7 @@ import { renderView, renderThumbHorizontal, renderTrackHorizontal, renderTrackVe
 import axios from "axios";
 import Slider from "react-slick";
 
-Modal.setAppElement('#appNhy')
+Modal.setAppElement('#formEl')
 
 function Form(props) {
     const { customStyles } = props;
