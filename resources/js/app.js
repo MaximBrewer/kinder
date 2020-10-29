@@ -48,7 +48,7 @@ const App = () => {
                                         <a href="#">ПРАВИЛА АКЦИИ</a>
                                     </li>
                                     <li>
-                                        <a href="#">ОЖИВляй УПАКОВКИ</a>
+                                        <a href="https://www.kinder.com/ru/ru/kinder-liven-up-the-picture" target="_blank">ОЖИВляй УПАКОВКИ</a>
                                     </li>
                                     <li>
                                         <a href="#">ПОДАРКИ kinder</a>
