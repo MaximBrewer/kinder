@@ -68868,15 +68868,12 @@ function Promo(props) {
     className: "h1 h1-plus visible-sm"
   }, "\u0414\u0435\u0434\u043E\u043C \u041C\u043E\u0440\u043E\u0437\u043E\u043C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h1 hidden-sm"
-  }, "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u0441 Kinder \u0414\u0435\u0434\u043E\u043C \u041C\u043E\u0440\u043E\u0437\u043E\u043C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u0435 \u0440\u0435\u0431\u0451\u043D\u043A\u0443 \u0432\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u0432\u0438\u0434\u0435\u043E\u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0441\xA0\u0414\u0435\u0434\u0443\u0448\u043A\u043E\u0439 \u041C\u043E\u0440\u043E\u0437\u043E\u043C!!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u0441 Kinder \u0414\u0435\u0434\u043E\u043C \u041C\u043E\u0440\u043E\u0437\u043E\u043C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u0435 \u0440\u0435\u0431\u0451\u043D\u043A\u0443 \u0432\u043E\u043B\u0448\u0435\u0431\u043D\u043E\u0435 \u0432\u0438\u0434\u0435\u043E\u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435 \u0441\xA0\u0414\u0435\u0434\u0443\u0448\u043A\u043E\u0439 \u041C\u043E\u0440\u043E\u0437\u043E\u043C!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     text: "\u041F\u041E\u0414\u0410\u0420\u0418\u0422\u042C \u041F\u0420\u0418\u041A\u041B\u042E\u0427\u0415\u041D\u0418\u0415",
     onClick: toForm
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/live",
-    className: "nhy-btn nhy-btn-blue",
-    style: {
-      marginTop: "20px"
-    }
+    className: "nhy-btn nhy-btn-blue"
   }, "\u041E\u0416\u0418\u0412\u041B\u042F\u0419 \u0423\u041F\u0410\u041A\u041E\u0412\u041A\u0418"));
 }
 

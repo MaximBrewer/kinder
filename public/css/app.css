@@ -453,7 +453,13 @@ body {
 }
 
 .nhy-app .nhy-btn.nhy-btn-blue {
-  background-color: #07a1f3;
+  background-color: #0685c8;
+}
+
+@media (min-width: 768px) {
+  .nhy-app .nhy-btn.nhy-btn-blue {
+    margin-top: 20px;
+  }
 }
 
 .nhy-app .nhy-container {
@@ -768,7 +774,7 @@ body {
 @media (min-width: 768px) {
   .promo-outer {
     background-image: url(/images/1.jpg?2d7c36da8103eea4bb9871a5f27f7ec8);
-    background-position: right center;
+    background-position: right -5rem center;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -966,10 +972,10 @@ body {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  max-width: 256px;
-  font-size: 14px;
+  width: 256px;
+  font-size: 16px;
   line-height: 23px;
-  width: auto;
+  font-weight: bold;
   white-space: nowrap;
 }
 

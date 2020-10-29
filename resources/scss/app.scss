@@ -31,7 +31,7 @@ body {
         font-size: 18px;
         text-align: center;
         position: relative;
-        display:inline-block;
+        display: inline-block;
         text-decoration: none;
         &:hover {
             border-color: #dedede;
@@ -40,7 +40,10 @@ body {
             top: 1px;
         }
         &.nhy-btn-blue {
-            background-color: #07a1f3;
+            background-color: #0685c8;
+            @media (min-width: 768px) {
+                margin-top: 20px;
+            }
         }
     }
     .nhy-container {
@@ -277,7 +280,7 @@ body {
     display: flex;
     @media (min-width: 768px) {
         background-image: url(../img/bg/1.jpg);
-        background-position: right center;
+        background-position: right -5rem center;
         background-repeat: no-repeat;
         background-size: cover;
     }

@@ -11,9 +11,9 @@ function Promo(props) {
             <div className="h1 h1-plus visible-sm">Дедом Морозом</div>
             <div className="h1 hidden-sm">Волшебное приключение<br />с Kinder Дедом Морозом</div>
             <Counter />
-            <p>Оставьте заявку и подарите ребёнку волшебное видеоприключение с&nbsp;Дедушкой Морозом!!</p>
+            <p>Оставьте заявку и подарите ребёнку волшебное видеоприключение с&nbsp;Дедушкой Морозом!</p>
             <Button text={`ПОДАРИТЬ ПРИКЛЮЧЕНИЕ`} onClick={toForm} /><br/>
-            <a href="/live" className="nhy-btn nhy-btn-blue" style={{marginTop: "20px"}}>ОЖИВЛЯЙ УПАКОВКИ</a>
+            <a href="/live" className="nhy-btn nhy-btn-blue">ОЖИВЛЯЙ УПАКОВКИ</a>
         </div>
     );
 }
