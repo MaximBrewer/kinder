@@ -67511,6 +67511,9 @@ function Form(props) {
     giftValue: window.App.data.gifts[0],
     achieveOptions: [],
     agree: false,
+    cmail: false,
+    personal: false,
+    news: false,
     isOpen: false,
     photo: null,
     contHeight: 0,
@@ -67662,6 +67665,26 @@ function Form(props) {
       });
     }
 
+    if (!state.cmail) {
+      setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          errors: _objectSpread(_objectSpread({}, prevState.errors), {}, {
+            cmail: "Вы должны согласиться на использование указанного e-mail"
+          })
+        });
+      });
+    }
+
+    if (!state.personal) {
+      setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          errors: _objectSpread(_objectSpread({}, prevState.errors), {}, {
+            personal: "Вы должны согласиться на обработку персональных данных"
+          })
+        });
+      });
+    }
+
     if (state.errors.lenght) return false;
     var formData = new FormData();
     formData.append("photo", state.photo);
@@ -67672,6 +67695,10 @@ function Form(props) {
     formData.append("age", state.ageValue.value);
     formData.append("gift", state.giftValue.id);
     formData.append("gender", state.genderValue);
+    formData.append("agree", !!state.agree);
+    formData.append("cmail", !!state.cmail);
+    formData.append("personal", !!state.personal);
+    formData.append("news", !!state.news);
     axios__WEBPACK_IMPORTED_MODULE_11___default.a.post("/patch", formData, {
       headers: {
         "Content-Type": "multipart/form-data"
@@ -67868,11 +67895,35 @@ function Form(props) {
   }, "className", "form-flex"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_checkbox__WEBPACK_IMPORTED_MODULE_4__["default"], {
     state: state,
     setState: setState,
+    field: "cmail"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "hint--bottom hint--error hint--always hint--rounded",
+    "aria-label": state.errors.cmail ? state.errors.cmail : ""
+  }, "\u0414\u0430\u044E \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0433\u043E e-mail \u0432 \u0446\u0435\u043B\u044F\u0445 \u0410\u043A\u0446\u0438\u0438. ", state.cmail))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
+    className: "checkbox-wrapper"
+  }, "className", "form-flex"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_checkbox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    state: state,
+    setState: setState,
     field: "agree"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hint--bottom hint--error hint--always hint--rounded",
     "aria-label": state.errors.agree ? state.errors.agree : ""
-  }, "C\u043E\u0433\u043B\u0430\u0441\u0435\u043D(-\u043D\u0430) \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 ", state.agree)), "\u0414\u0430\u044E \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0433\u043E e-mail \u0432 \u0446\u0435\u043B\u044F\u0445 \u0410\u043A\u0446\u0438\u0438. \u0421\u043E\u0433\u043B\u0430\u0441\u0435\u043D \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 \u0430\u043A\u0446\u0438\u0438 \u0414\u0430\u044E \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445 \u0425\u043E\u0447\u0443 \u043F\u043E\u043B\u0443\u0447\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0441\u0442\u0438 \u043E\u0442 \u0431\u0440\u0435\u043D\u0434\u0430 Kinder"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "C\u043E\u0433\u043B\u0430\u0441\u0435\u043D(-\u043D\u0430) \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 ", state.agree))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
+    className: "checkbox-wrapper"
+  }, "className", "form-flex"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_checkbox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    state: state,
+    setState: setState,
+    field: "personal"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "hint--bottom hint--error hint--always hint--rounded",
+    "aria-label": state.errors.personal ? state.errors.personal : ""
+  }, "\u0414\u0430\u044E \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445", " ", state.personal))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
+    className: "checkbox-wrapper"
+  }, "className", "form-flex"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_checkbox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    state: state,
+    setState: setState,
+    field: "news"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "\u0425\u043E\u0447\u0443 \u043F\u043E\u043B\u0443\u0447\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0441\u0442\u0438 \u043E\u0442 \u0431\u0440\u0435\u043D\u0434\u0430 Kinder ", state.news))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hidden-sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     style: {

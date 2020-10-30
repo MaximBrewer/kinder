@@ -30,8 +30,7 @@ function Form(props) {
     }
 
     function openModal() {
-        let toY =
-            document.getElementById("formEl").getBoundingClientRect().top;
+        let toY = document.getElementById("formEl").getBoundingClientRect().top;
         if (window.parent.postMessage) {
             window.parent.postMessage(
                 {
@@ -115,6 +114,9 @@ function Form(props) {
         giftValue: window.App.data.gifts[0],
         achieveOptions: [],
         agree: false,
+        cmail: false,
+        personal: false,
+        news: false,
         isOpen: false,
         photo: null,
         contHeight: 0,
@@ -234,6 +236,24 @@ function Form(props) {
                 }
             }));
         }
+        if (!state.cmail) {
+            setState(prevState => ({
+                ...prevState,
+                errors: {
+                    ...prevState.errors,
+                    cmail: "Вы должны согласиться на использование указанного e-mail"
+                }
+            }));
+        }
+        if (!state.personal) {
+            setState(prevState => ({
+                ...prevState,
+                errors: {
+                    ...prevState.errors,
+                    personal: "Вы должны согласиться на обработку персональных данных"
+                }
+            }));
+        }
 
         if (state.errors.lenght) return false;
 
@@ -249,6 +269,10 @@ function Form(props) {
         formData.append("age", state.ageValue.value);
         formData.append("gift", state.giftValue.id);
         formData.append("gender", state.genderValue);
+        formData.append("agree", !!state.agree);
+        formData.append("cmail", !!state.cmail);
+        formData.append("personal", !!state.personal);
+        formData.append("news", !!state.news);
 
         axios
             .post("/patch", formData, {
@@ -574,6 +598,19 @@ function Form(props) {
                     </div>
                 </div>
                 <div className="checkbox-wrapper" className="form-flex">
+                    <Checkbox state={state} setState={setState} field={`cmail`}>
+                        <div
+                            className="hint--bottom hint--error hint--always hint--rounded"
+                            aria-label={
+                                state.errors.cmail ? state.errors.cmail : ``
+                            }
+                        >
+                            Даю согласие на использование указанного e-mail в
+                            целях Акции. {state.cmail}
+                        </div>
+                    </Checkbox>
+                </div>
+                <div className="checkbox-wrapper" className="form-flex">
                     <Checkbox state={state} setState={setState} field={`agree`}>
                         <div
                             className="hint--bottom hint--error hint--always hint--rounded"
@@ -584,12 +621,32 @@ function Form(props) {
                             Cогласен(-на) с правилами {state.agree}
                         </div>
                     </Checkbox>
-
-                    Даю согласие на использование указанного e-mail в целях Акции.
-  Согласен с правилами акции
-  Даю согласие на обработку персональных данных
-  Хочу получать новости от бренда Kinder
-
+                </div>
+                <div className="checkbox-wrapper" className="form-flex">
+                    <Checkbox
+                        state={state}
+                        setState={setState}
+                        field={`personal`}
+                    >
+                        <div
+                            className="hint--bottom hint--error hint--always hint--rounded"
+                            aria-label={
+                                state.errors.personal
+                                    ? state.errors.personal
+                                    : ``
+                            }
+                        >
+                            Даю согласие на обработку персональных данных{" "}
+                            {state.personal}
+                        </div>
+                    </Checkbox>
+                </div>
+                <div className="checkbox-wrapper" className="form-flex">
+                    <Checkbox state={state} setState={setState} field={`news`}>
+                        <div>
+                            Хочу получать новости от бренда Kinder {state.news}
+                        </div>
+                    </Checkbox>
                 </div>
                 <div className={"hidden-sm"}>
                     <button
