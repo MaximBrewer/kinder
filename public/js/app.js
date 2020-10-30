@@ -67406,7 +67406,7 @@ function Form(props) {
 
   function openModal() {
     var toY = document.getElementById("formEl").getBoundingClientRect().top;
-    console.log(toY, props.formEl.current, 100);
+    console.log(toY, 100);
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
         isOpen: true
