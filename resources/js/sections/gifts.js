@@ -321,6 +321,7 @@ function Gifts(props) {
                 <div className={`logos`}>
                     <div>
                         <a
+                            target="_blank"
                             href="https://www.utkonos.ru/search/kinder/cat/52?&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020"
                             style={{
                                 backgroundImage: "url(/img/shops/utkonos.png)"
@@ -329,6 +330,7 @@ function Gifts(props) {
                     </div>
                     <div>
                         <a
+                            target="_blank"
                             href="https://pokupki.market.yandex.ru/search?cvredirect=2&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020&text=%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D1%80&glfilter=7893318%3A10715858"
                             style={{
                                 backgroundImage: "url(/img/shops/yandex.png)"
@@ -337,6 +339,7 @@ function Gifts(props) {
                     </div>
                     <div>
                         <a
+                            target="_blank"
                             href="https://www.ozon.ru/brand/kinder-138860371/?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020"
                             style={{
                                 backgroundImage: "url(/img/shops/ozon.png)"
@@ -345,6 +348,7 @@ function Gifts(props) {
                     </div>
                     <div>
                         <a
+                            target="_blank"
                             href="https://www.vprok.ru/catalog/1450/shokolad-batonchiki/brend/kinder?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020"
                             style={{
                                 backgroundImage: "url(/img/shops/cross.png)"

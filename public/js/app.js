@@ -68206,21 +68206,25 @@ function Gifts(props) {
   }, "\u041A\u0443\u043F\u0438\u0442\u044C:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "logos"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
+    target: "_blank",
     href: "https://www.utkonos.ru/search/kinder/cat/52?&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020",
     style: {
       backgroundImage: "url(/img/shops/utkonos.png)"
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
+    target: "_blank",
     href: "https://pokupki.market.yandex.ru/search?cvredirect=2&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020&text=%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D1%80&glfilter=7893318%3A10715858",
     style: {
       backgroundImage: "url(/img/shops/yandex.png)"
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
+    target: "_blank",
     href: "https://www.ozon.ru/brand/kinder-138860371/?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020",
     style: {
       backgroundImage: "url(/img/shops/ozon.png)"
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
+    target: "_blank",
     href: "https://www.vprok.ru/catalog/1450/shokolad-batonchiki/brend/kinder?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020",
     style: {
       backgroundImage: "url(/img/shops/cross.png)"
@@ -68585,36 +68589,40 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Counter() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])('500000'),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("0"),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
 
+  var tick = function tick() {
+    setState(function (prevState) {
+      var digits = prevState.split(""),
+          newDigits = (prevState * 1 + 1 + "").split("");
+
+      for (var i in digits) {
+        if (digits[i] != newDigits[i]) {
+          (function () {
+            var el = document.getElementsByClassName("number-" + i)[0];
+            el.classList.add("flip");
+            setTimeout(function () {
+              el.classList.remove("flip");
+            }, 500);
+          })();
+        }
+      }
+
+      return prevState * 1 + "";
+    });
+    setTimeout(function () {
+      setState(function (prevState) {
+        return prevState * 1 + 1 + "";
+      });
+    }, 500);
+  };
+
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     var interval = setInterval(function () {
-      setState(function (prevState) {
-        var digits = prevState.split(''),
-            newDigits = (prevState * 1 + 1 + '').split('');
-
-        for (var i in digits) {
-          if (digits[i] != newDigits[i]) {
-            (function () {
-              var el = document.getElementsByClassName('number-' + i)[0];
-              el.classList.add("flip");
-              setTimeout(function () {
-                el.classList.remove("flip");
-              }, 500);
-            })();
-          }
-        }
-
-        return prevState * 1 + '';
-      });
-      setTimeout(function () {
-        setState(function (prevState) {
-          return prevState * 1 + 1 + '';
-        });
-      }, 500);
+      tick();
     }, 1000);
     return function () {
       return clearInterval(interval);
@@ -68632,15 +68640,15 @@ function Counter() {
       className: "primary"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "before"
-    }, state.split('')[index] * 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    }, state.split("")[index] * 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "after"
-    }, state.split('')[index] * 1 + 1 < 10 ? state.split('')[index] * 1 + 1 : 0)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+    }, state.split("")[index] * 1 + 1 < 10 ? state.split("")[index] * 1 + 1 : 0)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
       className: "secondary"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "before"
-    }, state.split('')[index] * 1 + 1 < 10 ? state.split('')[index] * 1 + 1 : 0), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    }, state.split("")[index] * 1 + 1 < 10 ? state.split("")[index] * 1 + 1 : 0), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "after"
-    }, state.split('')[index] * 1)));
+    }, state.split("")[index] * 1)));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u0434\u0435\u0442\u0435\u0439 \u0443\u0436\u0435 \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u043B\u0438 \u0414\u0435\u0434\u0443 \u041C\u043E\u0440\u043E\u0437\u0443"));
 }
 
