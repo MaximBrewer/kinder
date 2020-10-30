@@ -68252,7 +68252,12 @@ function Gifts(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
 var styles = {
-  content: {},
+  content: {
+    margin: "0 auto",
+    maxWidth: "280px",
+    borderRadius: "20px",
+    fontSize: "22px"
+  },
   overlay: {
     zIndex: 100
   }
