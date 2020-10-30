@@ -146,9 +146,11 @@ function Form(props) {
 
     useEffect(() => {
         resize();
-        window.addEventListener("reseze", resize);
+        window.addEventListener("scroll", resize);
+        window.addEventListener("resize", resize);
         return () => {
-            window.removeEventListener("reseze", resize);
+            window.removeEventListener("scroll", resize);
+            window.removeEventListener("resize", resize);
         };
     }, []);
 

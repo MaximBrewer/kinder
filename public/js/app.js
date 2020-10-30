@@ -67545,9 +67545,11 @@ function Form(props) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     resize();
-    window.addEventListener("reseze", resize);
+    window.addEventListener("scroll", resize);
+    window.addEventListener("resize", resize);
     return function () {
-      window.removeEventListener("reseze", resize);
+      window.removeEventListener("scroll", resize);
+      window.removeEventListener("resize", resize);
     };
   }, []);
 
