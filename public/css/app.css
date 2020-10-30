@@ -962,7 +962,7 @@ body {
   white-space: nowrap;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
   .promo-hny .nhy-btn {
     padding: 1.2rem 3rem;
     display: inline-block;
@@ -975,7 +975,7 @@ body {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
   .promo-hny .nhy-btn {
     padding: 1.5rem 4rem;
     font-size: 24px;
@@ -1137,15 +1137,9 @@ body {
 @media (min-width: 768px) {
   .promo-hny .counter-khny .counter-inner {
     max-width: 100%;
-    transform: translateX(-15%) scale(0.7);
+    transform: translateX(-20%) scale(0.6);
     margin-left: 0;
     margin-right: 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .promo-hny .counter-khny .counter-inner {
-    transform: translateX(-10%) scale(0.8);
   }
 }
 
