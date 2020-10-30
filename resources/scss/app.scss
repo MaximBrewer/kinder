@@ -393,10 +393,11 @@ body {
     @media (min-width: 768px) {
         font-size: 28px !important;
         border-radius: 40px !important;
-        max-width: 660px !important;
-        padding: 60px !important;
+        max-width: 600px !important;
+        padding: 40px !important;
     }
     @media (min-width: 1024px) {
+        max-width: 660px !important;
     }
 }
 

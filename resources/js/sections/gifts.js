@@ -15,6 +15,7 @@ import {
     renderTrackVertical,
     renderThumbVertical
 } from "../utils/scrollbars";
+import { after } from "lodash";
 
 Modal.setAppElement("#giftsEl");
 
@@ -75,7 +76,10 @@ function Gifts(props) {
         speed: 300,
         auto: true,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        afterChange: index => {
+            chooseProduct(e, index)
+        }
     };
 
     const chooseProduct = (e, index) => {

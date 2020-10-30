@@ -867,8 +867,14 @@ body {
   .ReactModal__Content {
     font-size: 28px !important;
     border-radius: 40px !important;
+    max-width: 600px !important;
+    padding: 40px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ReactModal__Content {
     max-width: 660px !important;
-    padding: 60px !important;
   }
 }
 
