@@ -67405,7 +67405,14 @@ function Form(props) {
   }
 
   function openModal() {
-    var toY = document.getElementById("formEl").getBoundingClientRect().top + 200;
+    var toY = document.getElementById("formEl").getBoundingClientRect().top;
+
+    if (window.parent.postMessage) {
+      window.parent.postMessage({
+        scrolltop: toY
+      }, "*");
+    }
+
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
         isOpen: true,

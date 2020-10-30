@@ -31,7 +31,15 @@ function Form(props) {
 
     function openModal() {
         let toY =
-            document.getElementById("formEl").getBoundingClientRect().top + 200;
+            document.getElementById("formEl").getBoundingClientRect().top;
+        if (window.parent.postMessage) {
+            window.parent.postMessage(
+                {
+                    scrolltop: toY
+                },
+                "*"
+            );
+        }
         setState(prevState => ({
             ...prevState,
             isOpen: true,
