@@ -710,6 +710,10 @@ body {
   align-items: center;
 }
 
+.cehckboxButton > div:first-child {
+  align-self: baseline;
+}
+
 .cehckboxButton svg {
   display: block;
 }
