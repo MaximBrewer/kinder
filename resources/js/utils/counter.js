@@ -2,7 +2,7 @@ import { map } from "lodash";
 import React, { useState, useEffect, useRef } from "react";
 
 function Counter() {
-    const [state, setState] = useState("0");
+    const [state, setState] = useState("000000");
 
     const tick = () => {
         setState(prevState => {

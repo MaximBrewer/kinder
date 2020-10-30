@@ -68589,7 +68589,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Counter() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("0"),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("000000"),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
