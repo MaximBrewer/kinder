@@ -176,17 +176,21 @@ function Form(props) {
             errors: {}
         }));
 
+        let done = true;
+
         if (!state.boysValue && !state.girlsValue) {
             setState(prevState => ({
                 ...prevState,
                 errors: { ...prevState.errors, name: "Выберите имя" }
             }));
+            done = false;
         }
         if (!state.ageValue) {
             setState(prevState => ({
                 ...prevState,
                 errors: { ...prevState.errors, ageValue: "Выберите возраст" }
             }));
+            done = false;
         }
         if (!state.achieveValue) {
             setState(prevState => ({
@@ -196,36 +200,42 @@ function Form(props) {
                     achieveValue: "Выберите достижение"
                 }
             }));
+            done = false;
         }
         if (!state.hobbyValue) {
             setState(prevState => ({
                 ...prevState,
                 errors: { ...prevState.errors, hobbyValue: "Выберите хобби" }
             }));
+            done = false;
         }
         if (!state.fromValue) {
             setState(prevState => ({
                 ...prevState,
                 errors: { ...prevState.errors, fromValue: "Выберите от кого" }
             }));
+            done = false;
         }
         if (!state.photo) {
             setState(prevState => ({
                 ...prevState,
                 errors: { ...prevState.errors, photo: "Добавьте фото" }
             }));
+            done = false;
         }
         if (!state.giftValue) {
             setState(prevState => ({
                 ...prevState,
                 errors: { ...prevState.errors, giftValue: "Выберите подарок" }
             }));
+            done = false;
         }
         if (!state.emailValue) {
             setState(prevState => ({
                 ...prevState,
                 errors: { ...prevState.errors, emailValue: "Введите E-mail" }
             }));
+            done = false;
         }
         if (!state.agree) {
             setState(prevState => ({
@@ -235,6 +245,7 @@ function Form(props) {
                     agree: "Вы должны согласиться с правилами"
                 }
             }));
+            done = false;
         }
         if (!state.cmail) {
             setState(prevState => ({
@@ -244,6 +255,7 @@ function Form(props) {
                     cmail: "Вы должны согласиться на использование указанного e-mail"
                 }
             }));
+            done = false;
         }
         if (!state.personal) {
             setState(prevState => ({
@@ -253,9 +265,10 @@ function Form(props) {
                     personal: "Вы должны согласиться на обработку персональных данных"
                 }
             }));
+            done = false;
         }
 
-        if (state.errors.lenght) return false;
+        if (!done) return false;
 
         let formData = new FormData();
         formData.append("photo", state.photo);

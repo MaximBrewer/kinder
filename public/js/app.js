@@ -67574,6 +67574,7 @@ function Form(props) {
         errors: {}
       });
     });
+    var done = true;
 
     if (!state.boysValue && !state.girlsValue) {
       setState(function (prevState) {
@@ -67583,6 +67584,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.ageValue) {
@@ -67593,6 +67595,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.achieveValue) {
@@ -67603,6 +67606,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.hobbyValue) {
@@ -67613,6 +67617,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.fromValue) {
@@ -67623,6 +67628,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.photo) {
@@ -67633,6 +67639,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.giftValue) {
@@ -67643,6 +67650,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.emailValue) {
@@ -67653,6 +67661,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.agree) {
@@ -67663,6 +67672,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.cmail) {
@@ -67673,6 +67683,7 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
     if (!state.personal) {
@@ -67683,9 +67694,10 @@ function Form(props) {
           })
         });
       });
+      done = false;
     }
 
-    if (state.errors.lenght) return false;
+    if (!done) return false;
     var formData = new FormData();
     formData.append("photo", state.photo);
     formData.append("name", state.boysValue ? state.boysValue.value : state.girlsValue.value);
