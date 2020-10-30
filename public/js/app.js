@@ -68548,16 +68548,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var Styles = {
-  button: {
-    background: 'transparent',
-    border: '0',
-    display: 'flex',
-    outline: '0',
-    cursor: 'pointer',
-    textAlign: 'left',
-    margintop: '1rem',
-    marginBottom: '1rem'
-  },
+  button: {},
   check: {
     marginRight: '1rem'
   },
@@ -68588,7 +68579,8 @@ function Button(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     style: Styles.button,
-    onClick: toggle
+    onClick: toggle,
+    className: "cehckboxButton"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: Styles.check
   }, icon()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

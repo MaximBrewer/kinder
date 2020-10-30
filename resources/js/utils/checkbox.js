@@ -4,14 +4,6 @@ import { Checked, Unchecked } from '../utils/icons'
 
 const Styles = {
     button: {
-        background: 'transparent',
-        border: '0',
-        display: 'flex',
-        outline: '0',
-        cursor: 'pointer',
-        textAlign: 'left',
-        margintop: '1rem',
-        marginBottom: '1rem'
     },
 
     check: {
@@ -45,7 +37,7 @@ export default function Button(props) {
     return (
         <button
             style={Styles.button}
-            onClick={toggle}>
+            onClick={toggle} className={`cehckboxButton`}>
             <div style={Styles.check}>
                 {icon()}
             </div>
