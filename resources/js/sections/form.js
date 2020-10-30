@@ -30,7 +30,7 @@ function Form(props) {
     }
 
     function openModal() {
-        let toY = (props.formEl.current.getBoundingClientRect().top;
+        let toY = props.formEl.current.getBoundingClientRect().top;
         console.log(toY)
         setState(prevState => ({
             ...prevState,
