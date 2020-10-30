@@ -114,7 +114,6 @@ function Gifts(props) {
                         <Slider {...setting} ref={sliderEl}>
                             {window.App.data.gifts.map((item, index) => (
                                 <div className="toys-watch" key={index}>
-                                    <div className="img-big">
                                         {/* {item.toys && item.toys.length ? (
                                             <div
                                                 className="h3"
@@ -132,8 +131,6 @@ function Gifts(props) {
                                         )} */}
                                         <img
                                             src={item.img}
-                                            alt={``}
-                                            style={{ width: "100%" }}
                                         />
                                         {/* <div
                                             style={{
@@ -161,9 +158,6 @@ function Gifts(props) {
                                             )}
                                         </div> */}
                                     </div>
-                                    <h4 className={`title`}>
-                                        {Parser(item.title)}
-                                    </h4>
                                     {/* <div className={`description`}>
                                         <Scrollbars style={window.innerWidth < 1024 ? { height: 56 } : { height: 56 }}
                                             renderView={renderView}
@@ -175,7 +169,6 @@ function Gifts(props) {
                                         >{Parser(item.description)}
                                         </Scrollbars>
                                     </div> */}
-                                </div>
                             ))}
                         </Slider>
                     </div>
