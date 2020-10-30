@@ -31,7 +31,7 @@ function Form(props) {
 
     function openModal() {
         let toY = props.formEl.current.getBoundingClientRect().top;
-        console.log(toY, props.formEl.current,100)
+        console.log(toY, props.formEl.current, 100);
         setState(prevState => ({
             ...prevState,
             isOpen: true
@@ -140,7 +140,7 @@ function Form(props) {
     }, [contEl.current]);
 
     const resize = () => {
-        var scrollTop = document.scrollingElement.scrollTop
+        var scrollTop = document.scrollingElement.scrollTop;
         console.log(scrollTop);
     };
 
@@ -248,7 +248,7 @@ function Form(props) {
                 setState(initialState);
                 openModal();
             })
-            .catch(() => null);
+            .catch(err => console.log(err));
     };
 
     const choose = (event, fieldName) => {

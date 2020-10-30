@@ -67668,8 +67668,8 @@ function Form(props) {
     }).then(function () {
       setState(initialState);
       openModal();
-    })["catch"](function () {
-      return null;
+    })["catch"](function (err) {
+      return console.log(err);
     });
   };
 
