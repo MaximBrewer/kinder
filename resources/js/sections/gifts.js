@@ -114,7 +114,7 @@ function Gifts(props) {
                         <Slider {...setting} ref={sliderEl}>
                             {window.App.data.gifts.map((item, index) => (
                                 <div className="toys-watch" key={index}>
-                                        {/* {item.toys && item.toys.length ? (
+                                    {/* {item.toys && item.toys.length ? (
                                             <div
                                                 className="h3"
                                                 style={{
@@ -129,10 +129,8 @@ function Gifts(props) {
                                         ) : (
                                             ``
                                         )} */}
-                                        <img
-                                            src={item.img}
-                                        />
-                                        {/* <div
+                                    <img src={item.img} />
+                                    {/* <div
                                             style={{
                                                 position: "absolute",
                                                 width: "100%",
@@ -157,7 +155,6 @@ function Gifts(props) {
                                                 ``
                                             )}
                                         </div> */}
-                                    </div>
                                     {/* <div className={`description`}>
                                         <Scrollbars style={window.innerWidth < 1024 ? { height: 56 } : { height: 56 }}
                                             renderView={renderView}
@@ -169,6 +166,7 @@ function Gifts(props) {
                                         >{Parser(item.description)}
                                         </Scrollbars>
                                     </div> */}
+                                </div>
                             ))}
                         </Slider>
                     </div>
