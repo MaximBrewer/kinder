@@ -268,7 +268,7 @@ body {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     align-items: center;
-    > div:first-child{
+    > div:first-child {
         align-self: baseline;
     }
     svg {
@@ -365,6 +365,45 @@ body {
                 text-decoration: none;
             }
         }
+    }
+}
+
+.ReactModal__Content {
+    border-width: 0;
+    background-color: #07a1f3;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(/img/popup-bg.png);
+    background-size: cover;
+    box-shadow: 0px 0px 79px #000000;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    font-family: "bubbleboddy_neue", sans-serif;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 280px;
+    border-radius: 20px;
+    font-size: 22px;
+    @media (min-width: 375px) {
+        max-width: 280px;
+    }
+    @media (min-width: 414px) {
+        max-width: 360px;
+        padding: 30px;
+    }
+    @media (min-width: 768px) {
+        transform: translateX(-50%);
+        margin-right: -50%;
+        font-size: 28px;
+        border-radius: 40px;
+        max-width: 660px;
+        padding: 60px;
+    }
+    @media (min-width: 1024px) {
     }
 }
 
