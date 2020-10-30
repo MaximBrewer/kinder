@@ -1089,14 +1089,14 @@ body {
 
 @media (min-width: 1024px) {
   .promo-hny p {
-    font-size: 26px;
-    max-width: 40rem;
     line-height: inherit;
+    max-width: 40rem;
   }
 }
 
 @media (min-width: 1280px) {
   .promo-hny p {
+    font-size: 26px;
     max-width: 50rem;
     line-height: inherit;
   }
@@ -1118,17 +1118,30 @@ body {
 
 @media (min-width: 768px) {
   .promo-hny .counter-khny p {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 22px;
     margin-top: -10px;
   }
 }
 
 @media (min-width: 1024px) {
   .promo-hny .counter-khny p {
-    font-size: 30px;
-    line-height: 32px;
+    max-width: 50rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .promo-hny .counter-khny p {
+    font-size: 26px;
     margin-top: 10px;
+    line-height: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .promo-hny .counter-khny p {
+    font-size: 30px;
+    line-height: inherit;
   }
 }
 

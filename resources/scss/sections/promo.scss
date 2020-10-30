@@ -196,11 +196,11 @@
             text-shadow: 1px 1px 2px black, 0 0 1em #091e2c;
         }
         @media (min-width: 1024px) {
-            font-size: 26px;
-            max-width: 40rem;
             line-height: inherit;
+            max-width: 40rem;
         }
         @media (min-width: 1280px) {
+            font-size: 26px;
             max-width: 50rem;
             line-height: inherit;
         }
@@ -216,14 +216,21 @@
             margin-top: 0;
             line-height: 18px;
             @media (min-width: 768px) {
-                font-size: 20px;
-                line-height: 24px;
+                font-size: 18px;
+                line-height: 22px;
                 margin-top: -10px;
             }
             @media (min-width: 1024px) {
-                font-size: 30px;
-                line-height: 32px;
+                max-width: 50rem;
+            }
+            @media (min-width: 1280px) {
+                font-size: 26px;
                 margin-top: 10px;
+                line-height: 32px;
+            }
+            @media (min-width: 1440px) {
+                font-size: 30px;
+                line-height: inherit;
             }
         }
         .counter-inner {
