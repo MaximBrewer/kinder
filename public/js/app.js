@@ -67418,7 +67418,7 @@ function Form(props) {
         isOpen: true,
         modalStyles: _objectSpread(_objectSpread({}, prevState.modalStyles), {}, {
           content: _objectSpread(_objectSpread({}, prevState.modalStyles.content), {}, {
-            top: toY + 300
+            top: toY
           })
         })
       });
@@ -68015,7 +68015,7 @@ function Gifts(props) {
         isOpen: true,
         modalStyles: _objectSpread(_objectSpread({}, prevState.modalStyles), {}, {
           content: _objectSpread(_objectSpread({}, prevState.modalStyles.content), {}, {
-            top: toY + 300
+            top: toY
           })
         })
       });
