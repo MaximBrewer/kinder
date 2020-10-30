@@ -22,7 +22,7 @@ class SiteController extends Controller
     }
     public function patch(Request $request)
     {
-        $unsubscribe="https://www.kinder.com";
+        $unsubscribe = "https://www.kinder.com";
         Mail::to('pimax1978@icloud.com')->send(new \App\Mail\Frame1($unsubscribe));
         return true;
     }

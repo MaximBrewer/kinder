@@ -6,7 +6,6 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Request;
 
 class Frame2 extends Mailable
 {
@@ -27,7 +26,7 @@ class Frame2 extends Mailable
      *
      * @return $this
      */
-    public function build(Request $request, $unsubscribe)
+    public function build($unsubscribe)
     {
         return $this->view('mail.frame2', compact('unsubscribe'));
     }
