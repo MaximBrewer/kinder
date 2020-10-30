@@ -16,9 +16,12 @@ class Frame2 extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    protected $unsubscribe;
+
+
+    public function __construct($unsubscribe)
     {
-        //
+        $this->unsubscribe = $unsubscribe;
     }
 
     /**
@@ -26,8 +29,10 @@ class Frame2 extends Mailable
      *
      * @return $this
      */
-    public function build($unsubscribe)
+    public function build()
     {
-        return $this->view('mail.frame2', compact('unsubscribe'));
+        return $this->view('mail.frame2', [
+            'unsubscribe' => $this->unsubscribe
+        ]);
     }
 }
