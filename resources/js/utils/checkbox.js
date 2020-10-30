@@ -15,7 +15,7 @@ const Styles = {
 
 export default function Button(props) {
     const icon = () => {
-        return props.checked ? <Checked /> : <Unchecked />;
+        return props.state[props.field] ? <Checked /> : <Unchecked />;
     };
     const toggle = event => {
         event.preventDefault();
