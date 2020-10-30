@@ -67537,6 +67537,8 @@ function Form(props) {
   }, [contEl.current]);
 
   var resize = function resize() {
+    var html = document.documentElement;
+    var body = document.body;
     var scrollTop = html.scrollTop || body && body.scrollTop || 0;
     console.log(scrollTop);
   };
