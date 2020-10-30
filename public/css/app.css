@@ -1085,7 +1085,7 @@ body {
 @media (min-width: 1024px) {
   .promo-hny p {
     font-size: 26px;
-    max-width: 20rem;
+    max-width: 40rem;
     line-height: inherit;
   }
 }
