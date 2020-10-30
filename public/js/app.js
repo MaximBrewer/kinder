@@ -67393,11 +67393,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-react_modal__WEBPACK_IMPORTED_MODULE_6___default.a.setAppElement('#formEl');
+react_modal__WEBPACK_IMPORTED_MODULE_6___default.a.setAppElement("#formEl");
 
 function Form(props) {
-  var customStyles = props.customStyles;
-
   function closeModal() {
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
@@ -67418,7 +67416,7 @@ function Form(props) {
     console.log(e);
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
-        genderValue: 'boy',
+        genderValue: "boy",
         errors: _objectSpread(_objectSpread({}, prevState.errors), {}, {
           name: null
         }),
@@ -67442,7 +67440,7 @@ function Form(props) {
           name: null
         }),
         boysValue: null,
-        genderValue: 'girl',
+        genderValue: "girl",
         girlsValue: e,
         achieveValue: null,
         achieveOptions: window.App.data.achieves.girls.map(function (item, index) {
@@ -67494,7 +67492,7 @@ function Form(props) {
     girlsValue: null,
     achieveValue: null,
     genderValue: null,
-    emailValue: '',
+    emailValue: "",
     hobbyValue: null,
     ageValue: null,
     giftValue: window.App.data.gifts[0],
@@ -67503,7 +67501,8 @@ function Form(props) {
     isOpen: false,
     photo: null,
     contHeight: 0,
-    errors: {}
+    errors: {},
+    modalStyles: _styles_modal__WEBPACK_IMPORTED_MODULE_8__["styles"]
   };
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialState),
@@ -67529,14 +67528,6 @@ function Form(props) {
   };
   var sliderEl = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
   var contEl = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
-  var boysSelect = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
-  var hobbySelect = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
-  var ageSelect = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
-  var photoSelect = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
-  var giftSelect = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
-  var fromSelect = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
-  var achieveSelect = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
-  var agreeSelect = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     !!contEl.current && setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
@@ -67544,6 +67535,19 @@ function Form(props) {
       });
     });
   }, [contEl.current]);
+
+  var resize = function resize() {
+    var scrollTop = html.scrollTop || body && body.scrollTop || 0;
+    console.log(scrollTop);
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    resize();
+    window.addEventListener("reseze", resize);
+    return function () {
+      window.removeEventListener("reseze", resize);
+    };
+  }, []);
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
@@ -67706,7 +67710,7 @@ function Form(props) {
     }),
     placeholder: "\u0412\u043E\u0437\u0440\u0430\u0441\u0442",
     onChange: function onChange(e) {
-      return choose(e, 'ageValue');
+      return choose(e, "ageValue");
     },
     value: state.ageValue
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67718,7 +67722,7 @@ function Form(props) {
     },
     options: state.achieveOptions,
     onChange: function onChange(e) {
-      return choose(e, 'achieveValue');
+      return choose(e, "achieveValue");
     },
     value: state.achieveValue,
     placeholder: "\u0414\u043E\u0441\u0442\u0438\u0436\u0435\u043D\u0438\u0435"
@@ -67734,7 +67738,7 @@ function Form(props) {
     }),
     placeholder: "\u0425\u043E\u0431\u0431\u0438",
     onChange: function onChange(e) {
-      return choose(e, 'hobbyValue');
+      return choose(e, "hobbyValue");
     },
     value: state.hobbyValue
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67749,7 +67753,7 @@ function Form(props) {
     }),
     placeholder: "\u041E\u0442 \u043A\u043E\u0433\u043E?",
     onChange: function onChange(e) {
-      return choose(e, 'fromValue');
+      return choose(e, "fromValue");
     },
     value: state.fromValue
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67771,7 +67775,7 @@ function Form(props) {
     style: {
       width: "100%"
     },
-    className: 'visible-sm nhy-btn',
+    className: "visible-sm nhy-btn",
     type: "submit"
   }, "\u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C \u0417\u0410\u042F\u0412\u041A\u0423")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "gift-select"
@@ -67804,7 +67808,7 @@ function Form(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "img",
       style: {
-        backgroundImage: 'url(' + item.img + ')'
+        backgroundImage: "url(" + item.img + ")"
       }
     })));
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -67853,18 +67857,18 @@ function Form(props) {
     className: "hint--bottom hint--error hint--always hint--rounded",
     "aria-label": state.errors.agree ? state.errors.agree : ""
   }, "C\u043E\u0433\u043B\u0430\u0441\u0435\u043D(-\u043D\u0430) \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 ", state.checked))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: 'hidden-sm'
+    className: "hidden-sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     style: {
       width: "100%"
     },
-    className: 'nhy-btn',
+    className: "nhy-btn",
     type: "submit"
   }, "\u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C \u0417\u0410\u042F\u0412\u041A\u0423"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_6___default.a, {
     isOpen: state.isOpen // onAfterOpen={afterOpenModal}
     ,
     onRequestClose: closeModal,
-    style: _styles_modal__WEBPACK_IMPORTED_MODULE_8__["styles"]
+    style: state.modalStyles
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     onClick: closeModal,
     style: {
