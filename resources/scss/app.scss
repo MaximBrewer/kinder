@@ -71,6 +71,12 @@ body {
         margin-left: auto;
         margin-right: auto;
         @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+        }
+        @media (min-width: 1280px) {
+        }
+        @media (min-width: 1440px) {
             padding: 0 4rem;
         }
     }
@@ -302,7 +308,6 @@ body {
         max-width: 172px;
         padding-top: 112px;
         min-height: 100%;
-        margin-right: 23px;
         background: url(../img/bg/snow-fall.png) no-repeat center bottom 16vw/80%,
             linear-gradient(
                 rgba(255, 255, 255, 0) 0%,

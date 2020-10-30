@@ -492,7 +492,7 @@ body {
   margin-right: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1440px) {
   .nhy-app .nhy-menu-container {
     padding: 0 4rem;
   }
@@ -773,7 +773,6 @@ body {
   max-width: 172px;
   padding-top: 112px;
   min-height: 100%;
-  margin-right: 23px;
   background: url(/images/snow-fall.png?bfec9d0600353d81c7c492234b70afd1) no-repeat center bottom 16vw/80%, linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%), #3399ff;
 }
 
@@ -905,16 +904,6 @@ body {
   }
 }
 
-@media (min-width: 768px) {
-  .promo-wrapper {
-    min-height: 56.3vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 16vw;
-  }
-}
-
 @media (min-width: 375px) {
   .promo-wrapper {
     margin-top: -18.2vw;
@@ -930,6 +919,11 @@ body {
 @media (min-width: 768px) {
   .promo-wrapper {
     margin-top: 0;
+    min-height: 56.3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 16vw;
   }
 }
 
@@ -1004,22 +998,9 @@ body {
   max-height: 60px;
 }
 
-@media (min-width: 1024px) {
-  .promo-hny .h1 img {
-    max-height: 90px;
-  }
-}
-
 .promo-hny .h1.h1-plus {
-  font-size: 64px;
-  margin-bottom: 32px;
-}
-
-@media (max-width: 1023px) {
-  .promo-hny .h1.h1-plus {
-    font-size: 44px;
-    margin-bottom: 16px;
-  }
+  font-size: 25px;
+  margin-bottom: 16px;
 }
 
 @media (min-width: 768px) {
@@ -1034,8 +1015,46 @@ body {
 
 @media (min-width: 1024px) {
   .promo-hny .h1 {
+    font-size: 36px;
+  }
+
+  .promo-hny .h1 img {
+    max-height: 70px;
+  }
+
+  .promo-hny .h1.h1-plus {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .promo-hny .h1 {
+    font-size: 42px;
+  }
+
+  .promo-hny .h1 img {
+    max-height: 80px;
+  }
+
+  .promo-hny .h1.h1-plus {
+    font-size: 42px;
+    margin-bottom: 22px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .promo-hny .h1 {
     font-size: 56px;
     line-height: 64px;
+  }
+
+  .promo-hny .h1 img {
+    max-height: 90px;
+  }
+
+  .promo-hny .h1.h1-plus {
+    font-size: 64px;
+    margin-bottom: 32px;
   }
 }
 
@@ -1048,6 +1067,7 @@ body {
   margin-right: auto;
   text-align: center;
   margin-top: 0;
+  max-width: 25rem;
   font-weight: bold;
 }
 
@@ -1064,8 +1084,22 @@ body {
 
 @media (min-width: 1024px) {
   .promo-hny p {
+    font-size: 26px;
+    max-width: 20rem;
+    line-height: inherit;
+  }
+}
+
+@media (min-width: 1280px) {
+  .promo-hny p {
+    max-width: 50rem;
+    line-height: inherit;
+  }
+}
+
+@media (min-width: 1440px) {
+  .promo-hny p {
     font-size: 30px;
-    max-width: 40rem;
     line-height: inherit;
   }
 }
@@ -1110,6 +1144,18 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .promo-hny .counter-khny .counter-inner {
+    transform: translateX(-10%) scale(0.8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .promo-hny .counter-khny .counter-inner {
+    transform: translateX(-5%) scale(0.9);
+  }
+}
+
+@media (min-width: 1440px) {
   .promo-hny .counter-khny .counter-inner {
     transform: none;
   }
