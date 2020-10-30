@@ -45,7 +45,7 @@ function Form(props) {
             isOpen: true,
             modalStyles: {
                 ...prevState.modalStyles,
-                content: { ...prevState.modalStyles.content, top: toY + 200 }
+                content: { ...prevState.modalStyles.content, top: toY + 300 }
             }
         }));
     }

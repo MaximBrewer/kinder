@@ -67418,7 +67418,7 @@ function Form(props) {
         isOpen: true,
         modalStyles: _objectSpread(_objectSpread({}, prevState.modalStyles), {}, {
           content: _objectSpread(_objectSpread({}, prevState.modalStyles.content), {}, {
-            top: toY + 200
+            top: toY + 300
           })
         })
       });
@@ -67990,7 +67990,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-react_modal__WEBPACK_IMPORTED_MODULE_7___default.a.setAppElement('#giftsEl');
+react_modal__WEBPACK_IMPORTED_MODULE_7___default.a.setAppElement("#giftsEl");
 
 function Gifts(props) {
   var customStyles = props.customStyles,
@@ -68009,7 +68009,8 @@ function Gifts(props) {
     checked: false,
     isOpen: false,
     gift: window.App.data.gifts[0],
-    contHeight: 0
+    contHeight: 0,
+    modalStyles: _styles_modal__WEBPACK_IMPORTED_MODULE_8__["styles"]
   }),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
@@ -68024,9 +68025,22 @@ function Gifts(props) {
   }
 
   function openModal() {
+    var toY = document.getElementById("giftsEl").getBoundingClientRect().top;
+
+    if (window.parent.postMessage) {
+      window.parent.postMessage({
+        scrolltop: toY
+      }, "*");
+    }
+
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
-        isOpen: true
+        isOpen: true,
+        modalStyles: _objectSpread(_objectSpread({}, prevState.modalStyles), {}, {
+          content: _objectSpread(_objectSpread({}, prevState.modalStyles.content), {}, {
+            top: toY + 300
+          })
+        })
       });
     });
   }
@@ -68228,7 +68242,7 @@ function Gifts(props) {
     isOpen: state.isOpen // onAfterOpen={afterOpenModal}
     ,
     onRequestClose: closeModal,
-    style: _styles_modal__WEBPACK_IMPORTED_MODULE_8__["styles"]
+    style: state.modalStyles
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     onClick: closeModal,
     style: {
