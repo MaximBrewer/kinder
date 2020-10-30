@@ -16,9 +16,10 @@ class Gift extends JsonResource
     public function toArray($request)
     {
         $toys = [];
-        foreach(json_decode($this->toys, true) as $toy){
-            $toys[] = Voyager::image($toy);
-        }
+        if (json_decode($this->toys, true))
+            foreach (json_decode($this->toys, true) as $toy) {
+                $toys[] = Voyager::image($toy);
+            }
         return [
             'id' => $this->id,
             'title' => $this->title,
