@@ -67621,12 +67621,14 @@ function Form(props) {
             "Content-Type": "multipart/form-data"
           }
         }).then(function () {
-          setState(initialState);
           openModal();
         })["catch"](function (err) {
           return console.log(err);
         });
-        return initialState;
+        var contHeight = !!contEl.current ? contEl.current.offsetWidth : 0;
+        return _objectSpread(_objectSpread({}, initialState), {}, {
+          contHeight: contHeight
+        });
       }
 
       return _objectSpread(_objectSpread({}, prevState), {}, {

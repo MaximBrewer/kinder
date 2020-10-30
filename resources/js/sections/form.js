@@ -232,12 +232,15 @@ function Form(props) {
                         }
                     })
                     .then(() => {
-                        setState(initialState);
                         openModal();
                     })
                     .catch(err => console.log(err));
 
-                return initialState;
+                let contHeight = !!contEl.current
+                    ? contEl.current.offsetWidth
+                    : 0;
+
+                return { ...initialState, contHeight };
             }
             return { ...prevState, errors };
         });
