@@ -248,9 +248,12 @@
             @media (min-width: 1024px) {
             }
             @media (min-width: 1280px) {
-                transform: translateX(-5%) scale(0.9);
+                transform: translateX(-15%) scale(0.7);
             }
             @media (min-width: 1440px) {
+                transform: translateX(-10%) scale(0.8);
+            }
+            @media (min-width: 1600px) {
                 transform: none;
             }
             .number {

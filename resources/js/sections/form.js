@@ -114,7 +114,7 @@ function Form(props) {
         ageValue: null,
         giftValue: window.App.data.gifts[0],
         achieveOptions: [],
-        checked: false,
+        agree: false,
         isOpen: false,
         photo: null,
         contHeight: 0,
@@ -225,7 +225,7 @@ function Form(props) {
                 errors: { ...prevState.errors, emailValue: "Введите E-mail" }
             }));
         }
-        if (!state.checked) {
+        if (!state.agree) {
             setState(prevState => ({
                 ...prevState,
                 errors: {
@@ -235,7 +235,7 @@ function Form(props) {
             }));
         }
 
-        if (!state.checked || state.errors.lenght) return false;
+        if (state.errors.lenght) return false;
 
         let formData = new FormData();
         formData.append("photo", state.photo);
@@ -574,16 +574,22 @@ function Form(props) {
                     </div>
                 </div>
                 <div className="checkbox-wrapper" className="form-flex">
-                    <Checkbox state={state} setState={setState}>
+                    <Checkbox state={state} setState={setState} field={`agree`}>
                         <div
                             className="hint--bottom hint--error hint--always hint--rounded"
                             aria-label={
                                 state.errors.agree ? state.errors.agree : ``
                             }
                         >
-                            Cогласен(-на) с правилами {state.checked}
+                            Cогласен(-на) с правилами {state.agree}
                         </div>
                     </Checkbox>
+
+                    Даю согласие на использование указанного e-mail в целях Акции.
+  Согласен с правилами акции
+  Даю согласие на обработку персональных данных
+  Хочу получать новости от бренда Kinder
+
                 </div>
                 <div className={"hidden-sm"}>
                     <button

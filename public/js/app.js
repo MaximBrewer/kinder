@@ -67510,7 +67510,7 @@ function Form(props) {
     ageValue: null,
     giftValue: window.App.data.gifts[0],
     achieveOptions: [],
-    checked: false,
+    agree: false,
     isOpen: false,
     photo: null,
     contHeight: 0,
@@ -67652,7 +67652,7 @@ function Form(props) {
       });
     }
 
-    if (!state.checked) {
+    if (!state.agree) {
       setState(function (prevState) {
         return _objectSpread(_objectSpread({}, prevState), {}, {
           errors: _objectSpread(_objectSpread({}, prevState.errors), {}, {
@@ -67662,7 +67662,7 @@ function Form(props) {
       });
     }
 
-    if (!state.checked || state.errors.lenght) return false;
+    if (state.errors.lenght) return false;
     var formData = new FormData();
     formData.append("photo", state.photo);
     formData.append("name", state.boysValue ? state.boysValue.value : state.girlsValue.value);
@@ -67867,11 +67867,12 @@ function Form(props) {
     className: "checkbox-wrapper"
   }, "className", "form-flex"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_checkbox__WEBPACK_IMPORTED_MODULE_4__["default"], {
     state: state,
-    setState: setState
+    setState: setState,
+    field: "agree"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hint--bottom hint--error hint--always hint--rounded",
     "aria-label": state.errors.agree ? state.errors.agree : ""
-  }, "C\u043E\u0433\u043B\u0430\u0441\u0435\u043D(-\u043D\u0430) \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 ", state.checked))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "C\u043E\u0433\u043B\u0430\u0441\u0435\u043D(-\u043D\u0430) \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 ", state.agree)), "\u0414\u0430\u044E \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0433\u043E e-mail \u0432 \u0446\u0435\u043B\u044F\u0445 \u0410\u043A\u0446\u0438\u0438. \u0421\u043E\u0433\u043B\u0430\u0441\u0435\u043D \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 \u0430\u043A\u0446\u0438\u0438 \u0414\u0430\u044E \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445 \u0425\u043E\u0447\u0443 \u043F\u043E\u043B\u0443\u0447\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0441\u0442\u0438 \u043E\u0442 \u0431\u0440\u0435\u043D\u0434\u0430 Kinder"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hidden-sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     style: {
@@ -68550,7 +68551,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var Styles = {
   button: {},
   check: {
-    marginRight: '1rem'
+    marginRight: "1rem"
   },
   content: {
     padding: "0"
@@ -68558,7 +68559,7 @@ var Styles = {
 };
 function Button(props) {
   var icon = function icon() {
-    return props.state.checked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__["Checked"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__["Unchecked"], null);
+    return props.checked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__["Checked"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__["Unchecked"], null);
   };
 
   var toggle = function toggle(event) {
@@ -68566,12 +68567,12 @@ function Button(props) {
     props.setState(function (prevState) {
       var errors = prevState.errors;
 
-      if (!prevState.checked) {
-        errors.agree = null;
+      if (!prevState[props.field]) {
+        errors[props.field] = null;
       }
 
       return _objectSpread(_objectSpread({}, prevState), {}, {
-        checked: !prevState.checked,
+        checked: !prevState[props.field],
         errors: errors
       });
     });

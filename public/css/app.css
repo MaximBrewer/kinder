@@ -1164,11 +1164,17 @@ body {
 
 @media (min-width: 1280px) {
   .promo-hny .counter-khny .counter-inner {
-    transform: translateX(-5%) scale(0.9);
+    transform: translateX(-15%) scale(0.7);
   }
 }
 
 @media (min-width: 1440px) {
+  .promo-hny .counter-khny .counter-inner {
+    transform: translateX(-10%) scale(0.8);
+  }
+}
+
+@media (min-width: 1600px) {
   .promo-hny .counter-khny .counter-inner {
     transform: none;
   }
