@@ -301,8 +301,12 @@ body {
     @media (min-width: 768px) {
         background-image: url(../img/bg/main_SNOW2.jpg);
         background-position: right -17rem center;
+        background-position: right -12rem center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+    @media (min-width: 1280px) {
+        background-position: right -17rem center;
     }
     > div.sidebar-wrapper {
         max-width: 172px;
