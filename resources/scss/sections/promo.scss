@@ -81,13 +81,12 @@
     }
 }
 .promo-mobile-header {
-    background-image: url(../../img/bg/1-xs.jpg);
+    background-image: url(../../img/bg/mainmobile_2.jpg);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: cover;
     padding-bottom: 122vw;
     @media (min-width: 414px) {
-        background-image: url(../../img/bg/1-sm.jpg);
     }
     @media (min-width: 768px) {
         display: none;

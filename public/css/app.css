@@ -762,7 +762,7 @@ body {
 
 @media (min-width: 768px) {
   .promo-outer {
-    background-image: url(/images/1.jpg?2d7c36da8103eea4bb9871a5f27f7ec8);
+    background-image: url(/images/main_SNOW2.jpg?abd53f41d0bf38196ce8778611b765e7);
     background-position: right -5rem center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -928,17 +928,11 @@ body {
 }
 
 .promo-mobile-header {
-  background-image: url(/images/1-xs.jpg?392cf33929a3dae4084295e29a63878a);
+  background-image: url(/images/mainmobile_2.jpg?9f3b22ef85f338f3a25f7f9bdbaa7682);
   background-position: right center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 122vw;
-}
-
-@media (min-width: 414px) {
-  .promo-mobile-header {
-    background-image: url(/images/1-sm.jpg?5407f9f1ccbc677cf0179b44b7616574);
-  }
 }
 
 @media (min-width: 768px) {
