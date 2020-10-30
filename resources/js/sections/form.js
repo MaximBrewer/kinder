@@ -138,9 +138,7 @@ function Form(props) {
     }, [contEl.current]);
 
     const resize = () => {
-        var html = document.documentElement;
-        var body = document.body;
-        var scrollTop = html.scrollTop || (body && body.scrollTop) || 0;
+        var scrollTop = document.scrollingElement.scrollTop
         console.log(scrollTop);
     };
 
