@@ -262,6 +262,9 @@ body {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     align-items: center;
+    svg {
+        display: block;
+    }
     @media (min-width: 375px) {
     }
     @media (min-width: 414px) {

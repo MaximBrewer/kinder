@@ -710,6 +710,10 @@ body {
   align-items: center;
 }
 
+.cehckboxButton svg {
+  display: block;
+}
+
 @media (min-width: 768px) {
   .cehckboxButton {
     margin: 0;
