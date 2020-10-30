@@ -15,15 +15,16 @@ Modal.setAppElement('#giftsEl')
 
 function Gifts(props) {
     const { customStyles, giftsEl } = props;
-    
+
     const contEl = useRef();
     const sliderEl = useRef();
 
     useEffect(() => {
-        setState(prevState => ({
-            ...prevState,
-            contHeight: contEl.current.offsetWidth
-        }));
+        !!contEl.current &&
+            setState(prevState => ({
+                ...prevState,
+                contHeight: contEl.current.offsetWidth
+            }));
     }, [contEl.current]);
 
 

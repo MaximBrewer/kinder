@@ -3,16 +3,10 @@ import Select from '../utils/select'
 import GirlSelect from '../utils/girl-select'
 import BoySelect from '../utils/boy-select'
 import Checkbox from '../utils/checkbox'
-import Button from '../utils/button'
 import Upload from '../utils/upload'
 import Modal from 'react-modal';
 import { ArrowPrewMobile, ArrowNextMobile } from "../utils/icons";
 import { Close, Ok, Vk, Instagram } from "../utils/icons"
-import { hobby as hobbyOptions } from "../data/hobby";
-import { age as ageOptions } from "../data/age";
-import { from as fromOptions } from "../data/from";
-import { achieve as achieveGirlsOptions } from "../data/girls/achieve";
-import { achieve as achieveBoysOptions } from "../data/boys/achieve";
 import { styles as customModalStyles } from "../styles/modal";
 import { Scrollbars } from 'react-custom-scrollbars-with-mobile';
 import { renderView, renderThumbHorizontal, renderTrackHorizontal, renderTrackVertical, renderThumbVertical } from '../utils/scrollbars'
@@ -22,6 +16,7 @@ import Slider from "react-slick";
 Modal.setAppElement('#formEl')
 
 function Form(props) {
+
     const { customStyles } = props;
 
     function closeModal() {
@@ -42,31 +37,36 @@ function Form(props) {
         console.log(e);
         setState(prevState => ({
             ...prevState,
+            genderValue: 'boy',
+            errors: { ...prevState.errors, name: null },
             girlsValue: null,
             boysValue: e,
             achieveValue: null,
-            achieveOptions: achieveBoysOptions,
+            achieveOptions: window.App.data.achieves.boys.map((item, index) => ({ value: item.id, label: item.value })),
         }))
     }
 
     const onGirlsChange = (e) => {
         setState(prevState => ({
             ...prevState,
+            errors: { ...prevState.errors, name: null },
             boysValue: null,
+            genderValue: 'girl',
             girlsValue: e,
             achieveValue: null,
-            achieveOptions: achieveGirlsOptions,
+            achieveOptions: window.App.data.achieves.girls.map((item, index) => ({ value: item.id, label: item.value })),
         }))
     }
 
     const emailChange = (e) => {
         const eventTarget = e.target;
-        setState(prevState => ({ ...prevState, emailValue: eventTarget.value }))
+        setState(prevState => ({ ...prevState, emailValue: eventTarget.value, errors: { ...prevState.errors, emailValue: null } }))
     }
 
     const setFiles = (files) => {
         setState(prevState => ({
             ...prevState,
+            errors: { ...prevState.errors, photo: null },
             photo: files[0]
         }))
     }
@@ -74,24 +74,29 @@ function Form(props) {
     const chooseGift = (gift) => {
         setState(prevState => ({
             ...prevState,
+            errors: { ...prevState.errors, gift: null },
             giftValue: gift
         }))
     }
 
-    const [state, setState] = useState({
+    const initialState = {
         boysValue: null,
         girlsValue: null,
         achieveValue: null,
+        genderValue: null,
         emailValue: '',
         hobbyValue: null,
         ageValue: null,
-        giftValue: null,
+        giftValue: window.App.data.gifts[0],
         achieveOptions: [],
         checked: false,
         isOpen: false,
         photo: null,
-        contHeight: 0
-    });
+        contHeight: 0,
+        errors: {}
+    }
+
+    const [state, setState] = useState(initialState);
 
 
     const setting = {
@@ -101,22 +106,103 @@ function Form(props) {
         speed: 300,
         auto: true,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        afterChange: (index) => {
+            setState(prevState => ({
+                ...prevState,
+                giftValue: window.App.data.gifts[index]
+            }));
+        }
     };
 
     const sliderEl = useRef();
     const contEl = useRef();
 
 
+    const boysSelect = useRef();
+    const hobbySelect = useRef();
+    const ageSelect = useRef();
+    const photoSelect = useRef();
+    const giftSelect = useRef();
+    const fromSelect = useRef();
+    const achieveSelect = useRef();
+    const agreeSelect = useRef();
+
+
     useEffect(() => {
-        setState(prevState => ({
-            ...prevState,
-            contHeight: contEl.current.offsetWidth
-        }));
+        !!contEl.current &&
+            setState(prevState => ({
+                ...prevState,
+                contHeight: contEl.current.offsetWidth
+            }));
     }, [contEl.current]);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        setState(prevState => ({
+            ...prevState,
+            errors: {}
+        }));
+
+        if (!state.boysValue && !state.girlsValue) {
+            setState(prevState => ({
+                ...prevState,
+                errors: { ...prevState.errors, name: "Выберите имя" }
+            }));
+        }
+        if (!state.ageValue) {
+            setState(prevState => ({
+                ...prevState,
+                errors: { ...prevState.errors, ageValue: "Выберите возраст" }
+            }));
+        }
+        if (!state.achieveValue) {
+            setState(prevState => ({
+                ...prevState,
+                errors: { ...prevState.errors, achieveValue: "Выберите достижение" }
+            }));
+        }
+        if (!state.hobbyValue) {
+            setState(prevState => ({
+                ...prevState,
+                errors: { ...prevState.errors, hobbyValue: "Выберите хобби" }
+            }));
+        }
+        if (!state.fromValue) {
+            setState(prevState => ({
+                ...prevState,
+                errors: { ...prevState.errors, fromValue: "Выберите от кого" }
+            }));
+        }
+        if (!state.photo) {
+            setState(prevState => ({
+                ...prevState,
+                errors: { ...prevState.errors, photo: "Добавьте фото" }
+            }));
+        }
+        if (!state.giftValue) {
+            setState(prevState => ({
+                ...prevState,
+                errors: { ...prevState.errors, giftValue: "Выберите подарок" }
+            }));
+        }
+        if (!state.emailValue) {
+            setState(prevState => ({
+                ...prevState,
+                errors: { ...prevState.errors, emailValue: "Введите E-mail" }
+            }));
+        }
+        if (!state.checked) {
+            setState(prevState => ({
+                ...prevState,
+                errors: { ...prevState.errors, agree: "Вы должны согласиться с правилами" }
+            }));
+        }
+
+        if (!state.checked || state.errors.lenght) return false;
+
         let formData = new FormData();
         formData.append("photo", state.photo);
         formData.append("name", state.boysValue ? state.boysValue.value : state.girlsValue.value);
@@ -125,13 +211,27 @@ function Form(props) {
         formData.append("hobby", state.hobbyValue.value);
         formData.append("age", state.ageValue.value);
         formData.append("gift", state.giftValue.id);
+        formData.append("gender", state.genderValue);
 
         axios.post("/patch", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             }
-        }).then(() => openModal()).catch(() => null);
+        }).then(() => {
+            setState(initialState); openModal()
+        }).catch(() => null);
 
+    }
+
+    const choose = (event, fieldName) => {
+        setState(prevState => {
+            prevState.errors[fieldName] = null;
+            prevState[fieldName] = event;
+            return {
+                ...prevState,
+                errors: prevState.errors
+            }
+        });
     }
 
     return (
@@ -142,7 +242,7 @@ function Form(props) {
             <form onSubmit={handleSubmit}>
                 <div className="order-form-flex">
                     <div className="order-form">
-                        <div className="form-flex">
+                        <div className={(window.innerWidth < 768 ? `hint--bottom` : `hint--right`) + ` form-flex hint--error hint--always hint--rounded`} aria-label={state.errors.name ? state.errors.name : ``}>
                             <div>
                                 <BoySelect onChange={onBoysChange} value={state.boysValue} />
                             </div>
@@ -150,23 +250,23 @@ function Form(props) {
                                 <GirlSelect onChange={onGirlsChange} value={state.girlsValue} />
                             </div>
                         </div>
-                        <div>
-                            <Select options={ageOptions} placeholder={`Возраст`} onChange={(e) => setState(prevState => ({ ...prevState, ageValue: e }))} value={state.ageValue} />
+                        <div className={(window.innerWidth < 768 ? `hint--bottom` : `hint--right`) + ` hint--error hint--always hint--rounded`} aria-label={state.errors.ageValue ? state.errors.ageValue : ``}>
+                            <Select options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item, index) => ({ value: item, label: item }))} placeholder={`Возраст`} onChange={(e) => choose(e, 'ageValue')} value={state.ageValue} />
                         </div>
-                        <div>
-                            <Select options={state.achieveOptions} onChange={(e) => setState(prevState => ({ ...prevState, achieveValue: e }))} value={state.achieveValue} placeholder={`Достижение`} />
+                        <div className={(window.innerWidth < 768 ? `hint--bottom` : `hint--right`) + ` hint--error hint--always hint--rounded`} aria-label={state.errors.achieveValue ? state.errors.achieveValue : ``}>
+                            <Select noOptionsMessage={() => ("Выберите имя")} options={state.achieveOptions} onChange={(e) => choose(e, 'achieveValue')} value={state.achieveValue} placeholder={`Достижение`} />
                         </div>
-                        <div>
-                            <Select options={hobbyOptions} placeholder={`Хобби`} onChange={(e) => setState(prevState => ({ ...prevState, hobbyValue: e }))} value={state.hobbyValue} />
+                        <div className={(window.innerWidth < 768 ? `hint--bottom` : `hint--right`) + ` hint--error hint--always hint--rounded`} aria-label={state.errors.hobbyValue ? state.errors.hobbyValue : ``}>
+                            <Select options={window.App.data.hobbies.map((item, index) => ({ value: item.id, label: item.value }))} placeholder={`Хобби`} onChange={(e) => choose(e, 'hobbyValue')} value={state.hobbyValue} />
                         </div>
-                        <div>
-                            <Select options={fromOptions} placeholder={`От кого?`} required />
+                        <div className={(window.innerWidth < 768 ? `hint--bottom` : `hint--right`) + ` hint--error hint--always hint--rounded`} aria-label={state.errors.fromValue ? state.errors.fromValue : ``}>
+                            <Select options={window.App.data.froms.map((item, index) => ({ value: item.id, label: item.value }))} placeholder={`От кого?`} onChange={(e) => choose(e, 'fromValue')} value={state.fromValue} />
                         </div>
-                        <div>
-                            <input type="email" placeholder={`E-mail`} onChange={emailChange} value={state.emailValue} required />
+                        <div className={(window.innerWidth < 768 ? `hint--bottom` : `hint--right`) + ` hint--error hint--always hint--rounded`} aria-label={state.errors.emailValue ? state.errors.emailValue : ``}>
+                            <input type="email" placeholder={`E-mail`} onChange={emailChange} value={state.emailValue} />
                         </div>
                         <div className="form-flex">
-                            <div>
+                            <div className={(window.innerWidth < 768 ? `hint--bottom` : `hint--right`) + ` hint--error hint--always hint--rounded`} aria-label={state.errors.photo ? state.errors.photo : ``}>
                                 <Upload setFiles={setFiles} />
                             </div>
                             <div>
@@ -224,12 +324,16 @@ function Form(props) {
                                         ))}
                                     </div>
                                 </Scrollbars>
-                            </div>}
+                            </div>
+                        }
+                        <div className="hint--bottom hint--error hint--always hint--rounded" aria-label={state.errors.gift ? state.errors.gift : ``}></div>
                     </div>
                 </div>
-                <div className="checkbox-wrapper">
-                    <Checkbox>
-                        Cогласен(-на) с правилами {state.checked}
+                <div className="checkbox-wrapper" className="form-flex">
+                    <Checkbox state={state} setState={setState}>
+                        <div className="hint--bottom hint--error hint--always hint--rounded" aria-label={state.errors.agree ? state.errors.agree : ``}>
+                            Cогласен(-на) с правилами {state.checked}
+                        </div>
                     </Checkbox>
                 </div>
                 <div className={'hidden-sm'}><button style={{ width: "100%" }} className={'nhy-btn'} type="submit">{`ОТПРАВИТЬ ЗАЯВКУ`}</button><br /><br /><br /></div>

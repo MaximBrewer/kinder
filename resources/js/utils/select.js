@@ -32,6 +32,8 @@ const customStyles = {
         ...provided,
     }),
     menuPortal: (provided, state) => ({
+        zIndex: 4,
+        position: "relative",
         ...provided,
     }),
     singleValue: (provided, state) => {

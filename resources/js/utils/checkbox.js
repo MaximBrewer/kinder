@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Checked, Unchecked } from '../utils/icons'
 
 
@@ -21,43 +21,35 @@ const Styles = {
     }
 }
 
-export default class Button extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            checked: false
-        }
+export default function Button(props) {
 
-        this.icon = this.icon.bind(this)
-        this.toggle = this.toggle.bind(this)
+    const icon = () => {
+        return props.state.checked ? <Checked /> : <Unchecked />
     }
-
-    icon() {
-        return this.state.checked ? <Checked /> : <Unchecked />
-    }
-
-    toggle(event) {
+    const toggle = (event) => {
         event.preventDefault()
-        this.setState(function (state, props) {
+        props.setState(prevState => {
+            let errors = prevState.errors;
+            if(!prevState.checked) {
+                errors.agree = null;
+            }
             return {
-                checked: !state.checked
+                ...prevState,
+                checked: !prevState.checked,
+                errors
             }
         })
     }
-
-    render() {
-        return (
-            <button
-                style={Styles.button}
-                onClick={this.toggle}>
-                <div style={Styles.check}>
-                    {this.icon()}
-                </div>
-
-                <div style={Styles.content}>
-                    {this.props.children}
-                </div>
-            </button>
-        )
-    }
+    return (
+        <button
+            style={Styles.button}
+            onClick={toggle}>
+            <div style={Styles.check}>
+                {icon()}
+            </div>
+            <div style={Styles.content}>
+                {props.children}
+            </div>
+        </button>
+    )
 }
