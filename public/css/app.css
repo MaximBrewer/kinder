@@ -1477,6 +1477,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .gifts-hny .toys-watch .img-big > div {
