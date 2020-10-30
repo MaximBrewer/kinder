@@ -68589,7 +68589,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Counter() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("000001"),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("000000"),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
@@ -68598,7 +68598,8 @@ function Counter() {
     setState(function (prevState) {
       var digits = prevState.split(""),
           newDigits = prevState * 1 + 1;
-      if (newDigits < 10) ("00000" + newDigits).split("");else if (newDigits < 100) ("0000" + newDigits).split("");else if (newDigits < 1000) ("000" + newDigits).split("");else if (newDigits < 10000) ("00" + newDigits).split("");else if (newDigits < 100000) ("0" + newDigits).split("");
+      if (newDigits < 10) newDigits = ("00000" + newDigits).split("");else if (newDigits < 100) newDigits = ("0000" + newDigits).split("");else if (newDigits < 1000) newDigits = ("000" + newDigits).split("");else if (newDigits < 10000) newDigits = ("00" + newDigits).split("");else if (newDigits < 100000) newDigits = ("0" + newDigits).split("");
+      console.log(newDigits);
 
       for (var i in digits) {
         if (digits[i] != newDigits[i]) {
@@ -68616,15 +68617,17 @@ function Counter() {
     });
     setTimeout(function () {
       setState(function (prevState) {
-        return prevState * 1 + 1 + "";
+        var d = prevState * 1 + 1;
+        if (d < 10) d = "00000" + d;else if (d < 100) d = "0000" + d;else if (d < 1000) d = "000" + d;else if (d < 10000) d = "00" + d;else if (d < 100000) d = "0" + d;
+        return d;
       });
     }, 500);
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    var interval = setInterval(function () {
-      tick();
-    }, 1000);
+    // const interval = setInterval(() => {
+    //     tick();
+    // }, 1000);
     return function () {
       return clearInterval(interval);
     };
