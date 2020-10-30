@@ -67405,11 +67405,15 @@ function Form(props) {
   }
 
   function openModal() {
-    var toY = document.getElementById("formEl").getBoundingClientRect().top;
-    console.log(toY, 100);
+    var toY = document.getElementById("formEl").getBoundingClientRect().top + 200;
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
-        isOpen: true
+        isOpen: true,
+        modalStyles: _objectSpread(_objectSpread({}, prevState.modalStyles), {}, {
+          content: _objectSpread(_objectSpread({}, prevState.modalStyles.content), {}, {
+            top: toY + 200
+          })
+        })
       });
     });
   }

@@ -30,11 +30,15 @@ function Form(props) {
     }
 
     function openModal() {
-        let toY = document.getElementById("formEl").getBoundingClientRect().top;
-        console.log(toY, 100);
+        let toY =
+            document.getElementById("formEl").getBoundingClientRect().top + 200;
         setState(prevState => ({
             ...prevState,
-            isOpen: true
+            isOpen: true,
+            modalStyles: {
+                ...prevState.modalStyles,
+                content: { ...prevState.modalStyles.content, top: toY + 200 }
+            }
         }));
     }
 
