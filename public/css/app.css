@@ -1623,8 +1623,14 @@ body {
 }
 
 .faq-hny {
-  padding: 64px 0;
+  padding: 64px 0 0;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .faq-hny {
+    padding: 64px 0;
+  }
 }
 
 .faq-hny > p {
@@ -1651,7 +1657,12 @@ body {
 .faq-hny .faq {
   overflow: hidden;
   max-width: 688px;
-  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .faq-hny .faq {
+    padding-bottom: 80px;
+  }
 }
 
 .faq-hny .faq .faq-item {

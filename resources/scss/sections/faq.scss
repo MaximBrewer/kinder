@@ -17,8 +17,11 @@
     }
 }
 .faq-hny {
-    padding: 64px 0;
+    padding: 64px 0 0;
     width: 100%;
+    @media (min-width: 768px) {
+        padding: 64px 0;
+    }
     > p {
         max-width: 813px;
         text-transform: uppercase;
@@ -38,7 +41,9 @@
     .faq {
         overflow: hidden;
         max-width: 688px;
-        padding-bottom: 80px;
+        @media (min-width: 768px) {
+            padding-bottom: 80px;
+        }
         .faq-item {
             margin-bottom: 20px;
             border-radius: 30px;
