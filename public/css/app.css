@@ -964,14 +964,19 @@ body {
 
 @media (min-width: 768px) {
   .promo-hny .nhy-btn {
-    padding: 1.2rem 3rem;
     display: inline-block;
-    line-height: 32px;
-    font-size: 20px;
     margin-left: 0;
     margin-right: 0;
-    min-width: 350px;
+    min-width: 300px;
     max-width: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .promo-hny .nhy-btn {
+    padding: 1.2rem 3rem;
+    line-height: 32px;
+    font-size: 20px;
   }
 }
 
