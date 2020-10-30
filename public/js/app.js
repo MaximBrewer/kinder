@@ -67601,9 +67601,33 @@ function Form(props) {
       if (!prevState.personal) errors = _objectSpread(_objectSpread({}, errors), {}, {
         personal: "Вы должны согласиться на обработку персональных данных"
       });
-      console.log(errors, errors.length);
 
-      if (false) { var formData; }
+      if (Object.keys(errors).length) {
+        var formData = new FormData();
+        formData.append("photo", state.photo);
+        formData.append("name", state.boysValue ? state.boysValue.value : state.girlsValue.value);
+        formData.append("achieve", state.achieveValue.value);
+        formData.append("email", state.emailValue);
+        formData.append("hobby", state.hobbyValue.value);
+        formData.append("age", state.ageValue.value);
+        formData.append("gift", state.giftValue.id);
+        formData.append("gender", state.genderValue);
+        formData.append("agree", !!state.agree);
+        formData.append("cmail", !!state.cmail);
+        formData.append("personal", !!state.personal);
+        formData.append("news", !!state.news);
+        axios__WEBPACK_IMPORTED_MODULE_11___default.a.post("/patch", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        }).then(function () {
+          setState(initialState);
+          openModal();
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+        return initialState;
+      }
 
       return _objectSpread(_objectSpread({}, prevState), {}, {
         errors: errors

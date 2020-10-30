@@ -205,8 +205,7 @@ function Form(props) {
                         "Вы должны согласиться на обработку персональных данных"
                 };
 
-            console.log(errors, errors.length);
-            if (false && !errors.length) {
+            if (Object.keys(errors).length) {
                 let formData = new FormData();
                 formData.append("photo", state.photo);
                 formData.append(
