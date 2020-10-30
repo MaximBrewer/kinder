@@ -983,6 +983,7 @@ body {
 
 @media (min-width: 1440px) {
   .promo-hny .nhy-btn {
+    min-width: 440px;
     padding: 1.5rem 4rem;
     font-size: 24px;
   }
