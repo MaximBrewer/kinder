@@ -68589,7 +68589,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Counter() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("000000"),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("000001"),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
@@ -68597,7 +68597,8 @@ function Counter() {
   var tick = function tick() {
     setState(function (prevState) {
       var digits = prevState.split(""),
-          newDigits = (prevState * 1 + 1 + "").split("");
+          newDigits = prevState * 1 + 1;
+      if (newDigits < 10) ("00000" + newDigits).split("");else if (newDigits < 100) ("0000" + newDigits).split("");else if (newDigits < 1000) ("000" + newDigits).split("");else if (newDigits < 10000) ("00" + newDigits).split("");else if (newDigits < 100000) ("0" + newDigits).split("");
 
       for (var i in digits) {
         if (digits[i] != newDigits[i]) {

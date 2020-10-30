@@ -2,12 +2,18 @@ import { map } from "lodash";
 import React, { useState, useEffect, useRef } from "react";
 
 function Counter() {
-    const [state, setState] = useState("000000");
+    const [state, setState] = useState("000001");
 
     const tick = () => {
         setState(prevState => {
             let digits = prevState.split(""),
-                newDigits = (prevState * 1 + 1 + "").split("");
+                newDigits = prevState * 1 + 1;
+
+            if (newDigits < 10) ("00000" + newDigits).split("");
+            else if (newDigits < 100) ("0000" + newDigits).split("");
+            else if (newDigits < 1000) ("000" + newDigits).split("");
+            else if (newDigits < 10000) ("00" + newDigits).split("");
+            else if (newDigits < 100000) ("0" + newDigits).split("");
 
             for (let i in digits) {
                 if (digits[i] != newDigits[i]) {
@@ -28,7 +34,9 @@ function Counter() {
     };
 
     useEffect(() => {
-        const interval = setInterval(() => {tick()}, 1000);
+        const interval = setInterval(() => {
+            tick();
+        }, 1000);
         return () => clearInterval(interval);
     }, []);
 
