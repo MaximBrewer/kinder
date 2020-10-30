@@ -9,7 +9,9 @@ const Styles = {
         display: 'flex',
         outline: '0',
         cursor: 'pointer',
-        textAlign: 'left'
+        textAlign: 'left',
+        margintop: '1rem',
+        marginBottom: '1rem'
     },
 
     check: {
@@ -17,7 +19,7 @@ const Styles = {
     },
 
     content: {
-        padding: ".8rem 0"
+        padding: "0"
     }
 }
 

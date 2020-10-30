@@ -68554,13 +68554,15 @@ var Styles = {
     display: 'flex',
     outline: '0',
     cursor: 'pointer',
-    textAlign: 'left'
+    textAlign: 'left',
+    margintop: '1rem',
+    marginBottom: '1rem'
   },
   check: {
     marginRight: '1rem'
   },
   content: {
-    padding: ".8rem 0"
+    padding: "0"
   }
 };
 function Button(props) {
