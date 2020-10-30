@@ -68571,10 +68571,12 @@ function Button(props) {
         errors[props.field] = null;
       }
 
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        checked: !prevState[props.field],
+      var o = _objectSpread(_objectSpread({}, prevState), {}, {
         errors: errors
       });
+
+      o[props.field] = !prevState[props.field];
+      return o;
     });
   };
 

@@ -24,11 +24,12 @@ export default function Button(props) {
             if (!prevState[props.field]) {
                 errors[props.field] = null;
             }
-            return {
+            let o = {
                 ...prevState,
-                checked: !prevState[props.field],
                 errors
             };
+            o[props.field] = !prevState[props.field]
+            return o;
         });
     };
     return (
