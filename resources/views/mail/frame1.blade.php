@@ -46,7 +46,7 @@
                     ОТПРАВИТЬ ЗАЯВКУ
                 </a>
             </div>
-            <div style="text-align: center;color: #40160B;font-size: 20px;"><a href="#">Отписаться от рассылки</a></div>
+            <div style="text-align: center;color: #40160B;font-size: 20px;"><a href="{{ $unsubscribe }}">Отписаться от рассылки</a></div>
         </div>
     </div>
 </body>
