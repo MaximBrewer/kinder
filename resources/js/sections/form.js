@@ -477,11 +477,11 @@ function Form(props) {
                                     style={{
                                         height: "80%",
                                         width: "80%",
-                                        marginLeft: "20px",
-                                        marginRight: "20px",
+                                        marginLeft: "5px",
+                                        marginRight: "5px",
                                         borderRadius: "10px",
                                         backgroundColor: "#ffffff",
-                                        padding: "10px"
+                                        padding: "5px"
                                     }}
                                 >
                                     <Slider {...setting} ref={sliderEl}>

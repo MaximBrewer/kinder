@@ -67807,11 +67807,11 @@ function Form(props) {
     style: {
       height: "80%",
       width: "80%",
-      marginLeft: "20px",
-      marginRight: "20px",
+      marginLeft: "5px",
+      marginRight: "5px",
       borderRadius: "10px",
       backgroundColor: "#ffffff",
-      padding: "10px"
+      padding: "5px"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_slick__WEBPACK_IMPORTED_MODULE_12___default.a, _extends({}, setting, {
     ref: sliderEl
