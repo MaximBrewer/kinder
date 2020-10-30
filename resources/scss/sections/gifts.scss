@@ -124,21 +124,37 @@
 }
 
 .hny-carousel {
-    margin-left: 103px;
-    margin-right: 103px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (min-width: 768px) {
+        margin-left: 103px;
+        margin-right: 103px;
+    }
     .btn-control {
         cursor: pointer;
     }
     .img-wrapper {
         .img {
-            height: 320px;
-            width: 246px;
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
+            height: 160px;
+            width: 120px;
+            @media (min-width: 375px) {
+            }
+            @media (min-width: 414px) {
+                height: 240px;
+                width: 180px;
+            }
+            @media (min-width: 768px) {
+                height: 320px;
+                width: 240px;
+                margin-left: 103px;
+                margin-right: 103px;
+            }
+            @media (min-width: 1024px) {
+            }
         }
     }
 }

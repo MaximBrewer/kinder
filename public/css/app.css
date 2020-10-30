@@ -841,9 +841,9 @@ body {
   background-image: url(/images/popup-bg.png?2f7631a4254cd0fa3ea135f43f05099f) !important;
   background-size: cover !important;
   box-shadow: 0px 0px 79px #000000 !important;
-  top: 50%;
-  left: 50% !important;
-  right: auto !important;
+  top: 0;
+  left: 0 !important;
+  right: 0 !important;
   bottom: auto !important;
   font-family: "bubbleboddy_neue", sans-serif !important;
   text-align: center !important;
@@ -1696,11 +1696,16 @@ body {
 }
 
 .hny-carousel {
-  margin-left: 103px;
-  margin-right: 103px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hny-carousel {
+    margin-left: 103px;
+    margin-right: 103px;
+  }
 }
 
 .hny-carousel .btn-control {
@@ -1708,11 +1713,27 @@ body {
 }
 
 .hny-carousel .img-wrapper .img {
-  height: 320px;
-  width: 246px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  height: 160px;
+  width: 120px;
+}
+
+@media (min-width: 414px) {
+  .hny-carousel .img-wrapper .img {
+    height: 240px;
+    width: 180px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hny-carousel .img-wrapper .img {
+    height: 320px;
+    width: 240px;
+    margin-left: 103px;
+    margin-right: 103px;
+  }
 }
 
 @media (min-width: 1024px) {
