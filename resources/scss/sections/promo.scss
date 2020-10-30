@@ -197,7 +197,7 @@
         }
         @media (min-width: 1024px) {
             line-height: inherit;
-            max-width: 40rem;
+            max-width: 30rem;
         }
         @media (min-width: 1280px) {
             font-size: 26px;
@@ -221,10 +221,11 @@
                 margin-top: -10px;
             }
             @media (min-width: 1024px) {
-                max-width: 50rem;
+                max-width: 30rem;
             }
             @media (min-width: 1280px) {
                 font-size: 26px;
+                max-width: 50rem;
                 margin-top: 10px;
                 line-height: 32px;
             }

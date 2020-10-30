@@ -1090,7 +1090,7 @@ body {
 @media (min-width: 1024px) {
   .promo-hny p {
     line-height: inherit;
-    max-width: 40rem;
+    max-width: 30rem;
   }
 }
 
@@ -1126,13 +1126,14 @@ body {
 
 @media (min-width: 1024px) {
   .promo-hny .counter-khny p {
-    max-width: 50rem;
+    max-width: 30rem;
   }
 }
 
 @media (min-width: 1280px) {
   .promo-hny .counter-khny p {
     font-size: 26px;
+    max-width: 50rem;
     margin-top: 10px;
     line-height: 32px;
   }
