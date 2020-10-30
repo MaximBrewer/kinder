@@ -1036,7 +1036,7 @@ body {
     margin-top: 1em;
     text-align: left;
     font-weight: normal;
-    text-shadow: 1px 1px 2px black, 0 0 1em #091e2c, 0 0 2em #ffffff, 0 0 5em #ffffff;
+    text-shadow: 1px 1px 2px black, 0 0 1em #091e2c;
   }
 }
 
