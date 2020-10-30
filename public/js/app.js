@@ -67602,7 +67602,7 @@ function Form(props) {
         personal: "Вы должны согласиться на обработку персональных данных"
       });
 
-      if (Object.keys(errors).length) {
+      if (Object.keys(errors).length < 1) {
         var formData = new FormData();
         formData.append("photo", state.photo);
         formData.append("name", state.boysValue ? state.boysValue.value : state.girlsValue.value);
