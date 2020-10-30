@@ -1701,6 +1701,13 @@ body {
 
 @media (min-width: 768px) {
   .hny-carousel {
+    margin-left: 63px;
+    margin-right: 63px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hny-carousel {
     margin-left: 103px;
     margin-right: 103px;
   }
