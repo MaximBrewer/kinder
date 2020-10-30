@@ -841,7 +841,7 @@ body {
   background-image: url(/images/popup-bg.png?2f7631a4254cd0fa3ea135f43f05099f) !important;
   background-size: cover !important;
   box-shadow: 0px 0px 79px #000000 !important;
-  top: 50% !important;
+  top: 50%;
   left: 50% !important;
   right: auto !important;
   bottom: auto !important;
