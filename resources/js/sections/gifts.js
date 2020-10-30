@@ -114,7 +114,8 @@ function Gifts(props) {
                         <Slider {...setting} ref={sliderEl}>
                             {window.App.data.gifts.map((item, index) => (
                                 <div className="toys-watch" key={index}>
-                                    {/* {item.toys && item.toys.length ? (
+                                    <div className="img-big">
+                                        {item.toys && item.toys.length ? (
                                             <div
                                                 className="h3"
                                                 style={{
@@ -128,9 +129,13 @@ function Gifts(props) {
                                             </div>
                                         ) : (
                                             ``
-                                        )} */}
-                                    <img src={item.img} />
-                                    {/* <div
+                                        )}
+                                        <img
+                                            src={item.img}
+                                            alt={``}
+                                            style={{ width: "100%" }}
+                                        />
+                                        <div
                                             style={{
                                                 position: "absolute",
                                                 width: "100%",
@@ -154,7 +159,11 @@ function Gifts(props) {
                                             ) : (
                                                 ``
                                             )}
-                                        </div> */}
+                                        </div>
+                                    </div>
+                                    <h4 className={`title`}>
+                                        {Parser(item.title)}
+                                    </h4>
                                     {/* <div className={`description`}>
                                         <Scrollbars style={window.innerWidth < 1024 ? { height: 56 } : { height: 56 }}
                                             renderView={renderView}

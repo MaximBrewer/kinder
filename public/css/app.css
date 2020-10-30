@@ -471,12 +471,12 @@ body {
   padding: 0 2rem;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
   justify-content: center;
 }
 
 @media (min-width: 768px) {
   .nhy-app .nhy-container {
+    display: flex;
     padding: 0 4rem;
   }
 }
