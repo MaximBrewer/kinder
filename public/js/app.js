@@ -68456,15 +68456,7 @@ function Carousel(props) {
       sliderEl.current.slickPrev();
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_icons__WEBPACK_IMPORTED_MODULE_2__["ArrowPrew"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: {
-      height: "320px",
-      width: "246px",
-      marginLeft: "20px",
-      marginRight: "20px",
-      borderRadius: "10px",
-      backgroundColor: "#ffffff",
-      padding: "10px"
-    }
+    className: "caruwrap"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_slick__WEBPACK_IMPORTED_MODULE_1___default.a, _extends({}, setting, {
     ref: sliderEl
   }), items.map(function (item, index) {

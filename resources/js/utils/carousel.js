@@ -27,7 +27,7 @@ export default function Carousel(props) {
             >
                 <ArrowPrew />
             </a>
-            <div style={{ height: "320px", width: "246px", marginLeft: "20px", marginRight: "20px", borderRadius: "10px", backgroundColor: "#ffffff", padding: "10px" }}>
+            <div className={`caruwrap`}>
                 <Slider {...setting} ref={sliderEl}>
                     {items.map((item, index) => (
                         <div key={index}>

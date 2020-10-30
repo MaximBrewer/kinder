@@ -1736,6 +1736,35 @@ body {
   }
 }
 
+.caruwrap {
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #ffffff;
+  padding: 10px;
+  height: 160px;
+  overflow: hidden;
+  width: 120px;
+}
+
+@media (min-width: 414px) {
+  .caruwrap {
+    height: 240px;
+    width: 180px;
+  }
+}
+
+@media (min-width: 768px) {
+  .caruwrap {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 320px;
+    width: 240px;
+    margin-left: 103px;
+    margin-right: 103px;
+  }
+}
+
 @media (min-width: 1024px) {
   .faq-wrapper {
     background-image: url(/images/4.jpg?1aadf3af39eb6ca1d99bfdf526e6de6c);
