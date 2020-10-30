@@ -171,133 +171,76 @@ function Form(props) {
     const handleSubmit = e => {
         e.preventDefault();
 
-        setState(prevState => ({
-            ...prevState,
-            errors: {}
-        }));
-
-        let done = true;
-
-        if (!state.boysValue && !state.girlsValue) {
-            setState(prevState => ({
-                ...prevState,
-                errors: { ...prevState.errors, name: "Выберите имя" }
-            }));
-            done = false;
-        }
-        if (!state.ageValue) {
-            setState(prevState => ({
-                ...prevState,
-                errors: { ...prevState.errors, ageValue: "Выберите возраст" }
-            }));
-            done = false;
-        }
-        if (!state.achieveValue) {
-            setState(prevState => ({
-                ...prevState,
-                errors: {
-                    ...prevState.errors,
-                    achieveValue: "Выберите достижение"
-                }
-            }));
-            done = false;
-        }
-        if (!state.hobbyValue) {
-            setState(prevState => ({
-                ...prevState,
-                errors: { ...prevState.errors, hobbyValue: "Выберите хобби" }
-            }));
-            done = false;
-        }
-        if (!state.fromValue) {
-            setState(prevState => ({
-                ...prevState,
-                errors: { ...prevState.errors, fromValue: "Выберите от кого" }
-            }));
-            done = false;
-        }
-        if (!state.photo) {
-            setState(prevState => ({
-                ...prevState,
-                errors: { ...prevState.errors, photo: "Добавьте фото" }
-            }));
-            done = false;
-        }
-        if (!state.giftValue) {
-            setState(prevState => ({
-                ...prevState,
-                errors: { ...prevState.errors, giftValue: "Выберите подарок" }
-            }));
-            done = false;
-        }
-        if (!state.emailValue) {
-            setState(prevState => ({
-                ...prevState,
-                errors: { ...prevState.errors, emailValue: "Введите E-mail" }
-            }));
-            done = false;
-        }
-        if (!state.agree) {
-            setState(prevState => ({
-                ...prevState,
-                errors: {
-                    ...prevState.errors,
+        setState(prevState => {
+            let errors = {};
+            if (!prevState.boysValue && !prevState.girlsValue)
+                errors = { ...errors, name: "Выберите имя" };
+            if (!prevState.ageValue)
+                errors = { ...errors, ageValue: "Выберите возраст" };
+            if (!prevState.achieveValue)
+                errors = { ...errors, achieveValue: "Выберите достижение" };
+            if (!prevState.hobbyValue)
+                errors = { ...errors, hobbyValue: "Выберите хобби" };
+            if (!prevState.fromValue)
+                errors = { ...errors, fromValue: "Выберите от кого" };
+            if (!prevState.giftValue)
+                errors = { ...errors, giftValue: "Выберите подарок" };
+            if (!prevState.emailValue)
+                errors = { ...errors, emailValue: "Введите E-mail" };
+            if (!prevState.agree)
+                errors = {
+                    ...errors,
                     agree: "Вы должны согласиться с правилами"
-                }
-            }));
-            done = false;
-        }
-        if (!state.cmail) {
-            setState(prevState => ({
-                ...prevState,
-                errors: {
-                    ...prevState.errors,
-                    cmail: "Вы должны согласиться на использование указанного e-mail"
-                }
-            }));
-            done = false;
-        }
-        if (!state.personal) {
-            setState(prevState => ({
-                ...prevState,
-                errors: {
-                    ...prevState.errors,
-                    personal: "Вы должны согласиться на обработку персональных данных"
-                }
-            }));
-            done = false;
-        }
+                };
+            if (!prevState.cmail)
+                errors = {
+                    ...errors,
+                    cmail:
+                        "Вы должны согласиться на использование указанного e-mail"
+                };
+            if (!prevState.personal)
+                errors = {
+                    ...errors,
+                    personal:
+                        "Вы должны согласиться на обработку персональных данных"
+                };
 
-        if (!done) return false;
+            if (!errors.length) {
+                let formData = new FormData();
+                formData.append("photo", state.photo);
+                formData.append(
+                    "name",
+                    state.boysValue
+                        ? state.boysValue.value
+                        : state.girlsValue.value
+                );
+                formData.append("achieve", state.achieveValue.value);
+                formData.append("email", state.emailValue);
+                formData.append("hobby", state.hobbyValue.value);
+                formData.append("age", state.ageValue.value);
+                formData.append("gift", state.giftValue.id);
+                formData.append("gender", state.genderValue);
+                formData.append("agree", !!state.agree);
+                formData.append("cmail", !!state.cmail);
+                formData.append("personal", !!state.personal);
+                formData.append("news", !!state.news);
 
-        let formData = new FormData();
-        formData.append("photo", state.photo);
-        formData.append(
-            "name",
-            state.boysValue ? state.boysValue.value : state.girlsValue.value
-        );
-        formData.append("achieve", state.achieveValue.value);
-        formData.append("email", state.emailValue);
-        formData.append("hobby", state.hobbyValue.value);
-        formData.append("age", state.ageValue.value);
-        formData.append("gift", state.giftValue.id);
-        formData.append("gender", state.genderValue);
-        formData.append("agree", !!state.agree);
-        formData.append("cmail", !!state.cmail);
-        formData.append("personal", !!state.personal);
-        formData.append("news", !!state.news);
+                axios
+                    .post("/patch", formData, {
+                        headers: {
+                            "Content-Type": "multipart/form-data"
+                        }
+                    })
+                    .then(() => {
+                        setState(initialState);
+                        openModal();
+                    })
+                    .catch(err => console.log(err));
 
-        axios
-            .post("/patch", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data"
-                }
-            })
-            .then(() => {
-                setState(initialState);
-                openModal();
-            })
-            .catch(err => console.log(err));
+                return initialState;
+            }
+            return { ...prevState, errors };
+        });
     };
 
     const choose = (event, fieldName) => {
