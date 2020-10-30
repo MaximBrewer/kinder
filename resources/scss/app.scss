@@ -387,12 +387,10 @@ body {
         max-width: 280px;
     }
     @media (min-width: 414px) {
-        max-width: 360px !important;
-        padding: 30px !important;
+        max-width: 320px !important;
+        padding: 20px !important;
     }
     @media (min-width: 768px) {
-        transform: translateX(-50%) !important;
-        margin-right: -50% !important;
         font-size: 28px !important;
         border-radius: 40px !important;
         max-width: 660px !important;
