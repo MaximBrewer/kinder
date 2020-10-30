@@ -767,8 +767,7 @@ body {
 @media (min-width: 768px) {
   .promo-outer {
     background-image: url(/images/main_SNOW2.jpg?abd53f41d0bf38196ce8778611b765e7);
-    background-position: right -17rem center;
-    background-position: right -12rem center;
+    background-position: right -10rem center;
     background-repeat: no-repeat;
     background-size: cover;
   }
