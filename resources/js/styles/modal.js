@@ -11,7 +11,7 @@ export const styles = {
         left: '50%',
         right: 'auto',
         bottom: 'auto',
-        fontАamily: `"bubbleboddy_neue", sans-serif`,
+        fontFamily: '"bubbleboddy_neue", sans-serif',
         padding: "60px",
         marginRight: '-50%',
         transform: 'translateX(-50%)',
