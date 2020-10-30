@@ -68034,7 +68034,11 @@ function Gifts(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: function afterChange(index) {
-      chooseProduct(e, index);
+      setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          gift: window.App.data.gifts[index]
+        });
+      });
     }
   };
 

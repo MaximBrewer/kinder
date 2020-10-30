@@ -78,7 +78,10 @@ function Gifts(props) {
         slidesToShow: 1,
         slidesToScroll: 1,
         afterChange: index => {
-            chooseProduct(e, index)
+            setState(prevState => ({
+                ...prevState,
+                gift: window.App.data.gifts[index]
+            }));
         }
     };
 
