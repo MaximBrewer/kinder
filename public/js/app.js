@@ -67625,9 +67625,8 @@ function Form(props) {
         })["catch"](function (err) {
           return console.log(err);
         });
-        var contHeight = !!contEl.current ? contEl.current.offsetWidth : 0;
         return _objectSpread(_objectSpread({}, initialState), {}, {
-          contHeight: contHeight
+          contHeight: prevState.contHeight
         });
       }
 

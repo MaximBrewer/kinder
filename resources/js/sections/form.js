@@ -236,11 +236,7 @@ function Form(props) {
                     })
                     .catch(err => console.log(err));
 
-                let contHeight = !!contEl.current
-                    ? contEl.current.offsetWidth
-                    : 0;
-
-                return { ...initialState, contHeight };
+                return { ...initialState, contHeight: prevState.contHeight };
             }
             return { ...prevState, errors };
         });
