@@ -68096,32 +68096,13 @@ function Gifts(props) {
       key: index
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "img-big"
-    }, item.toys && item.toys.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: "h3",
-      style: {
-        position: "absolute",
-        width: "100%",
-        left: 0,
-        top: "10px"
-      }
-    }, "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0438\u0433\u0440\u0443\u0448\u043A\u0438 \u0432\u043D\u0443\u0442\u0440\u0438") : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
       src: item.img,
       alt: "",
       style: {
         width: "100%"
       }
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      style: {
-        position: "absolute",
-        width: "100%",
-        height: "53px",
-        left: 0,
-        bottom: "0"
-      }
-    }, item.toys && item.toys.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: "lens-wrapper",
-      onClick: openModal
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043B\u0443\u043F\u0443, \u0447\u0442\u043E\u0431\u044B \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0438\u0433\u0440\u0443\u0448\u043A\u0438 \u0432\u043D\u0443\u0442\u0440\u0438"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_6__["Lens"], null)) : "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", {
       className: "title"
     }, html_react_parser__WEBPACK_IMPORTED_MODULE_2___default()(item.title)));
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {

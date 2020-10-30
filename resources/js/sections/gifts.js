@@ -115,7 +115,7 @@ function Gifts(props) {
                             {window.App.data.gifts.map((item, index) => (
                                 <div className="toys-watch" key={index}>
                                     <div className="img-big">
-                                        {item.toys && item.toys.length ? (
+                                        {/* {item.toys && item.toys.length ? (
                                             <div
                                                 className="h3"
                                                 style={{
@@ -129,13 +129,13 @@ function Gifts(props) {
                                             </div>
                                         ) : (
                                             ``
-                                        )}
+                                        )} */}
                                         <img
                                             src={item.img}
                                             alt={``}
                                             style={{ width: "100%" }}
                                         />
-                                        <div
+                                        {/* <div
                                             style={{
                                                 position: "absolute",
                                                 width: "100%",
@@ -159,7 +159,7 @@ function Gifts(props) {
                                             ) : (
                                                 ``
                                             )}
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <h4 className={`title`}>
                                         {Parser(item.title)}
