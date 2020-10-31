@@ -37,7 +37,7 @@ class SiteController extends Controller
     {
         $request->validate([
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
-            'name' => 'integer',
+            'name' => 'required|exists:names,id',
             'achieve' => 'required|exists:achieves,id',
             'from' => 'required|exists:froms,id',
             'hobby' => 'required|exists:hobbies,id',
@@ -54,8 +54,7 @@ class SiteController extends Controller
 
         Order::create([
             'photo' => str_replace("public/", "", $path),
-            'boy_id' => $request->gender == 'boy' ? $request->name : null,
-            'girl_id' => $request->gender == 'girl' ? $request->name : null,
+            'name_id' => $request->name,
             'age' => $request->age,
             'achieve_id' => $request->achieve,
             'hobby_id' => $request->hobby,
