@@ -15,13 +15,18 @@
         >
             <div style="padding: 249px 117px 0px 172px;">
                 <div style="min-height: 780px;">
-                    <div style="text-align:right;">
-                        <img
-                            src="https://kinder.gpucloud.ru/img/promo-logo.png"
-                            alt=""
-                            style="height: 60px;width:203px;margin-right: 4px;"
-                        />
-                    </div>
+                    <table style="margin:0 0 0 auto;">
+                        <tr style="vertical-align: baseline;">
+                            <td>
+                                <img
+                                    src="https://kinder.gpucloud.ru/img/promo-logo.png"
+                                    alt=""
+                                    style="position:relative;top:6px;height: 60px;width:203px;margin-right: 4px;"
+                                />
+                            </td>
+                        </tr>
+                    </table>
+
                     <h1
                         style="margin: 25px 0 35px;font-size: 26px;line-height: 37px;text-align: center;color: #F04E23;text-shadow: 1px 1px 0px rgba(0, 0, 0), -1px 1px 0px rgba(0, 0, 0), 1px -1px 0px rgba(0, 0, 0), -1px -1px 0px rgba(0, 0, 0), 0px 4px 4px rgba(0, 0, 0, 0.25);text-shadow: none;"
                     >
