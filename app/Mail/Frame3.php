@@ -33,9 +33,11 @@ class Frame3 extends Mailable
      */
     public function build()
     {
-        return $this->subject('Поздравление от Kinder Дедушки Мороза!')->view('mail.frame3', [
-            'unsubscribe' => $this->unsubscribe,
-            'video' => $this->video
-        ]);
+        return $this->subject('Поздравление от Kinder Дедушки Мороза!')
+            ->addTextHeader('List-Unsubscribe', $this->unsubscribe)
+            ->view('mail.frame3', [
+                'unsubscribe' => $this->unsubscribe,
+                'video' => $this->video
+            ]);
     }
 }
