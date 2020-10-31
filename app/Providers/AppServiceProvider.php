@@ -25,10 +25,9 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         \App\Models\Achieve::observe(\App\Observers\Achieve::class);
-        \App\Models\Boy::observe(\App\Observers\Boy::class);
+        \App\Models\Name::observe(\App\Observers\Name::class);
         \App\Models\From::observe(\App\Observers\From::class);
         \App\Models\Gift::observe(\App\Observers\Gift::class);
-        \App\Models\Girl::observe(\App\Observers\Girl::class);
         \App\Models\Hobby::observe(\App\Observers\Hobby::class);
     }
 }
