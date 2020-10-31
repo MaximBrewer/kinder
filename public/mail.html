@@ -3,13 +3,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title></title>
         <style>
+            @font-face {
+                font-family: Noteworthy;
+                src: url(https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff2)
+                        format("woff2"),
+                    url(https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff)
+                        format("woff");
+                font-weight: 700;
+                font-style: normal;
+            }
             a.btn:active {
                 top: 1px;
+            }
+            * {
+                font-weight: bold;
             }
         </style>
     </head>
 
-    <body style="margin:0;padding:0;font-family: Noteworthy;">
+    <body style="margin:0;padding:0;font-family: Noteworthy;font-weight:bold;">
         <div
             style="width:800px;height:1200px;background-image:url(https://kinder.gpucloud.ru/images/mail-bg.jpg);background-size:cover;"
         >
@@ -28,7 +40,7 @@
                     </table>
 
                     <h1
-                        style="margin: 25px 0;font-size: 26px;line-height: 37px;text-align: center;color: #F04E23;text-shadow: 1px 1px 0px rgba(0, 0, 0), -1px 1px 0px rgba(0, 0, 0), 1px -1px 0px rgba(0, 0, 0), -1px -1px 0px rgba(0, 0, 0), 0px 4px 4px rgba(0, 0, 0, 0.25);text-shadow: none;"
+                        style="font-weight:bold;margin: 25px 0;font-size: 26px;line-height: 37px;text-align: center;color: #F04E23;text-shadow: 1px 1px 0px rgba(0, 0, 0), -1px 1px 0px rgba(0, 0, 0), 1px -1px 0px rgba(0, 0, 0), -1px -1px 0px rgba(0, 0, 0), 0px 4px 4px rgba(0, 0, 0, 0.25);text-shadow: none;"
                     >
                         Ваша заявка не прошла<br />
                         модерацию
@@ -39,10 +51,10 @@
                         <p style="margin-bottom: 30px;">
                             К сожалению, Ваша заявка не прошла модерацию.
                         </p>
-                        <p>
+                        <p style="font-weight:bold;">
                             Ознакомьтесь, пожалуйста, с правилами акции.
                         </p>
-                        <p style="margin-bottom: 30px;">
+                        <p style="margin-bottom: 30px;font-weight:bold;">
                             <a
                                 class="btn"
                                 href="https://kinder.gpucloud.ru/rules.pdf"
@@ -51,10 +63,10 @@
                                 ПРАВИЛА АКЦИИ
                             </a>
                         </p>
-                        <p>
+                        <p style="font-weight:bold;">
                             Попробуйте отправить заявку снова!
                         </p>
-                        <p>
+                        <p style="font-weight:bold;">
                             <a
                                 class="btn"
                                 href="https://www.kinder.com/ru/ru/kinder-new-year"
@@ -69,7 +81,7 @@
             <div style="text-align: center;">
                 <a
                     href="{{ $unsubscribe }}"
-                    style="color: #40160B !important;font-size: 20px;"
+                    style="color: #40160B !important;font-size: 20px;font-weight:bold;"
                     >Отписаться от рассылки</a
                 >
             </div>

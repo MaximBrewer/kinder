@@ -11,8 +11,13 @@
             font-weight: 700;
             font-style: normal;
         }
+
         a.btn:active {
             top: 1px;
+        }
+
+        * {
+            font-weight: bold;
         }
     </style>
 </head>
