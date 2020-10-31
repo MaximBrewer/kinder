@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', '\App\Http\Controllers\SiteController@index');
+Route::get('/unsubscribe', '\App\Http\Controllers\SiteController@unsubscribe');
 Route::post('/patch', '\App\Http\Controllers\SiteController@patch');
 
 Route::group(['prefix' => 'admin'], function () {
