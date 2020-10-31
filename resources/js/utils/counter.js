@@ -12,27 +12,30 @@ function Counter() {
     });
 
     const tick = event => {
-    
-        setState(prevState => ({
-            ...prevState,
-            next: pad(event.detail.count, 6)
-        }));
+        setState(prevState => {
+            let digits = prevState.current.split(""),
+                newDigits = pad(event.detail.count, 6).split("");
 
-        let digits = state.current.split(""),
-            newDigits = pad(event.detail.count, 6).split("");
-
-        for (let i in digits) {
-
-            console.log(i, digits[i], newDigits[i], digits[i] != newDigits[i])
-            if (digits[i] != newDigits[i]) {
-                let el = document.getElementsByClassName("number-" + i)[0];
-                el.classList.add("flip");
-                setTimeout(function() {
-                    el.classList.remove("flip");
-                }, 500);
+            for (let i in digits) {
+                console.log(
+                    i,
+                    digits[i],
+                    newDigits[i],
+                    digits[i] != newDigits[i]
+                );
+                if (digits[i] != newDigits[i]) {
+                    let el = document.getElementsByClassName("number-" + i)[0];
+                    el.classList.add("flip");
+                    setTimeout(function() {
+                        el.classList.remove("flip");
+                    }, 500);
+                }
             }
-        }
-
+            return {
+                ...prevState,
+                next: pad(event.detail.count, 6)
+            };
+        });
         setTimeout(function() {
             setState(prevState => ({
                 ...prevState,

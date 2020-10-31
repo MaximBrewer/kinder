@@ -68615,27 +68615,27 @@ function Counter() {
 
   var tick = function tick(event) {
     setState(function (prevState) {
+      var digits = prevState.current.split(""),
+          newDigits = pad(event.detail.count, 6).split("");
+
+      for (var i in digits) {
+        console.log(i, digits[i], newDigits[i], digits[i] != newDigits[i]);
+
+        if (digits[i] != newDigits[i]) {
+          (function () {
+            var el = document.getElementsByClassName("number-" + i)[0];
+            el.classList.add("flip");
+            setTimeout(function () {
+              el.classList.remove("flip");
+            }, 500);
+          })();
+        }
+      }
+
       return _objectSpread(_objectSpread({}, prevState), {}, {
         next: pad(event.detail.count, 6)
       });
     });
-    var digits = state.current.split(""),
-        newDigits = pad(event.detail.count, 6).split("");
-
-    for (var i in digits) {
-      console.log(i, digits[i], newDigits[i], digits[i] != newDigits[i]);
-
-      if (digits[i] != newDigits[i]) {
-        (function () {
-          var el = document.getElementsByClassName("number-" + i)[0];
-          el.classList.add("flip");
-          setTimeout(function () {
-            el.classList.remove("flip");
-          }, 500);
-        })();
-      }
-    }
-
     setTimeout(function () {
       setState(function (prevState) {
         return _objectSpread(_objectSpread({}, prevState), {}, {
