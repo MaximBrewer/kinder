@@ -64,7 +64,7 @@ class SiteController extends Controller
             'gift_id' => $request->gift,
             'hash' => $request->gender,
             'email_hash' => $request->gender,
-            'news' => $request->news,
+            'news' => intVal($request->news),
             'status' => 'new',
         ]);
 
