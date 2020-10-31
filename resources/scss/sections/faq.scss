@@ -7,7 +7,7 @@
     }
     @media (min-width: 1024px) {
         background-image: url(../../img/bg/4.jpg);
-        background-position: right -10rem top;
+        background-position: right -15rem top;
         background-repeat: no-repeat;
         background-size: cover;
         padding-top: 48px;
@@ -22,8 +22,11 @@
         margin-bottom: -11vw;
     }
     @media (min-width: 1280px) {
+        background-position: right -10rem top;
     }
     @media (min-width: 1440px) {
+    }
+    @media (min-width: 1600px) {
         background-position: right top;
     }
 }
