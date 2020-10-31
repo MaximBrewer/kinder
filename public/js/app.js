@@ -67505,6 +67505,7 @@ function Form(props) {
     girlsValue: null,
     achieveValue: null,
     genderValue: null,
+    fromValue: null,
     emailValue: "",
     hobbyValue: null,
     ageValue: null,
@@ -67612,6 +67613,7 @@ function Form(props) {
         formData.append("age", state.ageValue.value);
         formData.append("gift", state.giftValue.id);
         formData.append("gender", state.genderValue);
+        formData.append("from", state.fromValue);
         formData.append("agree", !!state.agree);
         formData.append("cmail", !!state.cmail);
         formData.append("personal", !!state.personal);
