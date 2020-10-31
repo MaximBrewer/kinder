@@ -1791,12 +1791,6 @@ body {
   }
 }
 
-@media (min-width: 1440px) {
-  .faq-wrapper {
-    background-position: right top;
-  }
-}
-
 .faq-hny {
   padding: 64px 0 0;
   width: 100%;
