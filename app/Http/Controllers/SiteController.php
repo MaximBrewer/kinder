@@ -61,8 +61,8 @@ class SiteController extends Controller
             'from_id' => $request->from,
             'email' => $request->email,
             'gift_id' => $request->gift,
-            'hash' => $request->gender,
-            'email_hash' => $request->gender,
+            'hash' => Str::random(40),
+            'email_hash' => Str::random(40),
             'news' => $request->news == 'true' ? 1 : (int)$request->news,
             'status' => 'new',
         ]);
