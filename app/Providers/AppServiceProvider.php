@@ -29,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\From::observe(\App\Observers\From::class);
         \App\Models\Gift::observe(\App\Observers\Gift::class);
         \App\Models\Hobby::observe(\App\Observers\Hobby::class);
+        \App\Models\Order::observe(\App\Observers\Order::class);
     }
 }
