@@ -67105,20 +67105,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.axios = axios__WEBPACK_IMPORTED_MODULE_2___default.a; // Enable pusher logging - don't include this in production
+// Pusher.logToConsole = true;
 
-Pusher.logToConsole = true;
-var pusher = new Pusher('c354da67c98f8f62d901', {
-  cluster: 'eu'
+var pusher = new Pusher("c354da67c98f8f62d901", {
+  cluster: "eu"
 });
-var channel = pusher.subscribe('kinder');
-channel.bind('tick', function (_ref) {
+var channel = pusher.subscribe("kinder");
+channel.bind("refresh", function (_ref) {
   var count = _ref.count;
-  alert(JSON.stringify(count));
+  window.dispatchEvent(new CustomEvent("refresh", {
+    detail: {
+      count: count
+    }
+  }));
 });
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('counterEl'));
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_form__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById('formEl'));
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_gifts__WEBPACK_IMPORTED_MODULE_5__["default"], null), document.getElementById('giftsEl'));
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_faq__WEBPACK_IMPORTED_MODULE_6__["default"], null), document.getElementById('faqEl'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById("counterEl"));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_form__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById("formEl"));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_gifts__WEBPACK_IMPORTED_MODULE_5__["default"], null), document.getElementById("giftsEl"));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_faq__WEBPACK_IMPORTED_MODULE_6__["default"], null), document.getElementById("faqEl"));
 
 /***/ }),
 
@@ -68575,6 +68579,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -68590,48 +68600,53 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+function pad(num, size) {
+  return ("000000" + num).substr(-size);
+}
+
 function Counter() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("000000"),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
+    current: pad(window.App.data.orders, 6),
+    next: pad(window.App.data.orders, 6)
+  }),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
 
-  var tick = function tick() {
+  var tick = function tick(event) {
     setState(function (prevState) {
-      var digits = prevState.split(""),
-          newDigits = prevState * 1 + 1;
-      if (newDigits < 10) newDigits = ("00000" + newDigits).split("");else if (newDigits < 100) newDigits = ("0000" + newDigits).split("");else if (newDigits < 1000) newDigits = ("000" + newDigits).split("");else if (newDigits < 10000) newDigits = ("00" + newDigits).split("");else if (newDigits < 100000) newDigits = ("0" + newDigits).split("");
-      console.log(newDigits);
-
-      for (var i in digits) {
-        if (digits[i] != newDigits[i]) {
-          (function () {
-            var el = document.getElementsByClassName("number-" + i)[0];
-            el.classList.add("flip");
-            setTimeout(function () {
-              el.classList.remove("flip");
-            }, 500);
-          })();
-        }
-      }
-
-      return prevState * 1 + "";
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        next: pad(event.detail.count, 6)
+      });
     });
+    var digits = state.current.split(""),
+        newDigits = pad(event.detail.count, 6).split("");
+
+    for (var i in digits) {
+      if (digits[i] != newDigits[i]) {
+        (function () {
+          var el = document.getElementsByClassName("number-" + i)[0];
+          el.classList.add("flip");
+          setTimeout(function () {
+            el.classList.remove("flip");
+          }, 500);
+        })();
+      }
+    }
+
     setTimeout(function () {
       setState(function (prevState) {
-        var d = prevState * 1 + 1;
-        if (d < 10) d = "00000" + d;else if (d < 100) d = "0000" + d;else if (d < 1000) d = "000" + d;else if (d < 10000) d = "00" + d;else if (d < 100000) d = "0" + d;
-        return d;
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          current: pad(event.detail.count, 6)
+        });
       });
     }, 500);
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    // const interval = setInterval(() => {
-    //     tick();
-    // }, 1000);
+    window.addEventListener("refresh", tick);
     return function () {
-      return clearInterval(interval);
+      window.removeEventListener("refresh", tick);
     };
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -68646,15 +68661,15 @@ function Counter() {
       className: "primary"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "before"
-    }, state.split("")[index] * 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    }, state.current.split("")[index]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "after"
-    }, state.split("")[index] * 1 + 1 < 10 ? state.split("")[index] * 1 + 1 : 0)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+    }, state.next.split("")[index])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
       className: "secondary"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "before"
-    }, state.split("")[index] * 1 + 1 < 10 ? state.split("")[index] * 1 + 1 : 0), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    }, state.next.split("")[index]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       className: "after"
-    }, state.split("")[index] * 1)));
+    }, state.current.split("")[index])));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u0434\u0435\u0442\u0435\u0439 \u0443\u0436\u0435 \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u043B\u0438 \u0414\u0435\u0434\u0443 \u041C\u043E\u0440\u043E\u0437\u0443"));
 }
 
