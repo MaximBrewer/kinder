@@ -4,6 +4,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <style>
+        @font-face {
+            font-family: Noteworthy;
+            src: url(https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff2) format("woff2"),
+                url(https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff) format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
         a.btn:active {
             top: 1px;
         }
