@@ -23,8 +23,11 @@ class SiteController extends Controller
         return view('live');
     }
 
-    public function unsubscribe()
+    public function unsubscribe(Request $request)
     {
+        Order::where('email', $request->email)->where('email_hash', $request->email_hash)->update([
+            'status' => 'unsubscribed'
+        ]);
         return view('unsubscribe');
     }
 
