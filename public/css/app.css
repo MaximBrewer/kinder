@@ -1775,7 +1775,7 @@ body {
 @media (min-width: 1024px) {
   .faq-wrapper {
     background-image: url(/images/4.jpg?1aadf3af39eb6ca1d99bfdf526e6de6c);
-    background-position: right top;
+    background-position: right -10rem top;
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 48px;
@@ -1788,6 +1788,12 @@ body {
     margin-bottom: -16vw;
     padding-bottom: 6vw;
     margin-bottom: -11vw;
+  }
+}
+
+@media (min-width: 1024px) and (min-width: 1280px) {
+  .faq-wrapper {
+    background-position: right top;
   }
 }
 
