@@ -108,9 +108,9 @@ function Form(props) {
         girlsValue: null,
         achieveValue: null,
         genderValue: null,
-        fromValue: null,
         emailValue: "",
         hobbyValue: null,
+        fromValue: null,
         ageValue: null,
         giftValue: window.App.data.gifts[0],
         achieveOptions: [],
@@ -218,10 +218,10 @@ function Form(props) {
                 formData.append("achieve", state.achieveValue.value);
                 formData.append("email", state.emailValue);
                 formData.append("hobby", state.hobbyValue.value);
+                formData.append("from", state.fromValue.value);
                 formData.append("age", state.ageValue.value);
                 formData.append("gift", state.giftValue.id);
                 formData.append("gender", state.genderValue);
-                formData.append("from", state.fromValue.value);
                 formData.append("agree", !!state.agree);
                 formData.append("cmail", !!state.cmail);
                 formData.append("personal", !!state.personal);
