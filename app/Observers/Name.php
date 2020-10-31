@@ -8,8 +8,8 @@ class Name
     public function created()
     {
         $json = is_file(storage_path('app/public') . '/data.json') ? json_decode(file_get_contents(storage_path('app/public') . '/data.json'), true) : [];
-        $json['boys'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['boy', 'both'])->get());
-        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both'])->get());
+        $json['boys'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['boy', 'both'])->orderBy('value', 'ASC')->get());
+        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both'])->orderBy('value', 'ASC')->get());
         $json = str_replace(['\r', '\n'], '', json_encode($json));
         file_put_contents(
             storage_path(('app/public') . '/data.json'),
@@ -24,8 +24,8 @@ class Name
     public function updated()
     {
         $json = is_file(storage_path('app/public') . '/data.json') ? json_decode(file_get_contents(storage_path('app/public') . '/data.json'), true) : [];
-        $json['boys'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['boy', 'both'])->get());
-        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both'])->get());
+        $json['boys'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['boy', 'both'])->orderBy('value', 'ASC')->get());
+        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both'])->orderBy('value', 'ASC')->get());
         $json = str_replace(['\r', '\n'], '', json_encode($json));
         file_put_contents(
             storage_path(('app/public') . '/data.json'),
