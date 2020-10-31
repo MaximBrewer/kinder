@@ -884,7 +884,6 @@ body {
   display: block;
   min-height: 56.3vw;
   padding-bottom: 16vw;
-  margin-top: -20.2vw;
 }
 
 .unsubscribe-wrapper:before,
@@ -956,29 +955,6 @@ body {
   .unsubscribe-wrapper > div {
     background-color: transparent;
     width: 100%;
-  }
-}
-
-@media (min-width: 375px) {
-  .unsubscribe-wrapper {
-    margin-top: -18.2vw;
-  }
-}
-
-@media (min-width: 414px) {
-  .unsubscribe-wrapper {
-    margin-top: -16.2vw;
-  }
-}
-
-@media (min-width: 768px) {
-  .unsubscribe-wrapper {
-    margin-top: 0;
-    min-height: 56.3vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 16vw;
   }
 }
 
