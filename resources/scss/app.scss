@@ -408,8 +408,6 @@ body {
     text-align: center;
     padding-top: 48px;
     display: block;
-    min-height: 56.3vw;
-    padding-bottom: 16vw;
     .nhy-container {
         background-color: #0398fe;
         padding: 5rem 0;
@@ -454,11 +452,11 @@ body {
             line-height: 42px;
             text-transform: uppercase;
             max-width: 40rem;
-            margin:20px auto;
+            margin: 20px auto;
         }
         .bottom-p {
             max-width: 40rem;
-            margin:20px auto;
+            margin: 20px auto;
             font-weight: bold;
             font-size: 33px;
             line-height: 40px;
@@ -531,6 +529,35 @@ body {
                 background-position: left bottom;
                 background-size: auto 100%;
                 background-image: url(../img/bg/snow-left.png);
+            }
+        }
+    }
+    .nhy-btn {
+        border-radius: 100px;
+        border-width: 3px;
+        background-color: #f3410e;
+        cursor: pointer;
+        box-shadow: none;
+        line-height: 32px;
+        padding: 11px 22px;
+        border-color: #ffffff;
+        border-style: solid;
+        color: #ffffff;
+        font-size: 18px;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        &:hover {
+            border-color: #dedede;
+        }
+        &:active {
+            top: 1px;
+        }
+        &.nhy-btn-blue {
+            background-color: #0685c8;
+            @media (min-width: 768px) {
+                margin-top: 20px;
             }
         }
     }
