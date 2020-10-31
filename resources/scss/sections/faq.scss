@@ -1,4 +1,10 @@
 .faq-wrapper {
+    @media (min-width: 375px) {
+    }
+    @media (min-width: 414px) {
+    }
+    @media (min-width: 768px) {
+    }
     @media (min-width: 1024px) {
         background-image: url(../../img/bg/4.jpg);
         background-position: right -10rem top;
@@ -14,12 +20,6 @@
         margin-bottom: -16vw;
         padding-bottom: 6vw;
         margin-bottom: -11vw;
-        @media (min-width: 375px) {
-        }
-        @media (min-width: 414px) {
-        }
-        @media (min-width: 768px) {
-        }
         @media (min-width: 1024px) {
         }
         @media (min-width: 1280px) {
@@ -42,8 +42,8 @@
         text-align: center;
         color: #ffffff;
         text-shadow: 0px 0px 22px rgba(0, 0, 0, 0.7);
-        a{
-            color:#ffffff;
+        a {
+            color: #ffffff;
         }
         @media (min-width: 768px) {
             text-align: left;
@@ -88,8 +88,8 @@
                 overflow: hidden;
                 max-height: 0;
                 font-size: 13px;
-                a{
-                    color:#ffffff;
+                a {
+                    color: #ffffff;
                 }
                 @media (min-width: 768px) {
                     font-size: 20px;
