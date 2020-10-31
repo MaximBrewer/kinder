@@ -69,6 +69,6 @@ class SiteController extends Controller
         ]);
 
 
-        return (int)$request->news;
+        return $request->news;
     }
 }
