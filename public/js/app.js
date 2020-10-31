@@ -67613,7 +67613,7 @@ function Form(props) {
         formData.append("age", state.ageValue.value);
         formData.append("gift", state.giftValue.id);
         formData.append("gender", state.genderValue);
-        formData.append("from", state.fromValue);
+        formData.append("from", state.fromValue.value);
         formData.append("agree", !!state.agree);
         formData.append("cmail", !!state.cmail);
         formData.append("personal", !!state.personal);
