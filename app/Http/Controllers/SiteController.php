@@ -64,11 +64,11 @@ class SiteController extends Controller
             'gift_id' => $request->gift,
             'hash' => $request->gender,
             'email_hash' => $request->gender,
-            'news' => (int)$request->news,
+            'news' => $request->news == 'true' ? 1 : (int)$request->news,
             'status' => 'new',
         ]);
 
 
-        return $request->news;
+        return [];
     }
 }
