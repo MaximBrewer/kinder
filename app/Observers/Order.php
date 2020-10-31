@@ -13,16 +13,15 @@ class Order
     public function updated(ModelsOrder $order)
     {
         if ($order->wasChanged('status')) {
-
             switch ($order->status) {
                 case "new":
                     break;
                 case "canceled":
                     break;
                 case "confirmed":
+                    $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+                    Mail::to($order->email)->send(new \App\Mail\Frame1($unsubscribe));
                     try {
-                        $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-                        Mail::to($order->email)->send(new \App\Mail\Frame1($unsubscribe));
                         event(new Refresh());
                     } catch (Throwable $e) {
                         report($e);
