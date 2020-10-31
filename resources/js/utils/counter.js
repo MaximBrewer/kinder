@@ -20,7 +20,10 @@ function Counter() {
 
         let digits = state.current.split(""),
             newDigits = pad(event.detail.count, 6).split("");
+
         for (let i in digits) {
+
+            console.log(i, digits[i], newDigits[i], digits[i] != newDigits[i])
             if (digits[i] != newDigits[i]) {
                 let el = document.getElementsByClassName("number-" + i)[0];
                 el.classList.add("flip");
