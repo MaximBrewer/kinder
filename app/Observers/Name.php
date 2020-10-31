@@ -2,13 +2,14 @@
 
 namespace App\Observers;
 
-class Girl
+class Name
 {
     //
     public function created()
     {
         $json = is_file(storage_path('app/public') . '/data.json') ? json_decode(file_get_contents(storage_path('app/public') . '/data.json'), true) : [];
-        $json['girls'] = \App\Http\Resources\Girl::collection(\App\Models\Girl::all());
+        $json['boys'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['boy', 'both']));
+        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both']));
         $json = str_replace(['\r', '\n'], '', json_encode($json));
         file_put_contents(
             storage_path(('app/public') . '/data.json'),
@@ -23,7 +24,8 @@ class Girl
     public function updated()
     {
         $json = is_file(storage_path('app/public') . '/data.json') ? json_decode(file_get_contents(storage_path('app/public') . '/data.json'), true) : [];
-        $json['girls'] = \App\Http\Resources\Girl::collection(\App\Models\Girl::all());
+        $json['boys'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['boy', 'both']));
+        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both']));
         $json = str_replace(['\r', '\n'], '', json_encode($json));
         file_put_contents(
             storage_path(('app/public') . '/data.json'),
