@@ -403,11 +403,12 @@ body {
 
 .unsubscribe-wrapper {
     position: relative;
+    text-align: center;
     padding-top: 48px;
     display: block;
     min-height: 56.3vw;
     padding-bottom: 16vw;
-    .nhy-container{
+    .nhy-container {
         background-color: #0398fe;
         padding: 5rem 0;
     }
@@ -431,6 +432,21 @@ body {
         margin-top: -0.5vw;
         position: relative;
         background-image: url(../img/bg/bottomwave-sm.png);
+    }
+    @media (min-width: 768px) {
+        &:before,
+        &:after {
+            padding-top: 16vw;
+        }
+        &:before {
+            margin-top: -6vw;
+            background-image: url(../img/bg/topwave.png);
+        }
+        &:after {
+            z-index: 1;
+            position: relative;
+            background-image: url(../img/bg/bottomwave.png);
+        }
     }
     > div {
         background-color: #0398fe;
@@ -460,13 +476,6 @@ body {
         @media (min-width: 768px) {
             background-color: transparent;
             width: 100%;
-        }
-    }
-    @media (min-width: 768px) {
-        > div {
-            background-color: #0398fe;
-            position: relative;
-            overflow: visible;
             z-index: 2;
             &:before,
             &:after {
@@ -492,25 +501,6 @@ body {
                 background-size: auto 100%;
                 background-image: url(../img/bg/snow-left.png);
             }
-        }
-        &:before,
-        &:after {
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding-top: 16vw;
-            width: 100%;
-            content: "";
-            display: block;
-        }
-        &:before {
-            margin-top: -14vw;
-            background-image: url(../img/bg/topwave.png);
-        }
-        &:after {
-            z-index: 1;
-            position: relative;
-            background-image: url(../img/bg/bottomwave.png);
         }
     }
 }

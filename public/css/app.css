@@ -880,6 +880,7 @@ body {
 
 .unsubscribe-wrapper {
   position: relative;
+  text-align: center;
   padding-top: 48px;
   display: block;
   min-height: 56.3vw;
@@ -913,6 +914,24 @@ body {
   margin-top: -0.5vw;
   position: relative;
   background-image: url(/images/bottomwave-sm.png?d9c38fab38e4a3cdb2b8093c89ba423e);
+}
+
+@media (min-width: 768px) {
+  .unsubscribe-wrapper:before,
+  .unsubscribe-wrapper:after {
+    padding-top: 16vw;
+  }
+
+  .unsubscribe-wrapper:before {
+    margin-top: -6vw;
+    background-image: url(/images/topwave.png?05496d2801ef9e177415c00f6bacc29f);
+  }
+
+  .unsubscribe-wrapper:after {
+    z-index: 1;
+    position: relative;
+    background-image: url(/images/bottomwave.png?c6d4c6e11afe328942d2f28159bbfa1a);
+  }
 }
 
 .unsubscribe-wrapper > div {
@@ -953,14 +972,6 @@ body {
   .unsubscribe-wrapper > div {
     background-color: transparent;
     width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .unsubscribe-wrapper > div {
-    background-color: #0398fe;
-    position: relative;
-    overflow: visible;
     z-index: 2;
   }
 
@@ -989,28 +1000,6 @@ body {
     background-position: left bottom;
     background-size: auto 100%;
     background-image: url(/images/snow-left.png?a1f5f12c2fdac32e19deea9888220fd9);
-  }
-
-  .unsubscribe-wrapper:before,
-  .unsubscribe-wrapper:after {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 16vw;
-    width: 100%;
-    content: "";
-    display: block;
-  }
-
-  .unsubscribe-wrapper:before {
-    margin-top: -14vw;
-    background-image: url(/images/topwave.png?05496d2801ef9e177415c00f6bacc29f);
-  }
-
-  .unsubscribe-wrapper:after {
-    z-index: 1;
-    position: relative;
-    background-image: url(/images/bottomwave.png?c6d4c6e11afe328942d2f28159bbfa1a);
   }
 }
 
