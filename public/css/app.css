@@ -879,7 +879,9 @@ body {
 }
 
 .unsubscribe-wrapper {
+  font-family: "bubbleboddy_neue", sans-serif;
   position: relative;
+  color: #ffffff;
   text-align: center;
   padding-top: 48px;
   display: block;
@@ -916,7 +918,36 @@ body {
   background-image: url(/images/bottomwave-sm.png?d9c38fab38e4a3cdb2b8093c89ba423e);
 }
 
+.unsubscribe-wrapper .top-p {
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 42px;
+  text-transform: uppercase;
+}
+
+.unsubscribe-wrapper .bottom-p {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
 @media (min-width: 768px) {
+  .unsubscribe-wrapper .top-p {
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 42px;
+    text-transform: uppercase;
+  }
+
+  .unsubscribe-wrapper .bottom-p {
+    font-weight: bold;
+    font-size: 33px;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
   .unsubscribe-wrapper:before,
   .unsubscribe-wrapper:after {
     padding-top: 16vw;
