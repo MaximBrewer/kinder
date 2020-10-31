@@ -6,7 +6,7 @@ import Carousel from "../utils/carousel";
 import Slider from "react-slick";
 import { ArrowPrew, ArrowNext } from "../utils/icons";
 import Modal from "react-modal";
-import { Close, Ok, Vk, Instagram, Lens } from "../utils/icons";
+import { Close, Lens } from "../utils/icons";
 import { styles as customModalStyles } from "../styles/modal";
 import {
     renderView,

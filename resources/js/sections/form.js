@@ -639,15 +639,27 @@ function Form(props) {
                 </p>
                 <p>Следите за новостями Kinder в наших социальных сетях</p>
                 <div className={`social`}>
-                    <a href={`#`} style={{ marginRight: "12px" }}>
+                    <a
+                        target="_blank"
+                        href={`https://www.instagram.com/kinder_rus/`}
+                        style={{ marginRight: "12px" }}
+                    >
                         <Instagram
                             style={{ height: "28px", fill: "#ffffff" }}
                         />
                     </a>
-                    <a href={`#`} style={{ marginRight: "12px" }}>
+                    <a
+                        target="_blank"
+                        href={`https://ok.ru/kinder `}
+                        style={{ marginRight: "12px" }}
+                    >
                         <Ok style={{ height: "28px", fill: "#ffffff" }} />
                     </a>
-                    <a href={`#`} style={{ marginRight: "12px" }}>
+                    <a
+                        target="_blank"
+                        href={`https://vk.com/kinder`}
+                        style={{ marginRight: "12px" }}
+                    >
                         <Vk style={{ height: "28px", fill: "#ffffff" }} />
                     </a>
                 </div>

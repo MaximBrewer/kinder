@@ -67882,7 +67882,8 @@ function Form(props) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Kinder \u0414\u0435\u0434\u0443\u0448\u043A\u0430 \u041C\u043E\u0440\u043E\u0437 \u043F\u043E\u043A\u0430 \u0432 \u043E\u0442\u043F\u0443\u0441\u043A\u0435, \u043D\u043E \u043E\u043D \u043F\u043E\u043B\u0443\u0447\u0438\u043B \u0432\u0430\u0448\u0443 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u0432\u0435\u0440\u043D\u0435\u0442\u0441\u044F \u0441 \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435\u043C \u0432\u0430\u0448\u0435\u0433\u043E \u0440\u0435\u0431\u0435\u043D\u043A\u0430 \u043F\u043E\u0441\u043B\u0435 15.11.2020"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0421\u043B\u0435\u0434\u0438\u0442\u0435 \u0437\u0430 \u043D\u043E\u0432\u043E\u0441\u0442\u044F\u043C\u0438 Kinder \u0432 \u043D\u0430\u0448\u0438\u0445 \u0441\u043E\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0435\u0442\u044F\u0445"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "social"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
+    target: "_blank",
+    href: "https://www.instagram.com/kinder_rus/",
     style: {
       marginRight: "12px"
     }
@@ -67892,7 +67893,8 @@ function Form(props) {
       fill: "#ffffff"
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
+    target: "_blank",
+    href: "https://ok.ru/kinder ",
     style: {
       marginRight: "12px"
     }
@@ -67902,7 +67904,8 @@ function Form(props) {
       fill: "#ffffff"
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
+    target: "_blank",
+    href: "https://vk.com/kinder",
     style: {
       marginRight: "12px"
     }
