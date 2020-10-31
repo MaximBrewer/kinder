@@ -11,7 +11,7 @@
         <div>
             <div class="nhy-container">
                 <p class="top-p">вы успешно отписались от рассылок!</p>
-                <p>РХотите создать еще одно новогоднее поздравление?</p>
+                <p class="bottom-p">Хотите создать еще одно новогоднее поздравление?</p>
                 <div class="bottom-p">
                     <a href="https://www.kinder.com/ru/ru/kinder-new-year" class="nhy-btn">ПОДАРИТЬ ПРИКЛЮЧЕНИЕ</a>
                 </div>
