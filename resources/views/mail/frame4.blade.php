@@ -30,9 +30,8 @@
                     <h1
                         style="margin: 25px 0 35px;font-size: 26px;line-height: 37px;text-align: center;color: #F04E23;text-shadow: 1px 1px 0px rgba(0, 0, 0), -1px 1px 0px rgba(0, 0, 0), 1px -1px 0px rgba(0, 0, 0), -1px -1px 0px rgba(0, 0, 0), 0px 4px 4px rgba(0, 0, 0, 0.25);text-shadow: none;"
                     >
-                        Дедушка Мороз <br />
-                        снова ждет Вашу заявку на <br />
-                        поздравления!
+                    Дедушка Мороз <br />
+получил Вашу заявку!
                     </h1>
                     <div
                         style="font-size: 17px;line-height: 24px;text-align: center;color: #000000;"
