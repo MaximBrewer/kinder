@@ -41,7 +41,7 @@
                 <h2 style="font-size: 26px;line-height: 37px;text-align: center;color: #F04E23;">
                     Новый год приходит <br />
                     с
-                    <img src="https://kinder.gpucloud.ru/img/promo-logo.png" alt="" style="height: 60px;width:203px;margin-right: 4px;" />!
+                    <span><img src="https://kinder.gpucloud.ru/img/promo-logo.png" alt="" style="position:relative;top:6px;height: 60px;width:203px;margin-right: 4px;" /></span>!
                 </h2>
                 <div style="text-align: center;">
                     <a class="btn" href="https://www.kinder.com/ru/ru/kinder-new-year" style="text-decoration:none;font-weight:700;outline:none !important;box-shadow:none;padding:18px 35px;font-family: Noteworthy;font-size: 15px;line-height: 23px;border:none;background: #E54C2E;border-radius: 100px;display: inline-block;position: relative;color:white !important">
