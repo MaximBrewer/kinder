@@ -31,7 +31,7 @@ class Frame4 extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.frame4', [
+        return $this->subject('Поздравление от Kinder Дедушки Мороза!')->view('mail.frame4', [
             'unsubscribe' => $this->unsubscribe
         ]);
     }

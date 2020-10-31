@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class SiteController extends Controller
 {
@@ -23,7 +24,10 @@ class SiteController extends Controller
     public function patch(Request $request)
     {
         $unsubscribe = "https://www.kinder.com";
-        Mail::to('pimax1978@icloud.com')->send(new \App\Mail\Frame1($unsubscribe));
+
+        
+
+        // Mail::to('pimax1978@icloud.com')->send(new \App\Mail\Frame1($unsubscribe));
         return true;
     }
 }

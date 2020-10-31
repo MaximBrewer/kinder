@@ -17,11 +17,13 @@ class Frame3 extends Mailable
      * @return void
      */
     protected $unsubscribe;
+    protected $video;
 
 
-    public function __construct($unsubscribe)
+    public function __construct($unsubscribe, $video)
     {
         $this->unsubscribe = $unsubscribe;
+        $this->video = $video;
     }
 
     /**
@@ -31,8 +33,9 @@ class Frame3 extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.frame3', [
-            'unsubscribe' => $this->unsubscribe
+        return $this->subject('Поздравление от Kinder Дедушки Мороза!')->view('mail.frame3', [
+            'unsubscribe' => $this->unsubscribe,
+            'video' => $this->video
         ]);
     }
 }
