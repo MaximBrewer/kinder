@@ -50,10 +50,10 @@ class SiteController extends Controller
             'personal' => 'accepted'
         ]);
 
-        $path = $request->file('photo')->store('app/public/orders');
+        $path = $request->file('photo')->store('public/orders');
 
         Order::create([
-            'photo' => str_replace("app/public/", "", $path),
+            'photo' => $path,
             'boy_id' => $request->gender == 'boy' ? $request->name : null,
             'girl_id' => $request->gender == 'girl' ? $request->name : null,
             'age' => $request->age,
