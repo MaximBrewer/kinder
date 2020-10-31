@@ -53,7 +53,7 @@ class SiteController extends Controller
         $path = $request->file('photo')->store('app/public/orders');
 
         Order::create([
-            'photo' => $path,
+            'photo' => str_replace("app/public/", "", $path),
             'boy_id' => $request->gender == 'boy' ? $request->name : null,
             'girl_id' => $request->gender == 'girl' ? $request->name : null,
             'age' => $request->age,
