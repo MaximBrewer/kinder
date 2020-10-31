@@ -453,8 +453,12 @@ body {
             font-size: 35px;
             line-height: 42px;
             text-transform: uppercase;
+            max-width: 40rem;
+            margin:20px auto;
         }
         .bottom-p {
+            max-width: 40rem;
+            margin:20px auto;
             font-weight: bold;
             font-size: 33px;
             line-height: 40px;
