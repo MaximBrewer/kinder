@@ -409,6 +409,7 @@ body {
     padding-bottom: 16vw;
     .nhy-container{
         background-color: #0398fe;
+        padding: 5rem 0;
     }
     &:before,
     &:after {
@@ -419,9 +420,6 @@ body {
         width: 100%;
         content: "";
         display: block;
-        @media (min-width: 768px) {
-            content: none;
-        }
     }
     &:before {
         margin-top: -14vw;

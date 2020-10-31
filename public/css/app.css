@@ -888,6 +888,7 @@ body {
 
 .unsubscribe-wrapper .nhy-container {
   background-color: #0398fe;
+  padding: 5rem 0;
 }
 
 .unsubscribe-wrapper:before,
@@ -899,13 +900,6 @@ body {
   width: 100%;
   content: "";
   display: block;
-}
-
-@media (min-width: 768px) {
-  .unsubscribe-wrapper:before,
-  .unsubscribe-wrapper:after {
-    content: none;
-  }
 }
 
 .unsubscribe-wrapper:before {
