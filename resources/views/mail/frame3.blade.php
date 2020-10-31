@@ -8,7 +8,7 @@
             font-family: Noteworthy;
             src: url(https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff2) format("woff2"),
                 url(https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff) format("woff");
-            font-weight: normal;
+            font-weight: 700;
             font-style: normal;
         }
         a.btn:active {
@@ -17,7 +17,7 @@
     </style>
 </head>
 
-<body style="margin:0;padding:0;font-family: Noteworthy;">
+<body style="margin:0;padding:0;font-family: Noteworthy;font-weight:bold;">
     <div style="width:800px;height:1200px;background-image:url(https://kinder.gpucloud.ru/images/mail-bg.jpg);background-size:cover;">
         <div style="padding: 249px 117px 0px 172px;">
             <div style="min-height: 780px;">
