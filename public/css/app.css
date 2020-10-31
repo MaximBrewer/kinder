@@ -886,6 +886,10 @@ body {
   padding-bottom: 16vw;
 }
 
+.unsubscribe-wrapper .nhy-container {
+  background-color: #0398fe;
+}
+
 .unsubscribe-wrapper:before,
 .unsubscribe-wrapper:after {
   background-position: center;

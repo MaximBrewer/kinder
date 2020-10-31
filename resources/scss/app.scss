@@ -407,6 +407,9 @@ body {
     display: block;
     min-height: 56.3vw;
     padding-bottom: 16vw;
+    .nhy-container{
+        background-color: #0398fe;
+    }
     &:before,
     &:after {
         background-position: center;
