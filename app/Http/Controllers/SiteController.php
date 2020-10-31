@@ -50,7 +50,7 @@ class SiteController extends Controller
             'personal' => 'accepted'
         ]);
 
-        $path = $request->file('photo')->store('public/orders');
+        $path = $request->file('photo')->store('app/public/orders');
 
         Order::create([
             'photo' => $path,
