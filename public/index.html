@@ -48,11 +48,11 @@
                     document.getElementsByClassName("scroll-to-target"),
                     function(element) {
                         element.addEventListener("click", function() {
-                            let elem = document.getElementById(
+                            var elem = document.getElementById(
                                 event.target.dataset.target
                             );
                             if (!elem) return false;
-                            let toY =
+                            var toY =
                                 (elem.getBoundingClientRect().top +
                                     document.scrollingElement.scrollTop) *
                                 1;
