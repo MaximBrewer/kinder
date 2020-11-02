@@ -68845,6 +68845,7 @@ function Form(props) {
     agree: false,
     cmail: false,
     personal: false,
+    fileText: "ЗАГРУЗИТЬ ФОТО РЕБЕНКА",
     news: false,
     isOpen: false,
     contHeight: 0,
@@ -69081,7 +69082,38 @@ function Form(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: (window.innerWidth < 768 ? "hint--bottom" : "hint--right") + " hint--error hint--always hint--rounded",
     "aria-label": state.errors.photo ? state.errors.photo : ""
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_upload__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, window.ie11 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "fileinput-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nhy-btn",
+    style: {
+      position: "relative",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      maxWidth: "100%",
+      whiteSpace: "nowrap"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    style: {
+      opacity: 0,
+      zIndex: 1,
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%"
+    },
+    type: "file",
+    onChange: function onChange(e) {
+      var name = e.target.value;
+      setFiles([e.target.files[0]]);
+      setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          fileText: name
+        });
+      });
+    }
+  }), state.fileText)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_upload__WEBPACK_IMPORTED_MODULE_5__["default"], {
     setFiles: setFiles,
     files: files
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {

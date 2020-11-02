@@ -110,6 +110,7 @@ function Form(props) {
         agree: false,
         cmail: false,
         personal: false,
+        fileText: "ЗАГРУЗИТЬ ФОТО РЕБЕНКА",
         news: false,
         isOpen: false,
         contHeight: 0,
@@ -427,7 +428,46 @@ function Form(props) {
                                     state.errors.photo ? state.errors.photo : ``
                                 }
                             >
-                                <Upload setFiles={setFiles}  files={files} />
+                                {window.ie11 ? (
+                                    <div className="fileinput-wrapper">
+                                        <div
+                                            className={`nhy-btn`}
+                                            style={{
+                                                position: "relative",
+                                                overflow: "hidden",
+                                                textOverflow: "ellipsis",
+                                                maxWidth: "100%",
+                                                whiteSpace: "nowrap"
+                                            }}
+                                        >
+                                            <input
+                                                style={{
+                                                    opacity: 0,
+                                                    zIndex: 1,
+                                                    position: "absolute",
+                                                    top: 0,
+                                                    left: 0,
+                                                    width: "100%",
+                                                    height: "100%"
+                                                }}
+                                                type="file"
+                                                onChange={e => {
+                                                    let name = e.target.value;
+                                                    setFiles([
+                                                        e.target.files[0]
+                                                    ]);
+                                                    setState(prevState => ({
+                                                        ...prevState,
+                                                        fileText: name
+                                                    }));
+                                                }}
+                                            />
+                                            {state.fileText}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <Upload setFiles={setFiles} files={files} />
+                                )}
                             </div>
                             <div>
                                 <button

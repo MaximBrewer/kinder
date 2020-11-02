@@ -78,7 +78,13 @@
                     .addEventListener("click", function() {
                         bdi_scrollTop(0);
                     });
+            window.ie11 = false;
         </script>
+        <!--[if lte IE 11]>
+            <script>
+                window.ie11 = true;
+            </script>
+        <![endif]-->
     </head>
 
     <body>
