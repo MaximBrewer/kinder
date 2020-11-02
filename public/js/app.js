@@ -68899,75 +68899,83 @@ function Form(props) {
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
-    setState(function (prevState) {
-      var errors = {};
-      if (!prevState.boysValue && !prevState.girlsValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        name: "Выберите имя"
-      });
-      if (!prevState.ageValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        ageValue: "Выберите возраст"
-      });
-      if (!prevState.achieveValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        achieveValue: "Выберите достижение"
-      });
-      if (!prevState.hobbyValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        hobbyValue: "Выберите хобби"
-      });
-      if (!prevState.fromValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        fromValue: "Выберите от кого"
-      });
-      if (!prevState.giftValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        giftValue: "Выберите подарок"
-      });
-      if (!prevState.emailValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        emailValue: "Введите E-mail"
-      });
-      if (!files.length) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        photo: "Добавьте фото ребенка"
-      });
-      if (!prevState.agree) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        agree: "Вы должны согласиться с правилами"
-      });
-      if (!prevState.cmail) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        cmail: "Вы должны согласиться на использование указанного e-mail"
-      });
-      if (!prevState.personal) errors = _objectSpread(_objectSpread({}, errors), {}, {
-        personal: "Вы должны согласиться на обработку персональных данных"
-      });
-
-      if (Object.keys(errors).length < 1) {
-        var formData = new FormData();
-        formData.append("photo", files[0]);
-        formData.append("name", state.boysValue ? state.boysValue.value : state.girlsValue.value);
-        formData.append("achieve", state.achieveValue.value);
-        formData.append("email", state.emailValue);
-        formData.append("hobby", state.hobbyValue.value);
-        formData.append("from", state.fromValue.value);
-        formData.append("age", state.ageValue.value);
-        formData.append("gift", state.giftValue.id);
-        formData.append("gender", state.genderValue);
-        formData.append("agree", !!state.agree);
-        formData.append("cmail", !!state.cmail);
-        formData.append("personal", !!state.personal);
-        formData.append("news", !!state.news);
-        axios__WEBPACK_IMPORTED_MODULE_11___default.a.post("/patch", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data"
-          }
-        }).then(function () {
-          openModal();
-        })["catch"](function (err) {
-          return console.log(err);
-        });
-        return _objectSpread(_objectSpread({}, initialState), {}, {
-          contHeight: prevState.contHeight
-        });
-      }
-
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        errors: errors
-      });
+    var errors = {};
+    if (!state.boysValue && !state.girlsValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      name: "Выберите имя"
     });
+    if (!state.ageValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      ageValue: "Выберите возраст"
+    });
+    if (!state.achieveValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      achieveValue: "Выберите достижение"
+    });
+    if (!state.hobbyValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      hobbyValue: "Выберите хобби"
+    });
+    if (!state.fromValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      fromValue: "Выберите от кого"
+    });
+    if (!state.giftValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      giftValue: "Выберите подарок"
+    });
+    if (!state.emailValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      emailValue: "Введите E-mail"
+    });
+    if (!files.length) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      photo: "Добавьте фото ребенка"
+    });
+    if (!state.agree) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      agree: "Вы должны согласиться с правилами"
+    });
+    if (!state.cmail) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      cmail: "Вы должны согласиться на использование указанного e-mail"
+    });
+    if (!state.personal) errors = _objectSpread(_objectSpread({}, errors), {}, {
+      personal: "Вы должны согласиться на обработку персональных данных"
+    });
+
+    if (Object.keys(errors).length < 1) {
+      var formData = new FormData();
+      formData.append("photo", files[0]);
+      formData.append("name", state.boysValue ? state.boysValue.value : state.girlsValue.value);
+      formData.append("achieve", state.achieveValue.value);
+      formData.append("email", state.emailValue);
+      formData.append("hobby", state.hobbyValue.value);
+      formData.append("from", state.fromValue.value);
+      formData.append("age", state.ageValue.value);
+      formData.append("gift", state.giftValue.id);
+      formData.append("gender", state.genderValue);
+      formData.append("agree", !!state.agree);
+      formData.append("cmail", !!state.cmail);
+      formData.append("personal", !!state.personal);
+      formData.append("news", !!state.news);
+      axios__WEBPACK_IMPORTED_MODULE_11___default.a.post("/patch", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }).then(function () {
+        setState(function (prevState) {
+          return _objectSpread(_objectSpread({}, initialState), {}, {
+            contHeight: prevState.contHeight
+          });
+        });
+        setFiles([]);
+        openModal();
+      })["catch"](function (err) {
+        console.log(err);
+        setState(function (prevState) {
+          return _objectSpread(_objectSpread({}, prevState), {}, {
+            errors: errors
+          });
+        });
+      });
+    } else {
+      setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          errors: errors
+        });
+      });
+    }
   };
 
   var choose = function choose(event, fieldName) {
