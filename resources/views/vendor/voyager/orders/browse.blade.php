@@ -252,10 +252,10 @@
                                             </td>
                                         @endforeach
                                         <td class="no-sort no-click bread-actions">
-                                            <a href="/admin/orders/23/confirm" title="Утвердить" class="btn btn-sm btn-success">
+                                            <a href="/admin/orders/{{ $data->id }}/confirm" title="Утвердить" class="btn btn-sm btn-success">
                                                 <span>Утвердить</span>
                                             </a>
-                                            <a href="/admin/orders/23/decline" title="Отклонить" class="btn btn-sm btn-danger">
+                                            <a href="/admin/orders/{{ $data->id }}/decline" title="Отклонить" class="btn btn-sm btn-danger">
                                                 <span>Отклонить</span>
                                             </a>
                                         </td>
