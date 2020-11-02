@@ -252,12 +252,14 @@
                                             </td>
                                         @endforeach
                                         <td class="no-sort no-click bread-actions">
+                                            @if ($data->id == 'new')
                                             <a href="/admin/orders/{{ $data->id }}/confirm" title="Утвердить" class="btn btn-sm btn-success">
                                                 <span>Утвердить</span>
                                             </a>
                                             <a href="/admin/orders/{{ $data->id }}/decline" title="Отклонить" class="btn btn-sm btn-danger">
                                                 <span>Отклонить</span>
                                             </a>
+                                            @endif
                                         </td>
                                         <td class="no-sort no-click bread-actions">
                                             @foreach($actions as $action)
