@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Mail;
 class Order
 {
     //
-    public function updated(ModelsOrder $order)
+    public function created(ModelsOrder $order)
     {
         if ($order->wasChanged('status')) {
 
