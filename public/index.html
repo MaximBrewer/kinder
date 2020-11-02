@@ -35,9 +35,7 @@
             function bdi_scrollTop(scrolltop) {
                 if (parent.postMessage) {
                     parent.postMessage(
-                        {
-                            scrolltop: scrolltop
-                        },
+                        {scrolltop: scrolltop},
                         "*"
                     );
                 }
