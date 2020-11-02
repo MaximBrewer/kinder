@@ -18,4 +18,6 @@ Route::get('/test-mail', '\App\Http\Controllers\SiteController@testMail');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::get('orders/{id}/confirm', '\App\Http\Controllers\VoyagerOrdersController@confirm');
+    Route::get('orders/{id}/decline', '\App\Http\Controllers\VoyagerOrdersController@decline');
 });
