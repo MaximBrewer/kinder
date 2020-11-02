@@ -668,7 +668,14 @@ function Form(props) {
                         href={`https://www.facebook.com/KinderRussia/`}
                         style={{ marginRight: "12px" }}
                     >
-                        <Fb style={{ height: "28px", fill: "#ffffff" }} />
+                        <Fb
+                            style={{
+                                height: "36px",
+                                fill: "#ffffff",
+                                top: 4,
+                                position: "relative"
+                            }}
+                        />
                     </a>
                 </div>
             </Modal>

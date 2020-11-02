@@ -69260,8 +69260,10 @@ function Form(props) {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_7__["Fb"], {
     style: {
-      height: "28px",
-      fill: "#ffffff"
+      height: "36px",
+      fill: "#ffffff",
+      top: 4,
+      position: "relative"
     }
   })))));
 }
