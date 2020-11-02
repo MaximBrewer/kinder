@@ -154,10 +154,10 @@ var pusher = new Pusher("c354da67c98f8f62d901", {
 
 var channel = pusher.subscribe("kinder");
 
-channel.bind("refresh", function({ cnt }) {
+channel.bind("refresh", function(res) {
     window.dispatchEvent(
         new CustomEvent("refresh", {
-            detail: { cnt }
+            detail: { cnt: res.cnt }
         })
     );
 });

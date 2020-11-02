@@ -68446,11 +68446,10 @@ var pusher = new Pusher("c354da67c98f8f62d901", {
   cluster: "eu"
 });
 var channel = pusher.subscribe("kinder");
-channel.bind("refresh", function (_ref) {
-  var cnt = _ref.cnt;
+channel.bind("refresh", function (res) {
   window.dispatchEvent(new CustomEvent("refresh", {
     detail: {
-      cnt: cnt
+      cnt: res.cnt
     }
   }));
 });
