@@ -79,12 +79,11 @@
                         bdi_scrollTop(0);
                     });
             window.ie11 = false;
+            window.ie11 = !(window.ActiveXObject) && "ActiveXObject" in window
+            console.log(window.ie11)
+            window.ie11 = !!navigator.userAgent.match(/Trident\/7\./)
+            console.log(window.ie11)
         </script>
-        <!--[if lte IE 11]>
-            <script>
-                window.ie11 = true;
-            </script>
-        <![endif]-->
     </head>
 
     <body>
