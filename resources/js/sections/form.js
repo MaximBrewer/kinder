@@ -411,6 +411,7 @@ function Form(props) {
                             }
                         >
                             <input
+                                style={{ minHeight: 52 }}
                                 type="email"
                                 placeholder={`E-mail`}
                                 onChange={emailChange}

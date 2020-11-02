@@ -67879,6 +67879,9 @@ function Form(props) {
     className: (window.innerWidth < 768 ? "hint--bottom" : "hint--right") + " hint--error hint--always hint--rounded",
     "aria-label": state.errors.emailValue ? state.errors.emailValue : ""
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    style: {
+      minHeight: 52
+    },
     type: "email",
     placeholder: "E-mail",
     onChange: emailChange,
