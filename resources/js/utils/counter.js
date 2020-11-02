@@ -14,7 +14,7 @@ function Counter() {
     const tick = event => {
         setState(prevState => {
             let digits = prevState.current.split(""),
-                newDigits = pad(event.detail.count, 6).split("");
+                newDigits = pad(event.detail.cnt, 6).split("");
             for (let i in digits) {
                 if (digits[i] != newDigits[i]) {
                     let el = document.getElementsByClassName("number-" + i)[0];
@@ -26,13 +26,13 @@ function Counter() {
             }
             return {
                 ...prevState,
-                next: pad(event.detail.count, 6)
+                next: pad(event.detail.cnt, 6)
             };
         });
         setTimeout(function() {
             setState(prevState => ({
                 ...prevState,
-                current: pad(event.detail.count, 6)
+                current: pad(event.detail.cnt, 6)
             }));
         }, 500);
     };

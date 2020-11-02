@@ -70006,7 +70006,7 @@ function Counter() {
   var tick = function tick(event) {
     setState(function (prevState) {
       var digits = prevState.current.split(""),
-          newDigits = pad(event.detail.count, 6).split("");
+          newDigits = pad(event.detail.cnt, 6).split("");
 
       for (var i in digits) {
         if (digits[i] != newDigits[i]) {
@@ -70021,13 +70021,13 @@ function Counter() {
       }
 
       return _objectSpread(_objectSpread({}, prevState), {}, {
-        next: pad(event.detail.count, 6)
+        next: pad(event.detail.cnt, 6)
       });
     });
     setTimeout(function () {
       setState(function (prevState) {
         return _objectSpread(_objectSpread({}, prevState), {}, {
-          current: pad(event.detail.count, 6)
+          current: pad(event.detail.cnt, 6)
         });
       });
     }, 500);
