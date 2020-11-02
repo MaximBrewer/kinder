@@ -234,8 +234,13 @@ function Form(props) {
                     openModal();
                 })
                 .catch(err => {
+                    let errors = '';
+                    for(let i in err.errors){
+                        errors += err.errors[i] + '\n\r';
+                    }
+                    alert(errors)
                     console.log(err);
-                    setState(prevState => ({ ...prevState, errors }));
+                    // setState(prevState => ({ ...prevState, errors }));
                 });
         } else {
             setState(prevState => ({ ...prevState, errors }));

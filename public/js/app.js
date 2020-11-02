@@ -68963,12 +68963,14 @@ function Form(props) {
         setFiles([]);
         openModal();
       })["catch"](function (err) {
-        console.log(err);
-        setState(function (prevState) {
-          return _objectSpread(_objectSpread({}, prevState), {}, {
-            errors: errors
-          });
-        });
+        var errors = '';
+
+        for (var i in err.errors) {
+          errors += err.errors[i] + '\n\r';
+        }
+
+        alert(errors);
+        console.log(err); // setState(prevState => ({ ...prevState, errors }));
       });
     } else {
       setState(function (prevState) {
