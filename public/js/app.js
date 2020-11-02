@@ -68815,16 +68815,10 @@ function Form(props) {
     });
   };
 
-  var setFiles = function setFiles(files) {
-    setState(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        errors: _objectSpread(_objectSpread({}, prevState.errors), {}, {
-          photo: null
-        }),
-        photo: files[0]
-      });
-    });
-  };
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      files = _useState2[0],
+      setFiles = _useState2[1];
 
   var chooseGift = function chooseGift(gift) {
     setState(function (prevState) {
@@ -68853,16 +68847,15 @@ function Form(props) {
     personal: false,
     news: false,
     isOpen: false,
-    photo: null,
     contHeight: 0,
     errors: {},
     modalStyles: _styles_modal__WEBPACK_IMPORTED_MODULE_8__["styles"]
   };
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialState),
-      _useState2 = _slicedToArray(_useState, 2),
-      state = _useState2[0],
-      setState = _useState2[1];
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialState),
+      _useState4 = _slicedToArray(_useState3, 2),
+      state = _useState4[0],
+      setState = _useState4[1];
 
   var setting = {
     arrows: false,
@@ -68929,6 +68922,9 @@ function Form(props) {
       if (!prevState.emailValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
         emailValue: "Введите E-mail"
       });
+      if (!files.length) errors = _objectSpread(_objectSpread({}, errors), {}, {
+        photo: "Добавьте фото ребенка"
+      });
       if (!prevState.agree) errors = _objectSpread(_objectSpread({}, errors), {}, {
         agree: "Вы должны согласиться с правилами"
       });
@@ -68941,7 +68937,7 @@ function Form(props) {
 
       if (Object.keys(errors).length < 1) {
         var formData = new FormData();
-        formData.append("photo", state.photo);
+        formData.append("photo", files[0]);
         formData.append("name", state.boysValue ? state.boysValue.value : state.girlsValue.value);
         formData.append("achieve", state.achieveValue.value);
         formData.append("email", state.emailValue);
@@ -69163,7 +69159,7 @@ function Form(props) {
     setState: setState,
     field: "cmail"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "hint--bottom hint--error hint--always hint--rounded",
+    className: "hint--right hint--error hint--always hint--rounded",
     "aria-label": state.errors.cmail ? state.errors.cmail : ""
   }, "\u0414\u0430\u044E \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0433\u043E e-mail \u0432 \u0446\u0435\u043B\u044F\u0445 \u0410\u043A\u0446\u0438\u0438. ", state.cmail))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
     className: "checkbox-wrapper"
@@ -69172,7 +69168,7 @@ function Form(props) {
     setState: setState,
     field: "agree"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "hint--bottom hint--error hint--always hint--rounded",
+    className: "hint--right hint--error hint--always hint--rounded",
     "aria-label": state.errors.agree ? state.errors.agree : ""
   }, "C\u043E\u0433\u043B\u0430\u0441\u0435\u043D(-\u043D\u0430) \u0441 \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C\u0438 ", state.agree))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
     className: "checkbox-wrapper"
@@ -69181,7 +69177,7 @@ function Form(props) {
     setState: setState,
     field: "personal"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "hint--bottom hint--error hint--always hint--rounded",
+    className: "hint--right hint--error hint--always hint--rounded",
     "aria-label": state.errors.personal ? state.errors.personal : ""
   }, "\u0414\u0430\u044E \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445", " ", state.personal))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
     className: "checkbox-wrapper"
@@ -70618,18 +70614,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dropzone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dropzone */ "./node_modules/react-dropzone/dist/es/index.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 var thumbsContainer = {
@@ -70681,26 +70665,20 @@ var img = {
 };
 
 function Previews(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      files = _useState2[0],
-      setFiles = _useState2[1];
-
   var _useDropzone = Object(react_dropzone__WEBPACK_IMPORTED_MODULE_1__["useDropzone"])({
     accept: 'image/*',
     onDrop: function onDrop(acceptedFiles) {
-      setFiles(acceptedFiles.map(function (file) {
+      props.setFiles(acceptedFiles.map(function (file) {
         return Object.assign(file, {
           preview: URL.createObjectURL(file)
         });
       }));
-      props.setFiles(acceptedFiles);
     }
   }),
       getRootProps = _useDropzone.getRootProps,
       getInputProps = _useDropzone.getInputProps;
 
-  var thumbs = files.map(function (file) {
+  var thumbs = props.files.map(function (file) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       style: thumb,
       key: file.name
@@ -70714,11 +70692,11 @@ function Previews(props) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     return function () {
       // Make sure to revoke the data uris to avoid memory leaks
-      files.forEach(function (file) {
+      props.files.forEach(function (file) {
         return URL.revokeObjectURL(file.preview);
       });
     };
-  }, [files]);
+  }, [props.files]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "dz-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({}, getRootProps({

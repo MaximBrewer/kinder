@@ -86,13 +86,7 @@ function Form(props) {
         }));
     };
 
-    const setFiles = files => {
-        setState(prevState => ({
-            ...prevState,
-            errors: { ...prevState.errors, photo: null },
-            photo: files[0]
-        }));
-    };
+    const [files, setFiles] = useState([]);
 
     const chooseGift = gift => {
         setState(prevState => ({
@@ -118,7 +112,6 @@ function Form(props) {
         personal: false,
         news: false,
         isOpen: false,
-        photo: null,
         contHeight: 0,
         errors: {},
         modalStyles: customModalStyles
@@ -186,6 +179,8 @@ function Form(props) {
                 errors = { ...errors, giftValue: "Выберите подарок" };
             if (!prevState.emailValue)
                 errors = { ...errors, emailValue: "Введите E-mail" };
+            if (!files.length)
+                errors = { ...errors, photo: "Добавьте фото ребенка" };
             if (!prevState.agree)
                 errors = {
                     ...errors,
@@ -206,7 +201,7 @@ function Form(props) {
 
             if (Object.keys(errors).length < 1) {
                 let formData = new FormData();
-                formData.append("photo", state.photo);
+                formData.append("photo", files[0]);
                 formData.append(
                     "name",
                     state.boysValue
@@ -556,7 +551,7 @@ function Form(props) {
                 <div className="checkbox-wrapper" className="form-flex">
                     <Checkbox state={state} setState={setState} field={`cmail`}>
                         <div
-                            className="hint--bottom hint--error hint--always hint--rounded"
+                            className="hint--right hint--error hint--always hint--rounded"
                             aria-label={
                                 state.errors.cmail ? state.errors.cmail : ``
                             }
@@ -569,7 +564,7 @@ function Form(props) {
                 <div className="checkbox-wrapper" className="form-flex">
                     <Checkbox state={state} setState={setState} field={`agree`}>
                         <div
-                            className="hint--bottom hint--error hint--always hint--rounded"
+                            className="hint--right hint--error hint--always hint--rounded"
                             aria-label={
                                 state.errors.agree ? state.errors.agree : ``
                             }
@@ -585,7 +580,7 @@ function Form(props) {
                         field={`personal`}
                     >
                         <div
-                            className="hint--bottom hint--error hint--always hint--rounded"
+                            className="hint--right hint--error hint--always hint--rounded"
                             aria-label={
                                 state.errors.personal
                                     ? state.errors.personal
