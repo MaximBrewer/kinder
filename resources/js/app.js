@@ -5,6 +5,8 @@ import Counter from "./utils/counter";
 import Form from "./sections/form";
 import Gifts from "./sections/gifts";
 import Faq from "./sections/faq";
+import { polyfill } from 'es6-promise'; 
+polyfill();
 
 /*! https://mths.be/scrollingelement v1.5.2 by @diegoperini & @mathias | MIT license */
 if (!('scrollingElement' in document)) (function() {
