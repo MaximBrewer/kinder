@@ -68447,10 +68447,10 @@ var pusher = new Pusher("c354da67c98f8f62d901", {
 });
 var channel = pusher.subscribe("kinder");
 channel.bind("refresh", function (_ref) {
-  var count = _ref.count;
+  var cnt = _ref.cnt;
   window.dispatchEvent(new CustomEvent("refresh", {
     detail: {
-      count: count
+      cnt: cnt
     }
   }));
 });

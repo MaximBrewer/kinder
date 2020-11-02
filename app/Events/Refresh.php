@@ -21,14 +21,14 @@ class Refresh implements ShouldBroadcast
      * @return void
      */
 
-    public $count;
+    public $cnt;
 
     public function __construct()
     {
-        $this->count = Order::whereIn('status', ['new', 'confirmed'])->count();
+        $this->cnt = Order::whereIn('status', ['new', 'confirmed'])->count();
         file_put_contents(
             storage_path(('app/public') . '/orders.js'),
-            'window.App.data.orders = ' . $this->count
+            'window.App.data.orders = ' . $this->cnt
         );
     }
 
