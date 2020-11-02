@@ -50,7 +50,6 @@ function Form(props) {
     }
 
     const onBoysChange = e => {
-        console.log(e);
         setState(prevState => ({
             ...prevState,
             genderValue: "boy",
@@ -156,7 +155,6 @@ function Form(props) {
 
     const resize = () => {
         var scrollTop = document.scrollingElement.scrollTop;
-        console.log(scrollTop);
     };
 
     useEffect(() => {

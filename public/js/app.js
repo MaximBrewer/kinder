@@ -68764,7 +68764,6 @@ function Form(props) {
   }
 
   var onBoysChange = function onBoysChange(e) {
-    console.log(e);
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
         genderValue: "boy",
@@ -68893,7 +68892,6 @@ function Form(props) {
 
   var resize = function resize() {
     var scrollTop = document.scrollingElement.scrollTop;
-    console.log(scrollTop);
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -69972,8 +69970,6 @@ function Counter() {
           newDigits = pad(event.detail.count, 6).split("");
 
       for (var i in digits) {
-        console.log(i, digits[i], newDigits[i], digits[i] != newDigits[i]);
-
         if (digits[i] != newDigits[i]) {
           (function () {
             var el = document.getElementsByClassName("number-" + i)[0];
