@@ -69082,7 +69082,8 @@ function Form(props) {
     className: (window.innerWidth < 768 ? "hint--bottom" : "hint--right") + " hint--error hint--always hint--rounded",
     "aria-label": state.errors.photo ? state.errors.photo : ""
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_upload__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    setFiles: setFiles
+    setFiles: setFiles,
+    files: files
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     style: {
       width: "100%"

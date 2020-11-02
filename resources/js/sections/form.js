@@ -427,7 +427,7 @@ function Form(props) {
                                     state.errors.photo ? state.errors.photo : ``
                                 }
                             >
-                                <Upload setFiles={setFiles} />
+                                <Upload setFiles={setFiles}  files={files} />
                             </div>
                             <div>
                                 <button
