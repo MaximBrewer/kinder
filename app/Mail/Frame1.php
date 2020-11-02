@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\View;
 
 class Frame1 extends Mailable
 {
@@ -31,12 +32,13 @@ class Frame1 extends Mailable
      */
     public function build()
     {
+        $mailPlain = View::make('mail.text.frame1');
         $this->subject('Поздравление от Kinder Дедушки Мороза!')
-            ->view('mail.frame1', [
+            ->view('mail.html.frame1', [
                 'unsubscribe' => $this->unsubscribe
             ]);
-        $this->withSwiftMessage(function ($message) {
-            $message->getHeaders()
+        $this->withSwiftMessage(function ($message) use ($mailPlain) {
+            $message->addPart($mailPlain, 'text/plain')->getHeaders()
                 ->addTextHeader('List-Unsubscribe', $this->unsubscribe);
         });
     }
