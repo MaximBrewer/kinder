@@ -6,7 +6,7 @@ import Checkbox from "../utils/checkbox";
 import Upload from "../utils/upload";
 import Modal from "react-modal";
 import { ArrowPrewMobile, ArrowNextMobile } from "../utils/icons";
-import { Close, Ok, Vk, Instagram } from "../utils/icons";
+import { Close, Ok, Vk, Instagram, Fb } from "../utils/icons";
 import { styles as customModalStyles } from "../styles/modal";
 import { Scrollbars } from "react-custom-scrollbars-with-mobile";
 import {
@@ -636,9 +636,9 @@ function Form(props) {
                 <p>
                     Kinder Дедушка Мороз пока в отпуске, но он получил вашу
                     заявку и вернется с поздравлением вашего ребенка после
-                    15.11.2020
+                    15.11.2020.
                 </p>
-                <p>Следите за новостями Kinder в наших социальных сетях</p>
+                <p>Следите за новостями Kinder в наших социальных сетях.</p>
                 <div className={`social`}>
                     <a
                         target="_blank"
@@ -662,6 +662,13 @@ function Form(props) {
                         style={{ marginRight: "12px" }}
                     >
                         <Vk style={{ height: "28px", fill: "#ffffff" }} />
+                    </a>
+                    <a
+                        target="_blank"
+                        href={`https://www.facebook.com/KinderRussia/`}
+                        style={{ marginRight: "12px" }}
+                    >
+                        <Fb style={{ height: "28px", fill: "#ffffff" }} />
                     </a>
                 </div>
             </Modal>

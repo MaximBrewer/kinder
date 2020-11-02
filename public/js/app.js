@@ -69217,7 +69217,7 @@ function Form(props) {
       right: "16px",
       top: "16px"
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Kinder \u0414\u0435\u0434\u0443\u0448\u043A\u0430 \u041C\u043E\u0440\u043E\u0437 \u043F\u043E\u043A\u0430 \u0432 \u043E\u0442\u043F\u0443\u0441\u043A\u0435, \u043D\u043E \u043E\u043D \u043F\u043E\u043B\u0443\u0447\u0438\u043B \u0432\u0430\u0448\u0443 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u0432\u0435\u0440\u043D\u0435\u0442\u0441\u044F \u0441 \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435\u043C \u0432\u0430\u0448\u0435\u0433\u043E \u0440\u0435\u0431\u0435\u043D\u043A\u0430 \u043F\u043E\u0441\u043B\u0435 15.11.2020"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0421\u043B\u0435\u0434\u0438\u0442\u0435 \u0437\u0430 \u043D\u043E\u0432\u043E\u0441\u0442\u044F\u043C\u0438 Kinder \u0432 \u043D\u0430\u0448\u0438\u0445 \u0441\u043E\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0435\u0442\u044F\u0445"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Kinder \u0414\u0435\u0434\u0443\u0448\u043A\u0430 \u041C\u043E\u0440\u043E\u0437 \u043F\u043E\u043A\u0430 \u0432 \u043E\u0442\u043F\u0443\u0441\u043A\u0435, \u043D\u043E \u043E\u043D \u043F\u043E\u043B\u0443\u0447\u0438\u043B \u0432\u0430\u0448\u0443 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u0432\u0435\u0440\u043D\u0435\u0442\u0441\u044F \u0441 \u043F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435\u043C \u0432\u0430\u0448\u0435\u0433\u043E \u0440\u0435\u0431\u0435\u043D\u043A\u0430 \u043F\u043E\u0441\u043B\u0435 15.11.2020."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0421\u043B\u0435\u0434\u0438\u0442\u0435 \u0437\u0430 \u043D\u043E\u0432\u043E\u0441\u0442\u044F\u043C\u0438 Kinder \u0432 \u043D\u0430\u0448\u0438\u0445 \u0441\u043E\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0435\u0442\u044F\u0445."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "social"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     target: "_blank",
@@ -69248,6 +69248,17 @@ function Form(props) {
       marginRight: "12px"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_7__["Vk"], {
+    style: {
+      height: "28px",
+      fill: "#ffffff"
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    target: "_blank",
+    href: "https://www.facebook.com/KinderRussia/",
+    style: {
+      marginRight: "12px"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_7__["Fb"], {
     style: {
       height: "28px",
       fill: "#ffffff"
@@ -70169,7 +70180,7 @@ function Select(props) {
 /*!*************************************!*\
   !*** ./resources/js/utils/icons.js ***!
   \*************************************/
-/*! exports provided: Checked, Unchecked, Close, Ok, Vk, Instagram, Lens, ArrowPrew, ArrowNext, ArrowDown, ArrowPrewMobile, ArrowNextMobile */
+/*! exports provided: Checked, Unchecked, Close, Ok, Vk, Instagram, Fb, Lens, ArrowPrew, ArrowNext, ArrowDown, ArrowPrewMobile, ArrowNextMobile */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -70180,6 +70191,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ok", function() { return Ok; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Vk", function() { return Vk; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Instagram", function() { return Instagram; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fb", function() { return Fb; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Lens", function() { return Lens; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArrowPrew", function() { return ArrowPrew; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArrowNext", function() { return ArrowNext; });
@@ -70265,6 +70277,14 @@ function Instagram(props) {
     viewBox: "0 0 510 510"
   }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M459,0H51C22.95,0,0,22.95,0,51v408c0,28.05,22.95,51,51,51h408c28.05,0,51-22.95,51-51V51C510,22.95,487.05,0,459,0z M255,153c56.1,0,102,45.9,102,102c0,56.1-45.9,102-102,102c-56.1,0-102-45.9-102-102C153,198.9,198.9,153,255,153z M63.75,459 C56.1,459,51,453.9,51,446.25V229.5h53.55C102,237.15,102,247.35,102,255c0,84.15,68.85,153,153,153c84.15,0,153-68.85,153-153 c0-7.65,0-17.85-2.55-25.5H459v216.75c0,7.65-5.1,12.75-12.75,12.75H63.75z M459,114.75c0,7.65-5.1,12.75-12.75,12.75h-51 c-7.65,0-12.75-5.1-12.75-12.75v-51c0-7.65,5.1-12.75,12.75-12.75h51C453.9,51,459,56.1,459,63.75V114.75z"
+  }));
+}
+function Fb(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 1792 1792"
+  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M1376 128q119 0 203.5 84.5t84.5 203.5v960q0 119-84.5 203.5t-203.5 84.5h-188v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-532q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960z"
   }));
 }
 function Lens(props) {
