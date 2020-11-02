@@ -68965,12 +68965,12 @@ function Form(props) {
       })["catch"](function (err) {
         var errors = '';
 
-        for (var i in err.errors) {
-          errors += err.errors[i] + '\n\r';
+        for (var i in err.response.data.errors) {
+          errors += err.response.data.errors[i] + '\n\r';
         }
 
         alert(errors);
-        console.log(err); // setState(prevState => ({ ...prevState, errors }));
+        console.log(err.response.status, err.response.data); // setState(prevState => ({ ...prevState, errors }));
       });
     } else {
       setState(function (prevState) {

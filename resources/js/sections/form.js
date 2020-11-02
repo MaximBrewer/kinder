@@ -235,11 +235,11 @@ function Form(props) {
                 })
                 .catch(err => {
                     let errors = '';
-                    for(let i in err.errors){
-                        errors += err.errors[i] + '\n\r';
+                    for(let i in err.response.data.errors){
+                        errors += err.response.data.errors[i] + '\n\r';
                     }
                     alert(errors)
-                    console.log(err);
+                    console.log(err.response.status, err.response.data);
                     // setState(prevState => ({ ...prevState, errors }));
                 });
         } else {
