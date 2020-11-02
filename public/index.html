@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru-RU" dir="ltr">
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="/css/app.css" rel="stylesheet" />
         <script type="text/javascript">
@@ -34,10 +34,7 @@
 
             function bdi_scrollTop(scrolltop) {
                 if (parent.postMessage) {
-                    parent.postMessage(
-                        {scrolltop: scrolltop},
-                        "*"
-                    );
+                    parent.postMessage({ scrolltop: scrolltop }, "*");
                 }
             }
             window.addEventListener("load", function() {
@@ -173,7 +170,6 @@
                                     Морозом
                                 </div>
                                 <div id="counterEl"></div>
-                                <Counter />
                                 <p>
                                     Оставьте заявку и подарите ребёнку волшебное
                                     видеоприключение с&nbsp;Дедушкой Морозом!
