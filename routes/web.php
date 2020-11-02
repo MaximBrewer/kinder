@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/unsubscribe', '\App\Http\Controllers\SiteController@unsubscribe');
 Route::post('/patch', '\App\Http\Controllers\SiteController@patch');
+Route::post('/test-mail', '\App\Http\Controllers\SiteController@testMail');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

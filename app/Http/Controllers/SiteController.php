@@ -23,6 +23,16 @@ class SiteController extends Controller
         return view('live');
     }
 
+
+    public function testMail()
+    {
+        $order = Order::where(1, 1)->first();
+        $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+        Mail::to('test-pwjmfqrep@srv1.mail-tester.com')->send(new \App\Mail\Frame4($unsubscribe));
+    }
+
+
+
     public function unsubscribe(Request $request)
     {
         Order::where('email', $request->email)->where('email_hash', $request->email_hash)->update([
