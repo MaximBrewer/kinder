@@ -148,9 +148,7 @@ function Form(props) {
     }, [contEl.current]);
 
     useEffect(() => {
-        useEffect(() => {
-            window.dispatchEvent(new CustomEvent("reactloaded"));
-        }, []);
+        window.dispatchEvent(new CustomEvent("reactloaded"));
     }, []);
 
     const handleSubmit = e => {
@@ -222,9 +220,7 @@ function Form(props) {
                         ...initialState,
                         contHeight: prevState.contHeight
                     }));
-                    useEffect(() => {
-                        window.dispatchEvent(new CustomEvent("reactloaded"));
-                    }, []);
+                    window.dispatchEvent(new CustomEvent("reactloaded"));
                     setFiles([]);
                     openModal();
                 })
@@ -233,6 +229,7 @@ function Form(props) {
                     for (let i in err.response.data.errors) {
                         errors += err.response.data.errors[i] + "\n\r";
                     }
+                    window.dispatchEvent(new CustomEvent("reactloaded"));
                     alert(errors);
                     console.log(err.response.status, err.response.data);
                     // setState(prevState => ({ ...prevState, errors }));

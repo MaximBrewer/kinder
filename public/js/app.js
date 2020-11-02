@@ -68884,9 +68884,7 @@ function Form(props) {
     });
   }, [contEl.current]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-      window.dispatchEvent(new CustomEvent("reactloaded"));
-    }, []);
+    window.dispatchEvent(new CustomEvent("reactloaded"));
   }, []);
 
   var handleSubmit = function handleSubmit(e) {
@@ -68951,9 +68949,7 @@ function Form(props) {
             contHeight: prevState.contHeight
           });
         });
-        Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-          window.dispatchEvent(new CustomEvent("reactloaded"));
-        }, []);
+        window.dispatchEvent(new CustomEvent("reactloaded"));
         setFiles([]);
         openModal();
       })["catch"](function (err) {
@@ -68963,6 +68959,7 @@ function Form(props) {
           errors += err.response.data.errors[i] + "\n\r";
         }
 
+        window.dispatchEvent(new CustomEvent("reactloaded"));
         alert(errors);
         console.log(err.response.status, err.response.data); // setState(prevState => ({ ...prevState, errors }));
       });
