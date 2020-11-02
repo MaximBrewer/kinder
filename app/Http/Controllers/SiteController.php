@@ -26,7 +26,7 @@ class SiteController extends Controller
 
     public function testMail()
     {
-        $order = Order::where(1, 1)->first();
+        $order = Order::find(1);
         $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
         Mail::to('test-pwjmfqrep@srv1.mail-tester.com')->send(new \App\Mail\Frame4($unsubscribe));
     }
