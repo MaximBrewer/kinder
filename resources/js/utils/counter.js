@@ -39,6 +39,7 @@ function Counter() {
 
     useEffect(() => {
         window.addEventListener("refresh", tick);
+        window.dispatchEvent(new CustomEvent("reactloaded"));
         return () => {
             window.removeEventListener("refresh", tick);
         };

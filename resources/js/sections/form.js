@@ -147,18 +147,10 @@ function Form(props) {
             }));
     }, [contEl.current]);
 
-    const resize = () => {
-        var scrollTop = document.scrollingElement.scrollTop;
-    };
-
     useEffect(() => {
-        resize();
-        window.addEventListener("scroll", resize);
-        window.addEventListener("resize", resize);
-        return () => {
-            window.removeEventListener("scroll", resize);
-            window.removeEventListener("resize", resize);
-        };
+        useEffect(() => {
+            window.dispatchEvent(new CustomEvent("reactloaded"));
+        }, []);
     }, []);
 
     const handleSubmit = e => {
@@ -230,15 +222,18 @@ function Form(props) {
                         ...initialState,
                         contHeight: prevState.contHeight
                     }));
+                    useEffect(() => {
+                        window.dispatchEvent(new CustomEvent("reactloaded"));
+                    }, []);
                     setFiles([]);
                     openModal();
                 })
                 .catch(err => {
-                    let errors = '';
-                    for(let i in err.response.data.errors){
-                        errors += err.response.data.errors[i] + '\n\r';
+                    let errors = "";
+                    for (let i in err.response.data.errors) {
+                        errors += err.response.data.errors[i] + "\n\r";
                     }
-                    alert(errors)
+                    alert(errors);
                     console.log(err.response.status, err.response.data);
                     // setState(prevState => ({ ...prevState, errors }));
                 });

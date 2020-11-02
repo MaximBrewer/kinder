@@ -33,6 +33,10 @@ function Gifts(props) {
             }));
     }, [contEl.current]);
 
+    useEffect(() => {
+        window.dispatchEvent(new CustomEvent("reactloaded"));
+    }, []);
+
     const [state, setState] = useState({
         checked: false,
         isOpen: false,

@@ -66,6 +66,13 @@
             });
             window.addEventListener("load", bdi_resizeIframe);
             var bdiTO;
+
+            window.addEventListener("reactloaded", function() {
+                console.log('reactloaded')
+                clearTimeout(bdiTO);
+                bdiTO = setTimeout(bdi_resizeIframe, 500);
+            });
+
             window.addEventListener("resize", function() {
                 clearTimeout(bdiTO);
                 bdiTO = setTimeout(bdi_resizeIframe, 500);
