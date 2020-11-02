@@ -157,7 +157,7 @@ var channel = pusher.subscribe("kinder");
 channel.bind("refresh", function(res) {
     window.dispatchEvent(
         new CustomEvent("refresh", {
-            detail: { cnt: res.cnt }
+            detail: { cnt: res.data.cnt }
         })
     );
 });
