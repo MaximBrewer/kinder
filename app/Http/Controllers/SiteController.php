@@ -64,7 +64,7 @@ class SiteController extends Controller
                 'personal' => 'accepted'
             ],
             [
-                // 'photo.size' => 'Фото должно быть не болле 16МБ'
+                'photo.size' => 'Фото должно быть не болле 16МБ'
             ]
         );
 
