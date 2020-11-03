@@ -50,7 +50,7 @@ class SiteController extends Controller
     {
         $request->validate(
             [
-                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|size:max:16M',
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|size:max:16384',
                 'name' => 'required|exists:names,id',
                 'achieve' => 'required|exists:achieves,id',
                 'from' => 'required|exists:froms,id',
@@ -64,7 +64,7 @@ class SiteController extends Controller
                 'personal' => 'accepted'
             ],
             [
-                // 'photo.size' => 'Фото должно быть не болле 8МБ'
+                // 'photo.size' => 'Фото должно быть не болле 16МБ'
             ]
         );
 
