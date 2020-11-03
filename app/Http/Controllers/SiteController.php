@@ -49,7 +49,7 @@ class SiteController extends Controller
     public function patch(Request $request)
     {
         $request->validate([
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|size:max:2048',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|size:max:8192',
             'name' => 'required|exists:names,id',
             'achieve' => 'required|exists:achieves,id',
             'from' => 'required|exists:froms,id',
