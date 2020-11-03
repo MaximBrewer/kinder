@@ -48,20 +48,25 @@ class SiteController extends Controller
 
     public function patch(Request $request)
     {
-        $request->validate([
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|size:max:8192',
-            'name' => 'required|exists:names,id',
-            'achieve' => 'required|exists:achieves,id',
-            'from' => 'required|exists:froms,id',
-            'hobby' => 'required|exists:hobbies,id',
-            'gift' => 'required|exists:gifts,id',
-            'email' => 'email:rfc,dns',
-            'age' => 'integer|required|min:1|max:12',
-            'gender' => 'required|in:boy,girl',
-            'agree' => 'accepted',
-            'cmail' => 'accepted',
-            'personal' => 'accepted'
-        ]);
+        $request->validate(
+            [
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|size:max:8192',
+                'name' => 'required|exists:names,id',
+                'achieve' => 'required|exists:achieves,id',
+                'from' => 'required|exists:froms,id',
+                'hobby' => 'required|exists:hobbies,id',
+                'gift' => 'required|exists:gifts,id',
+                'email' => 'email:rfc,dns',
+                'age' => 'integer|required|min:1|max:12',
+                'gender' => 'required|in:boy,girl',
+                'agree' => 'accepted',
+                'cmail' => 'accepted',
+                'personal' => 'accepted'
+            ],
+            [
+                'photo.size.max' => 'Фото должно быть не болле 8МБ'
+            ]
+        );
 
         $path = $request->file('photo')->store('public/orders');
 
