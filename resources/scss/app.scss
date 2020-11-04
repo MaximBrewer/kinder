@@ -307,12 +307,12 @@ body {
     display: flex;
     @media (min-width: 768px) {
         background-image: url(../img/bg/kx_new_cp.jpg);
-        background-position: right -10rem center;
+        background-position: right -8rem center;
         background-repeat: no-repeat;
         background-size: cover;
     }
     @media (min-width: 1280px) {
-        background-position: right -17rem center;
+        background-position: right -8rem center;
     }
     > div.sidebar-wrapper {
         max-width: 172px;
