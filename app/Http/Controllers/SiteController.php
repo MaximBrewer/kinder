@@ -107,7 +107,7 @@ class SiteController extends Controller
      */
     public function playlist(Request $request, $hash)
     {
-        return view('video', ['hash' => $hash]);
+        return view('playlist', ['hash' => $hash]);
     }
 
     /**
@@ -118,7 +118,7 @@ class SiteController extends Controller
     public function chanklist(Request $request, $hash)
     {
         $order = Order::where('hash', $hash)->firstOrFail();
-        return view('playlist', ['order' => $order]);
+        return view('chunklist', ['order' => $order]);
     }
     
 }
