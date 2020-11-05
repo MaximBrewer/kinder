@@ -1,19 +1,19 @@
-#EXTM3U<?php echo PHP_EOL;?>
-#EXT-X-VERSION:3<?php echo PHP_EOL;?>
-#EXT-X-STREAM-INF:BANDWIDTH=2047815,RESOLUTION=1024x576,CODECS="avc1.100.31,mp4a.40.2"<?php echo PHP_EOL;?>
-#EXTM3U<?php echo PHP_EOL;?>
-#EXT-X-VERSION:3<?php echo PHP_EOL;?>
-#EXT-X-TARGETDURATION:12<?php echo PHP_EOL;?>
-#EXTINF:12,<?php echo PHP_EOL;?>
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_0.ts<?php echo PHP_EOL;?>
-#EXTINF:12,<?php echo PHP_EOL;?>
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_1.ts<?php echo PHP_EOL;?>
-#EXTINF:12,<?php echo PHP_EOL;?>
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_2.ts<?php echo PHP_EOL;?>
-#EXTINF:12,<?php echo PHP_EOL;?>
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_3.ts<?php echo PHP_EOL;?>
-#EXTINF:12,<?php echo PHP_EOL;?>
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_4.ts<?php echo PHP_EOL;?>
-#EXTINF:11.381,<?php echo PHP_EOL;?>
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_5.ts<?php echo PHP_EOL;?>
-#EXT-X-ENDLIST<?php echo PHP_EOL;?>
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-STREAM-INF:BANDWIDTH=2047815,RESOLUTION=1024x576,CODECS="avc1.100.31,mp4a.40.2"
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:12
+#EXTINF:12,
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_0.ts
+#EXTINF:12,
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_1.ts
+#EXTINF:12,
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_2.ts
+#EXTINF:12,
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_3.ts
+#EXTINF:12,
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_4.ts
+#EXTINF:11.381,
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/media_5.ts
+#EXT-X-ENDLIST
