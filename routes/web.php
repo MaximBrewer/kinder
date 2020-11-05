@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/unsubscribe', '\App\Http\Controllers\SiteController@unsubscribe');
 Route::post('/patch', '\App\Http\Controllers\SiteController@patch');
 Route::get('/test-mail', '\App\Http\Controllers\SiteController@testMail');
+Route::get('/video/{hash}', '\App\Http\Controllers\SiteController@video');
+Route::get('/playlists/{hash}.m3u8', '\App\Http\Controllers\SiteController@playlist');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

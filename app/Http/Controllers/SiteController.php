@@ -88,4 +88,27 @@ class SiteController extends Controller
 
         return [];
     }
+    
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function video(Request $request, $hash)
+    {
+        return view('video', ['hash' => $hash]);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function playlist(Request $request, $hash)
+    {
+        $order = Order::where('hahs', $hash)->firstOrFail();
+        return view('playlist', ['order' => $order]);
+    }
+    
 }
