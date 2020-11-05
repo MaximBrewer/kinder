@@ -1,4 +1,4 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-STREAM-INF:BANDWIDTH=2047815,RESOLUTION=1024x576,CODECS="avc1.100.31,mp4a.40.2"
-{{ $hash }}.m3u8
+../chunklist/{{ $hash }}.m3u8

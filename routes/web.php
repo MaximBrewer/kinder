@@ -17,8 +17,8 @@ Route::get('/unsubscribe', '\App\Http\Controllers\SiteController@unsubscribe');
 Route::post('/patch', '\App\Http\Controllers\SiteController@patch');
 Route::get('/test-mail', '\App\Http\Controllers\SiteController@testMail');
 Route::get('/video/{hash}', '\App\Http\Controllers\SiteController@video');
-Route::get('/playlist.m3u8', '\App\Http\Controllers\SiteController@playlist');
-Route::get('/{hash}.m3u8', '\App\Http\Controllers\SiteController@chunklist');
+Route::get('/playlist/{hash}.m3u8', '\App\Http\Controllers\SiteController@playlist');
+Route::get('/chunklist/{hash}.m3u8', '\App\Http\Controllers\SiteController@chunklist');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
