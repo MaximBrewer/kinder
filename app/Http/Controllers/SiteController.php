@@ -115,7 +115,7 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function chanklist(Request $request, $hash)
+    public function chunklist(Request $request, $hash)
     {
         $order = Order::where('hash', $hash)->firstOrFail();
         return view('chunklist', ['order' => $order]);
