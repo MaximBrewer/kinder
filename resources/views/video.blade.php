@@ -16,11 +16,11 @@
 
     <video id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered vjs-fullscreen" poster="https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fa13c120e47cf6eac7cce64.jpg" controls preload="none" width="640" height="480" data-setup='{
         "html5": {
-            "nativeTextTracks": false, ['order' => $order]
+            "nativeTextTracks": false
         }
     }'>
 
-        <source src="/playlist.m3u8" type="application/x-mpegURL">
+        <source src="/playlists/{{ $hash }}.m3u8" type="application/x-mpegURL">
 
         <p class="vjs-no-js">
             Для просмотра необходим <a href="http://videojs.com/html5-video-support/" target="_blank">браузер с поддержкой HTML5 video</a>
