@@ -107,7 +107,7 @@ class SiteController extends Controller
      */
     public function playlist(Request $request, $hash)
     {
-        $order = Order::where('hahs', $hash)->firstOrFail();
+        $order = Order::where('hash', $hash)->firstOrFail();
         return view('playlist', ['order' => $order]);
     }
     
