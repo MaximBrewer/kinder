@@ -68,7 +68,6 @@
             var bdiTO;
 
             window.addEventListener("reactloaded", function() {
-                console.log("reactloaded");
                 clearTimeout(bdiTO);
                 bdiTO = setTimeout(bdi_resizeIframe, 500);
             });
@@ -87,9 +86,7 @@
                     });
             window.ie11 = false;
             window.ie11 = !window.ActiveXObject && "ActiveXObject" in window;
-            console.log(window.ie11);
             window.ie11 = !!navigator.userAgent.match(/Trident\/7\./);
-            console.log(window.ie11);
         </script>
         <!-- Google Tag Manager -->
         <script>
