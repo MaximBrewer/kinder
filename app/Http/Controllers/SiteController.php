@@ -97,7 +97,7 @@ class SiteController extends Controller
      */
     public function video(Request $request, $hash)
     {
-        return view('playlist', ['hash' => $hash]);
+        return view('video', ['hash' => $hash]);
     }
 
     /**
