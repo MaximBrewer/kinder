@@ -20,7 +20,7 @@
         }
     }'>
 
-        <source src="/playlists/{{ $order->hash }}.m3u8" type="application/x-mpegURL">
+        <source src="/playlists/{{ $hash }}.m3u8" type="application/x-mpegURL">
 
         <p class="vjs-no-js">
             Для просмотра необходим <a href="http://videojs.com/html5-video-support/" target="_blank">браузер с поддержкой HTML5 video</a>
