@@ -97,7 +97,7 @@ class SiteController extends Controller
      */
     public function video(Request $request, $hash)
     {
-        return view('video', ['hash' => $hash]);
+        return view('video');
     }
 
     /**
@@ -106,6 +106,16 @@ class SiteController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function playlist(Request $request, $hash)
+    {
+        return view('video', ['hash' => $hash]);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function chanklist(Request $request, $hash)
     {
         $order = Order::where('hash', $hash)->firstOrFail();
         return view('playlist', ['order' => $order]);
