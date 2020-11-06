@@ -170,8 +170,8 @@ function Form(props) {
             errors = { ...errors, giftValue: "Выберите подарок" };
         if (!state.emailValue)
             errors = { ...errors, emailValue: "Введите E-mail" };
-        if (!files.length)
-            errors = { ...errors, photo: "Добавьте фото ребенка" };
+        // if (!files.length)
+        //     errors = { ...errors, photo: "Добавьте фото ребенка" };
         if (!state.agree)
             errors = {
                 ...errors,
@@ -192,7 +192,7 @@ function Form(props) {
 
         if (Object.keys(errors).length < 1) {
             let formData = new FormData();
-            formData.append("photo", files[0]);
+            files.length && formData.append("photo", files[0]);
             formData.append(
                 "name",
                 state.boysValue ? state.boysValue.value : state.girlsValue.value

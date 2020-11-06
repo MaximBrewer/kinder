@@ -50,7 +50,7 @@ class SiteController extends Controller
     {
         $request->validate(
             [
-                'photo' => 'required|image|max:16384',
+                'photo' => 'image|max:16384',
                 'name' => 'required|exists:names,id',
                 'achieve' => 'required|exists:achieves,id',
                 'from' => 'required|exists:froms,id',
@@ -68,10 +68,7 @@ class SiteController extends Controller
             ]
         );
 
-        $path = $request->file('photo')->store('public/orders');
-
-        Order::create([
-            'photo' => str_replace("public/", "", $path),
+        $data = [
             'name_id' => $request->name,
             'age' => $request->age,
             'achieve_id' => $request->achieve,
@@ -83,12 +80,17 @@ class SiteController extends Controller
             'email_hash' => Str::random(40),
             'news' => $request->news == 'true' ? 1 : (int)$request->news,
             'status' => 'new',
-        ]);
+        ];
+        if ($request->file('photo')) {
+            $path = $request->file('photo')->store('public/orders');
+            $data['photo'] = str_replace("public/", "", $path);
+        }
+        Order::create($data);
 
 
         return [];
     }
-    
+
 
     /**
      * Show the application dashboard.
@@ -120,5 +122,4 @@ class SiteController extends Controller
         $order = Order::where('hash', $hash)->firstOrFail();
         return view('chunklist', ['order' => $order]);
     }
-    
 }
