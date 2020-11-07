@@ -929,8 +929,8 @@
 </head>
 
 <body>
-    <div class="div-body">
-        <div class="body-inner" style="background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');">
+    <div class="div-body" style="background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');">
+        <div class="body-inner">
             <div>
                 <table style="margin:0 0 0 auto;">
                     <tr style="vertical-align: baseline;">
