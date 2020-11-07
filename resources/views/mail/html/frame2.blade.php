@@ -1,11 +1,11 @@
 @extends('mail.html.layout')
 @section('content')
-<h1>
+<h1 style="margin: 25px 0;font-size: 26px;line-height: 37px;text-align:center;text-align: center !important;color: #f04e23 !important;text-shadow: 1px 1px 0px rgba(0, 0, 0),-1px 1px 0px rgba(0, 0, 0), 1px -1px 0px rgba(0, 0, 0),-1px -1px 0px rgba(0, 0, 0), 0px 4px 4px rgba(0, 0, 0, 0.25) !important;text-shadow: none !important;font-family: Noteworthy;">
     Дедушка Мороз <br />
     получил Вашу заявку!
 </h1>
-<div class="text-content">
-    <p class="mb-14">
+<div class="text-content" style="font-size: 17px;line-height: 24px;text-align: center;color: #000000;font-family: Noteworthy;">
+    <p class="mb-14" style="margin-bottom: 14px;">
         Дедушка Мороз и Снегурочка уже начали готовить
         видеопоздравление! В скором времени Ваш ребёнок
         сможет
@@ -17,33 +17,8 @@
         ведь без него сказка не будет такой волшебной!
     </p>
 </div>
-<h2>
+<h2 style="font-size: 26px;line-height: 37px;margin-bottom: 20px;text-align: center;color: #f04e23;font-family: Noteworthy;">
     КУПИТЬ ПОДАРОК:
 </h2>
-<table style="margin:0 auto;">
-    <tr style="vertical-align: baseline;">
-        <td>
-            <a href="https://pokupki.market.yandex.ru/search?cvredirect=2&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020&text=%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D1%80&glfilter=7893318%3A10715858" class="shop shop-1">
-                <img src="https://kinder.gpucloud.ru/images/yandex-mail.png" />
-            </a>
-        </td>
-        <td>
-            <a href="https://www.ozon.ru/brand/kinder-138860371/?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" class="shop shop-2">
-                <img src="https://kinder.gpucloud.ru/images/ozon-mail.png" />
-            </a>
-        </td>
-    </tr>
-    <tr style="vertical-align: baseline;">
-        <td>
-            <a href="https://www.vprok.ru/catalog/1450/shokolad-batonchiki/brend/kinder?utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" class="shop shop-3">
-                <img src="https://kinder.gpucloud.ru/images/cross-mail.png" />
-            </a>
-        </td>
-        <td>
-            <a href="https://www.utkonos.ru/search/kinder/cat/52?&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020" class="shop shop-4">
-                <img src="https://kinder.gpucloud.ru/images/utkonos-mail.png" />
-            </a>
-        </td>
-    </tr>
-</table>
+@include('mail.html.shops')
 @endsection

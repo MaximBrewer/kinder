@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <style>
+        body, html{
+            margin:0;
+            padding:0;
+        }
         @font-face {
             font-family: Noteworthy;
             src: url('https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff2') format("woff2"),
@@ -13,938 +17,784 @@
             font-style: normal;
         }
 
-        .btn {
-            text-decoration: none;
-            font-weight: 700;
-            outline: none !important;
-            box-shadow: none;
-            font-family: Noteworthy;
-            border: none;
-            background: #E54C2E;
-            display: inline-block;
-            position: relative;
-            color: white !important;
-            font-size: 6px;
-            line-height: 9px;
-            width: 72px;
-            padding: 7px 14px;
-            border-radius: 40px;
-        }
-
-        a.btn:active {
-            top: 1px;
-        }
-
-        * {
-            font-weight: bold;
-        }
-
-        body,
-        html {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: Noteworthy;
-            font-weight: bold;
-        }
-
-        .div-body {
-            margin: 0 auto;
-            width: 320px;
-            height: 480px;
-            background-size: cover;
-        }
-
-        .body-inner {
-            padding: 99px 46px 0px 68px;
-        }
-
-        .body-inner>div {
-            min-height: 322px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .top-kinder,
-        .bottom-kinder {
-            position: relative;
-            top: 2px;
-            height: 20px;
-            width: 67px;
-            margin-right: 1px;
-        }
-
-        h1 {
-            margin: 10px 0;
-            font-size: 10px;
-            line-height: 15px;
-            text-align: center;
-            color: #f04e23;
-            text-shadow: 1px 1px 0px rgba(0, 0, 0),
-                -1px 1px 0px rgba(0, 0, 0), 1px -1px 0px rgba(0, 0, 0),
-                -1px -1px 0px rgba(0, 0, 0), 0px 4px 4px rgba(0, 0, 0, 0.25);
-            text-shadow: none;
-        }
-
-        h2 {
-            font-size: 10px;
-            line-height: 15px;
-            margin-bottom: 8px;
-            text-align: center;
-            color: #f04e23;
-        }
-
-        .text-content {
-            padding: 0 20px;
-            font-size: 8px;
-            line-height: 10px;
-            text-align: center;
-            color: #000000;
-        }
-
-        .mb-14 {
-            margin-bottom: 6px;
-        }
-
-        .mb-30 {
-            margin-bottom: 12px;
-        }
-
-        .shop {
-            display: block;
-            width: 67px;
-            border-radius: 8px;
-            background: #fff;
-            overflow: hidden;
-        }
-
-        .shop img {
-            display: block;
-            margin: 0 auto;
-        }
-
-        .shop-1 {
-            margin: 0 6px 4px auto;
-            padding: 2px 0;
-        }
-
-        .shop-1 img {
-            width: 47px;
-            height: 13px;
-        }
-
-        .shop-2 {
-            margin: 0 auto 4px 6px;
-            padding: 4px 0;
-        }
-
-        .shop-2 img {
-            width: 38px;
-            height: 8px;
-        }
-
-        .shop-3 {
-            margin: 0 6px 4px auto;
-            padding: 2px 0;
-        }
-
-        .shop-3 img {
-            width: 48px;
-            height: 13px;
-        }
-
-        .shop-4 {
-            margin: 0 auto 4px 6px;
-            padding: 2px 0;
-        }
-
-        .shop-4 img {
-            width: 47px;
-            height: 13px;
-        }
-
-        .unsubscribe-link {
-            color: #40160b !important;
-            font-size: 10px;
-        }
-
-        @media (min-width: 375px) {
-
-
+        @media (max-width: 799px) {
             .btn {
-                font-size: 7px;
-                line-height: 11px;
-                width: 84px;
-                padding: 8px 16px;
-                border-radius: 47px;
+                font-size: 14px !important;
+                line-height: 22px !important;
+                width: 174px !important;
+                padding: 17px 33px !important;
+                border-radius: 96px !important;
             }
 
             .div-body {
-                width: 375px;
-                height: 563px;
+                width: 768px !important;
+                height: 1152px !important;
             }
 
             .body-inner {
-                padding: 117px 55px 0px 81px;
+                padding: 239px 112px 0px 165px !important;
             }
 
             .body-inner>div {
-                min-height: 376px;
+                min-height: 759px !important;
             }
 
             .top-kinder,
             .bottom-kinder {
-                top: 3px;
-                height: 28px;
-                width: 95px;
-                margin-right: 2px;
+                top: 5px !important;
+                height: 57px !important;
+                width: 193px !important;
+                margin-right: 4px !important;
             }
 
             h1 {
-                margin: 12px 0;
-                font-size: 12px;
-                line-height: 17px;
+                margin: 24px 0 !important;
+                font-size: 25px !important;
+                line-height: 35px !important;
             }
 
             h2 {
-                font-size: 12px;
-                line-height: 17px;
-                margin-bottom: 9px;
+                font-size: 25px !important;
+                line-height: 35px !important;
+                margin-bottom: 19px !important;
             }
 
             .text-content {
-                font-size: 8px;
-                line-height: 11px;
+                font-size: 16px !important;
+                line-height: 23px !important;
             }
 
             .mb-14 {
-                margin-bottom: 6px;
+                margin-bottom: 13px !important;
             }
 
             .mb-30 {
-                margin-bottom: 13px;
+                margin-bottom: 28px !important;
             }
 
+
             .shop {
-                width: 80px;
-                border-radius: 9px;
+                width: 164px !important;
+                border-radius: 19px !important;
             }
 
             .shop-1 {
-                margin: 0 7px 5px auto;
-                padding: 2px 0;
+                margin: 0 14px 9px auto !important;
+                padding: 4px 0 !important;
             }
 
             .shop-1 img {
-                width: 53px;
-                height: 15px;
+                width: 109px !important;
+                height: 31px !important;
             }
 
             .shop-2 {
-                margin: 0 auto 5px 7px;
-                padding: 5px 0;
+                margin: 0 auto 9px 14px !important;
+                padding: 9px 0 !important;
             }
 
             .shop-2 img {
-                width: 44px;
-                height: 9px;
+                width: 91px !important;
+                height: 19px !important;
             }
 
             .shop-3 {
-                margin: 0 7px 5px auto;
-                padding: 2px 0;
+                margin: 0 14px 9px auto !important;
+                padding: 4px 0 !important;
             }
 
             .shop-3 img {
-                width: 56px;
-                height: 15px;
+                width: 115px !important;
+                height: 31px !important;
             }
 
             .shop-4 {
-                margin: 0 auto 7px 5px;
-                padding: 2px 0;
+                margin: 0 auto 9px 14px !important;
+                padding: 5px 0 !important;
             }
 
             .shop-4 img {
-                width: 53px;
-                height: 14px;
+                width: 109px !important;
+                height: 30px !important;
             }
 
             .unsubscribe-link {
-                font-size: 9px;
+                font-size: 19px !important;
             }
         }
 
-        @media (min-width: 414px) {
-
+        @media (max-width: 767px) {
 
             .btn {
-                font-size: 8px;
-                line-height: 12px;
-                width: 92px;
-                padding: 9px 17px;
-                border-radius: 54px;
+                font-size: 14px !important;
+                line-height: 21px !important;
+                width: 165px !important;
+                padding: 16px 32px !important;
+                border-radius: 92px !important;
             }
 
             .div-body {
-                width: 414px;
-                height: 621px;
+                width: 736px !important;
+                height: 1104px !important;
             }
 
             .body-inner {
-                padding: 128px 51px 0px 89px;
+                padding: 229px 107px 0px 158px !important;
             }
 
             .body-inner>div {
-                min-height: 413px;
+                min-height: 726px !important;
+            }
+
+            .top-kinder,
+            .bottom-kinder {
+                top: 5px !important;
+                height: 55px !important;
+                width: 186px !important;
+                margin-right: 4px !important;
+            }
+
+            h1 {
+                margin: 25px 0 !important;
+                font-size: 26px !important;
+                line-height: 37px !important;
+            }
+
+            h2 {
+                font-size: 23px !important;
+                line-height: 34px !important;
+                margin-bottom: 18px !important;
+            }
+
+            .text-content {
+                font-size: 15px !important;
+                line-height: 22px !important;
+            }
+
+            .mb-14 {
+                margin-bottom: 13px !important;
+            }
+
+            .mb-30 {
+                margin-bottom: 27px !important;
+            }
+
+
+            .shop {
+                width: 157px !important;
+                border-radius: 19px !important;
+            }
+
+            .shop-1 {
+                margin: 0 14px 9px auto !important;
+                padding: 4px 0 !important;
+            }
+
+            .shop-1 img {
+                width: 105px !important;
+                height: 30px !important;
+            }
+
+            .shop-2 {
+                margin: 0 auto 9px 14px !important;
+                padding: 9px 0 !important;
+            }
+
+            .shop-2 img {
+                width: 87px !important;
+                height: 18px !important;
+            }
+
+            .shop-3 {
+                margin: 0 14px 9px auto !important;
+                padding: 4px 0 !important;
+            }
+
+            .shop-3 img {
+                width: 110px !important;
+                height: 29px !important;
+            }
+
+            .shop-4 {
+                margin: 0 auto 9px 14px !important;
+                padding: 4px 0 !important;
+            }
+
+            .shop-4 img {
+                width: 105px !important;
+                height: 28px !important;
+            }
+
+            .unsubscribe-link {
+                font-size: 18px !important;
+            }
+        }
+
+        @media (max-width: 735px) {
+
+            .btn {
+                font-size: 13px !important;
+                line-height: 19px !important;
+                width: 150px !important;
+                padding: 15px 29px !important;
+                border-radius: 67px !important;
+            }
+
+            .div-body {
+                width: 667px !important;
+                height: 1000px !important;
+            }
+
+            .body-inner {
+                padding: 207px 97px 0px 143px !important;
+            }
+
+            .body-inner>div {
+                min-height: 658px !important;
+            }
+
+            .top-kinder,
+            .bottom-kinder {
+                top: 5px !important;
+                height: 50px !important;
+                width: 169px !important;
+                margin-right: 3px !important;
+            }
+
+            h1 {
+                margin: 21px 0 !important;
+                font-size: 22px !important;
+                line-height: 31px !important;
+            }
+
+            h2 {
+                font-size: 21px !important;
+                line-height: 31px !important;
+                margin-bottom: 17px !important;
+            }
+
+            .text-content {
+                font-size: 14px !important;
+                line-height: 20px !important;
+            }
+
+            .mb-14 {
+                margin-bottom: 11px !important;
+            }
+
+            .mb-30 {
+                margin-bottom: 25px !important;
+            }
+
+
+            .shop {
+                width: 142px !important;
+                border-radius: 17px !important;
+            }
+
+            .shop-1 {
+                margin: 0 12px 8px auto !important;
+                padding: 3px 0 !important;
+            }
+
+            .shop-1 img {
+                width: 95px !important;
+                height: 26px !important;
+            }
+
+            .shop-2 {
+                margin: 0 auto 8px 12px !important;
+                padding: 8px 0 !important;
+            }
+
+            .shop-2 img {
+                width: 79px !important;
+                height: 17px !important;
+            }
+
+            .shop-3 {
+                margin: 0 12px 8px auto !important;
+                padding: 3px 0 !important;
+            }
+
+            .shop-3 img {
+                width: 100px !important;
+                height: 26px !important;
+            }
+
+            .shop-4 {
+                margin: 0 auto 8px 12px !important;
+                padding: 4px 0 !important;
+            }
+
+            .shop-4 img {
+                width: 95px !important;
+                height: 25px !important;
+            }
+
+            .unsubscribe-link {
+                font-size: 17px !important;
+            }
+        }
+
+        @media (max-width: 666px) {
+
+            .btn {
+                font-size: 10px !important;
+                line-height: 16px !important;
+                width: 128px !important;
+                padding: 13px 25px !important;
+                border-radius: 71px !important;
+            }
+
+            .div-body {
+                width: 568px !important;
+                height: 852px !important;
+            }
+
+            .body-inner {
+                padding: 176px 83px 0px 122px !important;
+            }
+
+            .body-inner>div {
+                min-height: 561px !important;
+            }
+
+            .top-kinder,
+            .bottom-kinder {
+                top: 4px !important;
+                height: 43px !important;
+                width: 145px !important;
+                margin-right: 3px !important;
+            }
+
+            h1 {
+                margin: 18px 0 !important;
+                font-size: 18px !important;
+                line-height: 26px !important;
+            }
+
+            h2 {
+                font-size: 18px !important;
+                line-height: 26px !important;
+                margin-bottom: 14px !important;
+            }
+
+            .text-content {
+                font-size: 12px !important;
+                line-height: 17px !important;
+            }
+
+            .mb-14 {
+                margin-bottom: 10px !important;
+            }
+
+            .mb-30 {
+                margin-bottom: 21px !important;
+            }
+
+
+            .shop {
+                width: 121px !important;
+                border-radius: 14px !important;
+            }
+
+            .shop-1 {
+                margin: 0 10px 7px auto !important;
+                padding: 3px 0 !important;
+            }
+
+            .shop-1 img {
+                width: 81px !important;
+                height: 22px !important;
+            }
+
+            .shop-2 {
+                margin: 0 auto 7px 10px !important;
+                padding: 7px 0 !important;
+            }
+
+            .shop-2 img {
+                width: 68px !important;
+                height: 14px !important;
+            }
+
+            .shop-3 {
+                margin: 0 10px 7px auto !important;
+                padding: 3px 0 !important;
+            }
+
+            .shop-3 img {
+                width: 85px !important;
+                height: 22px !important;
+            }
+
+            .shop-4 {
+                margin: 0 auto 7px 10px !important;
+                padding: 4px 0 !important;
+            }
+
+            .shop-4 img {
+                width: 81px !important;
+                height: 22px !important;
+            }
+
+            .unsubscribe-link {
+                font-size: 14px !important;
+            }
+        }
+
+        @media (max-width: 567px) {
+
+
+            .btn {
+                font-size: 8px !important;
+                line-height: 12px !important;
+                width: 92px !important;
+                padding: 9px 17px !important;
+                border-radius: 54px !important;
+            }
+
+            .div-body {
+                width: 414px !important;
+                height: 621px !important;
+            }
+
+            .body-inner {
+                padding: 128px 51px 0px 89px !important;
+            }
+
+            .body-inner>div {
+                min-height: 413px !important;
             }
 
             .top-kinder {
-                top: 3px;
-                height: 31px;
-                width: 105px;
-                margin-right: 2px;
+                top: 3px !important;
+                height: 31px !important;
+                width: 105px !important;
+                margin-right: 2px !important;
             }
 
             h1 {
-                margin: 13px 0;
-                font-size: 13px;
-                line-height: 19px;
+                margin: 13px 0 !important;
+                font-size: 13px !important;
+                line-height: 19px !important;
             }
 
             h2 {
-                font-size: 13px;
-                line-height: 19px;
-                margin-bottom: 10px;
+                font-size: 13px !important;
+                line-height: 19px !important;
+                margin-bottom: 10px !important;
             }
 
             .text-content {
-                font-size: 9px;
-                line-height: 13px;
+                font-size: 9px !important;
+                line-height: 13px !important;
             }
 
             .mb-14 {
-                margin-bottom: 7px;
+                margin-bottom: 7px !important;
             }
 
             .mb-30 {
-                margin-bottom: 15px;
+                margin-bottom: 15px !important;
             }
 
 
             .shop {
-                width: 88px;
-                border-radius: 10px;
+                width: 88px !important;
+                border-radius: 10px !important;
             }
 
             .shop-1 {
-                margin: 0 8px 5px auto;
-                padding: 2px 0;
+                margin: 0 8px 5px auto !important;
+                padding: 2px 0 !important;
             }
 
             .shop-1 img {
-                width: 59px;
-                height: 16px;
+                width: 59px !important;
+                height: 16px !important;
             }
 
             .shop-2 {
-                margin: 0 auto 5px 8px;
-                padding: 5px 0;
+                margin: 0 auto 5px 8px !important;
+                padding: 5px 0 !important;
             }
 
             .shop-2 img {
-                width: 49px;
-                height: 10px;
+                width: 49px !important;
+                height: 10px !important;
             }
 
             .shop-3 {
-                margin: 0 8px 5px auto;
-                padding: 2px 0;
+                margin: 0 8px 5px auto !important;
+                padding: 2px 0 !important;
             }
 
             .shop-3 img {
-                width: 62px;
-                height: 16px;
+                width: 62px !important;
+                height: 16px !important;
             }
 
             .shop-4 {
-                margin: 0 auto 5px 8px;
-                padding: 3px 0;
+                margin: 0 auto 5px 8px !important;
+                padding: 3px 0 !important;
             }
 
             .shop-4 img {
-                width: 59px;
-                height: 16px;
+                width: 59px !important;
+                height: 16px !important;
             }
 
             .unsubscribe-link {
-                font-size: 10px;
+                font-size: 10px !important;
             }
         }
 
-        @media (min-width: 568px) {
+        @media (max-width: 413px) {
+
 
             .btn {
-                font-size: 10px;
-                line-height: 16px;
-                width: 128px;
-                padding: 13px 25px;
-                border-radius: 71px;
+                font-size: 7px !important;
+                line-height: 11px !important;
+                width: 84px !important;
+                padding: 8px 16px !important;
+                border-radius: 47px !important;
             }
 
             .div-body {
-                width: 568px;
-                height: 852px;
+                width: 375px !important;
+                height: 563px !important;
             }
 
             .body-inner {
-                padding: 176px 83px 0px 122px;
+                padding: 117px 55px 0px 81px !important;
             }
 
             .body-inner>div {
-                min-height: 561px;
+                min-height: 376px !important;
             }
 
             .top-kinder,
             .bottom-kinder {
-                top: 4px;
-                height: 43px;
-                width: 145px;
-                margin-right: 3px;
+                top: 3px !important;
+                height: 28px !important;
+                width: 95px !important;
+                margin-right: 2px !important;
             }
 
             h1 {
-                margin: 18px 0;
-                font-size: 18px;
-                line-height: 26px;
+                margin: 12px 0 !important;
+                font-size: 12px !important;
+                line-height: 17px !important;
             }
 
             h2 {
-                font-size: 18px;
-                line-height: 26px;
-                margin-bottom: 14px;
+                font-size: 12px !important;
+                line-height: 17px !important;
+                margin-bottom: 9px !important;
             }
 
             .text-content {
-                font-size: 12px;
-                line-height: 17px;
+                font-size: 8px !important;
+                line-height: 11px !important;
             }
 
             .mb-14 {
-                margin-bottom: 10px;
+                margin-bottom: 6px !important;
             }
 
             .mb-30 {
-                margin-bottom: 21px;
+                margin-bottom: 13px !important;
             }
 
-
             .shop {
-                width: 121px;
-                border-radius: 14px;
+                width: 80px !important;
+                border-radius: 9px !important;
             }
 
             .shop-1 {
-                margin: 0 10px 7px auto;
-                padding: 3px 0;
+                margin: 0 7px 5px auto !important;
+                padding: 2px 0 !important;
             }
 
             .shop-1 img {
-                width: 81px;
-                height: 22px;
+                width: 53px !important;
+                height: 15px !important;
             }
 
             .shop-2 {
-                margin: 0 auto 7px 10px;
-                padding: 7px 0;
+                margin: 0 auto 5px 7px !important;
+                padding: 5px 0 !important;
             }
 
             .shop-2 img {
-                width: 68px;
-                height: 14px;
+                width: 44px !important;
+                height: 9px !important;
             }
 
             .shop-3 {
-                margin: 0 10px 7px auto;
-                padding: 3px 0;
+                margin: 0 7px 5px auto !important;
+                padding: 2px 0 !important;
             }
 
             .shop-3 img {
-                width: 85px;
-                height: 22px;
+                width: 56px !important;
+                height: 15px !important;
             }
 
             .shop-4 {
-                margin: 0 auto 7px 10px;
-                padding: 4px 0;
+                margin: 0 auto 7px 5px !important;
+                padding: 2px 0 !important;
             }
 
             .shop-4 img {
-                width: 81px;
-                height: 22px;
+                width: 53px !important;
+                height: 14px !important;
             }
 
             .unsubscribe-link {
-                font-size: 14px;
+                font-size: 9px !important;
             }
         }
 
-        @media (min-width: 667px) {
-
+        @media (max-width: 374px) {
             .btn {
-                font-size: 13px;
-                line-height: 19px;
-                width: 150px;
-                padding: 15px 29px;
-                border-radius: 67px;
+                font-size: 6px !important;
+                line-height: 9px !important;
+                width: 72px !important;
+                padding: 7px 14px !important;
+                border-radius: 40px !important;
+            }
+
+            a.btn:active {
+                top: 1px !important;
+            }
+
+            * {
+                font-weight: bold !important;
+                font-family: Noteworthy !important;
             }
 
             .div-body {
-                width: 667px;
-                height: 1000px;
+                margin: 0 auto !important;
+                width: 320px !important;
+                height: 480px !important;
             }
 
             .body-inner {
-                padding: 207px 97px 0px 143px;
+                padding: 99px 46px 0px 68px !important;
             }
 
             .body-inner>div {
-                min-height: 658px;
+                min-height: 322px !important;
             }
-
             .top-kinder,
             .bottom-kinder {
-                top: 5px;
-                height: 50px;
-                width: 169px;
-                margin-right: 3px;
+                top: 2px !important;
+                height: 20px !important;
+                width: 67px !important;
+                margin-right: 1px !important;
             }
 
             h1 {
-                margin: 21px 0;
-                font-size: 22px;
-                line-height: 31px;
+                margin: 10px 0 !important;
+                font-size: 10px !important;
+                line-height: 15px !important;
             }
 
             h2 {
-                font-size: 21px;
-                line-height: 31px;
-                margin-bottom: 17px;
+                font-size: 10px !important;
+                line-height: 15px !important;
+                margin-bottom: 8px !important;
             }
 
             .text-content {
-                font-size: 14px;
-                line-height: 20px;
+                padding: 0 20px !important;
+                font-size: 8px !important;
+                line-height: 10px !important;
             }
 
             .mb-14 {
-                margin-bottom: 11px;
+                margin-bottom: 6px !important;
             }
 
             .mb-30 {
-                margin-bottom: 25px;
+                margin-bottom: 12px !important;
             }
 
-
             .shop {
-                width: 142px;
-                border-radius: 17px;
+                width: 67px !important;
+                border-radius: 8px !important;
+            }
+
+            .shop img {
+                margin: 0 auto !important;
             }
 
             .shop-1 {
-                margin: 0 12px 8px auto;
-                padding: 3px 0;
+                margin: 0 6px 4px auto !important;
+                padding: 2px 0 !important;
             }
 
             .shop-1 img {
-                width: 95px;
-                height: 26px;
+                width: 47px !important;
+                height: 13px !important;
             }
 
             .shop-2 {
-                margin: 0 auto 8px 12px;
-                padding: 8px 0;
+                margin: 0 auto 4px 6px !important;
+                padding: 4px 0 !important;
             }
 
             .shop-2 img {
-                width: 79px;
-                height: 17px;
+                width: 38px !important;
+                height: 8px !important;
             }
 
             .shop-3 {
-                margin: 0 12px 8px auto;
-                padding: 3px 0;
+                margin: 0 6px 4px auto !important;
+                padding: 2px 0 !important;
             }
 
             .shop-3 img {
-                width: 100px;
-                height: 26px;
+                width: 48px !important;
+                height: 13px !important;
             }
 
             .shop-4 {
-                margin: 0 auto 8px 12px;
-                padding: 4px 0;
+                margin: 0 auto 4px 6px !important;
+                padding: 2px 0 !important;
             }
 
             .shop-4 img {
-                width: 95px;
-                height: 25px;
+                width: 47px !important;
+                height: 13px !important;
             }
 
             .unsubscribe-link {
-                font-size: 17px;
-            }
-        }
-
-        @media (min-width: 736px) {
-
-            .btn {
-                font-size: 14px;
-                line-height: 21px;
-                width: 165px;
-                padding: 16px 32px;
-                border-radius: 92px;
-            }
-
-            .div-body {
-                width: 736px;
-                height: 1104px;
-            }
-
-            .body-inner {
-                padding: 229px 107px 0px 158px;
-            }
-
-            .body-inner>div {
-                min-height: 726px;
-            }
-
-            .top-kinder,
-            .bottom-kinder {
-                top: 5px;
-                height: 55px;
-                width: 186px;
-                margin-right: 4px;
-            }
-
-            h1 {
-                margin: 25px 0;
-                font-size: 26px;
-                line-height: 37px;
-            }
-
-            h2 {
-                font-size: 23px;
-                line-height: 34px;
-                margin-bottom: 18px;
-            }
-
-            .text-content {
-                font-size: 15px;
-                line-height: 22px;
-            }
-
-            .mb-14 {
-                margin-bottom: 13px;
-            }
-
-            .mb-30 {
-                margin-bottom: 27px;
-            }
-
-
-            .shop {
-                width: 157px;
-                border-radius: 19px;
-            }
-
-            .shop-1 {
-                margin: 0 14px 9px auto;
-                padding: 4px 0;
-            }
-
-            .shop-1 img {
-                width: 105px;
-                height: 30px;
-            }
-
-            .shop-2 {
-                margin: 0 auto 9px 14px;
-                padding: 9px 0;
-            }
-
-            .shop-2 img {
-                width: 87px;
-                height: 18px;
-            }
-
-            .shop-3 {
-                margin: 0 14px 9px auto;
-                padding: 4px 0;
-            }
-
-            .shop-3 img {
-                width: 110px;
-                height: 29px;
-            }
-
-            .shop-4 {
-                margin: 0 auto 9px 14px;
-                padding: 4px 0;
-            }
-
-            .shop-4 img {
-                width: 105px;
-                height: 28px;
-            }
-
-            .unsubscribe-link {
-                font-size: 18px;
-            }
-        }
-
-        @media (min-width: 768px) {
-
-
-            .btn {
-                font-size: 14px;
-                line-height: 22px;
-                width: 174px;
-                padding: 17px 33px;
-                border-radius: 96px;
-            }
-
-            .div-body {
-                width: 768px;
-                height: 1152px;
-            }
-
-            .body-inner {
-                padding: 239px 112px 0px 165px;
-            }
-
-            .body-inner>div {
-                min-height: 759px;
-            }
-
-            .top-kinder,
-            .bottom-kinder {
-                top: 5px;
-                height: 57px;
-                width: 193px;
-                margin-right: 4px;
-            }
-
-            h1 {
-                margin: 24px 0;
-                font-size: 25px;
-                line-height: 35px;
-            }
-
-            h2 {
-                font-size: 25px;
-                line-height: 35px;
-                margin-bottom: 19px;
-            }
-
-            .text-content {
-                font-size: 16px;
-                line-height: 23px;
-            }
-
-            .mb-14 {
-                margin-bottom: 13px;
-            }
-
-            .mb-30 {
-                margin-bottom: 28px;
-            }
-
-
-            .shop {
-                width: 164px;
-                border-radius: 19px;
-            }
-
-            .shop-1 {
-                margin: 0 14px 9px auto;
-                padding: 4px 0;
-            }
-
-            .shop-1 img {
-                width: 109px;
-                height: 31px;
-            }
-
-            .shop-2 {
-                margin: 0 auto 9px 14px;
-                padding: 9px 0;
-            }
-
-            .shop-2 img {
-                width: 91px;
-                height: 19px;
-            }
-
-            .shop-3 {
-                margin: 0 14px 9px auto;
-                padding: 4px 0;
-            }
-
-            .shop-3 img {
-                width: 115px;
-                height: 31px;
-            }
-
-            .shop-4 {
-                margin: 0 auto 9px 14px;
-                padding: 5px 0;
-            }
-
-            .shop-4 img {
-                width: 109px;
-                height: 30px;
-            }
-
-            .unsubscribe-link {
-                font-size: 19px;
-            }
-        }
-
-        @media (min-width: 800px) {
-
-            .btn {
-                font-size: 15px;
-                line-height: 23px;
-                width: 180px;
-                padding: 18px 35px;
-                border-radius: 100px;
-            }
-
-            .div-body {
-                width: 800px;
-                height: 1200px;
-            }
-
-            .body-inner {
-                padding: 249px 117px 0px 172px;
-            }
-
-            .body-inner>div {
-                min-height: 790px;
-            }
-
-            .top-kinder {
-                top: 6px;
-                height: 60px;
-                width: 203px;
-                margin-right: 4px;
-            }
-
-            .bottom-kinder {
-                top: 6px;
-                height: 60px;
-                width: 203px;
-                margin-right: 4px;
-            }
-
-            h1 {
-                margin: 25px 0;
-                font-size: 26px;
-                line-height: 37px;
-            }
-
-            h2 {
-                font-size: 26px;
-                line-height: 37px;
-                margin-bottom: 20px;
-            }
-
-            .text-content {
-                font-size: 17px;
-                line-height: 24px;
-            }
-
-            .mb-14 {
-                margin-bottom: 14px;
-            }
-
-            .mb-30 {
-                margin-bottom: 30px;
-            }
-
-
-            .shop {
-                width: 171px;
-                border-radius: 20px;
-            }
-
-            .shop-1 {
-                margin: 0 15px 10px auto;
-                padding: 4px 0;
-            }
-
-            .shop-1 img {
-                width: 114px;
-                height: 32px;
-            }
-
-            .shop-2 {
-                margin: 0 auto 10px 15px;
-                padding: 10px 0;
-            }
-
-            .shop-2 img {
-                width: 95px;
-                height: 20px;
-            }
-
-            .shop-3 {
-                margin: 0 15px 10px auto;
-                padding: 4px 0;
-            }
-
-            .shop-3 img {
-                width: 120px;
-                height: 32px;
-            }
-
-            .shop-4 {
-                margin: 0 auto 10px 15px;
-                padding: 5px 0;
-            }
-
-            .shop-4 img {
-                width: 114px;
-                height: 31px;
-            }
-
-            .unsubscribe-link {
-                font-size: 20px;
+                font-size: 10px !important;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="div-body">
-        <div class="body-inner" style="
-            background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');">
-            <div>
+    <div class="div-body" style="background-size: cover;width: 800px;height: 1200px;background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');font-family: Noteworthy;font-weight:bold;">
+        <div class="body-inner" style="padding: 249px 117px 0px 172px;">
+            <div style="min-height: 790px;">
                 <table style="margin:0 0 0 auto;">
                     <tr style="vertical-align: baseline;">
                         <td>
-                            <img src="https://kinder.gpucloud.ru/img/promo-logo.png" alt="" class="top-kinder" />
+                            <img src="https://kinder.gpucloud.ru/img/promo-logo.png" alt="" class="top-kinder" style="position: relative;top: 6px;height: 60px;width: 203px;margin-right: 4px;position: relative;" />
                         </td>
                     </tr>
                 </table>
                 @yield('content')
             </div>
         </div>
-        <div class="text-center">
-            <a href="{{ $unsubscribe }}" class="unsubscribe-link">Отписаться от рассылки</a>
+        <div style="text-align:center;">
+            <a href="{{ $unsubscribe }}" class="unsubscribe-link" style="font-size: 20px;color: #40160b;">Отписаться от рассылки</a>
         </div>
     </div>
 </body>
