@@ -20,6 +20,26 @@
         * {
             font-weight: bold;
         }
+
+        @-ms-viewport {
+            width: 800px;
+        }
+
+        @-webkit-viewport {
+            width: 800px;
+        }
+
+        @-moz-viewport {
+            width: 800px;
+        }
+
+        @-o-viewport {
+            width: 800px;
+        }
+
+        @viewport {
+            width: 800px;
+        }
     </style>
 </head>
 
