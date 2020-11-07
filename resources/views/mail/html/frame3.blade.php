@@ -5,14 +5,14 @@
 </h1>
 <div class="text-content">
     <p class="mb-14">
-        Теперь Ваш ребёнок точно поверит, что<br />
-        Новый Год – время чудес, ведь Дед Мороз записал<br />
+        Теперь Ваш ребёнок точно поверит, что
+        Новый Год – время чудес, ведь Дед Мороз записал
         для него личное видеопоздравление! Вот оно:<br /><br />
-        <a href="{{ $video }}" style="color: #F04E23 !important;">https://kinder.gpucloud.ru/congratulation</a><br />
+        <a href="{{ $video }}" style="color: #F04E23 !important;">https://kinder.gpucloud.ru/video</a>
     </p>
     <p>
         Надеемся, Вы не забыли про подарок Kinder, ведь
-        без<br />
+        без
         него сказка не будет такой волшебной.
     </p>
 </div>

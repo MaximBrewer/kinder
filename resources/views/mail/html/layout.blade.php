@@ -13,6 +13,24 @@
             font-style: normal;
         }
 
+        .btn {
+            text-decoration: none;
+            font-weight: 700;
+            outline: none !important;
+            box-shadow: none;
+            font-family: Noteworthy;
+            border: none;
+            background: #E54C2E;
+            display: inline-block;
+            position: relative;
+            color: white !important;
+            font-size: 6px;
+            line-height: 9px;
+            width: 72px;
+            padding: 7px 14px;
+            border-radius: 40px;
+        }
+
         a.btn:active {
             top: 1px;
         }
@@ -23,7 +41,7 @@
 
         body,
         html {
-            width: 320px;
+            width: 100%;
             margin: 0;
             padding: 0;
             font-family: Noteworthy;
@@ -31,6 +49,7 @@
         }
 
         body>div {
+            margin: 0 auto;
             width: 320px;
             height: 480px;
             background-image: url(https://kinder.gpucloud.ru/images/mail-bg.jpg);
@@ -42,18 +61,19 @@
         }
 
         .body-inner>div {
-            min-height: 312px;
+            min-height: 322px;
         }
 
         .text-center {
             text-align: center;
         }
 
-        .top-kinder {
+        .top-kinder,
+        .bottom-kinder {
             position: relative;
             top: 2px;
-            height: 24px;
-            width: 81px;
+            height: 20px;
+            width: 67px;
             margin-right: 1px;
         }
 
@@ -78,6 +98,7 @@
         }
 
         .text-content {
+            padding: 0 20px;
             font-size: 8px;
             line-height: 10px;
             text-align: center;
@@ -86,6 +107,10 @@
 
         .mb-14 {
             margin-bottom: 6px;
+        }
+
+        .mb-30 {
+            margin-bottom: 12px;
         }
 
         .shop {
@@ -148,9 +173,13 @@
 
         @media (min-width: 375px) {
 
-            body,
-            html {
-                width: 375px;
+
+            .btn {
+                font-size: 7px;
+                line-height: 11px;
+                width: 84px;
+                padding: 8px 16px;
+                border-radius: 47px;
             }
 
             body>div {
@@ -163,10 +192,11 @@
             }
 
             .body-inner>div {
-                min-height: 366px;
+                min-height: 376px;
             }
 
-            .top-kinder {
+            .top-kinder,
+            .bottom-kinder {
                 top: 3px;
                 height: 28px;
                 width: 95px;
@@ -192,6 +222,10 @@
 
             .mb-14 {
                 margin-bottom: 6px;
+            }
+
+            .mb-30 {
+                margin-bottom: 13px;
             }
 
             .shop {
@@ -246,9 +280,13 @@
 
         @media (min-width: 414px) {
 
-            body,
-            html {
-                width: 414px;
+
+            .btn {
+                font-size: 8px;
+                line-height: 12px;
+                width: 92px;
+                padding: 9px 17px;
+                border-radius: 54px;
             }
 
             body>div {
@@ -261,7 +299,7 @@
             }
 
             .body-inner>div {
-                min-height: 403px;
+                min-height: 413px;
             }
 
             .top-kinder {
@@ -291,6 +329,11 @@
             .mb-14 {
                 margin-bottom: 7px;
             }
+
+            .mb-30 {
+                margin-bottom: 15px;
+            }
+
 
             .shop {
                 width: 88px;
@@ -342,11 +385,336 @@
             }
         }
 
+        @media (min-width: 568px) {
+
+            .btn {
+                font-size: 10px;
+                line-height: 16px;
+                width: 128px;
+                padding: 13px 25px;
+                border-radius: 71px;
+            }
+
+            body>div {
+                width: 568px;
+                height: 852px;
+            }
+
+            .body-inner {
+                padding: 176px 83px 0px 122px;
+            }
+
+            .body-inner>div {
+                min-height: 561px;
+            }
+
+            .top-kinder,
+            .bottom-kinder {
+                top: 4px;
+                height: 43px;
+                width: 145px;
+                margin-right: 3px;
+            }
+
+            h1 {
+                margin: 18px 0;
+                font-size: 18px;
+                line-height: 26px;
+            }
+
+            h2 {
+                font-size: 18px;
+                line-height: 26px;
+                margin-bottom: 14px;
+            }
+
+            .text-content {
+                font-size: 12px;
+                line-height: 17px;
+            }
+
+            .mb-14 {
+                margin-bottom: 10px;
+            }
+
+            .mb-30 {
+                margin-bottom: 21px;
+            }
+
+
+            .shop {
+                width: 121px;
+                border-radius: 14px;
+            }
+
+            .shop-1 {
+                margin: 0 10px 7px auto;
+                padding: 3px 0;
+            }
+
+            .shop-1 img {
+                width: 81px;
+                height: 22px;
+            }
+
+            .shop-2 {
+                margin: 0 auto 7px 10px;
+                padding: 7px 0;
+            }
+
+            .shop-2 img {
+                width: 68px;
+                height: 14px;
+            }
+
+            .shop-3 {
+                margin: 0 10px 7px auto;
+                padding: 3px 0;
+            }
+
+            .shop-3 img {
+                width: 85px;
+                height: 22px;
+            }
+
+            .shop-4 {
+                margin: 0 auto 7px 10px;
+                padding: 4px 0;
+            }
+
+            .shop-4 img {
+                width: 81px;
+                height: 22px;
+            }
+
+            .unsubscribe-link {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 667px) {
+
+            .btn {
+                font-size: 13px;
+                line-height: 19px;
+                width: 150px;
+                padding: 15px 29px;
+                border-radius: 67px;
+            }
+
+            body>div {
+                width: 667px;
+                height: 1000px;
+            }
+
+            .body-inner {
+                padding: 207px 97px 0px 143px;
+            }
+
+            .body-inner>div {
+                min-height: 658px;
+            }
+
+            .top-kinder,
+            .bottom-kinder {
+                top: 5px;
+                height: 50px;
+                width: 169px;
+                margin-right: 3px;
+            }
+
+            h1 {
+                margin: 21px 0;
+                font-size: 22px;
+                line-height: 31px;
+            }
+
+            h2 {
+                font-size: 21px;
+                line-height: 31px;
+                margin-bottom: 17px;
+            }
+
+            .text-content {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            .mb-14 {
+                margin-bottom: 11px;
+            }
+
+            .mb-30 {
+                margin-bottom: 25px;
+            }
+
+
+            .shop {
+                width: 142px;
+                border-radius: 17px;
+            }
+
+            .shop-1 {
+                margin: 0 12px 8px auto;
+                padding: 3px 0;
+            }
+
+            .shop-1 img {
+                width: 95px;
+                height: 26px;
+            }
+
+            .shop-2 {
+                margin: 0 auto 8px 12px;
+                padding: 8px 0;
+            }
+
+            .shop-2 img {
+                width: 79px;
+                height: 17px;
+            }
+
+            .shop-3 {
+                margin: 0 12px 8px auto;
+                padding: 3px 0;
+            }
+
+            .shop-3 img {
+                width: 100px;
+                height: 26px;
+            }
+
+            .shop-4 {
+                margin: 0 auto 8px 12px;
+                padding: 4px 0;
+            }
+
+            .shop-4 img {
+                width: 95px;
+                height: 25px;
+            }
+
+            .unsubscribe-link {
+                font-size: 17px;
+            }
+        }
+
+        @media (min-width: 736px) {
+
+            .btn {
+                font-size: 14px;
+                line-height: 21px;
+                width: 165px;
+                padding: 16px 32px;
+                border-radius: 92px;
+            }
+
+            body>div {
+                width: 736px;
+                height: 1104px;
+            }
+
+            .body-inner {
+                padding: 229px 107px 0px 158px;
+            }
+
+            .body-inner>div {
+                min-height: 726px;
+            }
+
+            .top-kinder,
+            .bottom-kinder {
+                top: 5px;
+                height: 55px;
+                width: 186px;
+                margin-right: 4px;
+            }
+
+            h1 {
+                margin: 25px 0;
+                font-size: 26px;
+                line-height: 37px;
+            }
+
+            h2 {
+                font-size: 23px;
+                line-height: 34px;
+                margin-bottom: 18px;
+            }
+
+            .text-content {
+                font-size: 15px;
+                line-height: 22px;
+            }
+
+            .mb-14 {
+                margin-bottom: 13px;
+            }
+
+            .mb-30 {
+                margin-bottom: 27px;
+            }
+
+
+            .shop {
+                width: 157px;
+                border-radius: 19px;
+            }
+
+            .shop-1 {
+                margin: 0 14px 9px auto;
+                padding: 4px 0;
+            }
+
+            .shop-1 img {
+                width: 105px;
+                height: 30px;
+            }
+
+            .shop-2 {
+                margin: 0 auto 9px 14px;
+                padding: 9px 0;
+            }
+
+            .shop-2 img {
+                width: 87px;
+                height: 18px;
+            }
+
+            .shop-3 {
+                margin: 0 14px 9px auto;
+                padding: 4px 0;
+            }
+
+            .shop-3 img {
+                width: 110px;
+                height: 29px;
+            }
+
+            .shop-4 {
+                margin: 0 auto 9px 14px;
+                padding: 4px 0;
+            }
+
+            .shop-4 img {
+                width: 105px;
+                height: 28px;
+            }
+
+            .unsubscribe-link {
+                font-size: 18px;
+            }
+        }
+
         @media (min-width: 768px) {
 
-            body,
-            html {
-                width: 768px;
+
+            .btn {
+                font-size: 14px;
+                line-height: 22px;
+                width: 174px;
+                padding: 17px 33px;
+                border-radius: 96px;
             }
 
             body>div {
@@ -359,13 +727,14 @@
             }
 
             .body-inner>div {
-                min-height: 749px;
+                min-height: 759px;
             }
 
-            .top-kinder {
+            .top-kinder,
+            .bottom-kinder {
                 top: 5px;
                 height: 57px;
-                width: 211px;
+                width: 193px;
                 margin-right: 4px;
             }
 
@@ -389,6 +758,11 @@
             .mb-14 {
                 margin-bottom: 13px;
             }
+
+            .mb-30 {
+                margin-bottom: 28px;
+            }
+
 
             .shop {
                 width: 164px;
@@ -441,6 +815,15 @@
         }
 
         @media (min-width: 800px) {
+
+            .btn {
+                font-size: 15px;
+                line-height: 23px;
+                width: 180px;
+                padding: 18px 35px;
+                border-radius: 100px;
+            }
+
             body>div {
                 width: 800px;
                 height: 1200px;
@@ -451,10 +834,17 @@
             }
 
             .body-inner>div {
-                min-height: 780px;
+                min-height: 790px;
             }
 
             .top-kinder {
+                top: 6px;
+                height: 60px;
+                width: 203px;
+                margin-right: 4px;
+            }
+
+            .bottom-kinder {
                 top: 6px;
                 height: 60px;
                 width: 203px;
@@ -481,6 +871,11 @@
             .mb-14 {
                 margin-bottom: 14px;
             }
+
+            .mb-30 {
+                margin-bottom: 30px;
+            }
+
 
             .shop {
                 width: 171px;

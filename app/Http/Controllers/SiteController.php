@@ -32,6 +32,12 @@ class SiteController extends Controller
     }
 
 
+    public function testHtml(Request $request)
+    {
+        return view('mail.html.frame4', ['unsubscribe' => '', 'video' => '']);
+    }
+
+
 
     public function unsubscribe(Request $request)
     {
