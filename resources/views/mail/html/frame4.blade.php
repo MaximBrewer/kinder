@@ -33,41 +33,15 @@
         .body-inner {
             margin: 0;
             padding: 0;
-            transform: scale(.4);
-        }
-
-
-        @media (min-width: 375px) {
-            .body-inner {
-                transform: scale(.46875);
-            }
-        }
-
-        @media (min-width: 414px) {
-            .body-inner {
-                transform: scale(.5175);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .body-inner {
-                transform: scale(.96);
-            }
-        }
-
-        @media (min-width: 800px) {
-            .body-inner {
-                transform: none;
-            }
         }
     </style>
 </head>
 
 <body>
     <div class="body-inner">
-        <div style="width:800px;height:1200px;background-image:url(https://kinder.gpucloud.ru/images/mail-bg.jpg);background-size:cover;">
-            <div style="padding: 249px 117px 0px 172px;">
-                <div style="min-height: 780px;">
+        <div style="width:100%;padding-top:150%;background-image:url(https://kinder.gpucloud.ru/images/mail-bg.jpg);background-size:cover;">
+            <div style="padding: 31.125% 9.75% 0px 21,5%;position:absolute;">
+                <div>
                     <table style="margin:0 0 0 auto;">
                         <tr style="vertical-align: baseline;">
                             <td>
