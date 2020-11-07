@@ -7,8 +7,8 @@
     <style>
         @font-face {
             font-family: Noteworthy;
-            src: url(https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff2) format("woff2"),
-                url(https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff) format("woff");
+            src: url('https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff2') format("woff2"),
+                url('https://kinder.gpucloud.ru/fonts/noteworthy-bold.woff') format("woff");
             font-weight: 700;
             font-style: normal;
         }
@@ -52,7 +52,7 @@
             margin: 0 auto;
             width: 320px;
             height: 480px;
-            background-image: url(https://kinder.gpucloud.ru/images/mail-bg.jpg);
+            background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');
             background-size: cover;
         }
 
