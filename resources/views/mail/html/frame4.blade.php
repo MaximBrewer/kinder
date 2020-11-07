@@ -26,7 +26,7 @@
     </style>
 </head>
 
-<body style="margin:0;padding:0;font-family: Noteworthy;font-weight:bold;">
+<body style="width:800px;margin:0;padding:0;font-family: Noteworthy;font-weight:bold;">
     <div style="width:800px;height:1200px;background-image:url(https://kinder.gpucloud.ru/images/mail-bg.jpg);background-size:cover;">
         <div style="padding: 249px 117px 0px 172px;">
             <div style="min-height: 780px;">
