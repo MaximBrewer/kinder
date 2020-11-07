@@ -28,7 +28,7 @@ class SiteController extends Controller
     {
         $order = Order::where('id', '>', 0)->first();
         $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-        Mail::to($request->mail)->send(new \App\Mail\Frame4($unsubscribe));
+        Mail::to($request->mail)->send(new \App\Mail\Frame3($unsubscribe, ''));
     }
 
 
