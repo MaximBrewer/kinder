@@ -4,9 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-</head>
-
-<body>
     <style>
         @font-face {
             font-family: Noteworthy;
@@ -51,7 +48,7 @@
             font-weight: bold;
         }
 
-        .div-body {
+        .as8-div-body {
             margin: 0 auto;
             width: 320px;
             height: 480px;
@@ -929,7 +926,10 @@
             }
         }
     </style>
-    <div class="div-body" style="background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');">
+</head>
+
+<body>
+    <div class="as8-div-body" style="background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');">
         <div class="body-inner">
             <div>
                 <table style="margin:0 0 0 auto;">
