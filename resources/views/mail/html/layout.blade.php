@@ -48,7 +48,7 @@
             font-weight: bold;
         }
 
-        body>div {
+        .div-body {
             margin: 0 auto;
             width: 320px;
             height: 480px;
@@ -182,7 +182,7 @@
                 border-radius: 47px;
             }
 
-            body>div {
+            .div-body {
                 width: 375px;
                 height: 563px;
             }
@@ -289,7 +289,7 @@
                 border-radius: 54px;
             }
 
-            body>div {
+            .div-body {
                 width: 414px;
                 height: 621px;
             }
@@ -395,7 +395,7 @@
                 border-radius: 71px;
             }
 
-            body>div {
+            .div-body {
                 width: 568px;
                 height: 852px;
             }
@@ -502,7 +502,7 @@
                 border-radius: 67px;
             }
 
-            body>div {
+            .div-body {
                 width: 667px;
                 height: 1000px;
             }
@@ -609,7 +609,7 @@
                 border-radius: 92px;
             }
 
-            body>div {
+            .div-body {
                 width: 736px;
                 height: 1104px;
             }
@@ -717,7 +717,7 @@
                 border-radius: 96px;
             }
 
-            body>div {
+            .div-body {
                 width: 768px;
                 height: 1152px;
             }
@@ -824,7 +824,7 @@
                 border-radius: 100px;
             }
 
-            body>div {
+            .div-body {
                 width: 800px;
                 height: 1200px;
             }
@@ -930,7 +930,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="div-body">
         <div class="body-inner">
             <div>
                 <table style="margin:0 0 0 auto;">
