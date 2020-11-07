@@ -52,7 +52,6 @@
             margin: 0 auto;
             width: 320px;
             height: 480px;
-            background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');
             background-size: cover;
         }
 
@@ -931,7 +930,7 @@
 
 <body>
     <div class="div-body">
-        <div class="body-inner">
+        <div class="body-inner" style="background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');">
             <div>
                 <table style="margin:0 0 0 auto;">
                     <tr style="vertical-align: baseline;">
