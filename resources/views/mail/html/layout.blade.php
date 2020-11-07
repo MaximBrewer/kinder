@@ -728,10 +728,6 @@
                 border-radius: 8px !important;
             }
 
-            .shop img {
-                margin: 0 auto !important;
-            }
-
             .shop-1 {
                 margin: 0 6px 4px auto !important;
                 padding: 2px 0 !important;
