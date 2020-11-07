@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('mail.html.layout')
 @section('content')
 <h1>
     Ваше поздравление готово!
