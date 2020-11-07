@@ -929,7 +929,7 @@
 </head>
 
 <body>
-    <div class="as8-div-body" style="background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');">
+    <div style="background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');" class="as8-div-body">
         <div class="body-inner">
             <div>
                 <table style="margin:0 0 0 auto;">
