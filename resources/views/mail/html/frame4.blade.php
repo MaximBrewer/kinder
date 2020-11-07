@@ -3,6 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title></title>
     <style>
         @font-face {
@@ -23,7 +24,7 @@
     </style>
 </head>
 
-<body style="overflow:hidden;width:800px;margin:0;padding:0;font-family: Noteworthy;font-weight:bold;">
+<body style="margin:0;padding:0;font-family: Noteworthy;font-weight:bold;">
     <div style="width:800px;height:5px;background:#000;"></div>
     <div style="width:800px;height:1200px;background-image:url(https://kinder.gpucloud.ru/images/mail-bg.jpg);background-size:cover;">
         <div style="padding: 249px 117px 0px 172px;">
