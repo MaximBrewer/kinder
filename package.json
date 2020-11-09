@@ -24,7 +24,9 @@
         "es6-promise": "^4.2.8",
         "html-react-parser": "^0.14.0",
         "jquery": "^3.5.1",
+        "m3u8-parser": "^4.5.0",
         "react": "^16.13.1",
+        "react-canvas-video": "0.0.4",
         "react-custom-scroll": "^4.2.1",
         "react-custom-scrollbars": "^4.2.1",
         "react-custom-scrollbars-with-mobile": "^4.2.2",
@@ -38,9 +40,11 @@
         "react-select": "^3.1.0",
         "react-slick": "^0.27.11",
         "react-tooltip": "^4.2.10",
+        "react-video-js-player": "^1.1.1",
         "reactjs-popup": "^2.0.4",
         "slick-carousel": "^1.8.1",
         "videojs": "^1.0.0",
+        "videojs-canvas-plugin": "^1.0.5",
         "videojs-playlist": "^4.3.1"
     }
 }
