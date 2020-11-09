@@ -8,7 +8,7 @@ class Hobby
     public function created()
     {
         $json = is_file(storage_path('app/public') . '/data.json') ? json_decode(file_get_contents(storage_path('app/public') . '/data.json'), true) : [];
-        $json['hobbies'] = \App\Http\Resources\Hobby::collection(\App\Models\Hobby::all());
+        $json['hobbies'] = \App\Http\Resources\Hobby::collection(\App\Models\Hobby::orderBy('sort', 'ASC')->get());
         $json = str_replace(['\r', '\n'], '', json_encode($json));
         file_put_contents(
             storage_path(('app/public') . '/data.json'),
@@ -23,7 +23,7 @@ class Hobby
     public function updated()
     {
         $json = is_file(storage_path('app/public') . '/data.json') ? json_decode(file_get_contents(storage_path('app/public') . '/data.json'), true) : [];
-        $json['hobbies'] = \App\Http\Resources\Hobby::collection(\App\Models\Hobby::all());
+        $json['hobbies'] = \App\Http\Resources\Hobby::collection(\App\Models\Hobby::orderBy('sort', 'ASC')->get());
         $json = str_replace(['\r', '\n'], '', json_encode($json));
         file_put_contents(
             storage_path(('app/public') . '/data.json'),
