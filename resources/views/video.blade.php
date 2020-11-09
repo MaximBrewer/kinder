@@ -13,7 +13,7 @@
 </head>
 
 <body style="margin:0px">
-    <video id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered vjs-fullscreen">
+    <video id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered vjs-nofull">
         <p class="vjs-no-js">
             Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank">совместимых с HTML5 видео</a>
         </p>

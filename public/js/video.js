@@ -101,6 +101,12 @@ var player = videojs("video", {
   controls: true,
   control: true,
   poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fa973f50e47cf6eac7d7b7a.jpg"
+}, function () {
+  var that = this;
+  this.on("ended", function () {
+    window.player = null;
+    that = null;
+  });
 });
 
 function togglePlayer() {
@@ -110,7 +116,6 @@ function togglePlayer() {
 var body = document.getElementsByTagName("body")[0];
 body.addEventListener("mouseup", function (event) {
   console.log(event);
-  alert(1);
   togglePlayer();
 });
 body.addEventListener("touchstart", function (event) {
@@ -118,8 +123,15 @@ body.addEventListener("touchstart", function (event) {
 });
 body.addEventListener("touchend", function (event) {
   console.log(event);
-  alert(2);
   togglePlayer();
+});
+window.addEventListener("message", function (event) {
+  if (event.data == "start") {
+    console.log();
+    event.source.postMessage("start:" + player.currentTime(), "*");
+  } else if (event.data = "end") {
+    event.source.postMessage("end:" + player.currentTime(), "*");
+  }
 });
 
 /***/ }),
