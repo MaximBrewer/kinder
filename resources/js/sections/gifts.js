@@ -370,7 +370,6 @@ function Gifts(props) {
                 <div onClick={closeModal} style={{ cursor: "pointer" }}>
                     <Close
                         style={{
-                            height: "52px",
                             position: "absolute",
                             right: "16px",
                             top: "16px"

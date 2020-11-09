@@ -261,6 +261,18 @@ body {
         }
     }
 }
+.closeIcon {
+    height: 30px;
+    @media (min-width: 375px) {
+    }
+    @media (min-width: 414px) {
+    }
+    @media (min-width: 768px) {
+        height: 52px;
+    }
+    @media (min-width: 1024px) {
+    }
+}
 
 .cehckboxButton {
     background: transparent;
