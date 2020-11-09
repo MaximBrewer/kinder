@@ -104,8 +104,10 @@ var player = videojs("video", {
 }, function () {
   var that = this;
   this.on("ended", function () {
-    window.player = null;
-    that = null;
+    that.src({
+      type: 'video/mp4',
+      src: 'http://www.example.com/path/to/video.mp4'
+    });
   });
 });
 
