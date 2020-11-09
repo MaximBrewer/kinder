@@ -9,7 +9,7 @@
     <link href="//s.platformcraft.ru/video/videojs.addon.css" rel="stylesheet">
 </head>
 
-<body style="margin:0px">
+<body style="margin:0px;background:#000000;">
     <script src="//s.platformcraft.ru/video/videojs/video5.19.2.min.js"></script>
     <script src="//s.platformcraft.ru/video/videojs/plugins/hls/videojs-contrib-hls-5.9.min.js"></script>
     <script src="//s.platformcraft.ru/video/videojs/plugins/videojs.framebyframe.min.js"></script>
@@ -39,10 +39,10 @@
             }).on("ended", function() {
                 $('#video-ii video').show();
                 playerII.play()
+                $('#video-i').fadeOut(20);
                 setTimeout(function() {
-                    $('#video-ii').show();
-                    $('#video-i').remove();
-                }, 100)
+                    $('#video-ii').fadeIn(20);
+                }, 20)
             });
         });
         var playerII = videojs('video-ii', {
@@ -58,104 +58,6 @@
 
             });
         });
-    </script>
-    <script>
-        // var player = videojs('video');
-        // player.playlist([{
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/kamil-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        //     {
-        //         sources: [{
-        //             src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-        //             type: 'application/x-mpegURL'
-        //         }]
-        //     },
-        // {
-        //     sources: [{
-        //         src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
-        //         type: 'application/x-mpegURL'
-        //     }],
-        //     poster: 'http://media.w3.org/2010/05/bunny/poster.png'
-        // }, {
-        //     sources: [{
-        //         src: 'http://media.w3.org/2010/05/video/movie_300.mp4',
-        //         type: 'application/x-mpegURL'
-        //     }],
-        //     poster: 'http://media.w3.org/2010/05/video/poster.png'
-        // }
-        // ]);
-
-        // Play through the playlist automatically.
-        // player.playlist.autoadvance(0);
     </script>
 </body>
 
