@@ -163,7 +163,9 @@ var player = videojs(
 );
 
 function togglePlayer() {
-    player.paused() ? player.play() : player.pause();
+    // player.paused() ? 
+    player.play() 
+    // : player.pause();
 }
 var body = document.getElementsByTagName("body")[0];
 
