@@ -96,8 +96,6 @@ class SiteController extends Controller
 
         return [];
     }
-
-
     /**
      * Show the application dashboard.
      *
@@ -113,9 +111,12 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function playlist(Request $request, $hash)
+    public function playlistI(Request $request, $hash)
     {
-        return view('playlist', ['hash' => $hash]);
+        $nameChunk = "#EXTINF:2.861," . PHP_EOL .
+            "#EXT-X-DISCONTINUITY" . PHP_EOL .
+            "//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/1%20%281280xauto%29.mp4/media_0.ts";
+        return view('playlist-i', ['nameChunk' => $nameChunk]);
     }
 
     /**
@@ -123,9 +124,24 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function chunklist(Request $request, $hash)
+    public function playlistII(Request $request, $hash)
     {
-        $order = Order::where('hash', $hash)->firstOrFail();
-        return view('chunklist', ['order' => $order]);
+        $nameChunk = "#EXTINF:2.861," . PHP_EOL .
+            "#EXT-X-DISCONTINUITY" . PHP_EOL .
+            "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/kamil-1024.mp4/media_0.ts";
+        return view('playlist-ii', ['nameChunk' => $nameChunk]);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function playlistIII(Request $request, $hash)
+    {
+        $nameChunk = "#EXTINF:2.861," . PHP_EOL .
+            "#EXT-X-DISCONTINUITY" . PHP_EOL .
+            "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/kamil-1024.mp4/media_0.ts";
+        return view('playlist-iii', ['nameChunk' => $nameChunk]);
     }
 }

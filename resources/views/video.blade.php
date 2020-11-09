@@ -18,6 +18,9 @@
             Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank">совместимых с HTML5 видео</a>
         </p>
     </video>
+    <script>
+        var hash = "{{ $hash }}";
+    </script>
     <script src="/js/video.js?v=1.00"></script>
 </body>
 
