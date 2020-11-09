@@ -24,7 +24,7 @@
     <script>
         var hash = "{{ $hash }}";
     </script>
-    <script src="/js/video.js?v=1.00"></script>
+    <script src="/js/video.js?v=1.01"></script>
 </body>
 
 </html>
