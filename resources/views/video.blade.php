@@ -28,6 +28,8 @@
     </video>
     <script src="//s.platformcraft.ru/video/jquery-2.1.4.min.js"></script>
     <script>
+
+    
         var player = videojs('video', {
             'html5': {
                 nativeTextTracks: false

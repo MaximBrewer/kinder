@@ -39,6 +39,8 @@
         "react-slick": "^0.27.11",
         "react-tooltip": "^4.2.10",
         "reactjs-popup": "^2.0.4",
-        "slick-carousel": "^1.8.1"
+        "slick-carousel": "^1.8.1",
+        "videojs": "^1.0.0",
+        "videojs-playlist": "^4.3.1"
     }
 }
