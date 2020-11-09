@@ -61,6 +61,9 @@
 
         // Play through the playlist automatically.
         player.playlist.autoadvance(0);
+        $(body).click(function(event) {
+            alert(event.clientX + "  "  + event.clientY)
+        })
     </script>
     </body>
 
