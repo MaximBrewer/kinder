@@ -27,35 +27,27 @@
 
     <script src="//s.platformcraft.ru/video/jquery-2.1.4.min.js"></script>
     <script>
+        var playerII = videojs('video-ii', {
+            'html5': {
+                nativeTextTracks: false
+            },
+        }, function() {
+            this.on("ended", function() {
+
+            });
+        });
         var playerI = videojs('video-i', {
             'html5': {
                 nativeTextTracks: false
             },
         }, function() {
-            this.on("play", function() {
-
-            }).on("play", function() {
-                console.log(this)
-            }).on("ended", function() {
+            this.on("ended", function() {
                 $('#video-ii video').show();
                 playerII.play()
                 $('#video-i').fadeOut(20);
                 setTimeout(function() {
                     $('#video-ii').fadeIn(20);
                 }, 20)
-            });
-        });
-        var playerII = videojs('video-ii', {
-            'html5': {
-                nativeTextTracks: false
-            },
-        }, function() {
-            this.on("play", function() {
-
-            }).on("play", function() {
-                console.log(this)
-            }).on("ended", function() {
-
             });
         });
     </script>
