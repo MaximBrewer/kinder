@@ -61,8 +61,15 @@
 
         // Play through the playlist automatically.
         player.playlist.autoadvance(0);
-        $("body").on('touch click', function(event) {
-            alert(event.clientX + "  "  + event.clientY)
+        $("body").on('touchend click', function(event) {
+            alert(event)
+            console.log(event)
+
+            // var touchList = event.changedTouches;
+            // var touch;
+            // for (var i = 0; i < touchList.length; i++) {
+            //     console.log("startX: " + touchList[i].screenX + ", id: " + touchList[i].identifier);
+            // }
         })
     </script>
     </body>
