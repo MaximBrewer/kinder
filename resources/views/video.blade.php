@@ -43,67 +43,7 @@
                     src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
                     type: 'application/x-mpegURL'
                 }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
-            {
-                sources: [{
-                    src: 'https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all-1024.mp4/playlist.m3u8',
-                    type: 'application/x-mpegURL'
-                }]
-            },
+            }
             // {
             //     sources: [{
             //         src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
