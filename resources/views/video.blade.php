@@ -61,7 +61,7 @@
 
         // Play through the playlist automatically.
         player.playlist.autoadvance(0);
-        $("body").on('touch mouseup', function(event) {
+        $("body").on('touch click', function(event) {
             alert(event.clientX + "  "  + event.clientY)
         })
     </script>
