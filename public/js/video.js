@@ -98,7 +98,7 @@ var step = 1;
 var chooseGift = function chooseGift(e) {
   e.target.style.opacity = "1";
 
-  if (document.getElementById("gftI").style.opacity == "1" && document.getElementById("gftI").style.opacity == "1" && document.getElementById("gftI").style.opacity == "1") {
+  if (document.getElementById("gftI").style.opacity == "1" && document.getElementById("gftII").style.opacity == "1" && document.getElementById("gftIII").style.opacity == "1") {
     player.src({
       src: "/playlist-iv/" + hash + ".m3u8",
       type: "application/x-mpegURL"
