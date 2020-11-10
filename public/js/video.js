@@ -95,6 +95,8 @@
 
 var step = 1;
 
+var chooseGift = function chooseGift(e) {};
+
 var chooseBall = function chooseBall(e) {
   var color = "red";
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
@@ -128,7 +130,12 @@ var player = videojs("video", {
       document.getElementById("photoFrame").style.backgroundRepeat = "no-repeat";
       document.getElementById("photoFrame").style.backgroundSize = "auto 92%";
       document.getElementById("photoFrame").style.backgroundPosition = "top left 57%";
-      if (photo) document.getElementById("hover").style.zIndex = "10";
+
+      if (photo) {
+        document.getElementById("hover").style.zIndex = "10";
+        document.getElementById("hover").style.opacity = "1";
+      }
+
       that.src({
         src: "/playlist-ii/" + hash + ".m3u8",
         type: "application/x-mpegURL"
@@ -137,12 +144,15 @@ var player = videojs("video", {
     }
 
     if (step == 3) {
+      document.getElementById("hover").style.opacity = "0";
+      document.getElementById("hover").style.zIndex = "-1";
+      document.getElementById("hover2").style.opacity = "1";
+      document.getElementById("hover2").style.zIndex = "10";
       document.getElementById("photoFrame2").style.transform = "scale(1.2)";
       document.getElementById("photoFrame2").style.transition = "transform 10s linear";
       document.getElementById("photoFrame2").style.backgroundRepeat = "no-repeat";
       document.getElementById("photoFrame2").style.backgroundSize = "auto 92%";
       document.getElementById("photoFrame2").style.backgroundPosition = "top left 57%";
-      document.getElementById("hover2").style.zIndex = "10";
       that.src({
         src: "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_viii/all%20%281280xauto%29.mp4/playlist.m3u8",
         type: "application/x-mpegURL"
@@ -151,11 +161,33 @@ var player = videojs("video", {
       document.getElementById("photoFrame2").addEventListener("click", chooseBall);
       document.getElementById("photoFrame2").addEventListener("touchstart", chooseBall);
     }
+
+    if (step == 4) {
+      document.getElementById("hover").style.opacity = "0";
+      document.getElementById("hover").style.zIndex = "-1";
+      document.getElementById("hover2").style.opacity = "0";
+      document.getElementById("hover2").style.zIndex = "-1";
+      document.getElementById("hover3").style.zIndex = "10";
+      document.getElementById("hover3").style.opacity = "1";
+      document.getElementById("photoFrame3").style.transform = "scale(1.2)";
+      document.getElementById("photoFrame3").style.transition = "transform 10s linear";
+      document.getElementById("photoFrame3").style.backgroundRepeat = "no-repeat";
+      document.getElementById("photoFrame3").style.backgroundSize = "auto 92%";
+      document.getElementById("photoFrame2").style.backgroundPosition = "top left 57%";
+      that.src({
+        src: "https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/voice.mp3",
+        type: "audio/mpeg"
+      });
+      that.play();
+      document.getElementById("photoFrame3").addEventListener("click", chooseGift);
+      document.getElementById("photoFrame3").addEventListener("touchstart", chooseGift);
+    }
   });
   this.on("canplay", function () {
     if (step == 2) {
       setTimeout(function () {
         document.getElementById("hover").style.zIndex = "-1";
+        document.getElementById("photoFrame").style.opacity = "0";
       }, photo_duration * 1000);
     }
 
