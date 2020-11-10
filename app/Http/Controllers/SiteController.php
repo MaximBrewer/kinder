@@ -95,11 +95,10 @@ class SiteController extends Controller
             $fullpath = $_SERVER['DOCUMENT_ROOT'] . '/../storage/app/' . $path;
             exec("convert $fullpath -resize 600x600\> $fullpath");
             exec("jpegoptim $fullpath -m85 --strip-all");
+            $order->update([
+                "photo" => $data['photo']
+            ]);
         }
-
-        $order->update([
-            "photo" => $data['photo']
-        ]);
 
         return $fullpath;
     }
