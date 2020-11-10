@@ -139,7 +139,7 @@ class SiteController extends Controller
                 if (strstr($val, "#EXTINF")) {
                     $next = true;
                     $duration = trim(',', explode(":", $val)[1]);
-                    var_dump(explode(":", $val));
+                    var_dump(str_replace(["#EXTINF:", ","], "", $val));
                 }
             }
             var_dump($chunks);
