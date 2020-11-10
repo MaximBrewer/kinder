@@ -286,11 +286,10 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function playlistIII(Request $request, $hash)
+    public function playlistIII(Request $request, $color)
     {
-        $nameChunk = "#EXTINF:2.861," . PHP_EOL .
-            "#EXT-X-DISCONTINUITY" . PHP_EOL .
-            "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/kamil-1024.mp4/media_0.ts";
-        return view('playlist-iii', ['nameChunk' => $nameChunk]);
+        return view('playlist-iii', [
+            'color' => $color
+        ]);
     }
 }

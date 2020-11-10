@@ -8,7 +8,11 @@ var chooseBall = function(e) {
         : window.innerWidth - window.innerWidth * 0.375 > clientX
         ? (color = "red")
         : (color = "silver");
-    console.log(color);
+    that.src({
+        src: "/playlist-iii/" + color + ".m3u8",
+        type: "application/x-mpegURL"
+    });
+    that.play();
 };
 var player = videojs(
     "video",
@@ -74,15 +78,6 @@ var player = videojs(
                 document
                     .getElementById("photoFrame2")
                     .addEventListener("touchstart", chooseBall);
-                // document.getElementById("photoFrame").style.transform =
-                //     "scale(2)";
-                // document.getElementById("photoFrame").style.transition =
-                //     "10s linear";
-                // if (photo) document.getElementById("hover").style.zIndex = "10";
-                // that.src({
-                //     src: "/playlist-ii/" + hash + ".m3u8",
-                //     type: "application/x-mpegURL"
-                // });
             }
         });
         this.on("canplay", function() {
@@ -91,10 +86,8 @@ var player = videojs(
                     document.getElementById("hover").style.zIndex = "-1";
                 }, photo_duration * 1000);
             }
-            if (step == 3) {
-                // setTimeout(function() {
-                //     document.getElementById("hover").style.zIndex = "-1";
-                // }, photo_duration * 1000);
+            if (step == 4) {
+                document.getElementById("hover2").style.zIndex = "-1";
             }
         });
     }
