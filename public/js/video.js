@@ -109,7 +109,7 @@ var player = videojs("video", {
     ++step;
 
     if (step == 2) {
-      document.getElementById("photoFrame").style.transform = "scale(2)";
+      document.getElementById("photoFrame").style.transform = "scale(1.4)";
       document.getElementById("photoFrame").style.transition = "transform 10s linear";
       document.getElementById("photoFrame").style.backgroundImage = "url(" + photo + ")";
       document.getElementById("photoFrame").style.backgroundRepeat = "no-repeat";
