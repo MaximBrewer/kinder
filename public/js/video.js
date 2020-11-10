@@ -129,7 +129,7 @@ var player = videojs("video", {
       that.play();
       setTimeout(function () {
         document.getElementById("hover").style.zIndex = "-1";
-      }, photo_duration);
+      }, photo_duration * 1000);
     }
   }); // this.on("loadedmetadata", function() {
   //     if (step == 3) {
