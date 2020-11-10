@@ -210,7 +210,7 @@ var player = videojs("video", {
       document.getElementById("hover2").style.opacity = "0";
     }
 
-    if (step == 5) {
+    if (step == 6) {
       document.getElementById("hover3").style.zIndex = "-1";
       document.getElementById("hover3").style.opacity = "0";
     }
