@@ -22,7 +22,7 @@
     <div id="hover2" style="opacity:0;overflow:hidden;display:flex;justify-content:center;align-items:center;background-color:#000000;position:absolute;top:0;left:0;z-index:-1;width:100vw;height:100vh;">
         <div id="photoFrame2" style="text-align:center;"><img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_viii/image.png" alt="" style="max-width:100%;" /></div>
     </div>
-    <div id="hover3" style="opacity:1;overflow:hidden;display:flex;justify-content:center;align-items:center;background-color:#000000;position:absolute;top:0;left:0;z-index:100;width:100vw;height:100vh;">
+    <div id="hover3" style="opacity:0;overflow:hidden;display:flex;justify-content:center;align-items:center;background-color:#000000;position:absolute;top:0;left:0;z-index:-1;width:100vw;height:100vh;">
         <div id="photoFrame3" style="text-align:center;position:relative;">
             <img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/image.png" alt="" style="max-width:100%;" />
             <img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/red.png" alt="" style="position:absolute;top: 41.015%;left: 47.1%;opacity: 0;height: 42.4%;" id="gftI"/>
