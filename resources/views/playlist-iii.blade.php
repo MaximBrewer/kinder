@@ -16,7 +16,4 @@ https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/par
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_x/all.mp4/media_3.ts
 #EXTINF:1.344,
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_x/all.mp4/media_4.ts
-#EXTINF:6.317,
-#EXT-X-DISCONTINUITY
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_xi/all.mp4/media_0.ts
 #EXT-X-ENDLIST
