@@ -17,20 +17,21 @@ var player = videojs(
     function() {
         var that = this;
         this.on("ended", function() {
-            console.log("ended", that);
-            ++step;
-            if (step == 2) {
-                document.getElementById("hover").style.zIndex = "10";
-                document.getElementById("photoFrame").style.transform =
-                    "scale(2)";
-                document.getElementById("photoFrame").style.transition =
-                    "10s linear";
-                that.src({
-                    src: "/playlist-ii/" + hash + ".m3u8",
-                    type: "application/x-mpegURL"
-                });
-                that.play();
-            }
+            // console.log("ended", that);
+            // ++step;
+            // if (step == 2) {
+            //     if(photo)
+            //     document.getElementById("hover").style.zIndex = "10";
+            //     document.getElementById("photoFrame").style.transform =
+            //         "scale(2)";
+            //     document.getElementById("photoFrame").style.transition =
+            //         "10s linear";
+            //     that.src({
+            //         src: "/playlist-ii/" + hash + ".m3u8",
+            //         type: "application/x-mpegURL"
+            //     });
+            //     that.play();
+            // }
             // if (step == 3) {
             //     that.src({
             //         type: "application/x-mpegURL",

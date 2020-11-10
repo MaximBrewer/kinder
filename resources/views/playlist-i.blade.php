@@ -23,4 +23,7 @@
 //montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all%20%281280xauto%29.mp4/media_0.ts
 #EXTINF:1.981,
 //montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iii/all%20%281280xauto%29.mp4/media_1.ts
+{{ $photoChunk }}
+{{ $achieveChunk }}
+{{ $hobbyChunk }}
 #EXT-X-ENDLIST

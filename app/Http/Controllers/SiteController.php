@@ -155,19 +155,6 @@ class SiteController extends Controller
             "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/" . $order->name->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
 
-
-        return view('playlist-i', ['nameChunk' => $nameChunk]);
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function playlistII(Request $request, $hash)
-    {
-        $order = Order::where('hash', $hash)->first();
-
         $photo = '';
         $photoChunk = '';
         if ($order->photo) {
@@ -227,7 +214,7 @@ class SiteController extends Controller
                     $duration = (float) str_replace(["#EXTINF:", ","], "", $val);
                 }
             }
-            $order->name->update([
+            $order->hobby->update([
                 'chunks' => serialize($chunks)
             ]);
         }
@@ -241,12 +228,103 @@ class SiteController extends Controller
         }
 
 
-        return view('playlist-ii', [
+        return view('playlist-i', [
+            'nameChunk' => $nameChunk,
             'photoChunk' => $photoChunk,
             'photo' => $photo,
             'achieveChunk' => $achieveChunk,
             'hobbyChunk' => $hobbyChunk
         ]);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function playlistII(Request $request, $hash)
+    {
+        $order = Order::where('hash', $hash)->first();
+
+        // $photo = '';
+        // $photoChunk = '';
+        // if ($order->photo) {
+        //     $photoChunk = "#EXTINF:4.821," . PHP_EOL .
+        //         "#EXT-X-DISCONTINUITY" . PHP_EOL .
+        //         "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iv/all%20%281280xauto%29.mp4/media_0.ts";
+        // }
+
+        // if ($order->achieve->chunks) {
+        //     $chunks = unserialize($order->achieve->chunks);
+        // } else {
+        //     $chunks = [];
+        //     $res = file_get_contents("https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_v/" . $order->achieve->id . "%20%281280xauto%29.mp4/chunklist.m3u8");
+        //     $lines = explode(PHP_EOL, $res);
+        //     $next = false;
+        //     $duration = 0;
+        //     foreach ($lines as $val) {
+        //         if ($next) {
+        //             $next = false;
+        //             $chunks[] = [$duration, $val];
+        //             $duration = 0;
+        //         }
+        //         if (strstr($val, "#EXTINF")) {
+        //             $next = true;
+        //             $duration = (float) str_replace(["#EXTINF:", ","], "", $val);
+        //         }
+        //     }
+        //     $order->achieve->update([
+        //         'chunks' => serialize($chunks)
+        //     ]);
+        // }
+        // $achieveChunk = "";
+
+        // foreach ($chunks as $key => $chunk) {
+        //     if ($key) $achieveChunk .= PHP_EOL;
+        //     $achieveChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+        //     if (!$key) $achieveChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+        //     $achieveChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_v/" . $order->achieve->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+        // }
+
+        // if ($order->hobby->chunks) {
+        //     $chunks = unserialize($order->hobby->chunks);
+        // } else {
+        //     $chunks = [];
+        //     $res = file_get_contents("https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_vi/" . $order->hobby->id . "%20%281280xauto%29.mp4/chunklist.m3u8");
+        //     $lines = explode(PHP_EOL, $res);
+        //     $next = false;
+        //     $duration = 0;
+        //     foreach ($lines as $val) {
+        //         if ($next) {
+        //             $next = false;
+        //             $chunks[] = [$duration, $val];
+        //             $duration = 0;
+        //         }
+        //         if (strstr($val, "#EXTINF")) {
+        //             $next = true;
+        //             $duration = (float) str_replace(["#EXTINF:", ","], "", $val);
+        //         }
+        //     }
+        //     $order->name->update([
+        //         'chunks' => serialize($chunks)
+        //     ]);
+        // }
+        // $hobbyChunk = "";
+
+        // foreach ($chunks as $key => $chunk) {
+        //     if ($key) $hobbyChunk .= PHP_EOL;
+        //     $hobbyChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+        //     if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+        //     $hobbyChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_v/" . $order->hobby->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+        // }
+
+
+        // return view('playlist-ii', [
+        //     'photoChunk' => $photoChunk,
+        //     'photo' => $photo,
+        //     'achieveChunk' => $achieveChunk,
+        //     'hobbyChunk' => $hobbyChunk
+        // ]);
     }
 
     /**
