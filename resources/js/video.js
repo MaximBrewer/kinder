@@ -45,17 +45,16 @@ var player = videojs(
                 }, photo_duration * 1000);
             }
         });
-        // this.on("loadedmetadata", function() {
-        //     if (step == 3) {
-        //         setTimeout(function() {
-        //             if (player.paused()) {
-        //                 that.play();
-        //                 document.getElementById("hover").style.zIndex = "-1";
-        //             }
-        //         }, 3000);
-        //     }
-        //     console.log("loadedmetadata", that);
-        // });
+        this.on("loadedmetadata", function() {
+            if (step == 2) {
+                setTimeout(function() {
+                    that.play();
+                    setTimeout(function() {
+                        document.getElementById("hover").style.zIndex = "-1";
+                    }, photo_duration * 1000);
+                }, 1200);
+            }
+        });
         // this.on("play", function() {
         //     console.log("play", step);
         //     window.scrollTo(0, 1);
