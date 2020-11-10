@@ -10,6 +10,7 @@ var chooseGift = function(e) {
             src: "/playlist-iv/" + hash + ".m3u8",
             type: "application/x-mpegURL"
         });
+        step = 6;
         player.play();
     }
 };
@@ -147,17 +148,17 @@ var player = videojs(
             }
         });
         this.on("canplay", function() {
-            if (step == 2) {
+            if (step >= 2) {
                 setTimeout(function() {
                     document.getElementById("hover").style.zIndex = "-1";
                     document.getElementById("hover").style.opacity = "0";
                 }, photo_duration * 1000);
             }
-            if (step == 4) {
+            if (step >= 4) {
                 document.getElementById("hover2").style.zIndex = "-1";
                 document.getElementById("hover2").style.opacity = "0";
             }
-            if (step == 6) {
+            if (step >= 6) {
                 document.getElementById("hover3").style.zIndex = "-1";
                 document.getElementById("hover3").style.opacity = "0";
             }
