@@ -224,7 +224,7 @@ class SiteController extends Controller
             if ($key) $hobbyChunk .= PHP_EOL;
             $hobbyChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $hobbyChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_v/" . $order->hobby->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+            $hobbyChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_vi/" . $order->hobby->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
 
 
