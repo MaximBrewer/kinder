@@ -29,6 +29,7 @@ var player = videojs(
                     src: "/playlist-ii/" + hash + ".m3u8",
                     type: "application/x-mpegURL"
                 });
+                that.play();
             }
             if (step == 3) {
                 // that.src({
@@ -39,7 +40,6 @@ var player = videojs(
         });
         this.on("canplay", function() {
             if (step == 2) {
-                that.play();
                 setTimeout(function() {
                     document.getElementById("hover").style.zIndex = "-1";
                 }, photo_duration * 1000);
