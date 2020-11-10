@@ -1,13 +1,13 @@
 var step = 1;
 
 var chooseBall = function(e) {
-    console.log(e);
     if (e.changedTouches) {
-        window.innerWidth * 0.375 < e.changedTouches[0].clientX
+        window.innerWidth * 0.375 > e.changedTouches[0].clientX
             ? console.log("gold")
-            : window.innerWidth - window.innerWidth * 0.375 > e.changedTouches[0].clientX
+            : window.innerWidth - window.innerWidth * 0.375 <
+              e.changedTouches[0].clientX
             ? console.log("red")
-            : onsole.log("silver");
+            : console.log("silver");
     }
 };
 var player = videojs(
