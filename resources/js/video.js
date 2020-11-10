@@ -1,4 +1,9 @@
 var step = 1;
+
+var chooseBall = function(e){
+    console.log(e)
+    alert(1)
+}
 var player = videojs(
     "video",
     {
@@ -39,6 +44,27 @@ var player = videojs(
                 that.play();
             }
             if (step == 3) {
+                document.getElementById("photoFrame").style.transform =
+                    "scale(1.4)";
+                document.getElementById("photoFrame").style.transition =
+                    "transform 10s linear";
+                document.getElementById("photoFrameImg").src =
+                    "https://montage-cache.cdnvideo.ru/montage/kinder/part_viii/image.png";
+                document.getElementById("photoFrame").style.backgroundRepeat =
+                    "no-repeat";
+                document.getElementById("photoFrame").style.backgroundSize =
+                    "auto 92%";
+                document.getElementById("photoFrame").style.backgroundPosition =
+                    "top left 57%";
+                document.getElementById("hover").style.zIndex = "10";
+                that.src({
+                    src:
+                        "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_viii/all%20%281280xauto%29.mp4/playlist.m3u8",
+                    type: "application/x-mpegURL"
+                });
+                that.play();
+                document.getElementById("photoFrame").addEventListener("click", chooseBall);
+                document.getElementById("photoFrame").addEventListener("touchstart", chooseBall);
                 // document.getElementById("photoFrame").style.transform =
                 //     "scale(2)";
                 // document.getElementById("photoFrame").style.transition =
@@ -54,6 +80,15 @@ var player = videojs(
             if (step == 2) {
                 setTimeout(function() {
                     document.getElementById("hover").style.zIndex = "-1";
+                    document.getElementById("photoFrame").style.transform =
+                        "scale(1)";
+                }, photo_duration * 1000);
+            }
+            if (step == 3) {
+                setTimeout(function() {
+                    document.getElementById("hover").style.zIndex = "-1";
+                    document.getElementById("photoFrame").style.transform =
+                        "scale(1)";
                 }, photo_duration * 1000);
             }
         });
