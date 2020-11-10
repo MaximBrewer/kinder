@@ -120,8 +120,8 @@ var player = videojs("video", {
 }, function () {
   var that = this;
   this.on("ended", function () {
-    console.log("ended", that, step);
     ++step;
+    console.log("ended", that, step);
 
     if (step == 2) {
       document.getElementById("photoFrame").style.transform = "scale(1.4)";
@@ -162,7 +162,7 @@ var player = videojs("video", {
       document.getElementById("photoFrame2").addEventListener("touchstart", chooseBall);
     }
 
-    if (step == 4) {
+    if (step == 5) {
       document.getElementById("hover").style.opacity = "0";
       document.getElementById("hover").style.zIndex = "-1";
       document.getElementById("hover2").style.opacity = "0";
