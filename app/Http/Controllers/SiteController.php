@@ -100,7 +100,7 @@ class SiteController extends Controller
             ]);
         }
 
-        return $fullpath;
+        return [];
     }
     /**
      * Show the application dashboard.
