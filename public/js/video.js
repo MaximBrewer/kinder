@@ -96,7 +96,15 @@
 var step = 1;
 
 var chooseGift = function chooseGift(e) {
-  console.log(e);
+  e.target.style.opacity = "1";
+
+  if (document.getElementById("gftI").style.opacity == "1" && document.getElementById("gftI").style.opacity == "1" && document.getElementById("gftI").style.opacity == "1") {
+    player.src({
+      src: "/playlist-iv/" + hash + ".m3u8",
+      type: "application/x-mpegURL"
+    });
+    player.play();
+  }
 };
 
 var chooseBall = function chooseBall(e) {
@@ -181,20 +189,30 @@ var player = videojs("video", {
         type: "audio/mpeg"
       });
       that.play();
-      document.getElementById("photoFrame3").addEventListener("click", chooseGift);
-      document.getElementById("photoFrame3").addEventListener("touchstart", chooseGift);
+      document.getElementById("gftI").addEventListener("touchstart", chooseGift);
+      document.getElementById("gftI").addEventListener("click", chooseGift);
+      document.getElementById("gftII").addEventListener("touchstart", chooseGift);
+      document.getElementById("gftII").addEventListener("click", chooseGift);
+      document.getElementById("gftIII").addEventListener("touchstart", chooseGift);
+      document.getElementById("gftIII").addEventListener("click", chooseGift);
     }
   });
   this.on("canplay", function () {
     if (step == 2) {
       setTimeout(function () {
         document.getElementById("hover").style.zIndex = "-1";
-        document.getElementById("photoFrame").style.opacity = "0";
+        document.getElementById("hover").style.opacity = "0";
       }, photo_duration * 1000);
     }
 
     if (step == 4) {
       document.getElementById("hover2").style.zIndex = "-1";
+      document.getElementById("hover2").style.opacity = "0";
+    }
+
+    if (step == 5) {
+      document.getElementById("hover3").style.zIndex = "-1";
+      document.getElementById("hover3").style.opacity = "0";
     }
   });
 });
