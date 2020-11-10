@@ -97,7 +97,10 @@ var step = 1;
 
 var chooseBall = function chooseBall(e) {
   console.log(e);
-  alert(1);
+
+  if (e.changedTouches) {
+    console.log(e.changedTouches[0].clientX);
+  }
 };
 
 var player = videojs("video", {
@@ -130,7 +133,7 @@ var player = videojs("video", {
     }
 
     if (step == 3) {
-      document.getElementById("photoFrame2").style.transform = "scale(1.4)";
+      document.getElementById("photoFrame2").style.transform = "scale(1.2)";
       document.getElementById("photoFrame2").style.transition = "transform 10s linear";
       document.getElementById("photoFrame2").style.backgroundRepeat = "no-repeat";
       document.getElementById("photoFrame2").style.backgroundSize = "auto 92%";
