@@ -95,7 +95,9 @@
 
 var step = 1;
 
-var chooseGift = function chooseGift(e) {};
+var chooseGift = function chooseGift(e) {
+  console.log(e);
+};
 
 var chooseBall = function chooseBall(e) {
   var color = "red";

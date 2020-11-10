@@ -1,5 +1,7 @@
 var step = 1;
-var chooseGift = function(e) {};
+var chooseGift = function(e) {
+    console.log(e);
+};
 var chooseBall = function(e) {
     var color = "red";
     var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
