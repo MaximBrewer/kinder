@@ -127,7 +127,6 @@ class SiteController extends Controller
             $chunks = [];
             $res = file_get_contents("https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/" . $order->name->id . "%20%281280xauto%29.mp4/chunklist.m3u8");
             $lines = explode(PHP_EOL, $res);
-            var_dump($lines);
             $next = false;
             $duration = 0;
             foreach ($lines as $val) {
@@ -141,8 +140,6 @@ class SiteController extends Controller
                     $duration = (float) str_replace(["#EXTINF:", ","], "", $val);
                 }
             }
-            var_dump($chunks);
-            die;
             $order->name->update([
                 'chunks' => serialize($chunks)
             ]);
