@@ -120,7 +120,7 @@ var player = videojs("video", {
 }, function () {
   var that = this;
   this.on("ended", function () {
-    console.log("ended", that);
+    console.log("ended", that, step);
     ++step;
 
     if (step == 2) {
