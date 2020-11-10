@@ -152,7 +152,7 @@ var player = videojs(
                 setTimeout(function() {
                     document.getElementById("hover").style.zIndex = "-1";
                     document.getElementById("hover").style.opacity = "0";
-                }, photo_duration * 1000);
+                }, (photo_duration * 1000) + 1500);
             }
             if (step >= 4) {
                 document.getElementById("hover2").style.zIndex = "-1";
