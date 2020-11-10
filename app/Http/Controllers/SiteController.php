@@ -110,7 +110,8 @@ class SiteController extends Controller
      */
     public function video(Request $request, $hash)
     {
-        return view('video', ['hash' => $hash]);
+        $order = Order::where('hash', $hash)->first();
+        return view('video', ['hash' => $hash, 'order' => $order]);
     }
 
     /**
@@ -121,7 +122,7 @@ class SiteController extends Controller
     public function playlistI(Request $request, $hash)
     {
         $order = Order::where('hash', $hash)->first();
-        
+
         if ($order->name->chunks) {
             $chunks = unserialize($order->name->chunks);
         } else {
@@ -151,7 +152,7 @@ class SiteController extends Controller
             if ($key) $nameChunk .= PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-                "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/" . $order->name->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+            "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/" . $order->name->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
 
 
@@ -169,10 +170,10 @@ class SiteController extends Controller
 
         $photo = '';
         $photoChunk = '';
-        if($order->photo){
+        if ($order->photo) {
             $photoChunk = "#EXTINF:4.821," . PHP_EOL .
-            "#EXT-X-DISCONTINUITY" . PHP_EOL .
-            "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iv/all%20%281280xauto%29.mp4/media_0.ts";
+                "#EXT-X-DISCONTINUITY" . PHP_EOL .
+                "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iv/all%20%281280xauto%29.mp4/media_0.ts";
         }
 
         if ($order->achieve->chunks) {

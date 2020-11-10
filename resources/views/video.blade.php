@@ -23,6 +23,7 @@
     </video>
     <script>
         var hash = "{{ $hash }}";
+        var photo = "{{ $order->photo }}";
     </script>
     <script src="/js/video.js?v=1.01"></script>
 </body>
