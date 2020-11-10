@@ -127,21 +127,19 @@ var player = videojs("video", {
   this.on("canplay", function () {
     if (step == 2) {
       that.play();
-      alert(5);
       setTimeout(function () {
         document.getElementById("hover").style.zIndex = "-1";
       }, photo_duration * 1000);
     }
   });
-  this.on("loadedmetadata", function () {
-    if (step == 2) {
-      setTimeout(function () {
-        that.play();
-        setTimeout(function () {
-          document.getElementById("hover").style.zIndex = "-1";
-        }, photo_duration * 1000);
-      }, 1200);
-    }
+  this.on("loadedmetadata", function () {// if (step == 2) {
+    //     setTimeout(function() {
+    //         that.play();
+    //         setTimeout(function() {
+    //             document.getElementById("hover").style.zIndex = "-1";
+    //         }, photo_duration * 1000);
+    //     }, 1200);
+    // }
   });
   this.on("play", function () {
     console.log("play", step);
