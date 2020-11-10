@@ -23,4 +23,29 @@ class Order extends Model
     {
         return $query->where('status', 'new');
     }
+
+    public function name()
+    {
+        return $this->belongsTo('App\Models\Name');
+    }
+
+    public function achieve()
+    {
+        return $this->belongsTo('App\Models\Achieve');
+    }
+
+    public function hobby()
+    {
+        return $this->belongsTo('App\Models\Hobby');
+    }
+
+    public function from()
+    {
+        return $this->belongsTo('App\Models\From');
+    }
+
+    public function gift()
+    {
+        return $this->belongsTo('App\Models\Gift');
+    }
 }

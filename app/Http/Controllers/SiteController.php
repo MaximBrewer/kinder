@@ -120,9 +120,41 @@ class SiteController extends Controller
      */
     public function playlistI(Request $request, $hash)
     {
-        $nameChunk = "#EXTINF:2.861," . PHP_EOL .
-            "#EXT-X-DISCONTINUITY" . PHP_EOL .
-            "//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/1%20%281280xauto%29.mp4/media_0.ts";
+        $order = Order::where('hash', $hash)->first();
+
+        if ($order->name->chunks) {
+            $chunks = unserialize($order->name->chunks);
+        } else {
+            $chunks = [];
+            $res = file_get_contents("https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/" . $order->name->id . "%20%281280xauto%29.mp4/chunklist.m3u8");
+            $lines = explode("\r\n", $res);
+            $next = false;
+            $duration = 0;
+            foreach ($lines as $val) {
+                if ($next) {
+                    $next = false;
+                    $chunks[] = [$duration, $val];
+                    $duration = 0;
+                }
+                if (strstr($val, "#EXTINF")) {
+                    $next = true;
+                    $duration = trim(',', explode(":", $val)[1]);
+                }
+            }
+            $order->name->update([
+                'chunks' => serialize($chunks)
+            ]);
+        }
+        $nameChunk = "";
+
+        foreach ($chunks as $key => $chunk) {
+            if ($key) $nameChunk .= PHP_EOL;
+            $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL .
+                "#EXT-X-DISCONTINUITY" . PHP_EOL .
+                "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/" . $order->name->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+        }
+
+
         return view('playlist-i', ['nameChunk' => $nameChunk]);
     }
 
@@ -133,10 +165,16 @@ class SiteController extends Controller
      */
     public function playlistII(Request $request, $hash)
     {
-        $nameChunk = "#EXTINF:2.861," . PHP_EOL .
+        $order = Order::where('hash', $hash)->first();
+        $achieveChunk = "#EXTINF:2.861," . PHP_EOL .
             "#EXT-X-DISCONTINUITY" . PHP_EOL .
             "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/kamil-1024.mp4/media_0.ts";
-        return view('playlist-ii', ['nameChunk' => $nameChunk]);
+
+
+        return view('playlist-ii', [
+            'achieveChunk' => $achieveChunk,
+            'hobbyChunk' => $hobbyChunk
+        ]);
     }
 
     /**
