@@ -96,8 +96,13 @@
 var step = 1;
 
 var chooseBall = function chooseBall(e) {
+  var color = "red";
+
   if (e.changedTouches) {
-    window.innerWidth * 0.375 > e.changedTouches[0].clientX ? console.log("gold") : window.innerWidth - window.innerWidth * 0.375 < e.changedTouches[0].clientX ? console.log("red") : console.log("silver");
+    window.innerWidth * 0.375 > e.changedTouches[0].clientX ? color = "gold" : window.innerWidth - window.innerWidth * 0.375 > ƒ;
+    e.changedTouches[0].clientX ? color = "red" : color = "silver";
+  } else {
+    console.log(e);
   }
 };
 
