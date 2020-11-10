@@ -99,7 +99,7 @@ var chooseBall = function chooseBall(e) {
   console.log(e);
 
   if (e.changedTouches) {
-    console.log(e.changedTouches[0].clientX);
+    window.innerWidth * 0.375 < e.changedTouches[0].clientX ? console.log("gold") : window.innerWidth - window.innerWidth * 0.375 > e.changedTouches[0].clientX ? console.log("red") : onsole.log("silver");
   }
 };
 

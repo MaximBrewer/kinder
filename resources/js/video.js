@@ -1,11 +1,15 @@
 var step = 1;
 
-var chooseBall = function(e){
-    console.log(e)
-    if(e.changedTouches){
-        console.log(e.changedTouches[0].clientX)
+var chooseBall = function(e) {
+    console.log(e);
+    if (e.changedTouches) {
+        window.innerWidth * 0.375 < e.changedTouches[0].clientX
+            ? console.log("gold")
+            : window.innerWidth - window.innerWidth * 0.375 > e.changedTouches[0].clientX
+            ? console.log("red")
+            : onsole.log("silver");
     }
-}
+};
 var player = videojs(
     "video",
     {
@@ -54,8 +58,9 @@ var player = videojs(
                     "no-repeat";
                 document.getElementById("photoFrame2").style.backgroundSize =
                     "auto 92%";
-                document.getElementById("photoFrame2").style.backgroundPosition =
-                    "top left 57%";
+                document.getElementById(
+                    "photoFrame2"
+                ).style.backgroundPosition = "top left 57%";
                 document.getElementById("hover2").style.zIndex = "10";
                 that.src({
                     src:
@@ -63,8 +68,12 @@ var player = videojs(
                     type: "application/x-mpegURL"
                 });
                 that.play();
-                document.getElementById("photoFrame2").addEventListener("click", chooseBall);
-                document.getElementById("photoFrame2").addEventListener("touchstart", chooseBall);
+                document
+                    .getElementById("photoFrame2")
+                    .addEventListener("click", chooseBall);
+                document
+                    .getElementById("photoFrame2")
+                    .addEventListener("touchstart", chooseBall);
                 // document.getElementById("photoFrame").style.transform =
                 //     "scale(2)";
                 // document.getElementById("photoFrame").style.transition =
