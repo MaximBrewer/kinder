@@ -127,6 +127,7 @@ var player = videojs("video", {
   this.on("canplay", function () {
     if (step == 2) {
       that.play();
+      alert(5);
       setTimeout(function () {
         document.getElementById("hover").style.zIndex = "-1";
       }, photo_duration * 1000);
