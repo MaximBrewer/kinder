@@ -49,22 +49,23 @@ var player = videojs(
             ++step;
             console.log("ended", that, step);
             if (step == 2) {
+                if (photo) {
+                    document.getElementById(
+                        "photoFrame"
+                    ).style.backgroundImage = "url(" + photo + ")";
+                    document.getElementById("hover").style.zIndex = "10";
+                    document.getElementById("hover").style.opacity = "1";
+                }
                 document.getElementById("photoFrame").style.transform =
                     "scale(1.4)";
                 document.getElementById("photoFrame").style.transition =
                     "transform 10s linear";
-                document.getElementById("photoFrame").style.backgroundImage =
-                    "url(" + photo + ")";
                 document.getElementById("photoFrame").style.backgroundRepeat =
                     "no-repeat";
                 document.getElementById("photoFrame").style.backgroundSize =
                     "auto 92%";
                 document.getElementById("photoFrame").style.backgroundPosition =
                     "top left 57%";
-                if (photo) {
-                    document.getElementById("hover").style.zIndex = "10";
-                    document.getElementById("hover").style.opacity = "1";
-                }
                 that.src({
                     src: "/playlist-ii/" + hash + ".m3u8",
                     type: "application/x-mpegURL"
@@ -152,7 +153,7 @@ var player = videojs(
                 setTimeout(function() {
                     document.getElementById("hover").style.zIndex = "-1";
                     document.getElementById("hover").style.opacity = "0";
-                }, (photo_duration * 1000) + 1500);
+                }, photo_duration * 1000 + 1500);
             }
             if (step >= 4) {
                 document.getElementById("hover2").style.zIndex = "-1";

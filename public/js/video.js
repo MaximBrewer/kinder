@@ -135,18 +135,17 @@ var player = videojs("video", {
     console.log("ended", that, step);
 
     if (step == 2) {
-      document.getElementById("photoFrame").style.transform = "scale(1.4)";
-      document.getElementById("photoFrame").style.transition = "transform 10s linear";
-      document.getElementById("photoFrame").style.backgroundImage = "url(" + photo + ")";
-      document.getElementById("photoFrame").style.backgroundRepeat = "no-repeat";
-      document.getElementById("photoFrame").style.backgroundSize = "auto 92%";
-      document.getElementById("photoFrame").style.backgroundPosition = "top left 57%";
-
       if (photo) {
+        document.getElementById("photoFrame").style.backgroundImage = "url(" + photo + ")";
         document.getElementById("hover").style.zIndex = "10";
         document.getElementById("hover").style.opacity = "1";
       }
 
+      document.getElementById("photoFrame").style.transform = "scale(1.4)";
+      document.getElementById("photoFrame").style.transition = "transform 10s linear";
+      document.getElementById("photoFrame").style.backgroundRepeat = "no-repeat";
+      document.getElementById("photoFrame").style.backgroundSize = "auto 92%";
+      document.getElementById("photoFrame").style.backgroundPosition = "top left 57%";
       that.src({
         src: "/playlist-ii/" + hash + ".m3u8",
         type: "application/x-mpegURL"
