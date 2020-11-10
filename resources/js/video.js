@@ -30,7 +30,7 @@ var player = videojs(
                 document.getElementById("photoFrame").style.backgroundSize =
                     "auto 92%";
                 document.getElementById("photoFrame").style.backgroundPosition =
-                    "top left 57%;";
+                    "top left 57%";
                 if (photo) document.getElementById("hover").style.zIndex = "10";
                 // that.src({
                 //     src: "/playlist-ii/" + hash + ".m3u8",
