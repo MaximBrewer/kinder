@@ -99,11 +99,11 @@ var chooseBall = function chooseBall(e) {
   var color = "red";
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   window.innerWidth * 0.375 > clientX ? color = "gold" : window.innerWidth - window.innerWidth * 0.375 > clientX ? color = "red" : color = "silver";
-  that.src({
+  player.src({
     src: "/playlist-iii/" + color + ".m3u8",
     type: "application/x-mpegURL"
   });
-  that.play();
+  player.play();
 };
 
 var player = videojs("video", {

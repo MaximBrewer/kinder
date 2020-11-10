@@ -8,11 +8,11 @@ var chooseBall = function(e) {
         : window.innerWidth - window.innerWidth * 0.375 > clientX
         ? (color = "red")
         : (color = "silver");
-    that.src({
+    player.src({
         src: "/playlist-iii/" + color + ".m3u8",
         type: "application/x-mpegURL"
     });
-    that.play();
+    player.play();
 };
 var player = videojs(
     "video",
