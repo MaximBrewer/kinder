@@ -98,8 +98,7 @@ var step = 1;
 var chooseBall = function chooseBall(e) {
   var color = "red";
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-  window.innerWidth * 0.375 > clientX ? color = "gold" : window.innerWidth - window.innerWidth * 0.375 > ƒ;
-  clientX ? color = "red" : color = "silver";
+  window.innerWidth * 0.375 > clientX ? color = "gold" : window.innerWidth - window.innerWidth * 0.375 > clientX ? color = "red" : color = "silver";
   console.log(color);
 };
 
