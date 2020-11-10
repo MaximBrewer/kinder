@@ -107,8 +107,8 @@ var player = videojs(
         this.on("renditionenabled", function() {
             console.log("renditionenabled", that);
         });
-        this.on("progress", function() {
-            console.log("progress", that);
+        this.on("progress", function(e) {
+            console.log("progress", e);
         });
         this.on("syncinfoupdate", function() {
             console.log("syncinfoupdate", that);
