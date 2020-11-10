@@ -87,12 +87,19 @@ class SiteController extends Controller
             'news' => $request->news == 'true' ? 1 : (int)$request->news,
             'status' => 'new',
         ];
-        if ($request->file('photo')) {
-            $path = $request->file('photo')->store('public/orders');
-            $data['photo'] = str_replace("public/", "", $path);
-        }
-        Order::create($data);
+        $order = Order::create($data);
 
+        if ($request->file('photo')) {
+            $path = $request->file('photo')->store('public/orders/' . $order->id);
+            $data['photo'] = str_replace("public/", "", $path);
+            $fullpath = $_SERVER['DOCUMENT_ROOT'] . '/storage/app/' . $path;
+            exec("convert $fullpath -resize 500x500\> $fullpath");
+            exec("jpegoptim $fullpath -m85 --strip-all");
+        }
+
+        $order->update([
+            "photo" => $data['photo']
+        ]);
 
         return [];
     }
