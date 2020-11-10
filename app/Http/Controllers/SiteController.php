@@ -92,7 +92,7 @@ class SiteController extends Controller
         if ($request->file('photo')) {
             $path = $request->file('photo')->store('public/orders/' . $order->id);
             $data['photo'] = str_replace("public/", "", $path);
-            $fullpath = $_SERVER['DOCUMENT_ROOT'] . '/storage/app/' . $path;
+            $fullpath = $_SERVER['DOCUMENT_ROOT'] . '/../storage/app/' . $path;
             exec("convert $fullpath -resize 500x500\> $fullpath");
             exec("jpegoptim $fullpath -m85 --strip-all");
         }
