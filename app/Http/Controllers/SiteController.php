@@ -121,7 +121,7 @@ class SiteController extends Controller
     public function playlistI(Request $request, $hash)
     {
         $order = Order::where('hash', $hash)->first();
-var_dump($order->name);die;
+var_dump($order->name_id);die;
         if ($order->name->chunks) {
             $chunks = unserialize($order->name->chunks);
         } else {
