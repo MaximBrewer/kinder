@@ -81,6 +81,7 @@ var player = videojs(
             }
         });
         this.on("canplay", function() {
+            if (document.getElementById("hover2").style.zIndex == 10) step = 4;
             if (step == 2) {
                 setTimeout(function() {
                     document.getElementById("hover").style.zIndex = "-1";
