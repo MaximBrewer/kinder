@@ -22,7 +22,7 @@ var player = videojs(
                 document.getElementById("photoFrame").style.transform =
                     "scale(2)";
                 document.getElementById("photoFrame").style.transition =
-                    "10s linear";
+                    "transform 10s linear";
                 document.getElementById("photoFrame").style.backgroundImage =
                     "url(" + photo + ")";
                 document.getElementById("photoFrame").style.backgroundRepeat =
