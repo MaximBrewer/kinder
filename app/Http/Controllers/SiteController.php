@@ -101,7 +101,7 @@ class SiteController extends Controller
             "photo" => $data['photo']
         ]);
 
-        return [];
+        return $fullpath;
     }
     /**
      * Show the application dashboard.
