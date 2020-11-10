@@ -152,7 +152,7 @@ class SiteController extends Controller
             if ($key) $nameChunk .= PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/" . $order->name->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+            $nameChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_ii/" . $order->name->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
 
         $photo = '';
