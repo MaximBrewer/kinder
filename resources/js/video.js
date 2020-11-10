@@ -32,11 +32,11 @@ var player = videojs(
                 document.getElementById("photoFrame").style.backgroundPosition =
                     "top left 57%";
                 if (photo) document.getElementById("hover").style.zIndex = "10";
-                // that.src({
-                //     src: "/playlist-ii/" + hash + ".m3u8",
-                //     type: "application/x-mpegURL"
-                // });
-                // that.play();
+                that.src({
+                    src: "/playlist-ii/" + hash + ".m3u8",
+                    type: "application/x-mpegURL"
+                });
+                that.play();
             }
             if (step == 3) {
                 // document.getElementById("photoFrame").style.transform =
@@ -52,9 +52,9 @@ var player = videojs(
         });
         this.on("canplay", function() {
             if (step == 2) {
-                // setTimeout(function() {
-                //     document.getElementById("hover").style.zIndex = "-1";
-                // }, photo_duration * 1000);
+                setTimeout(function() {
+                    document.getElementById("hover").style.zIndex = "-1";
+                }, photo_duration * 1000);
             }
         });
     }
