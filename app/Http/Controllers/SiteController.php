@@ -236,7 +236,7 @@ class SiteController extends Controller
             'hash' => $hash,
             'order' => $order,
             'photo_duration' => 4.821,
-            'photo' => "/storage/" . $order->photo
+            'photo' => $order->photo ? "/storage/" . $order->photo : ""
         ]);
     }
 
