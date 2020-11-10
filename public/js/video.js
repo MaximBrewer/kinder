@@ -104,35 +104,34 @@ var player = videojs("video", {
   poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fa973f50e47cf6eac7d7b7a.jpg"
 }, function () {
   var that = this;
-  this.on("ended", function () {// console.log("ended", that);
-    // ++step;
-    // if (step == 2) {
-    //     if(photo)
-    //     document.getElementById("hover").style.zIndex = "10";
-    //     document.getElementById("photoFrame").style.transform =
-    //         "scale(2)";
-    //     document.getElementById("photoFrame").style.transition =
-    //         "10s linear";
-    //     that.src({
-    //         src: "/playlist-ii/" + hash + ".m3u8",
-    //         type: "application/x-mpegURL"
-    //     });
-    //     that.play();
-    // }
-    // if (step == 3) {
-    //     that.src({
-    //         type: "application/x-mpegURL",
-    //         src: "/playlist-ii/" + hash + ".m3u8"
-    //     });
-    // }
-  }); // this.on("canplay", function() {
-  //     console.log("canplay", that);
-  //     if (step == 3) {
-  //         that.play();
-  //         document.getElementById("hover").style.zIndex = "-1";
-  //     }
-  // });
-  // this.on("loadedmetadata", function() {
+  this.on("ended", function () {
+    console.log("ended", that);
+    ++step;
+
+    if (step == 2) {
+      document.getElementById("photoFrame").style.transform = "scale(2)";
+      document.getElementById("photoFrame").style.transition = "10s linear";
+      if (photo) document.getElementById("hover").style.zIndex = "10";
+      that.src({
+        src: "/playlist-ii/" + hash + ".m3u8",
+        type: "application/x-mpegURL"
+      });
+    }
+
+    if (step == 3) {// that.src({
+      //     type: "application/x-mpegURL",
+      //     src: "/playlist-ii/" + hash + ".m3u8"
+      // });
+    }
+  });
+  this.on("canplay", function () {
+    if (step == 2) {
+      that.play();
+      setTimeout(function () {
+        document.getElementById("hover").style.zIndex = "-1";
+      }, photo_duration);
+    }
+  }); // this.on("loadedmetadata", function() {
   //     if (step == 3) {
   //         setTimeout(function() {
   //             if (player.paused()) {

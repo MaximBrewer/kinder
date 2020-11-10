@@ -14,7 +14,7 @@
 
 <body style="margin:0px">
     <div id="hover" style="overflow:hidden;display:flex;justify-content:center;align-items:center;background-color:#000000;position:absolute;top:0;left:0;z-index:-1;width:100vw;height:100vh;">
-        <div id="photoFrame" style="text-align:center;"><img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_iv/photo.png" alt="" style="max-width:100%;"/></div>
+        <div id="photoFrame" style="text-align:center;"><img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_iv/photo.png" alt="" style="max-width:100%;" /></div>
     </div>
     <video id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered vjs-nofull" webkit-playsinline playsinline>
         <p class="vjs-no-js">
@@ -22,8 +22,9 @@
         </p>
     </video>
     <script>
-        var hash = "{{ $hash }}";
-        var photo = "/storage/{{ $order->photo }}";
+        var hash = "{{ $hash }}",
+            photo = "{{ $photo }}",
+            photo_duration = "{{ $photo_duration }}";
     </script>
     <script src="/js/video.js?v=1.01"></script>
 </body>
