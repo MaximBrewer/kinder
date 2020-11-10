@@ -246,7 +246,7 @@ class SiteController extends Controller
     public function playlistII(Request $request, $hash)
     {
         $order = Order::where('hash', $hash)->first();
-        
+
         $photoChunk = '';
         if ($order->photo) {
             $photoChunk = "#EXTINF:4.821," . PHP_EOL .
@@ -274,7 +274,7 @@ class SiteController extends Controller
             $hobbyChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_vi/" . $order->hobby->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
 
-        return view('playlist-i', [
+        return view('playlist-ii', [
             'photoChunk' => $photoChunk,
             'achieveChunk' => $achieveChunk,
             'hobbyChunk' => $hobbyChunk
