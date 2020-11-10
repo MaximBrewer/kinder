@@ -20,6 +20,7 @@ Route::get('/video/{hash}', '\App\Http\Controllers\SiteController@video');
 Route::get('/playlist-i/{hash}.m3u8', '\App\Http\Controllers\SiteController@playlistI');
 Route::get('/playlist-ii/{hash}.m3u8', '\App\Http\Controllers\SiteController@playlistII');
 Route::get('/playlist-iii/{color}.m3u8', '\App\Http\Controllers\SiteController@playlistIII');
+Route::get('/playlist-iv/{hash}.m3u8', '\App\Http\Controllers\SiteController@playlistIV');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

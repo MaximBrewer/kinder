@@ -207,6 +207,75 @@ class SiteController extends Controller
             if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
             $hobbyChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_vi/" . $order->hobby->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
+
+
+
+        if ($order->gift->chunks) {
+            $chunks = unserialize($order->gift->chunks);
+        } else {
+            $chunks = [];
+            $res = file_get_contents("https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_xiii/" . $order->gift->id . "%20%281280xauto%29.mp4/chunklist.m3u8");
+            $lines = explode(PHP_EOL, $res);
+            $next = false;
+            $duration = 0;
+            foreach ($lines as $val) {
+                if ($next) {
+                    $next = false;
+                    $chunks[] = [$duration, $val];
+                    $duration = 0;
+                }
+                if (strstr($val, "#EXTINF")) {
+                    $next = true;
+                    $duration = (float) str_replace(["#EXTINF:", ","], "", $val);
+                }
+            }
+            $order->gift->update([
+                'chunks' => serialize($chunks)
+            ]);
+        }
+
+        $giftChunk = "";
+
+        foreach ($chunks as $key => $chunk) {
+            if ($key) $giftChunk .= PHP_EOL;
+            $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) $giftChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $giftChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_xiii/" . $order->gift->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+        }
+
+        if ($order->from->chunks) {
+            $chunks = unserialize($order->from->chunks);
+        } else {
+            $chunks = [];
+            $res = file_get_contents("https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_xiv/" . $order->from->id . "%20%281280xauto%29.mp4/chunklist.m3u8");
+            $lines = explode(PHP_EOL, $res);
+            $next = false;
+            $duration = 0;
+            foreach ($lines as $val) {
+                if ($next) {
+                    $next = false;
+                    $chunks[] = [$duration, $val];
+                    $duration = 0;
+                }
+                if (strstr($val, "#EXTINF")) {
+                    $next = true;
+                    $duration = (float) str_replace(["#EXTINF:", ","], "", $val);
+                }
+            }
+            $order->from->update([
+                'chunks' => serialize($chunks)
+            ]);
+        }
+
+        $fromChunk = "";
+
+        foreach ($chunks as $key => $chunk) {
+            if ($key) $fromChunk .= PHP_EOL;
+            $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) $fromChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $fromChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_xiv/" . $order->from->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+        }
+
         return view('video', [
             'hash' => $hash,
             'order' => $order,
@@ -278,6 +347,44 @@ class SiteController extends Controller
             'photoChunk' => $photoChunk,
             'achieveChunk' => $achieveChunk,
             'hobbyChunk' => $hobbyChunk
+        ]);
+    }
+
+
+
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function playlistIV(Request $request, $hash)
+    {
+        $order = Order::where('hash', $hash)->first();
+
+        $chunks = unserialize($order->gift->chunks);
+        $giftChunk = "";
+
+        foreach ($chunks as $key => $chunk) {
+            if ($key) $giftChunk .= PHP_EOL;
+            $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) $giftChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $giftChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_xiii/" . $order->gift->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+        }
+
+        $chunks = unserialize($order->from->chunks);
+        $fromChunk = "";
+
+        foreach ($chunks as $key => $chunk) {
+            if ($key) $fromChunk .= PHP_EOL;
+            $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) $fromChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $fromChunk .= "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_xiv/" . $order->from->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+        }
+
+        return view('playlist-iv', [
+            'giftChunk' => $giftChunk,
+            'fromChunk' => $fromChunk
         ]);
     }
 
