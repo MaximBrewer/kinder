@@ -113,8 +113,8 @@ var player = videojs("video", {
       document.getElementById("photoFrame").style.transform = "scale(2)";
       document.getElementById("photoFrame").style.transition = "10s linear";
       that.src({
-        type: "audio/mp4",
-        src: "https://montage-cache.cdnvideo.ru/montage/kinder/part_iv/photo.m4a"
+        src: "/playlist-ii/" + hash + ".m3u8",
+        type: "application/x-mpegURL"
       });
       that.play();
     }

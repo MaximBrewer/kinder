@@ -3,8 +3,7 @@
 #EXT-X-MEDIA-SEQUENCE:0
 #EXT-X-TARGETDURATION:12
 #EXT-X-PLAYLIST-TYPE:EVENT
-#EXTINF:1.8,
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_iv/all%20%281280xauto%29.mp4/media_0.ts
+{{ $photoChunk }}
 {{ $achieveChunk }}
 {{ $hobbyChunk }}
 #EXTINF:7.808,
