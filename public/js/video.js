@@ -99,6 +99,7 @@ var chooseBall = function chooseBall(e) {
   var color = "red";
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   window.innerWidth * 0.375 > clientX ? color = "gold" : window.innerWidth - window.innerWidth * 0.375 > clientX ? color = "red" : color = "silver";
+  step = 4;
   player.src({
     src: "/playlist-iii/" + color + ".m3u8",
     type: "application/x-mpegURL"
@@ -152,8 +153,6 @@ var player = videojs("video", {
     }
   });
   this.on("canplay", function () {
-    if (document.getElementById("hover2").style.zIndex == 10) step = 4;
-
     if (step == 2) {
       setTimeout(function () {
         document.getElementById("hover").style.zIndex = "-1";

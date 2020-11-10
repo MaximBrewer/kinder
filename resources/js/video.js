@@ -8,6 +8,7 @@ var chooseBall = function(e) {
         : window.innerWidth - window.innerWidth * 0.375 > clientX
         ? (color = "red")
         : (color = "silver");
+    step = 4;
     player.src({
         src: "/playlist-iii/" + color + ".m3u8",
         type: "application/x-mpegURL"
@@ -81,7 +82,6 @@ var player = videojs(
             }
         });
         this.on("canplay", function() {
-            if (document.getElementById("hover2").style.zIndex == 10) step = 4;
             if (step == 2) {
                 setTimeout(function() {
                     document.getElementById("hover").style.zIndex = "-1";
