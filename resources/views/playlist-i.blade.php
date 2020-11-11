@@ -4,19 +4,19 @@
 #EXT-X-TARGETDURATION:12
 #EXT-X-PLAYLIST-TYPE:EVENT
 #EXTINF:10.8,
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/100.mp4/media_0.ts
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/102.mp4/media_0.ts
 #EXTINF:10.8,
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/100.mp4/media_1.ts
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/102.mp4/media_1.ts
 #EXTINF:10.8,
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/100.mp4/media_2.ts
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/102.mp4/media_2.ts
 #EXTINF:10.8,
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/100.mp4/media_3.ts
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/102.mp4/media_3.ts
 #EXTINF:10.8,
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/100.mp4/media_4.ts
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/102.mp4/media_4.ts
 #EXTINF:10.8,
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/100.mp4/media_5.ts
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/102.mp4/media_5.ts
 #EXTINF:6.8,
-//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/100.mp4/media_6.ts
+//montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/part_i/102.mp4/media_6.ts
 {{ $nameChunk }}
 #EXTINF:10.8,
 #EXT-X-DISCONTINUITY
