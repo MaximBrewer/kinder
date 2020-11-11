@@ -217,6 +217,7 @@ var player = videojs("video", {
   });
   this.on("play", function () {
     console.log("play", step);
+    console.log(that.currentTime);
     window.scrollTo(0, 1);
   });
   this.on("firstplay", function () {
