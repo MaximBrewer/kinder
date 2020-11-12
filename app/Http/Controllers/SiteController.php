@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 
 class SiteController extends Controller
@@ -128,12 +129,12 @@ class SiteController extends Controller
         }
         DB::connection()->enableQueryLog();
         $data['chunks' . $resolution] = serialize($chunks);
-        Log::info($entity->update($data));
+        Log::notice($entity->update($data));
         var_dump($data);
         die;
         return $summ;
         $queries = DB::getQueryLog();
-        Log::info($queries);
+        Log::notice($queries);
     }
 
 
