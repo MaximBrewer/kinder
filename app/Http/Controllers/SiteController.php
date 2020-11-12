@@ -220,13 +220,6 @@ class SiteController extends Controller
             $nameChunk .= $this->cdn . "part_ii/" . $order->name->id . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
 
-        $photoChunk = '';
-        if ($order->photo) {
-            $photoChunk = "#EXTINF:4.821," . PHP_EOL .
-                "#EXT-X-DISCONTINUITY" . PHP_EOL .
-                $this->cdn . "part_iv/all%20%28" . $resolution . "xauto%29.mp4/media_0.ts";
-        }
-
         $chunks = unserialize($order->achieve->{"chunks" . $resolution});
         $achieveChunk = "";
 
@@ -269,7 +262,7 @@ class SiteController extends Controller
 
         $partIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
         $partIIIChunk = view('chunks.part_iii.' . $resolution, ['cdn' => $this->cdn]);
-        $partIVChunk = view('chunks.part_iv.' . $resolution, ['cdn' => $this->cdn]);
+        $partIVChunk = $order->photo ? view('chunks.part_iv.' . $resolution, ['cdn' => $this->cdn]) : PHP_EOL;
         $partVIIChunk = view('chunks.part_vii.' . $resolution, ['cdn' => $this->cdn]);
         $partVIIIChunk = view('chunks.part_viii.' . $resolution, ['cdn' => $this->cdn]);
         $partIXChunk = view('chunks.part_ix.' . $resolution, ['cdn' => $this->cdn]);
