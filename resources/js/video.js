@@ -92,10 +92,16 @@ var removePhoto = function() {
 
 var setPhoto = function() {
     console.log("setPhoto");
+    var ct = player.currentTime();
+    var tp =
+        part_i_duration +
+        part_ii_duration +
+        part_iii_duration +
+        part_iv_duration;
     clearTimeout(timeoutRemovePhoto);
     timeoutRemovePhoto = setTimeout(function() {
         removePhoto();
-    }, part_iv_duration * 1000);
+    }, (tp - ct) * 1000);
 };
 
 var setBall = function() {
