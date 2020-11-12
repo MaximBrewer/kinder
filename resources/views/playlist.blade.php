@@ -5,4 +5,7 @@
 #EXT-X-PLAYLIST-TYPE:EVENT
 {{ $partIChunk }}
 {{ $nameChunk }}
+{{ $partIIIChunk }}
+{{ $partIVChunk }}
+{{ $achieveChunk }}
 #EXT-X-ENDLIST

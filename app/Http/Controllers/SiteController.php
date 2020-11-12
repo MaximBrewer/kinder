@@ -268,17 +268,17 @@ class SiteController extends Controller
         }
 
         $partIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partIIIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partIVChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partVIIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partVIIIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partIXChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partXChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partXIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partXIIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partXVChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partXVIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partXVIIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partIIIChunk = view('chunks.part_iii.' . $resolution, ['cdn' => $this->cdn]);
+        $partIVChunk = view('chunks.part_iv.' . $resolution, ['cdn' => $this->cdn]);
+        $partVIIChunk = view('chunks.part_vii.' . $resolution, ['cdn' => $this->cdn]);
+        $partVIIIChunk = view('chunks.part_viii.' . $resolution, ['cdn' => $this->cdn]);
+        $partIXChunk = view('chunks.part_ix.' . $resolution, ['cdn' => $this->cdn]);
+        $partXChunk = view('chunks.part_x.' . $resolution, ['cdn' => $this->cdn]);
+        $partXIChunk = view('chunks.part_xi.' . $resolution, ['cdn' => $this->cdn]);
+        $partXIIChunk = view('chunks.part_xii.' . $resolution, ['cdn' => $this->cdn]);
+        $partXVChunk = view('chunks.part_xv.' . $resolution, ['cdn' => $this->cdn]);
+        $partXVIChunk = view('chunks.part_xvi.' . $resolution, ['cdn' => $this->cdn]);
+        $partXVIIChunk = view('chunks.part_xvii.' . $resolution, ['cdn' => $this->cdn]);
 
         return view('playlist', [
             'partIChunk' => $partIChunk,
