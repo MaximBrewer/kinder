@@ -91,7 +91,8 @@ var removePhoto = function() {
 };
 
 var setPhoto = function() {
-    console.log("setPhoto");
+    console.log(player);
+    
     var ct = player.currentTime();
     var tp =
         part_i_duration +

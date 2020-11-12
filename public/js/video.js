@@ -176,7 +176,7 @@ var removePhoto = function removePhoto() {
 };
 
 var setPhoto = function setPhoto() {
-  console.log("setPhoto");
+  console.log(player);
   var ct = player.currentTime();
   var tp = part_i_duration + part_ii_duration + part_iii_duration + part_iv_duration;
   clearTimeout(timeoutRemovePhoto);
