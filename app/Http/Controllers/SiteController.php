@@ -126,7 +126,7 @@ class SiteController extends Controller
             }
         }
         $data['chunks' . $resolution] = serialize($chunks);
-        $entity->update($data);
+        \App\Models\Name::find($entity->id)::update($data);
         var_dump($data);
         die;
         return $summ;
