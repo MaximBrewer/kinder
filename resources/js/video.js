@@ -57,7 +57,7 @@ var checkTimeouts = function() {
         if (ct < tp) {
             timeoutPhoto = setTimeout(function() {
                 setPhoto();
-            }, tp - ct);
+            }, (tp - ct) * 1000);
         } else if (ct < tp + part_iv_duration) {
             setPhoto();
         }
@@ -72,18 +72,22 @@ var checkTimeouts = function() {
         part_vi_duration +
         part_vii_duration +
         part_viii_duration;
+
+    console.log(tb - ct);
     if (ct < tb) {
         timeoutBall = setTimeout(function() {
             setBall();
-        }, tb - ct);
+        }, (tb - ct) * 1000);
     } else {
         // setBall()
     }
     var tg = tb + part_ix_duration + part_x_duration + part_xii_duration;
+
+    console.log(tg - ct);
     if (ct < tg) {
         timeoutGifts = setTimeout(function() {
             setGifts();
-        }, tp - ct);
+        }, (tp - ct) * 1000);
     } else {
         // setPhoto()
     }
@@ -99,10 +103,10 @@ var setPhoto = function() {
 
 var setBall = function() {
     console.log("setBall");
-    // player.pause()
+    player.pause()
 };
 
 var setGifts = function() {
     console.log("setGifts");
-    // player.pause()
+    player.pause()
 };
