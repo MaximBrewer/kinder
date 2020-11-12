@@ -271,6 +271,7 @@ class SiteController extends Controller
         $partIIIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
         $partIVChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
         $partVIIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partVIIIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
         $partIXChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
         $partXChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
         $partXIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
@@ -287,6 +288,7 @@ class SiteController extends Controller
             'achieveChunk' => $achieveChunk,
             'hobbyChunk' => $hobbyChunk,
             'partVIIChunk' => $partVIIChunk,
+            'partVIIIChunk' => $partVIIIChunk,
             'partIXChunk' => $partIXChunk,
             'partXChunk' => $partXChunk,
             'partXIChunk' => $partXIChunk,
