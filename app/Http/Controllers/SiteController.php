@@ -217,7 +217,7 @@ class SiteController extends Controller
             if ($key) $nameChunk .= PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $nameChunk .= $this->cdn . $order->name->id . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            $nameChunk .= $this->cdn . "part_iv/" . $order->name->id . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
 
         $photoChunk = '';
