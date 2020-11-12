@@ -14,34 +14,33 @@ var player = videojs(
     },
     function() {
         var that = this;
-        this.on("ended", function(e, that) {
-            checkTimeouts(e, that);
+        this.on("ended", function(){
+            checkTimeouts(that);
         });
-        this.on("play", function(e, that) {
-            checkTimeouts(e, that);
+        this.on("play", function(){
+            checkTimeouts(that);
         });
-        this.on("firstplay", function(e, that) {
-            checkTimeouts(e, that);
+        this.on("firstplay", function(){
+            checkTimeouts(that);
         });
-        this.on("change", function(e, that) {
-            checkTimeouts(e, that);
+        this.on("change", function(){
+            checkTimeouts(that);
         });
-        this.on("loadedmetadata", function(e, that) {
-            checkTimeouts(e, that);
+        this.on("loadedmetadata", function(){
+            checkTimeouts(that);
         });
-        this.on("progress", function(e, that) {
-            checkTimeouts(e, that);
+        this.on("progress", function(){
+            checkTimeouts(that);
         });
-        this.on("seeking", function(e, that) {
-            checkTimeouts(e, that);
+        this.on("seeking", function(){
+            checkTimeouts(that);
         });
-        this.on("seeked", function(e, that) {
-            checkTimeouts(e, that);
+        this.on("seeked", function(){
+            checkTimeouts(that);
         });
     }
 );
 
-var checkTimeouts = function(e, player) {
-    console.log(e)
-    console.log(player)
+var checkTimeouts = function(player) {
+    console.log(player.currentTime())
 };
