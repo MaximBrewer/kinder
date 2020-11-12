@@ -212,7 +212,7 @@ class SiteController extends Controller
         $order = Order::where('hash', $hash)->first();
         $chunks = unserialize($order->name->chunks);
         $nameChunk = "";
-var_dump($order->name->chunks);
+var_dump($order->name->id);
         foreach ($chunks as $key => $chunk) {
             if ($key) $nameChunk .= PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
