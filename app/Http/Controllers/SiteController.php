@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\View;
 
 
 class SiteController extends Controller
@@ -206,8 +207,9 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function playlistI(Request $request, $hash)
+    public function playlistI(Request $request, $hash, $resolution)
     {
+        $resolution = $resolution ? $resolution : 1280;
         $order = Order::where('hash', $hash)->first();
         $chunks = unserialize($order->name->chunks);
         $nameChunk = "";
@@ -216,28 +218,14 @@ class SiteController extends Controller
             if ($key) $nameChunk .= PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $nameChunk .= $this->cdn . $order->name->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+            $nameChunk .= $this->cdn . $order->name->id . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
-
-        return view('playlist-i', [
-            'nameChunk' => $nameChunk
-        ]);
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function playlistII(Request $request, $hash)
-    {
-        $order = Order::where('hash', $hash)->first();
 
         $photoChunk = '';
         if ($order->photo) {
             $photoChunk = "#EXTINF:4.821," . PHP_EOL .
                 "#EXT-X-DISCONTINUITY" . PHP_EOL .
-                $this->cdn . "part_iv/all%20%281280xauto%29.mp4/media_0.ts";
+                $this->cdn . "part_iv/all%20%28" . $resolution . "xauto%29.mp4/media_0.ts";
         }
 
         $chunks = unserialize($order->achieve->chunks);
@@ -247,7 +235,7 @@ class SiteController extends Controller
             if ($key) $achieveChunk .= PHP_EOL;
             $achieveChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $achieveChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+            $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->id . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->hobby->chunks);
@@ -259,25 +247,6 @@ class SiteController extends Controller
             if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
             $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
-
-        return view('playlist-ii', [
-            'photoChunk' => $photoChunk,
-            'achieveChunk' => $achieveChunk,
-            'hobbyChunk' => $hobbyChunk
-        ]);
-    }
-
-
-
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function playlistIV(Request $request, $hash)
-    {
-        $order = Order::where('hash', $hash)->first();
 
         $chunks = unserialize($order->gift->chunks);
         $giftChunk = "";
@@ -299,21 +268,36 @@ class SiteController extends Controller
             $fromChunk .= $this->cdn . "part_xv/" . $order->from->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
 
-        return view('playlist-iv', [
-            'giftChunk' => $giftChunk,
-            'fromChunk' => $fromChunk
-        ]);
-    }
+        $partIChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partIIIChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partIVChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partVIIChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partIXChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partXChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partXIChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partXIIChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partXVChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partXVIChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partXVIIChunk = View::first('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function playlistIII(Request $request, $color)
-    {
-        return view('playlist-iii', [
-            'color' => $color
+        return view('playlist', [
+            'partIChunk' => $partIChunk,
+            'nameChunk' => $nameChunk,
+            'partIIIChunk' => $partIIIChunk,
+            'partIVChunk' => $partIVChunk,
+            'achieveChunk' => $achieveChunk,
+            'hobbyChunk' => $hobbyChunk,
+            'partVIIChunk' => $partVIIChunk,
+            'partIXChunk' => $partIXChunk,
+            'partXChunk' => $partXChunk,
+            'partXIChunk' => $partXIChunk,
+            'partXIIChunk' => $partXIIChunk,
+            'giftChunk' => $giftChunk,
+            'fromChunk' => $fromChunk,
+            'partXVChunk' => $partXVChunk,
+            'partXVIChunk' => $partXVIChunk,
+            'partXVIIChunk' => $partXVIIChunk,
+            'cdn' => $this->cdn
         ]);
     }
 }
