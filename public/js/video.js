@@ -133,25 +133,55 @@ var timeoutBall;
 var timeoutGifts;
 
 var checkTimeouts = function checkTimeouts() {
-  console.log(player.currentTime());
+  var ct = player.currentTime();
+  var tp = part_i_duration + part_ii_duration + part_iii_duration;
   clearTimeout(timeoutBall);
   clearTimeout(timeoutPhoto);
   clearTimeout(timeoutGifts);
-  timeoutPhoto = setTimeout(setPhoto, 3000);
-  timeoutBall = setTimeout(setBall, 3000);
-  timeoutGifts = setTimeout(setGifts, 3000);
+
+  if (photo) {
+    if (ct < tp) {
+      timeoutPhoto = setTimeout(setPhoto, tp - ct);
+    } else if (ct < tp + part_iv_duration) {
+      setPhoto();
+    }
+
+    if (ct > tp + part_iv_duration) {
+      removePhoto();
+    }
+  }
+
+  var tb = tp + part_iv_duration + part_v_duration + part_vi_duration + part_vii_duration + part_viii_duration;
+
+  if (ct < tb) {
+    timeoutBall = setTimeout(setBall, tb - ct);
+  } else {// setBall()
+  }
+
+  var tg = tb + part_ix_duration + part_x_duration + part_xii_duration;
+
+  if (ct < tg) {
+    timeoutGifts = setTimeout(setGifts, tp - ct);
+  } else {// setPhoto()
+  }
+};
+
+var removePhoto = function removePhoto() {
+  console.log('removePhoto');
 };
 
 var setPhoto = function setPhoto() {
-  console.log(player);
+  console.log('setPhoto');
 };
 
 var setBall = function setBall() {
-  console.log(player);
+  console.log('setBall');
+  player.pause();
 };
 
 var setGifts = function setGifts() {
-  console.log(player);
+  console.log('setGifts');
+  player.pause();
 };
 
 /***/ }),
