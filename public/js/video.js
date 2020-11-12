@@ -128,9 +128,7 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
 });
-var timeoutPhoto;
-var timeoutBall;
-var timeoutGifts;
+var timeoutPhoto, timeoutRemovePhoto, timeoutBall, timeoutGifts;
 
 var checkTimeouts = function checkTimeouts() {
   var ct = player.currentTime();
@@ -138,7 +136,6 @@ var checkTimeouts = function checkTimeouts() {
   clearTimeout(timeoutBall);
   clearTimeout(timeoutPhoto);
   clearTimeout(timeoutGifts);
-  console.log(tp - ct);
 
   if (photo) {
     if (ct < tp) {
@@ -155,7 +152,6 @@ var checkTimeouts = function checkTimeouts() {
   }
 
   var tb = tp + part_iv_duration + part_v_duration + part_vi_duration + part_vii_duration + part_viii_duration;
-  console.log(tb - ct);
 
   if (ct < tb) {
     timeoutBall = setTimeout(function () {
@@ -165,7 +161,6 @@ var checkTimeouts = function checkTimeouts() {
   }
 
   var tg = tb + part_ix_duration + part_x_duration + part_xii_duration;
-  console.log(tg - ct);
 
   if (ct < tg) {
     timeoutGifts = setTimeout(function () {
@@ -176,11 +171,16 @@ var checkTimeouts = function checkTimeouts() {
 };
 
 var removePhoto = function removePhoto() {
+  console.log(player);
   console.log("removePhoto");
 };
 
 var setPhoto = function setPhoto() {
   console.log("setPhoto");
+  clearTimeout(timeoutRemovePhoto);
+  timeoutRemovePhoto = removePhoto(function () {
+    setPhoto();
+  }, part_iv_duration * 1000);
 };
 
 var setBall = function setBall() {
