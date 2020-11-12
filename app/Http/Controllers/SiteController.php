@@ -237,7 +237,7 @@ class SiteController extends Controller
             if ($key) $hobbyChunk .= PHP_EOL;
             $hobbyChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+            $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->id . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->gift->{"chunks" . $resolution});
@@ -247,7 +247,7 @@ class SiteController extends Controller
             if ($key) $giftChunk .= PHP_EOL;
             $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $giftChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+            $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->id . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->from->{"chunks" . $resolution});
@@ -257,7 +257,7 @@ class SiteController extends Controller
             if ($key) $fromChunk .= PHP_EOL;
             $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $fromChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $fromChunk .= $this->cdn . "part_xv/" . $order->from->id . "%20%281280xauto%29.mp4/" . $chunk[1];
+            $fromChunk .= $this->cdn . "part_xiv/" . $order->from->id . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
 
         $partIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);

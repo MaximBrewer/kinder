@@ -128,10 +128,26 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
 });
+var timeoutPhoto;
+var timeoutBall;
+var timeoutGifts;
 
 var checkTimeouts = function checkTimeouts(player) {
-  console.log(player.currentTime());
+  clearTimeout(timeoutBall);
+  clearTimeout(timeoutPhoto);
+  clearTimeout(timeoutGifts);
+  timeoutBall = setTimeout(function () {
+    alert("Hello");
+  }, 3000);
+  timeoutBall = setTimeout(function () {
+    alert("Hello");
+  }, 3000);
+  timeoutGifts = setTimeout(function () {
+    alert("Hello");
+  }, 3000);
 };
+
+var setPhoto = function setPhoto() {};
 
 /***/ }),
 
