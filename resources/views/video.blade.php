@@ -29,7 +29,23 @@
     </video>
     <script>
         var hash = "{{ $hash }}",
-            photo = "{{ $photo }}";
+            part_i_duration = "{{ $part_i_duration }}",
+            part_ii_duration = "{{ $part_ii_duration }}",
+            part_iii_duration = "{{ $part_iii_duration }}",
+            pert_iv_duration = "{{ $pert_iv_duration }}",
+            pert_v_duration = "{{ $pert_v_duration }}",
+            part_vi_duration = "{{ $part_vi_duration }}",
+            part_vii_duration = "{{ $part_vii_duration }}",
+            part_viii_duration = "{{ $part_viii_duration }}",
+            part_ix_duration = "{{ $part_ix_duration }}",
+            part_x_duration = "{{ $part_x_duration }}",
+            part_xi_duration = "{{ $part_xi_duration }}",
+            part_xii_duration = "{{ $part_xii_duration }}",
+            part_xiii_duration = "{{ $part_xiii_duration }}",
+            part_xiv_duration = "{{ $part_xiv_duration }}",
+            part_xv_duration = "{{ $part_xv_duration }}",
+            part_xvi_duration = "{{ $part_xvi_duration }}",
+            part_xvii_duration = "{{ $part_xvii_duration }}";
     </script>
     <script src="/js/video.js?v=1.01"></script>
 </body>

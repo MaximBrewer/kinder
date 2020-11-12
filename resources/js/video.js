@@ -46,6 +46,7 @@ var timeoutBall;
 var timeoutGifts;
 
 var checkTimeouts = function() {
+    console.log(player.currentTime())
     clearTimeout(timeoutBall);
     clearTimeout(timeoutPhoto);
     clearTimeout(timeoutGifts);
