@@ -132,22 +132,26 @@ var timeoutPhoto;
 var timeoutBall;
 var timeoutGifts;
 
-var checkTimeouts = function checkTimeouts(player) {
+var checkTimeouts = function checkTimeouts() {
   clearTimeout(timeoutBall);
   clearTimeout(timeoutPhoto);
   clearTimeout(timeoutGifts);
-  timeoutBall = setTimeout(function () {
-    alert("Hello");
-  }, 3000);
-  timeoutBall = setTimeout(function () {
-    alert("Hello");
-  }, 3000);
-  timeoutGifts = setTimeout(function () {
-    alert("Hello");
-  }, 3000);
+  timeoutPhoto = setTimeout(setPhoto, 3000);
+  timeoutBall = setTimeout(setBall, 3000);
+  timeoutGifts = setTimeout(setGifts, 3000);
 };
 
-var setPhoto = function setPhoto() {};
+var setPhoto = function setPhoto() {
+  console.log(player);
+};
+
+var setBall = function setBall() {
+  console.log(player);
+};
+
+var setGifts = function setGifts() {
+  console.log(player);
+};
 
 /***/ }),
 

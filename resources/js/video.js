@@ -14,28 +14,28 @@ var player = videojs(
     },
     function() {
         var that = this;
-        this.on("ended", function(){
+        this.on("ended", function() {
             checkTimeouts(that);
         });
-        this.on("play", function(){
+        this.on("play", function() {
             checkTimeouts(that);
         });
-        this.on("firstplay", function(){
+        this.on("firstplay", function() {
             checkTimeouts(that);
         });
-        this.on("change", function(){
+        this.on("change", function() {
             checkTimeouts(that);
         });
-        this.on("loadedmetadata", function(){
+        this.on("loadedmetadata", function() {
             checkTimeouts(that);
         });
-        this.on("progress", function(){
+        this.on("progress", function() {
             checkTimeouts(that);
         });
-        this.on("seeking", function(){
+        this.on("seeking", function() {
             checkTimeouts(that);
         });
-        this.on("seeked", function(){
+        this.on("seeked", function() {
             checkTimeouts(that);
         });
     }
@@ -45,15 +45,23 @@ var timeoutPhoto;
 var timeoutBall;
 var timeoutGifts;
 
-var checkTimeouts = function(player) {
+var checkTimeouts = function() {
     clearTimeout(timeoutBall);
     clearTimeout(timeoutPhoto);
     clearTimeout(timeoutGifts);
-    timeoutBall = setTimeout(function(){ alert("Hello"); }, 3000);
-    timeoutBall = setTimeout(function(){ alert("Hello"); }, 3000);
-    timeoutGifts = setTimeout(function(){ alert("Hello"); }, 3000);
+    timeoutPhoto = setTimeout(setPhoto, 3000);
+    timeoutBall = setTimeout(setBall, 3000);
+    timeoutGifts = setTimeout(setGifts, 3000);
 };
 
-var setPhoto = function(){
+var setPhoto = function() {
+    console.log(player);
+};
 
-}
+var setBall = function() {
+    console.log(player);
+};
+
+var setGifts = function() {
+    console.log(player);
+};
