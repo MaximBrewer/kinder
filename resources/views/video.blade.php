@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Happy New Year</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="//s.platformcraft.ru/video/videojs/video-js5.19.2.min.css" rel="stylesheet">
     <link href="//s.platformcraft.ru/video/videojs.addon.css" rel="stylesheet">
     <script src="//s.platformcraft.ru/video/videojs/video5.19.2.min.js"></script>
@@ -19,21 +21,7 @@
     <link rel="preload" href="{{ $photo }}" as="image">
 </head>
 
-<body style="margin:0px">
-    <div id="hover" style="opacity:0;overflow:hidden;display:flex;justify-content:center;align-items:center;background-color:#000000;position:absolute;top:0;left:0;z-index:-1;width:100vw;height:100vh;">
-        <div id="photoFrame" style="text-align:center;"><img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_iv/photo.png" alt="" style="max-width:100%;" /></div>
-    </div>
-    <div id="hover2" style="opacity:0;overflow:hidden;display:flex;justify-content:center;align-items:center;background-color:#000000;position:absolute;top:0;left:0;z-index:-1;width:100vw;height:100vh;">
-        <div id="photoFrame2" style="text-align:center;"><img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_viii/image.png" alt="" style="max-width:100%;" /></div>
-    </div>
-    <div id="hover3" style="opacity:0;overflow:hidden;display:flex;justify-content:center;align-items:center;background-color:#000000;position:absolute;top:0;left:0;z-index:-1;width:100vw;height:100vh;">
-        <div id="photoFrame3" style="text-align:center;position:relative;">
-            <img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/image.png" alt="" style="max-width:100%;" />
-            <img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/red.png" alt="" style="position:absolute;top: 41.015%;left: 47.1%;opacity: 0;height: 42.4%;" id="gftI"/>
-            <img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/white.png" alt="" style="position:absolute;top: 64.715%;left: 38.1%;opacity: 0;height: 31.4%;"  id="gftII"/>
-            <img src="https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/gold.png" alt="" style="position:absolute;top: 47.3%;left: 66%;opacity: 0;height: 42.4%;"  id="gftIII"/>
-        </div>
-    </div>
+<body>
     <video id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered vjs-nofull" webkit-playsinline playsinline>
         <p class="vjs-no-js">
             Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank">совместимых с HTML5 видео</a>
