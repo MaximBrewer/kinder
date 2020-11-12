@@ -53,42 +53,54 @@ var checkTimeouts = function() {
     clearTimeout(timeoutGifts);
     if (photo) {
         if (ct < tp) {
-            timeoutPhoto = setTimeout(setPhoto, tp - ct);
+            timeoutPhoto = setTimeout(function() {
+                setPhoto();
+            }, tp - ct);
         } else if (ct < tp + part_iv_duration) {
-            setPhoto()
+            setPhoto();
         }
-        if (ct > tp + part_iv_duration){
+        if (ct > tp + part_iv_duration) {
             removePhoto();
         }
     }
-    var tb = tp + part_iv_duration + part_v_duration + part_vi_duration + part_vii_duration + part_viii_duration;
+    var tb =
+        tp +
+        part_iv_duration +
+        part_v_duration +
+        part_vi_duration +
+        part_vii_duration +
+        part_viii_duration;
     if (ct < tb) {
-        timeoutBall = setTimeout(setBall, tb - ct);
+        timeoutBall = setTimeout(function() {
+            setBall();
+        }, tb - ct);
     } else {
         // setBall()
     }
     var tg = tb + part_ix_duration + part_x_duration + part_xii_duration;
     if (ct < tg) {
-        timeoutGifts = setTimeout(setGifts, tp - ct);
+        timeoutGifts = setTimeout(function() {
+            setGifts();
+        }, tp - ct);
     } else {
         // setPhoto()
     }
 };
 
 var removePhoto = function() {
-    console.log('removePhoto');
+    console.log("removePhoto");
 };
 
 var setPhoto = function() {
-    console.log('setPhoto');
+    console.log("setPhoto");
 };
 
 var setBall = function() {
-    console.log('setBall');
-    player.pause()
+    console.log("setBall");
+    // player.pause()
 };
 
 var setGifts = function() {
-    console.log('setGifts');
-    player.pause()
+    console.log("setGifts");
+    // player.pause()
 };
