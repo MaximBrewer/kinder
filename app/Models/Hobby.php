@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Hobby extends Model
 {
     use HasFactory;
-    protected $fillable = ['chunks'];
+    protected $fillable = ['chunks1280, chunks1024, chunks640'];
 }
