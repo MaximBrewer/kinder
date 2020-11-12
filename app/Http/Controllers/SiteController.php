@@ -125,12 +125,9 @@ class SiteController extends Controller
                 $summ += $duration;
             }
         }
-        $entity->update([
-            'chunks' . $resolution => serialize($chunks)
-        ]);
-        var_dump([
-            'chunks' => serialize($chunks)
-        ]);
+        $data['chunks' . $resolution] = serialize($chunks);
+        $entity->update($data);
+        var_dump($data);
         die;
         return $summ;
     }
