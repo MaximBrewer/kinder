@@ -110,6 +110,8 @@ class SiteController extends Controller
     {
         $chunks = [];
         $res = file_get_contents($this->cdn . $part . "/" . $entity->id . "%20%28" . $resolution . "xauto%29.mp4/chunklist.m3u8");
+        var_dump($res);
+        die;
         $lines = explode(PHP_EOL, $res);
         $next = false;
         $summ = 0;
