@@ -210,9 +210,9 @@ class SiteController extends Controller
     public function playlist(Request $request, $hash, $resolution = 1280)
     {
         $order = Order::where('hash', $hash)->first();
-        $chunks = unserialize($order->name->chunks);
+        $chunks = unserialize($order->name->{"chunks" . $resolution});
         $nameChunk = "";
-var_dump($order->name->id);
+
         foreach ($chunks as $key => $chunk) {
             if ($key) $nameChunk .= PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
@@ -227,7 +227,7 @@ var_dump($order->name->id);
                 $this->cdn . "part_iv/all%20%28" . $resolution . "xauto%29.mp4/media_0.ts";
         }
 
-        $chunks = unserialize($order->achieve->chunks);
+        $chunks = unserialize($order->achieve->{"chunks" . $resolution});
         $achieveChunk = "";
 
         foreach ($chunks as $key => $chunk) {
@@ -237,7 +237,7 @@ var_dump($order->name->id);
             $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->id . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
 
-        $chunks = unserialize($order->hobby->chunks);
+        $chunks = unserialize($order->hobby->{"chunks" . $resolution});
         $hobbyChunk = "";
 
         foreach ($chunks as $key => $chunk) {
@@ -247,7 +247,7 @@ var_dump($order->name->id);
             $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
 
-        $chunks = unserialize($order->gift->chunks);
+        $chunks = unserialize($order->gift->{"chunks" . $resolution});
         $giftChunk = "";
 
         foreach ($chunks as $key => $chunk) {
@@ -257,7 +257,7 @@ var_dump($order->name->id);
             $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->id . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
 
-        $chunks = unserialize($order->from->chunks);
+        $chunks = unserialize($order->from->{"chunks" . $resolution});
         $fromChunk = "";
 
         foreach ($chunks as $key => $chunk) {
