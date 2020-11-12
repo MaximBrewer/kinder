@@ -178,8 +178,8 @@ var removePhoto = function removePhoto() {
 var setPhoto = function setPhoto() {
   console.log("setPhoto");
   clearTimeout(timeoutRemovePhoto);
-  timeoutRemovePhoto = removePhoto(function () {
-    setPhoto();
+  timeoutRemovePhoto = setTimeout(function () {
+    removePhoto();
   }, part_iv_duration * 1000);
 };
 

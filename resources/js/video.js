@@ -86,16 +86,16 @@ var checkTimeouts = function() {
 };
 
 var removePhoto = function() {
-    console.log(player)
+    console.log(player);
     console.log("removePhoto");
 };
 
 var setPhoto = function() {
     console.log("setPhoto");
     clearTimeout(timeoutRemovePhoto);
-    timeoutRemovePhoto = removePhoto(function() {
-        setPhoto();
-    }, (part_iv_duration) * 1000);
+    timeoutRemovePhoto = setTimeout(function() {
+        removePhoto();
+    }, part_iv_duration * 1000);
 };
 
 var setBall = function() {
