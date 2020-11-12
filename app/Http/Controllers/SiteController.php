@@ -207,7 +207,7 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function playlist(Request $request, $hash, $resolution = 1280)
+    public function playlist(Request $request, $hash, $resolution = 1280, $color = 's')
     {
         $order = Order::where('hash', $hash)->first();
         $chunks = unserialize($order->name->{"chunks" . $resolution});
@@ -265,7 +265,7 @@ class SiteController extends Controller
         $partIVChunk = $order->photo ? view('chunks.part_iv.' . $resolution, ['cdn' => $this->cdn]) : PHP_EOL;
         $partVIIChunk = view('chunks.part_vii.' . $resolution, ['cdn' => $this->cdn]);
         $partVIIIChunk = view('chunks.part_viii.' . $resolution, ['cdn' => $this->cdn]);
-        $partIXChunk = view('chunks.part_ix.' . $resolution, ['cdn' => $this->cdn]);
+        $partIXChunk = view('chunks.part_ix.' . $color . $resolution, ['cdn' => $this->cdn]);
         $partXChunk = view('chunks.part_x.' . $resolution, ['cdn' => $this->cdn]);
         $partXIChunk = view('chunks.part_xi.' . $resolution, ['cdn' => $this->cdn]);
         $partXIIChunk = view('chunks.part_xii.' . $resolution, ['cdn' => $this->cdn]);

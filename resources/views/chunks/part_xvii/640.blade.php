@@ -1,5 +1,5 @@
 #EXT-X-DISCONTINUITY
 #EXTINF:10.8,
-{{ $cdn }}part_iii/p3%20%28640xauto%29.mp4/media_0.ts
-#EXTINF:3.48,
-{{ $cdn }}part_iii/p3%20%28640xauto%29.mp4/media_1.ts
+part_xvii/p17%20%28640xauto%29.mp4/media_0.ts
+#EXTINF:1.84,
+part_xvii/p17%20%28640xauto%29.mp4/media_1.ts
