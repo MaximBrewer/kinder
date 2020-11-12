@@ -207,9 +207,8 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function playlist(Request $request, $hash, $resolution)
+    public function playlist(Request $request, $hash, $resolution = 1280)
     {
-        $resolution = $resolution ? $resolution : 1280;
         $order = Order::where('hash', $hash)->first();
         $chunks = unserialize($order->name->chunks);
         $nameChunk = "";
