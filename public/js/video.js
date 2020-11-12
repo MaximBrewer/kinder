@@ -138,6 +138,7 @@ var checkTimeouts = function checkTimeouts() {
   clearTimeout(timeoutBall);
   clearTimeout(timeoutPhoto);
   clearTimeout(timeoutGifts);
+  console.log(tp - ct);
 
   if (photo) {
     if (ct < tp) {

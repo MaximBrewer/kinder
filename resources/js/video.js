@@ -51,6 +51,8 @@ var checkTimeouts = function() {
     clearTimeout(timeoutBall);
     clearTimeout(timeoutPhoto);
     clearTimeout(timeoutGifts);
+
+    console.log(tp - ct);
     if (photo) {
         if (ct < tp) {
             timeoutPhoto = setTimeout(function() {
