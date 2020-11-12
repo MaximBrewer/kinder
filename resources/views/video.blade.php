@@ -41,8 +41,7 @@
     </video>
     <script>
         var hash = "{{ $hash }}",
-            photo = "{{ $photo }}",
-            photo_duration = "{{ $photo_duration }}";
+            photo = "{{ $photo }}";
     </script>
     <script src="/js/video.js?v=1.01"></script>
 </body>
