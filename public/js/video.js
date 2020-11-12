@@ -170,7 +170,7 @@ var checkTimeouts = function checkTimeouts() {
   if (ct < tg) {
     timeoutGifts = setTimeout(function () {
       setGifts();
-    }, (tp - ct) * 1000);
+    }, (tg - ct) * 1000);
   } else {// setPhoto()
   }
 };
