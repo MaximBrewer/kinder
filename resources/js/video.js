@@ -1,4 +1,6 @@
-var step = 1;
+var step = 1,
+    timerId = null;
+
 var chooseGift = function(e) {
     e.target.style.opacity = "1";
     if (
@@ -175,86 +177,11 @@ var player = videojs(
         this.on("change", function() {
             console.log("change", that);
         });
-        this.on("sourceended", function() {
-            console.log("sourceended", that);
-        });
-        this.on("done", function() {
-            console.log("done", that);
-        });
-        this.on("selectedinitialmedia", function() {
-            console.log("selectedinitialmedia", that);
-        });
-        this.on("sourceopen", function() {
-            console.log("sourceopen", that);
-        });
         this.on("loadedmetadata", function() {
             console.log("loadedmetadata", that);
         });
-        this.on("loadedplaylist", function() {
-            console.log("loadedplaylist", that);
-        });
-        this.on("renditiondisabled", function() {
-            console.log("renditiondisabled", that);
-        });
-        this.on("bandwidthupdate", function() {
-            console.log("bandwidthupdate", that);
-        });
-        this.on("audioinfo", function() {
-            console.log("audioinfo", that);
-        });
-        this.on("mediachanging", function() {
-            console.log("mediachanging", that);
-        });
-        this.on("mediachange", function() {
-            console.log("mediachange", that);
-        });
-        this.on("playlistunchanged", function() {
-            console.log("playlistunchanged", that);
-        });
-        this.on("renditiondisabled", function() {
-            console.log("renditiondisabled", that);
-        });
-        this.on("renditionenabled", function() {
-            console.log("renditionenabled", that);
-        });
         this.on("progress", function() {
             console.log("progress", that);
-        });
-        this.on("syncinfoupdate", function() {
-            console.log("syncinfoupdate", that);
-        });
-        this.on("timestampoffset", function() {
-            console.log("timestampoffset", that);
-        });
-        this.on("earlyabort", function() {
-            console.log("earlyabort", that);
-        });
-        this.on("seekablechanged", function() {
-            console.log("seekablechanged", that);
-        });
-        this.on("waiting", function() {
-            console.log("waiting", that);
-        });
-        this.on("canplay", function() {
-            console.log("canplay", that);
-        });
-        this.on("mediaupdatetimeout", function() {
-            console.log("mediaupdatetimeout", that);
-        });
-        this.on("dispose", function() {
-            console.log("dispose", that);
-        });
-        this.on("data", function() {
-            console.log("data", that);
-        });
-        this.on("timestamp", function() {
-            console.log("timestamp", that);
-        });
-        this.on("timelineStartInfo", function() {
-            console.log("timelineStartInfo", that);
-        });
-        this.on("baseMediaDecodeTime", function() {
-            console.log("baseMediaDecodeTime", that);
         });
         this.on("seeking", function() {
             console.log("seeking", that);
@@ -262,23 +189,10 @@ var player = videojs(
         this.on("seeked", function() {
             console.log("seeked", that);
         });
-        this.on("sourceclose", function() {
-            console.log("sourceclose", that);
-        });
-        this.on("sourceclose", function() {
-            console.log("sourceclose", that);
-        });
-        this.on("sourceclose", function() {
-            console.log("sourceclose", that);
-        });
-        this.on("sourceclose", function() {
-            console.log("sourceclose", that);
-        });
-        this.on("sourceclose", function() {
-            console.log("sourceclose", that);
-        });
     }
 );
+
+function setPhotoWrapper() {}
 
 function togglePlayer() {
     // player.paused() ?
