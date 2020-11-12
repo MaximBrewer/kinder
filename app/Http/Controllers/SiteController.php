@@ -129,12 +129,11 @@ class SiteController extends Controller
         }
         DB::connection()->enableQueryLog();
         $data['chunks' . $resolution] = serialize($chunks);
-        Log::notice($entity->update($data));
         var_dump($data);
+        $queries = DB::getQueryLog();
+        Log::info($queries);
         die;
         return $summ;
-        $queries = DB::getQueryLog();
-        Log::notice($queries);
     }
 
 
