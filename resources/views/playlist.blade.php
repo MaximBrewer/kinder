@@ -8,4 +8,5 @@
 {{ $partIIIChunk }}
 {{ $partIVChunk }}
 {{ $achieveChunk }}
+{{ $hobbyChunk }}
 #EXT-X-ENDLIST
