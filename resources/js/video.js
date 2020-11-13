@@ -113,26 +113,25 @@ var setPhoto = function() {
     var videoHeight = player.children()[0].offsetHeight,
         videoWidth = player.children()[0].offsetWidth;
 
-        console.log(videoHeight, videoWidth);
+    console.log(videoHeight, videoWidth);
 
     if (videoHeight > (videoWidth * 720) / 1280) {
         var width = videoWidth,
-            height = (width / 1280) * 720;
+            height = (width / 1280) * 720,
+            top = (videoHeight - height) / 2,
+            left = 0;
     } else {
         var height = videoHeight,
-            width = (height / 720) * 1280;
+            width = (height / 720) * 1280
+            top = 0,
+            left = (videoWidth - width) / 2;
     }
-
-
-
 
     photoElement.style.position = "absolute";
     photoElement.style.height = height + "px";
     photoElement.style.width = width + "px";
-    photoElement.style.top = "0";
-    photoElement.style.left = "0";
-    photoElement.style.margin = "50% auto";
-    photoElement.style.transform = "translateY(-50%)";
+    photoElement.style.top = top + "px";
+    photoElement.style.left = left + "px";
     photoElement.style.zIndex = "100";
     photoElement.style.backgroundColor = "#000000";
     document.getElementById("video").appendChild(photoElement);
