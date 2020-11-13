@@ -109,7 +109,7 @@ var removePhoto = function() {
 };
 
 var setPhoto = function() {
-    console.log(player.children(0).offsetHeight);
+    console.log(player.children()[0].offsetHeight);
 
 
     var ct = player.currentTime();
