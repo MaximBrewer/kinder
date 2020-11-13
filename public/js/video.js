@@ -134,7 +134,9 @@ var timeoutPhoto,
     timeoutGifts,
     tp = part_i_duration + part_ii_duration + part_iii_duration,
     tb = tp + part_iv_duration + part_v_duration + part_vi_duration + part_vii_duration + part_viii_duration,
-    tg = tb + part_ix_duration + part_x_duration;
+    tg = tb + part_ix_duration + part_x_duration,
+    photoElement = document.createElement("div");
+;
 
 var checkTimeouts = function checkTimeouts() {
   var ct = player.currentTime();
@@ -184,14 +186,23 @@ var setGifts = function setGifts() {
 };
 
 var removePhoto = function removePhoto() {
-  // console.log(player);
+  document.removeChild("video").appendChild(photoElement);
   console.log("removePhoto");
 };
 
 var setPhoto = function setPhoto() {
-  console.log(player.children()[0].offsetHeight);
   var ct = player.currentTime();
-  var tp = part_i_duration + part_ii_duration + part_iii_duration + part_iv_duration;
+  var height = player.children()[0].offsetHeight,
+      width = height * 1280 / 720;
+  photoElement.style.position = "absolute";
+  photoElement.style.height = height + "px";
+  photoElement.style.width = width + "px";
+  photoElement.style.top = "0";
+  photoElement.style.left = "0";
+  photoElement.style.margin = "0 auto";
+  photoElement.style.zIndex = "100";
+  photoElement.style.backgroundColor = "#000000";
+  document.getElementById("video").appendChild(photoElement);
   clearTimeout(timeoutRemovePhoto);
   timeoutRemovePhoto = setTimeout(function () {
     removePhoto();
