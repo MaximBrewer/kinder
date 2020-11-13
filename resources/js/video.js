@@ -141,5 +141,5 @@ var setPhoto = function() {
     clearTimeout(timeoutRemovePhoto);
     timeoutRemovePhoto = setTimeout(function() {
         removePhoto();
-    }, (tp - ct) * 1000);
+    }, (tp + part_iv_duration - ct + 500) * 1000);
 };
