@@ -95,7 +95,7 @@
 
 var resolution = 1280;
 var redImg = document.createElement("img");
-redImg.src = "https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/red.png";
+redImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
 redImg.alt = "";
 redImg.style.position = "absolute";
 redImg.style.top = "41.015%";
@@ -105,7 +105,7 @@ redImg.style.height = "42.4%";
 redImg.addEventListener("touchstart", chooseGift);
 redImg.addEventListener("click", chooseGift);
 var whiteImg = document.createElement("img");
-whiteImg.src = "https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/white.png";
+whiteImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/white.png";
 whiteImg.alt = "";
 whiteImg.style.position = "absolute";
 whiteImg.style.top = "64.715%";
@@ -115,7 +115,7 @@ whiteImg.style.height = "31.4%";
 whiteImg.addEventListener("touchstart", chooseGift);
 whiteImg.addEventListener("click", chooseGift);
 var goldImg = document.createElement("img");
-goldImg.src = "https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/gold.png";
+goldImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/gold.png";
 goldImg.alt = "";
 goldImg.style.position = "absolute";
 goldImg.style.top = "47.3%";
