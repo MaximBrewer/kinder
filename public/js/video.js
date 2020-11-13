@@ -155,6 +155,9 @@ var chooseBall = function chooseBall(e) {
   });
   player.currentTime(tb + part_viii_duration + 0.5);
   player.play();
+  setTimeout(function () {
+    removeBalls();
+  }, 500);
 };
 
 var setBall = function setBall() {
@@ -191,8 +194,13 @@ var setPhoto = function setPhoto() {
 };
 
 var removePhoto = function removePhoto() {
-  document.getElementById("video").removeChild(photoElement);
   console.log("removePhoto");
+  document.getElementById("video").removeChild(photoElement);
+};
+
+var removeBalls = function removeBalls() {
+  console.log("removeBalls");
+  document.getElementById("video").removeChild(ballsElement);
 };
 
 var createEl = function createEl() {
