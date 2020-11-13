@@ -179,6 +179,8 @@ var chooseBall = function chooseBall(e) {
 };
 
 var chooseGift = function chooseGift(e) {
+  clearTimeout(setGiftsPause);
+  clearTimeout(setBallPause);
   console.log("chooseGift");
   console.log(e);
   e.target.style.opacity = "1";
@@ -186,6 +188,9 @@ var chooseGift = function chooseGift(e) {
   if (redImg.style.opacity == "1" && whiteImg.style.opacity == "1" && goldImg.style.opacity == "1") {
     player.currentTime(tg + part_xi_duration + 0.5);
     player.play();
+    setTimeout(function () {
+      removeGifts();
+    }, 200);
   }
 };
 
@@ -259,14 +264,22 @@ var setPhoto = function setPhoto() {
   }, (tp + part_iv_duration - ct) * 1000 + 350);
 };
 
+var removeGifts = function removeGifts() {
+  console.log("removeGifts");
+  document.getElementById("video").removeChild(giftsElement);
+  giftsElement = null;
+};
+
 var removePhoto = function removePhoto() {
   console.log("removePhoto");
   document.getElementById("video").removeChild(photoElement);
+  photoElement = null;
 };
 
 var removeBalls = function removeBalls() {
   console.log("removeBalls");
   document.getElementById("video").removeChild(ballsElement);
+  ballsElement = null;
 };
 
 var createEl = function createEl() {
