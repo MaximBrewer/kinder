@@ -109,8 +109,11 @@ var removePhoto = function() {
 
 var setPhoto = function() {
     var ct = player.currentTime();
+
     var videoHeight = player.children()[0].offsetHeight,
         videoWidth = player.children()[0].offsetWidth;
+
+        console.log(videoHeight, videoWidth);
 
     if (videoHeight > (videoWidth * 720) / 1280) {
         var width = videoWidth,
@@ -119,6 +122,10 @@ var setPhoto = function() {
         var height = videoHeight,
             width = (height / 720) * 1280;
     }
+
+
+
+
     photoElement.style.position = "absolute";
     photoElement.style.height = height + "px";
     photoElement.style.width = width + "px";

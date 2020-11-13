@@ -193,6 +193,7 @@ var setPhoto = function setPhoto() {
   var ct = player.currentTime();
   var videoHeight = player.children()[0].offsetHeight,
       videoWidth = player.children()[0].offsetWidth;
+  console.log(videoHeight, videoWidth);
 
   if (videoHeight > videoWidth * 720 / 1280) {
     var width = videoWidth,
