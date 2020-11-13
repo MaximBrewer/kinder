@@ -160,10 +160,10 @@ var chooseBall = function chooseBall(e) {
     top = 0, left = (videoWidth - width) / 2;
   }
 
-  var color = "r";
+  var color = "g";
   var margin = (window.innerWidth - width) / 2;
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-  if (margin + width * 0.375 < clientX) color = "g";
+  if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s";
   player.src({
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
@@ -173,7 +173,7 @@ var chooseBall = function chooseBall(e) {
   player.play();
   setTimeout(function () {
     removeBalls();
-  }, 500);
+  }, 1000);
 };
 
 var setBall = function setBall() {
