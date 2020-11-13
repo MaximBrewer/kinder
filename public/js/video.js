@@ -147,12 +147,12 @@ var checkTimeouts = function checkTimeouts() {
     if (ct < tp) {
       timeoutPhoto = setTimeout(function () {
         setPhoto();
-      }, (tp - ct) * 1000 - 100);
-    } else if (ct < tp + part_iv_duration) {
+      }, (tp - ct) * 1000 - 250);
+    } else if (ct < tp + part_iv_duration - 250) {
       setPhoto();
     }
 
-    if (ct > tp + part_iv_duration + 100) {
+    if (ct > tp + part_iv_duration + 250) {
       removePhoto();
     }
   }
@@ -160,14 +160,14 @@ var checkTimeouts = function checkTimeouts() {
   if (ct < tb) {
     timeoutBall = setTimeout(function () {
       setBall();
-    }, (tb - ct) * 1000 - 500);
+    }, (tb - ct) * 1000 - 250);
   } else {// setBall()
   }
 
   if (ct < tg) {
     timeoutGifts = setTimeout(function () {
       setGifts();
-    }, (tg - ct) * 1000 - 500);
+    }, (tg - ct) * 1000 - 250);
   } else {// setPhoto()
   }
 };
@@ -218,7 +218,7 @@ var setPhoto = function setPhoto() {
   clearTimeout(timeoutRemovePhoto);
   timeoutRemovePhoto = setTimeout(function () {
     removePhoto();
-  }, (tp + part_iv_duration - ct) * 1000 + 100);
+  }, (tp + part_iv_duration - ct) * 1000 + 250);
 };
 
 /***/ }),
