@@ -100,7 +100,7 @@ var player = videojs("video", {
   }],
   controls: true,
   control: true,
-  poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fad390a0e47cf6eac7d9536.jpg"
+  poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg"
 }, function () {
   var that = this;
   this.on("ended", function () {
