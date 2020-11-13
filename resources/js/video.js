@@ -103,6 +103,7 @@ var setGifts = function() {
 };
 
 var removePhoto = function() {
+
     document.getElementById("video").removeChild(photoElement);
     console.log("removePhoto");
 };
@@ -141,5 +142,5 @@ var setPhoto = function() {
     clearTimeout(timeoutRemovePhoto);
     timeoutRemovePhoto = setTimeout(function() {
         removePhoto();
-    }, (tp + part_iv_duration - ct + 500) * 1000);
+    }, (tp + part_iv_duration - ct) * 1000 + 500);
 };
