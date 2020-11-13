@@ -1,12 +1,12 @@
 #EXTINF:12,
-{{ $cdn }}part_i/p1girl%20%281024xauto%29_1.mp4/media_0.ts
+{{ $cdn }}part_i/pt1girl%20%281024xauto%29_1.mp4/media_0.ts
 #EXTINF:12,
-{{ $cdn }}part_i/p1girl%20%281024xauto%29_1.mp4/media_1.ts
+{{ $cdn }}part_i/pt1girl%20%281024xauto%29_1.mp4/media_1.ts
 #EXTINF:12,
-{{ $cdn }}part_i/p1girl%20%281024xauto%29_1.mp4/media_2.ts
+{{ $cdn }}part_i/pt1girl%20%281024xauto%29_1.mp4/media_2.ts
 #EXTINF:12,
-{{ $cdn }}part_i/p1girl%20%281024xauto%29_1.mp4/media_3.ts
+{{ $cdn }}part_i/pt1girl%20%281024xauto%29_1.mp4/media_3.ts
 #EXTINF:12,
-{{ $cdn }}part_i/p1girl%20%281024xauto%29_1.mp4/media_4.ts
+{{ $cdn }}part_i/pt1girl%20%281024xauto%29_1.mp4/media_4.ts
 #EXTINF:11.4,
-{{ $cdn }}part_i/p1girl%20%281024xauto%29_1.mp4/media_5.ts
+{{ $cdn }}part_i/pt1girl%20%281024xauto%29_1.mp4/media_5.ts
