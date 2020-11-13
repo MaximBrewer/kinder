@@ -170,7 +170,7 @@ var setGifts = function() {
     console.log("setGifts");
     clearTimeout(setGiftsPause);
     var ct = player.currentTime();
-    photoElement = createEl();
+    giftsElement = createEl();
     giftsElement.style.background =
         "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
     document.getElementById("video").appendChild(giftsElement);
