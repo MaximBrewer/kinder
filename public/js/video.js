@@ -136,7 +136,6 @@ var timeoutPhoto,
     tb = tp + part_iv_duration + part_v_duration + part_vi_duration + part_vii_duration + part_viii_duration,
     tg = tb + part_ix_duration + part_x_duration,
     photoElement = document.createElement("div");
-;
 
 var checkTimeouts = function checkTimeouts() {
   var ct = player.currentTime();
@@ -192,8 +191,17 @@ var removePhoto = function removePhoto() {
 
 var setPhoto = function setPhoto() {
   var ct = player.currentTime();
-  var height = player.children()[0].offsetHeight,
-      width = height * 1280 / 720;
+  var videoHeight = player.children()[0].offsetHeight,
+      videoWidth = player.children()[0].offsetWidth;
+
+  if (videoHeight > videoWidth * 720 / 1280) {
+    var width = videoWidth,
+        height = width / 1280 * 720;
+  } else {
+    var height = videoHeight,
+        width = height / 720 * 1280;
+  }
+
   photoElement.style.position = "absolute";
   photoElement.style.height = height + "px";
   photoElement.style.width = width + "px";
