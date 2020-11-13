@@ -26,7 +26,7 @@ class SiteController extends Controller
         return view('live');
     }
 
-    private $cdn = "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinder/";
+    private $cdn = "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/";
 
 
     public function testMail(Request $request)
@@ -215,8 +215,7 @@ class SiteController extends Controller
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $nameChunk .= PHP_EOL;
-            $time = count($chunks) > $key + 1 ? $chunk[0] : $chunk[0] - 1;
-            $nameChunk .= "#EXTINF:" . $time . "," . PHP_EOL;
+            $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
             $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
