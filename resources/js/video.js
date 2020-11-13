@@ -103,7 +103,6 @@ var removePhoto = function() {
     console.log("removePhoto");
 };
 
-
 var createEl = function() {
     var videoHeight = player.children()[0].offsetHeight,
         videoWidth = player.children()[0].offsetWidth;
@@ -125,8 +124,8 @@ var createEl = function() {
     el.style.left = left + "px";
     el.style.zIndex = "100";
     el.style.backgroundColor = "#000000";
+    return el;
 };
-
 
 var checkTimeouts = function() {
     var ct = player.currentTime();

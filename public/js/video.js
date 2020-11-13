@@ -202,6 +202,7 @@ var createEl = function createEl() {
   el.style.left = left + "px";
   el.style.zIndex = "100";
   el.style.backgroundColor = "#000000";
+  return el;
 };
 
 var checkTimeouts = function checkTimeouts() {
