@@ -52,8 +52,7 @@ var timeoutPhoto,
         part_iv_duration +
         part_v_duration +
         part_vi_duration +
-        part_vii_duration +
-        part_viii_duration,
+        part_vii_duration,
     tg = tb + part_ix_duration + part_x_duration,
     photoElement = document.createElement("div"),
     ballsElement = document.createElement("div"),
