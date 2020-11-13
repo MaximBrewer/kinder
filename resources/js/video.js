@@ -129,7 +129,7 @@ var setPhoto = function() {
     photoElement.style.position = "absolute";
     photoElement.style.height = height + "px";
     photoElement.style.background =
-        "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat center center, url('" +
+        "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat center center/ 100%, url('" +
         photo +
         "') no-repeat top left 57%/auto 92%";
     photoElement.style.width = width + "px";
