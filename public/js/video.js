@@ -240,9 +240,9 @@ var setGifts = function setGifts() {
   giftsElement.appendChild(redImg);
   giftsElement.appendChild(whiteImg);
   giftsElement.appendChild(goldImg);
-  setBallPause = setTimeout(function () {
+  setGiftsPause = setTimeout(function () {
     player.pause();
-  }, (tb + part_viii_duration - ct) * 1000 - 500);
+  }, (tg + part_xi_duration - ct) * 1000 - 500);
 };
 
 var setPhoto = function setPhoto() {
