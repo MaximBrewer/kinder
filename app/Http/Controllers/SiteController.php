@@ -209,8 +209,8 @@ class SiteController extends Controller
      */
     public function playlist(Request $request, $hash)
     {
-        $resolution = $request->resolution(1280);
-        $color = $request->color('s');
+        $resolution = $request->get('resolution', 1280);
+        $resolution = $request->get('color', 's');
         $order = Order::where('hash', $hash)->first();
         $chunks = unserialize($order->name->{"chunks" . $resolution});
         $nameChunk = "";
