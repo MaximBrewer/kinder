@@ -208,6 +208,7 @@ var setPhoto = function setPhoto() {
 
   photoElement.style.position = "absolute";
   photoElement.style.height = height + "px";
+  photoElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat center center, url('" + photo + "') no-repeat top left 57%/auto 92%";
   photoElement.style.width = width + "px";
   photoElement.style.top = top + "px";
   photoElement.style.left = left + "px";
