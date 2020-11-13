@@ -215,7 +215,8 @@ class SiteController extends Controller
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $nameChunk .= PHP_EOL;
-            $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            $time = count($chunks) > $key + 1 ? $chunk[0] : $chunk[0] - 0.2;
+            $nameChunk .= "#EXTINF:" . $time . "," . PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
             $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
         }
