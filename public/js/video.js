@@ -208,6 +208,7 @@ var chooseBall = function chooseBall(e) {
 };
 
 var chooseGift = function chooseGift(e) {
+  console.log(e);
   e.target.style.opacity = "1";
 
   if (redImg.style.opacity == "1" && whiteImg.style.opacity == "1" && goldImg.style.opacity == "1") {
