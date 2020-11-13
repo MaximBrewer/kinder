@@ -94,6 +94,36 @@
 /***/ (function(module, exports) {
 
 var resolution = 1280;
+var redImg = document.createElement("img");
+redImg.src = "https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/red.png";
+redImg.alt = "";
+redImg.style.position = "absolute";
+redImg.style.top = "41.015%";
+redImg.style.left = "47.1%";
+redImg.style.opacity = "0";
+redImg.style.height = "42.4%";
+redImg.addEventListener("touchstart", chooseGift);
+redImg.addEventListener("click", chooseGift);
+var whiteImg = document.createElement("img");
+whiteImg.src = "https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/white.png";
+whiteImg.alt = "";
+whiteImg.style.position = "absolute";
+whiteImg.style.top = "64.715%";
+whiteImg.style.left = "38.1%";
+whiteImg.style.opacity = "0";
+whiteImg.style.height = "31.4%";
+whiteImg.addEventListener("touchstart", chooseGift);
+whiteImg.addEventListener("click", chooseGift);
+var goldImg = document.createElement("img");
+goldImg.src = "https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/gold.png";
+goldImg.alt = "";
+goldImg.style.position = "absolute";
+goldImg.style.top = "47.3%";
+goldImg.style.left = "66%";
+goldImg.style.opacity = "0";
+goldImg.style.height = "42.4%";
+goldImg.addEventListener("touchstart", chooseGift);
+goldImg.addEventListener("click", chooseGift);
 var player = videojs("video", {
   sources: [{
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
@@ -134,6 +164,7 @@ var timeoutPhoto,
     timeoutBall,
     setBallPause,
     timeoutGifts,
+    setGiftsPause,
     tp = part_i_duration + part_ii_duration + part_iii_duration,
     tb = tp + part_iv_duration + part_v_duration + part_vi_duration + part_vii_duration,
     tg = tb + part_ix_duration + part_x_duration,
@@ -176,6 +207,15 @@ var chooseBall = function chooseBall(e) {
   }, 1000);
 };
 
+var chooseGift = function chooseGift(e) {
+  e.target.style.opacity = "1";
+
+  if (redImg.style.opacity == "1" && whiteImg.style.opacity == "1" && goldImg.style.opacity == "1") {
+    player.currentTime(tg + part_xi_duration + 0.5);
+    player.play();
+  }
+};
+
 var setBall = function setBall() {
   console.log("setBall");
   clearTimeout(setBallPause);
@@ -185,7 +225,6 @@ var setBall = function setBall() {
   document.getElementById("video").appendChild(ballsElement);
   ballsElement.addEventListener("touchstart", chooseBall);
   ballsElement.addEventListener("click", chooseBall);
-  clearTimeout(setBallPause);
   setBallPause = setTimeout(function () {
     player.pause();
   }, (tb + part_viii_duration - ct) * 1000 - 500);
@@ -193,9 +232,17 @@ var setBall = function setBall() {
 
 var setGifts = function setGifts() {
   console.log("setGifts");
+  clearTimeout(setGiftsPause);
   var ct = player.currentTime();
-  giftsPauseTimeout = setTimeout(f, part_xi_duration);
-  player.pause();
+  photoElement = createEl();
+  giftsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
+  document.getElementById("video").appendChild(giftsElement);
+  giftsElement.appendChild(redImg);
+  giftsElement.appendChild(whiteImg);
+  giftsElement.appendChild(goldImg);
+  setBallPause = setTimeout(function () {
+    player.pause();
+  }, (tb + part_viii_duration - ct) * 1000 - 500);
 };
 
 var setPhoto = function setPhoto() {
