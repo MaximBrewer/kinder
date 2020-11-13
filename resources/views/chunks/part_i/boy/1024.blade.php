@@ -8,5 +8,5 @@
 {{ $cdn }}part_i/pt1boy%20%281024xauto%29_1.mp4/media_3.ts
 #EXTINF:12,
 {{ $cdn }}part_i/pt1boy%20%281024xauto%29_1.mp4/media_4.ts
-#EXTINF:11.4,
+#EXTINF:11.3,
 {{ $cdn }}part_i/pt1boy%20%281024xauto%29_1.mp4/media_5.ts

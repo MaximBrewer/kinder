@@ -154,7 +154,7 @@ class SiteController extends Controller
         $data = [
             'hash' => $hash,
             'order' => $order,
-            'part_i_duration' => 71.6,
+            'part_i_duration' => 71.3,
             'part_iii_duration' => 14.272,
             'part_iv_duration' => $order->photo ? 5.8 : 0,
             'part_vii_duration' => 24.917,
