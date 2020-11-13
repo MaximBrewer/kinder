@@ -12,7 +12,7 @@
     <script src="//s.platformcraft.ru/video/videojs/plugins/hls/videojs-contrib-hls-5.9.min.js"></script>
     <script src="//s.platformcraft.ru/video/videojs/plugins/videojs.framebyframe.min.js"></script>
     <script src="/js/videojs-playlist.min.js"></script>
-    <link rel="preload" href="https://montage-cache.cdnvideo.ru/montage/kinder/part_iv/photo.png" as="image">
+    <link rel="preload" href="https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png" as="image">
     <link rel="preload" href="https://montage-cache.cdnvideo.ru/montage/kinder/part_viii/image.png" as="image">
     <link rel="preload" href="https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/image.png" as="image">
     <link rel="preload" href="https://montage-cache.cdnvideo.ru/montage/kinder/part_xi/red.png" as="image">

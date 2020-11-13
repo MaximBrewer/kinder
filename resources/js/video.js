@@ -103,7 +103,7 @@ var setGifts = function() {
 };
 
 var removePhoto = function() {
-    document.removeChild("video").appendChild(photoElement);
+    document.getElementById("video").removeChild(photoElement);
     console.log("removePhoto");
 };
 

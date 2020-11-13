@@ -185,7 +185,7 @@ var setGifts = function setGifts() {
 };
 
 var removePhoto = function removePhoto() {
-  document.removeChild("video").appendChild(photoElement);
+  document.getElementById("video").removeChild(photoElement);
   console.log("removePhoto");
 };
 
