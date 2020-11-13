@@ -65,11 +65,11 @@ var checkTimeouts = function() {
         if (ct < tp) {
             timeoutPhoto = setTimeout(function() {
                 setPhoto();
-            }, (tp - ct) * 1000 - 500);
+            }, (tp - ct) * 1000 - 100);
         } else if (ct < tp + part_iv_duration) {
             setPhoto();
         }
-        if (ct > tp + part_iv_duration + 500) {
+        if (ct > tp + part_iv_duration + 100) {
             removePhoto();
         }
     }
@@ -142,5 +142,5 @@ var setPhoto = function() {
     clearTimeout(timeoutRemovePhoto);
     timeoutRemovePhoto = setTimeout(function() {
         removePhoto();
-    }, (tp + part_iv_duration - ct) * 1000 + 500);
+    }, (tp + part_iv_duration - ct) * 1000 + 100);
 };
