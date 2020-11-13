@@ -161,11 +161,10 @@ var chooseBall = function chooseBall(e) {
   }
 
   var color = "r";
+  var margin = (window.innerWidth - width) / 2;
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-  console.log(clientX, width);
-  return false;
-  window.innerWidth * 0.375 > clientX ? color = "g" : window.innerWidth - window.innerWidth * 0.375 > clientX ? color = "r" : color = "s";
-  step = 4;
+  if (margin + width * 0.375 < clientX) color = "g";
+  if (margin + (width - width * 0.375) < clientX) color = "s";
   player.src({
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
     type: "application/x-mpegURL"
