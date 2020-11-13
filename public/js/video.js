@@ -94,6 +94,7 @@
 /***/ (function(module, exports) {
 
 var resolution = 1280;
+var redImg, whiteImg, goldImg;
 var player = videojs("video", {
   sources: [{
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
@@ -209,7 +210,7 @@ var setGifts = function setGifts() {
   giftsElement = createEl();
   giftsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
   document.getElementById("video").appendChild(giftsElement);
-  var redImg = document.createElement("img");
+  redImg = document.createElement("img");
   redImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
   redImg.alt = "";
   redImg.style.position = "absolute";
@@ -217,7 +218,7 @@ var setGifts = function setGifts() {
   redImg.style.left = "47.1%";
   redImg.style.opacity = "0";
   redImg.style.height = "42.4%";
-  var whiteImg = document.createElement("img");
+  whiteImg = document.createElement("img");
   whiteImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/white.png";
   whiteImg.alt = "";
   whiteImg.style.position = "absolute";
@@ -225,7 +226,7 @@ var setGifts = function setGifts() {
   whiteImg.style.left = "38.1%";
   whiteImg.style.opacity = "0";
   whiteImg.style.height = "31.4%";
-  var goldImg = document.createElement("img");
+  goldImg = document.createElement("img");
   goldImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/gold.png";
   goldImg.alt = "";
   goldImg.style.position = "absolute";
