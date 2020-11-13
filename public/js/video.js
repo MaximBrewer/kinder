@@ -165,6 +165,7 @@ var setBall = function setBall() {
   ballsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
   document.getElementById("video").appendChild(ballsElement);
   ballsElement.addEventListener("touchstart", chooseBall);
+  ballsElement.addEventListener("click", chooseBall);
   clearTimeout(setBallPause);
   setBallPause = setTimeout(function () {
     player.pause();
