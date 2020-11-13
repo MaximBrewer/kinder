@@ -158,7 +158,7 @@ class SiteController extends Controller
             'part_iii_duration' => 14.272,
             'part_iv_duration' => $order->photo ? 5.8 : 0,
             'part_vii_duration' => 24.917,
-            'part_viii_duration' => 9.6,
+            'part_viii_duration' => 10.033,
             'part_ix_duration' => 6.967,
             'part_x_duration' => 40.100,
             'part_xi_duration' => 5.800,

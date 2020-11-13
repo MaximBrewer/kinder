@@ -128,11 +128,16 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
 });
-var timeoutPhoto, timeoutRemovePhoto, timeoutBall, timeoutGifts;
+var timeoutPhoto,
+    timeoutRemovePhoto,
+    timeoutBall,
+    timeoutGifts,
+    tp = part_i_duration + part_ii_duration + part_iii_duration,
+    tb = tp + part_iv_duration + part_v_duration + part_vi_duration + part_vii_duration + part_viii_duration,
+    tg = tb + part_ix_duration + part_x_duration;
 
 var checkTimeouts = function checkTimeouts() {
   var ct = player.currentTime();
-  var tp = part_i_duration + part_ii_duration + part_iii_duration;
   clearTimeout(timeoutBall);
   clearTimeout(timeoutPhoto);
   clearTimeout(timeoutGifts);
@@ -141,48 +146,29 @@ var checkTimeouts = function checkTimeouts() {
     if (ct < tp) {
       timeoutPhoto = setTimeout(function () {
         setPhoto();
-      }, (tp - ct) * 1000);
+      }, (tp - ct) * 1000 - 500);
     } else if (ct < tp + part_iv_duration) {
       setPhoto();
     }
 
-    if (ct > tp + part_iv_duration) {
+    if (ct > tp + part_iv_duration + 500) {
       removePhoto();
     }
   }
 
-  var tb = tp + part_iv_duration + part_v_duration + part_vi_duration + part_vii_duration + part_viii_duration;
-
   if (ct < tb) {
     timeoutBall = setTimeout(function () {
       setBall();
-    }, (tb - ct) * 1000);
+    }, (tb - ct) * 1000 - 500);
   } else {// setBall()
   }
-
-  var tg = tb + part_ix_duration + part_x_duration + part_xii_duration;
 
   if (ct < tg) {
     timeoutGifts = setTimeout(function () {
       setGifts();
-    }, (tg - ct) * 1000);
+    }, (tg - ct) * 1000 - 500);
   } else {// setPhoto()
   }
-};
-
-var removePhoto = function removePhoto() {
-  console.log(player);
-  console.log("removePhoto");
-};
-
-var setPhoto = function setPhoto() {
-  console.log(player);
-  var ct = player.currentTime();
-  var tp = part_i_duration + part_ii_duration + part_iii_duration + part_iv_duration;
-  clearTimeout(timeoutRemovePhoto);
-  timeoutRemovePhoto = setTimeout(function () {
-    removePhoto();
-  }, (tp - ct) * 1000);
 };
 
 var setBall = function setBall() {
@@ -191,8 +177,25 @@ var setBall = function setBall() {
 };
 
 var setGifts = function setGifts() {
+  var ct = player.currentTime();
+  giftsPauseTimeout = setTimeout(f, part_xi_duration);
   console.log("setGifts");
   player.pause();
+};
+
+var removePhoto = function removePhoto() {
+  // console.log(player);
+  console.log("removePhoto");
+};
+
+var setPhoto = function setPhoto() {
+  console.log(player.children(0).offsetHeight);
+  var ct = player.currentTime();
+  var tp = part_i_duration + part_ii_duration + part_iii_duration + part_iv_duration;
+  clearTimeout(timeoutRemovePhoto);
+  timeoutRemovePhoto = setTimeout(function () {
+    removePhoto();
+  }, (tp - ct) * 1000);
 };
 
 /***/ }),
