@@ -125,7 +125,7 @@ var setPhoto = function() {
     photoElement.style.top = "0";
     photoElement.style.left = "0";
     photoElement.style.margin = "50% auto";
-    photoElement.style.translateY = "-50%";
+    photoElement.style.transform = "translateY(-50%)";
     photoElement.style.zIndex = "100";
     photoElement.style.backgroundColor = "#000000";
     document.getElementById("video").appendChild(photoElement);
