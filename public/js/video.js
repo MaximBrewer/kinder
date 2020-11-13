@@ -145,8 +145,25 @@ var timeoutPhoto,
     goldGiftElement = document.createElement("div");
 
 var chooseBall = function chooseBall(e) {
+  clearTimeout(setBallPause);
+  var videoHeight = player.children()[0].offsetHeight,
+      videoWidth = player.children()[0].offsetWidth;
+
+  if (videoHeight > videoWidth * 720 / 1280) {
+    var width = videoWidth,
+        height = width / 1280 * 720,
+        top = (videoHeight - height) / 2,
+        left = 0;
+  } else {
+    var height = videoHeight,
+        width = height / 720 * 1280;
+    top = 0, left = (videoWidth - width) / 2;
+  }
+
   var color = "r";
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+  console.log(clientX, width);
+  return false;
   window.innerWidth * 0.375 > clientX ? color = "g" : window.innerWidth - window.innerWidth * 0.375 > clientX ? color = "r" : color = "s";
   step = 4;
   player.src({
