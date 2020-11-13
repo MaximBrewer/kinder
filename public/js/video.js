@@ -93,9 +93,10 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+var resolution = 1280;
 var player = videojs("video", {
   sources: [{
-    src: "/playlist/" + hash + ".m3u8",
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
     type: "application/x-mpegURL"
   }],
   controls: true,
@@ -143,6 +144,19 @@ var timeoutPhoto,
     whiteGiftElement = document.createElement("div"),
     goldGiftElement = document.createElement("div");
 
+var chooseBall = function chooseBall(e) {
+  var color = "r";
+  var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+  window.innerWidth * 0.375 > clientX ? color = "g" : window.innerWidth - window.innerWidth * 0.375 > clientX ? color = "r" : color = "s";
+  step = 4;
+  player.src({
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
+    type: "application/x-mpegURL"
+  });
+  player.currentTime(tb + part_viii_duration + 0.5);
+  player.play();
+};
+
 var setBall = function setBall() {
   console.log("setBall");
   clearTimeout(setBallPause);
@@ -150,10 +164,11 @@ var setBall = function setBall() {
   ballsElement = createEl();
   ballsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
   document.getElementById("video").appendChild(ballsElement);
+  ballsElement.addEventListener("touchstart", chooseBall);
   clearTimeout(setBallPause);
   setBallPause = setTimeout(function () {
     player.pause();
-  }, (tb + part_viii_duration - ct) * 1000 + 350);
+  }, (tb + part_viii_duration - ct) * 1000 - 500);
 };
 
 var setGifts = function setGifts() {
