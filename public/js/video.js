@@ -153,7 +153,7 @@ var setBall = function setBall() {
   clearTimeout(setBallPause);
   setBallPause = setTimeout(function () {
     player.pause();
-  }, (tb - ct) * 1000 - 350);
+  }, (tb + part_viii_duration - ct) * 1000 + 350);
 };
 
 var setGifts = function setGifts() {
