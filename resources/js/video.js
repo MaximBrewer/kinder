@@ -140,6 +140,7 @@ var chooseBall = function(e) {
 };
 
 var chooseGift = function(e) {
+    console.log("chooseGift");
     console.log(e);
     e.target.style.opacity = "1";
     if (

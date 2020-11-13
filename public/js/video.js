@@ -208,6 +208,7 @@ var chooseBall = function chooseBall(e) {
 };
 
 var chooseGift = function chooseGift(e) {
+  console.log("chooseGift");
   console.log(e);
   e.target.style.opacity = "1";
 
