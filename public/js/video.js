@@ -225,6 +225,7 @@ var chooseBall = function chooseBall(e) {
   if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s"; // alert(0)
 
+  alert(player);
   alert(player.hls); // alert(player.hls)
 
   alert(player.hls.playlists); // alert(player.hls.playlists.master.playlists[0])
