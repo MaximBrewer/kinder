@@ -96,18 +96,14 @@ var chooseBall = function(e) {
         .master.playlists[0].segments;
     for (i in segments) {
         segments[i].uri.indexOf("part_ix") > -1;
-        player.tech({
-            IWillNotUseThisInPlugins: true
-        }).hls.playlists.master.playlists[0].segments[i].resolvedUri =
+        player.hls.playlists.master.playlists[0].segments[i].resolvedUri =
             cdn +
             "part_ix/" +
             color +
             "%20%28" +
             resolution +
             "xauto%29.mp4/media_0.ts";
-        player.tech({
-            IWillNotUseThisInPlugins: true
-        }).hls.playlists.master.playlists[0].segments[i].uri =
+        player.hls.playlists.master.playlists[0].segments[i].uri =
             cdn +
             "part_ix/" +
             color +
