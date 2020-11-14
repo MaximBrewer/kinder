@@ -135,6 +135,21 @@ var checkTimeouts = function checkTimeouts() {
   }
 };
 
+var audio = videojs("audio", {
+  sources: [{
+    src: "https://montage-cache.cdnvideo.ru/montage/kindern/music.mp3",
+    type: "audio/mpeg"
+  }, {
+    src: "https://montage-cache.cdnvideo.ru/montage/kindern/music.wav",
+    type: "audio/wav"
+  }]
+}, function () {
+  var that = this;
+  this.on("ended", function () {
+    console.log("audioEnded");
+    that.play();
+  });
+});
 var player = videojs("video", {
   sources: [{
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
@@ -149,7 +164,7 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
   this.on("play", function () {
-    if (!document.getElementById('audio').playing) document.getElementById('audio').play();
+    if (audio.paused()) audio.play();
     checkTimeouts(that);
   });
   this.on("pause", function () {
