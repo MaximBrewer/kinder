@@ -180,6 +180,7 @@ var chooseBall = function(e) {
         player.tech({ IWillNotUseThisInPlugins: true }),
         player.tech({ IWillNotUseThisInPlugins: true }).hls
     );
+    console.log(start, start + 1000)
     console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000));
     setTimeout(function() {
         removeBalls();
