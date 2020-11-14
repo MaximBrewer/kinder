@@ -98,19 +98,21 @@ window.innerWidth > 640 && (resolution = 1024);
 window.innerWidth > 1024 && (resolution = 1280);
 var balls = false;
 var hlsIs = false;
+var secpart = false;
+var paused = true;
 
 var chooseGift = function chooseGift(e) {
+  paused = true;
+  player.pause();
   console.log("chooseGift");
-  clearTimeout(setGiftsPause);
-  clearTimeout(setBallPause);
   e.target.style.opacity = "1";
 
   if (document.getElementById("redImg") && document.getElementById("redImg").style.opacity == "1" && document.getElementById("whiteImg") && document.getElementById("whiteImg").style.opacity == "1" && document.getElementById("goldImg") && document.getElementById("goldImg").style.opacity == "1") {
-    player.currentTime(tg + part_xi_duration + 0.5);
+    player.currentTime(tg + part_xi_duration + 0.3);
     player.play();
     setTimeout(function () {
       removeGifts();
-    }, 200);
+    }, 500);
   }
 };
 
@@ -129,9 +131,13 @@ var player = videojs("video", {
   });
   this.on("play", function () {
     checkTimeouts(that);
+    audio.play();
   });
   this.on("pause", function () {
-    checkTimeouts(that);
+    clearTimeout(timeoutBall);
+    clearTimeout(timeoutPhoto);
+    clearTimeout(timeoutGifts);
+    if (paused) audio.pause();
   });
   this.on("firstplay", function () {
     that.tech({
@@ -143,6 +149,8 @@ var player = videojs("video", {
     if (!hlsIs) {
       tg = part_ix_duration + part_x_duration;
     }
+
+    checkTimeouts(that);
   });
   this.on("change", function () {
     checkTimeouts(that);
@@ -243,35 +251,58 @@ var checkTimeouts = function checkTimeouts() {
   clearTimeout(timeoutPhoto);
   clearTimeout(timeoutGifts);
 
-  if (photo) {
-    if (ct < tp) {
-      timeoutPhoto = setTimeout(function () {
+  if (!secpart) {
+    if (photo) {
+      if (ct < tp - 0.35) {
+        removePhoto();
+      }
+
+      if (ct < tp) {
+        timeoutPhoto = setTimeout(function () {
+          setPhoto();
+        }, (tp - ct) * 1000 - 350);
+      } else if (ct < tp + part_iv_duration - 0.35) {
         setPhoto();
-      }, (tp - ct) * 1000 - 350);
-    } else if (ct < tp + part_iv_duration - 350) {
-      setPhoto();
+      } else if (ct > tp + part_iv_duration + 0.35) {
+        removePhoto();
+      }
     }
 
-    if (ct > tp + part_iv_duration + 350) {
-      removePhoto();
-    }
-  }
-
-  if (ct < tb) {
-    timeoutBall = setTimeout(function () {
-      setBall();
-    }, (tb - ct) * 1000 - 350);
-  } else {
-    if (ct > tb + part_viii_duration) {
+    if (ct < tb - 0.35) {
       removeBalls();
     }
+
+    if (ct < tb && ct >= tp + part_iv_duration + 0.35) {
+      timeoutBall = setTimeout(function () {
+        setBall();
+      }, (tb - ct) * 1000 - 350);
+    } else if (ct >= tb && ct < tb + part_viii_duration - 0.35) {
+      setBall();
+    } else if (ct > tb + part_viii_duration + 0.35) {
+      removeBalls();
+    }
+  } else {
+    removeBalls();
+    removePhoto();
   }
 
-  if (ct < tg) {
-    if (balls) timeoutGifts = setTimeout(function () {
+  if (balls) {
+    if (ct < tg && (ct >= tb + part_viii_duration + 0.35 || secpart)) {
+      removeGifts();
+      timeoutGifts = setTimeout(function () {
+        setGifts();
+      }, (tg - ct) * 1000 - 350);
+    } else if (ct > tg && ct < tg + part_xi_duration - 0.35) {
       setGifts();
-    }, (tg - ct) * 1000 - 350);
-  } else {// setPhoto()
+    } else if (ct > tg + part_xi_duration + 0.35) {
+      removeGifts();
+    }
+  }
+
+  if (hlsIs && ct > tg + part_xi_duration + 0.35) {
+    removeBalls();
+    removePhoto();
+    removeGifts();
   }
 };
 
@@ -382,6 +413,8 @@ var timeoutPhoto,
     tg = tb + part_viii_duration + part_ix_duration + part_x_duration;
 
 var chooseBall = function chooseBall(e) {
+  paused = true;
+  clearTimeout(setBallPause);
   var videoHeight = player.el().offsetHeight,
       videoWidth = player.el().offsetWidth;
 
@@ -404,6 +437,7 @@ var chooseBall = function chooseBall(e) {
     src: "/playlist-color/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
     type: "application/x-mpegURL"
   });
+  secpart = true;
   player.play();
   setTimeout(function () {
     removeBalls();
@@ -411,6 +445,7 @@ var chooseBall = function chooseBall(e) {
 };
 
 var chooseBallHls = function chooseBallHls(e) {
+  paused = true;
   clearTimeout(setBallPause);
   var videoHeight = player.el().offsetHeight,
       videoWidth = player.el().offsetWidth;
@@ -447,6 +482,7 @@ var chooseBallHls = function chooseBallHls(e) {
 
   setTimeout(function () {
     player.play();
+    paused = true;
     removeBalls();
   }, 1000);
   player.tech_.hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
@@ -455,6 +491,7 @@ var chooseBallHls = function chooseBallHls(e) {
   player.play();
   setTimeout(function () {
     player.pause();
+    paused = false;
     player.currentTime(tb + part_viii_duration + 0.2);
   }, 200);
 };
@@ -475,6 +512,7 @@ var removePhoto = function removePhoto() {
 };
 
 var setBall = function setBall() {
+  player.play();
   console.log("setBall");
   if (player.isFullscreen()) player.exitFullscreen();
   clearTimeout(setBallPause);
@@ -492,16 +530,19 @@ var setBall = function setBall() {
 
   setBallPause = setTimeout(function () {
     player.pause();
+    paused = false;
   }, (tb + part_viii_duration - ct) * 1000 - 500);
 };
 
 var setGifts = function setGifts() {
+  player.play();
   console.log("setGifts");
   if (player.isFullscreen()) player.exitFullscreen();
   clearTimeout(setGiftsPause);
   var ct = player.currentTime();
   document.getElementById("giftsElement").style.zIndex = "100";
   setGiftsPause = setTimeout(function () {
+    paused = false;
     player.pause();
   }, (tg + part_xi_duration - ct) * 1000 - 500);
 };

@@ -3,13 +3,13 @@ window.innerWidth > 640 && (resolution = 1024);
 window.innerWidth > 1024 && (resolution = 1280);
 var balls = false;
 var hlsIs = false;
-
-
+var secpart = false;
+var paused = true;
 
 var chooseGift = function(e) {
+    paused = true;
+    player.pause();
     console.log("chooseGift");
-    clearTimeout(setGiftsPause);
-    clearTimeout(setBallPause);
     e.target.style.opacity = "1";
     if (
         document.getElementById("redImg") &&
@@ -19,11 +19,11 @@ var chooseGift = function(e) {
         document.getElementById("goldImg") &&
         document.getElementById("goldImg").style.opacity == "1"
     ) {
-        player.currentTime(tg + part_xi_duration + 0.5);
+        player.currentTime(tg + part_xi_duration + 0.3);
         player.play();
         setTimeout(function() {
             removeGifts();
-        }, 200);
+        }, 500);
     }
 };
 
@@ -48,9 +48,13 @@ var player = videojs(
         });
         this.on("play", function() {
             checkTimeouts(that);
+            audio.play();
         });
         this.on("pause", function() {
-            checkTimeouts(that);
+            clearTimeout(timeoutBall);
+            clearTimeout(timeoutPhoto);
+            clearTimeout(timeoutGifts);
+            if (paused) audio.pause();
         });
         this.on("firstplay", function() {
             that.tech({ IWillNotUseThisInPlugins: true }) &&
@@ -60,6 +64,7 @@ var player = videojs(
             if (!hlsIs) {
                 tg = part_ix_duration + part_x_duration;
             }
+            checkTimeouts(that);
         });
         this.on("change", function() {
             checkTimeouts(that);
@@ -173,35 +178,53 @@ var checkTimeouts = function() {
     clearTimeout(timeoutBall);
     clearTimeout(timeoutPhoto);
     clearTimeout(timeoutGifts);
-    if (photo) {
-        if (ct < tp) {
-            timeoutPhoto = setTimeout(function() {
+    if (!secpart) {
+        if (photo) {
+            if (ct < tp - 0.35) {
+                removePhoto();
+            }
+            if (ct < tp) {
+                timeoutPhoto = setTimeout(function() {
+                    setPhoto();
+                }, (tp - ct) * 1000 - 350);
+            } else if (ct < tp + part_iv_duration - 0.35) {
                 setPhoto();
-            }, (tp - ct) * 1000 - 350);
-        } else if (ct < tp + part_iv_duration - 350) {
-            setPhoto();
+            } else if (ct > tp + part_iv_duration + 0.35) {
+                removePhoto();
+            }
         }
-        if (ct > tp + part_iv_duration + 350) {
-            removePhoto();
-        }
-    }
-    if (ct < tb) {
-        timeoutBall = setTimeout(function() {
-            setBall();
-        }, (tb - ct) * 1000 - 350);
-    } else {
-        if (ct > tb + part_viii_duration) {
+        if (ct < tb - 0.35) {
             removeBalls();
         }
+        if (ct < tb && ct >= tp + part_iv_duration + 0.35) {
+            timeoutBall = setTimeout(function() {
+                setBall();
+            }, (tb - ct) * 1000 - 350);
+        } else if (ct >= tb && ct < tb + part_viii_duration - 0.35) {
+            setBall();
+        } else if (ct > tb + part_viii_duration + 0.35) {
+            removeBalls();
+        }
+    } else {
+        removeBalls();
+        removePhoto();
     }
-
-    if (ct < tg) {
-        if (balls)
+    if (balls) {
+        if (ct < tg && (ct >= tb + part_viii_duration + 0.35 || secpart)) {
+            removeGifts();
             timeoutGifts = setTimeout(function() {
                 setGifts();
             }, (tg - ct) * 1000 - 350);
-    } else {
-        // setPhoto()
+        } else if (ct > tg && ct < tg + part_xi_duration - 0.35) {
+            setGifts();
+        } else if (ct > tg + part_xi_duration + 0.35) {
+            removeGifts();
+        }
+    }
+    if (hlsIs && ct > tg + part_xi_duration + 0.35) {
+        removeBalls();
+        removePhoto();
+        removeGifts();
     }
 };
 
@@ -338,6 +361,8 @@ var timeoutPhoto,
     tg = tb + part_viii_duration + part_ix_duration + part_x_duration;
 
 var chooseBall = function(e) {
+    paused = true;
+    clearTimeout(setBallPause);
     var videoHeight = player.el().offsetHeight,
         videoWidth = player.el().offsetWidth;
 
@@ -369,6 +394,7 @@ var chooseBall = function(e) {
             color,
         type: "application/x-mpegURL"
     });
+    secpart = true;
     player.play();
     setTimeout(function() {
         removeBalls();
@@ -376,6 +402,7 @@ var chooseBall = function(e) {
 };
 
 var chooseBallHls = function(e) {
+    paused = true;
     clearTimeout(setBallPause);
     var videoHeight = player.el().offsetHeight,
         videoWidth = player.el().offsetWidth;
@@ -424,6 +451,7 @@ var chooseBallHls = function(e) {
     }
     setTimeout(function() {
         player.play();
+        paused = true;
         removeBalls();
     }, 1000);
 
@@ -438,6 +466,7 @@ var chooseBallHls = function(e) {
     player.play();
     setTimeout(function() {
         player.pause();
+        paused = false;
         player.currentTime(tb + part_viii_duration + 0.2);
     }, 200);
 };
@@ -460,6 +489,7 @@ var removePhoto = function() {
 };
 
 var setBall = function() {
+    player.play();
     console.log("setBall");
     if (player.isFullscreen()) player.exitFullscreen();
     clearTimeout(setBallPause);
@@ -477,10 +507,12 @@ var setBall = function() {
 
     setBallPause = setTimeout(function() {
         player.pause();
+        paused = false;
     }, (tb + part_viii_duration - ct) * 1000 - 500);
 };
 
 var setGifts = function() {
+    player.play();
     console.log("setGifts");
     if (player.isFullscreen()) player.exitFullscreen();
     clearTimeout(setGiftsPause);
@@ -488,6 +520,7 @@ var setGifts = function() {
     document.getElementById("giftsElement").style.zIndex = "100";
 
     setGiftsPause = setTimeout(function() {
+        paused = false;
         player.pause();
     }, (tg + part_xi_duration - ct) * 1000 - 500);
 };
