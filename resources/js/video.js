@@ -106,7 +106,7 @@ var chooseBall = function(e) {
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
 
-    var segments = player.tech().hls.playlists.master.playlists[0].segments;
+    var segments = player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists.master.playlists[0].segments;
     for (i in segments) {
         segments[i].indexOf("part_ix") > -1;
         segments[i].resolvedUri = segments[i].uri =
