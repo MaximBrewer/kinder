@@ -203,9 +203,9 @@ var setPhoto = function() {
     document.getElementById("video").appendChild(photoElement);
 
     clearTimeout(timeoutRemovePhoto);
-    timeoutRemovePhoto = setTimeout(function() {
-        removePhoto();
-    }, (tp + part_iv_duration - ct) * 1000 + 350);
+    // timeoutRemovePhoto = setTimeout(function() {
+    //     removePhoto();
+    // }, (tp + part_iv_duration - ct) * 1000 + 350);
 };
 
 var removeGifts = function() {
