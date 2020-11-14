@@ -347,7 +347,7 @@ var player = videojs("video", {
       IWillNotUseThisInPlugins: true
     }) && that.tech({
       IWillNotUseThisInPlugins: true
-    }).hls && (hlsIs = false) && (balls = true);
+    }).hls && (hlsIs = true) && (balls = true);
 
     if (!hlsIs) {
       tg = part_ix_duration + part_x_duration;

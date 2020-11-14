@@ -280,7 +280,7 @@ var player = videojs(
         this.on("firstplay", function() {
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
-                (hlsIs = false) &&
+                (hlsIs = true) &&
                 (balls = true);
             if (!hlsIs) {
                 tg = part_ix_duration + part_x_duration;
