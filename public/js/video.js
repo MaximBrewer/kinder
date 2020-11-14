@@ -264,7 +264,7 @@ var chooseBall = function chooseBall(e) {
   }).trigger("syncinfoupdate");
   setTimeout(function () {
     removeBalls();
-    player.currentTime(tb + part_viii_duration + part_ix_duration + 1500); // player.play();
+    player.currentTime(tb + part_viii_duration + part_ix_duration + 0.2); // player.play();
   }, 500);
 };
 
@@ -369,7 +369,7 @@ var removePhoto = function removePhoto() {
 };
 
 var createEl = function createEl() {
-  player.exitFullscreen();
+  if (player.isFullscreen()) player.exitFullscreen();
   window.scrollTo(0, 1);
   var videoHeight = player.el().offsetHeight,
       videoWidth = player.el().offsetWidth;

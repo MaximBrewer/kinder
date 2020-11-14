@@ -195,7 +195,7 @@ var chooseBall = function(e) {
     setTimeout(function() {
         removeBalls();
 
-        player.currentTime(tb + part_viii_duration + part_ix_duration + 1500);
+        player.currentTime(tb + part_viii_duration + part_ix_duration + 0.2);
         // player.play();
     }, 500);
 };
@@ -317,7 +317,7 @@ var removePhoto = function() {
 };
 
 var createEl = function() {
-    player.exitFullscreen();
+    if (player.isFullscreen()) player.exitFullscreen();
     window.scrollTo(0, 1);
     var videoHeight = player.el().offsetHeight,
         videoWidth = player.el().offsetWidth;
