@@ -30,6 +30,7 @@
     <script>
         var hash = "{{ $hash }}",
             photo = "{{ $photo }}",
+            cdn = "{{ $cdn }}",
             part_i_duration = "{{ $part_i_duration }}" * 1,
             part_ii_duration = "{{ $part_ii_duration }}" * 1,
             part_iii_duration = "{{ $part_iii_duration }}" * 1,

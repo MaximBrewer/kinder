@@ -166,7 +166,8 @@ class SiteController extends Controller
             'part_xv_duration' => 27.040,
             'part_xvi_duration' => 6.000,
             'part_xvii_duration' => 12.640,
-            'photo' => $order->photo ? "/storage/" . $order->photo : ""
+            'photo' => $order->photo ? "/storage/" . $order->photo : "",
+            'cdn' => $this->cdn
         ];
 
         if (!$order->name->chunks640) $this->setChunks($order->name, 'part_ii', 640);
