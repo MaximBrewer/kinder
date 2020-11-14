@@ -127,10 +127,10 @@ var chooseBall = function(e) {
         }
         newSegments.push(segments[i])
     }
-
-    player.tech({ IWillNotUseThisInPlugins: true }).hls.updateSegments(segments, newSegments);
-
     console.log(player.tech({ IWillNotUseThisInPlugins: true }).buffered());
+
+    // player.tech({ IWillNotUseThisInPlugins: true }).hls.updateSegments(segments, newSegments);
+
     setTimeout(function() {
         removeBalls();
         // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
