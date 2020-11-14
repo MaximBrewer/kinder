@@ -8,10 +8,10 @@ var options = {
     }
 };
 
-videojs.Hls.xhr.beforeRequest = function(){
+videojs.Hls.xhr.beforeRequest = function() {
     console.log(player);
     return false;
-} 
+};
 
 var player = videojs(
     "video",
@@ -61,7 +61,6 @@ var player = videojs(
     }
 );
 
-
 var timeoutPhoto,
     timeoutRemovePhoto,
     timeoutBall,
@@ -108,17 +107,18 @@ var chooseBall = function(e) {
 
     var segments = player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists
         .master.playlists[0].segments;
+    var newSegments = [];
     for (i in segments) {
         console.log(segments[i].uri.indexOf("part_ix"), i, color);
         if (segments[i].uri.indexOf("part_ix") > -1) {
-            player.hls.playlists.master.playlists[0].segments[i].resolvedUri =
+            segments[i].resolvedUri =
                 cdn +
                 "part_ix/" +
                 color +
                 "%20%28" +
                 resolution +
                 "xauto%29.mp4/media_0.ts";
-            player.hls.playlists.master.playlists[0].segments[i].uri =
+                segments[i].uri =
                 cdn +
                 "part_ix/" +
                 color +
@@ -126,7 +126,10 @@ var chooseBall = function(e) {
                 resolution +
                 "xauto%29.mp4/media_0.ts";
         }
+        newSegments.push(segments[i])
     }
+
+    player.tech({ IWillNotUseThisInPlugins: true }).hls.updateSegments(segments, newSegments);
 
     console.log(player.hls.playlists.master.playlists[0].segments);
     setTimeout(function() {
