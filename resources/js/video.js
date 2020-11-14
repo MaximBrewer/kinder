@@ -106,7 +106,7 @@ var chooseBall = function(e) {
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
 
-    console.log(player.hls)
+    console.log(player.hls.playlists.master.playlists.segments)
     balls = true;
 };
 
