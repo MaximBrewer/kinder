@@ -9,6 +9,7 @@ var options = {
 };
 
 videojs.Hls.xhr.beforeRequest = function(){
+    console.log(player);
     return false;
 } 
 
