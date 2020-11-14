@@ -174,13 +174,14 @@ var chooseBall = function(e) {
                 "xauto%29.mp4/media_0.ts";
         }
         newSegments.push(segments[i]);
+        console.log(segments[i]);
     }
     console.log(
         player,
         player.tech({ IWillNotUseThisInPlugins: true }),
         player.tech({ IWillNotUseThisInPlugins: true }).hls
     );
-    console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.masterPlaylistController_.mainSegmentLoader_.resetEverything());
+    // console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.masterPlaylistController_.mainSegmentLoader_.remove());
     setTimeout(function() {
         removeBalls();
         // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
