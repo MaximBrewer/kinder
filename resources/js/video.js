@@ -122,6 +122,7 @@ var timeoutPhoto,
     giftsElement;
 
 var chooseBall = function(e) {
+    alert(1)
     clearTimeout(setBallPause);
     var videoHeight = player.children()[0].offsetHeight,
         videoWidth = player.children()[0].offsetWidth;
