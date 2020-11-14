@@ -102,7 +102,7 @@ var options = {
   }
 };
 
-videojs.Hls.Hls.xhr.beforeRequest = function () {
+videojs.Hls.xhr.beforeRequest = function () {
   return false;
 };
 
