@@ -5,6 +5,22 @@ window.innerWidth > 640 && (resolution = 1024);
 window.innerWidth > 1024 && (resolution = 1280);
 var balls = false;
 var hlsIs = false;
+
+var chooseGift = function chooseGift(e) {
+  console.log("chooseGift");
+  clearTimeout(setGiftsPause);
+  clearTimeout(setBallPause);
+  e.target.style.opacity = "1";
+
+  if (document.getElementById("redImg") && document.getElementById("redImg").style.opacity == "1" && document.getElementById("whiteImg") && document.getElementById("whiteImg").style.opacity == "1" && document.getElementById("goldImg") && document.getElementById("goldImg").style.opacity == "1") {
+    player.currentTime(tg + part_xi_duration + 0.5);
+    player.play();
+    setTimeout(function () {
+      removeGifts();
+    }, 200);
+  }
+};
+
 var player = videojs("video", {
   sources: [{
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
@@ -117,15 +133,16 @@ goldImg.style.top = "47.3%";
 goldImg.style.left = "66%";
 goldImg.style.opacity = "0";
 goldImg.style.height = "42.4%";
-giftsElement.appendChild(redImg);
-giftsElement.appendChild(whiteImg);
-giftsElement.appendChild(goldImg);
+goldImg.onClick = "chooseGift";
 redImg.addEventListener("touchstart", chooseGift);
 redImg.addEventListener("click", chooseGift);
 whiteImg.addEventListener("touchstart", chooseGift);
 whiteImg.addEventListener("click", chooseGift);
 goldImg.addEventListener("touchstart", chooseGift);
 goldImg.addEventListener("click", chooseGift);
+giftsElement.appendChild(redImg);
+giftsElement.appendChild(whiteImg);
+giftsElement.appendChild(goldImg);
 
 var checkTimeouts = function checkTimeouts() {
   var ct = player.currentTime();
@@ -383,21 +400,6 @@ var setBall = function setBall() {
   setBallPause = setTimeout(function () {
     player.pause();
   }, (tb + part_viii_duration - ct) * 1000 - 500);
-};
-
-var chooseGift = function chooseGift(e) {
-  console.log("chooseGift");
-  clearTimeout(setGiftsPause);
-  clearTimeout(setBallPause);
-  e.target.style.opacity = "1";
-
-  if (document.getElementById("redImg") && document.getElementById("redImg").style.opacity == "1" && document.getElementById("whiteImg") && document.getElementById("whiteImg").style.opacity == "1" && document.getElementById("goldImg") && document.getElementById("goldImg").style.opacity == "1") {
-    player.currentTime(tg + part_xi_duration + 0.5);
-    player.play();
-    setTimeout(function () {
-      removeGifts();
-    }, 200);
-  }
 };
 
 var setGifts = function setGifts() {
