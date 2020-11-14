@@ -101,7 +101,11 @@ var options = {
     maxBufferLength: 3
   }
 };
-videojs.Hls.GOAL_BUFFER_LENGTH = 5;
+
+videojs.Hls.Hls.xhr.beforeRequest = function () {
+  return false;
+};
+
 var player = videojs("video", {
   flash: options,
   html5: options,
