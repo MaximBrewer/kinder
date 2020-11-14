@@ -141,6 +141,11 @@ var player = videojs("video", {
   });
 });
 document.getElementById('video').addEventListener('click', function () {
+  console.log(9);
+  if (audio.paused()) audio.play();
+});
+document.getElementById('video').addEventListener('touchstart', function () {
+  console.log(9);
   if (audio.paused()) audio.play();
 });
 var timeoutPhoto,
