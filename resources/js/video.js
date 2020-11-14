@@ -122,7 +122,6 @@ var timeoutPhoto,
     giftsElement;
 
 var chooseBall = function(e) {
-    alert(1)
     clearTimeout(setBallPause);
     var videoHeight = player.children()[0].offsetHeight,
         videoWidth = player.children()[0].offsetWidth;
@@ -173,6 +172,10 @@ var chooseBall = function(e) {
             start += segments[i].duration;
         }
     }
+    setTimeout(function() {
+        player.play();
+        removeBalls();
+    }, 1000);
 
     player
         .tech({ IWillNotUseThisInPlugins: true })
@@ -191,10 +194,6 @@ var chooseBall = function(e) {
         player.pause();
         player.currentTime(tb + part_viii_duration + 0.2);
     }, 200);
-    setTimeout(function() {
-        player.play();
-        removeBalls();
-    }, 1000);
 };
 
 var removeBalls = function() {

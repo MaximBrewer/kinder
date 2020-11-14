@@ -204,7 +204,6 @@ var timeoutPhoto,
     giftsElement;
 
 var chooseBall = function chooseBall(e) {
-  alert(1);
   clearTimeout(setBallPause);
   var videoHeight = player.children()[0].offsetHeight,
       videoWidth = player.children()[0].offsetWidth;
@@ -245,6 +244,10 @@ var chooseBall = function chooseBall(e) {
     }
   }
 
+  setTimeout(function () {
+    player.play();
+    removeBalls();
+  }, 1000);
   player.tech({
     IWillNotUseThisInPlugins: true
   }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
@@ -259,10 +262,6 @@ var chooseBall = function chooseBall(e) {
     player.pause();
     player.currentTime(tb + part_viii_duration + 0.2);
   }, 200);
-  setTimeout(function () {
-    player.play();
-    removeBalls();
-  }, 1000);
 };
 
 var removeBalls = function removeBalls() {
