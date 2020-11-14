@@ -96,17 +96,11 @@
 var resolution = 1280;
 var balls = false;
 var redImg, whiteImg, goldImg;
-var options = {
-  hls: {
-    maxBufferLength: 3
-  }
-};
-
-videojs.Hls.xhr.beforeRequest = function () {
-  return false;
-};
+var elid = "videoS";
+document.getElementById("videoS").style.display = "block";
 
 var checkTimeouts = function checkTimeouts() {
+  console.log(player);
   var ct = player.currentTime();
   clearTimeout(timeoutBall);
   clearTimeout(timeoutPhoto);
@@ -141,11 +135,9 @@ var checkTimeouts = function checkTimeouts() {
   }
 };
 
-var player = videojs("video", {
-  flash: options,
-  html5: options,
+var playerS = videojs("videoS", {
   sources: [{
-    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=s",
     type: "application/x-mpegURL"
   }],
   controls: true,
@@ -158,14 +150,6 @@ var player = videojs("video", {
   });
   this.on("play", function () {
     checkTimeouts(that);
-
-    if (balls) {
-      setTimeout(function () {
-        removeBalls();
-        that.currentTime(tb + part_viii_duration + 0.2);
-      }, 1000);
-      balls = false;
-    }
   });
   this.on("pause", function () {
     checkTimeouts(that);
@@ -178,14 +162,6 @@ var player = videojs("video", {
   });
   this.on("loadedmetadata", function () {
     checkTimeouts(that);
-
-    if (balls) {
-      setTimeout(function () {
-        removeBalls();
-        that.currentTime(tb + part_viii_duration + 0.2);
-      }, 1000);
-      balls = false;
-    }
   });
   this.on("progress", function () {
     checkTimeouts(that);
@@ -197,6 +173,83 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
 });
+var playerR = videojs("videoR", {
+  sources: [{
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=r",
+    type: "application/x-mpegURL"
+  }],
+  controls: true,
+  control: true,
+  poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg"
+}, function () {
+  var that = this;
+  this.on("ended", function () {
+    checkTimeouts(that);
+  });
+  this.on("play", function () {
+    checkTimeouts(that);
+  });
+  this.on("pause", function () {
+    checkTimeouts(that);
+  });
+  this.on("firstplay", function () {
+    checkTimeouts(that);
+  });
+  this.on("change", function () {
+    checkTimeouts(that);
+  });
+  this.on("loadedmetadata", function () {
+    checkTimeouts(that);
+  });
+  this.on("progress", function () {
+    checkTimeouts(that);
+  });
+  this.on("seeking", function () {
+    checkTimeouts(that);
+  });
+  this.on("seeked", function () {
+    checkTimeouts(that);
+  });
+});
+var playerG = videojs("videoG", {
+  sources: [{
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=g",
+    type: "application/x-mpegURL"
+  }],
+  controls: true,
+  control: true,
+  poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg"
+}, function () {
+  var that = this;
+  this.on("ended", function () {
+    checkTimeouts(that);
+  });
+  this.on("play", function () {
+    checkTimeouts(that);
+  });
+  this.on("pause", function () {
+    checkTimeouts(that);
+  });
+  this.on("firstplay", function () {
+    checkTimeouts(that);
+  });
+  this.on("change", function () {
+    checkTimeouts(that);
+  });
+  this.on("loadedmetadata", function () {
+    checkTimeouts(that);
+  });
+  this.on("progress", function () {
+    checkTimeouts(that);
+  });
+  this.on("seeking", function () {
+    checkTimeouts(that);
+  });
+  this.on("seeked", function () {
+    checkTimeouts(that);
+  });
+});
+var player = playerS;
 var timeoutPhoto,
     timeoutRemovePhoto,
     timeoutBall,
@@ -231,11 +284,15 @@ var chooseBall = function chooseBall(e) {
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s";
-  player.src({
-    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
-    type: "application/x-mpegURL"
-  });
-  player.play();
+  player.pause();
+  player = color == "r" ? playerR : color == "g" ? playerG : playerS;
+  player.currentTime(tb + part_viii_duration + 0.2);
+  document.getElementById("videoG").style.display = "none";
+  document.getElementById("videoS").style.display = "none";
+  document.getElementById("videoR").style.display = "none";
+  elid = player.el().id;
+  document.getElementById(elid).style.display = "block";
+  player.el().player.play();
   balls = true;
 }; // var chooseBall = function(e) {
 //     clearTimeout(setBallPause);
@@ -332,7 +389,7 @@ var setBall = function setBall() {
   var ct = player.currentTime();
   ballsElement = createEl("ballsElement");
   ballsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
-  document.getElementById("video").appendChild(ballsElement);
+  document.getElementById(elid).appendChild(ballsElement);
   ballsElement.addEventListener("touchstart", chooseBall);
   ballsElement.addEventListener("click", chooseBall);
   setBallPause = setTimeout(function () {
@@ -361,7 +418,7 @@ var setGifts = function setGifts() {
   var ct = player.currentTime();
   giftsElement = createEl("giftsElement");
   giftsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
-  document.getElementById("video").appendChild(giftsElement);
+  document.getElementById(elid).appendChild(giftsElement);
   redImg = document.createElement("img");
   redImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
   redImg.alt = "";
@@ -404,7 +461,7 @@ var setPhoto = function setPhoto() {
   var ct = player.currentTime();
   photoElement = createEl("photoElement");
   photoElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" + photo + "') no-repeat top left 57%/auto 92%";
-  document.getElementById("video").appendChild(photoElement);
+  document.getElementById(elid).appendChild(photoElement);
   clearTimeout(timeoutRemovePhoto);
   timeoutRemovePhoto = setTimeout(function () {
     removePhoto();
