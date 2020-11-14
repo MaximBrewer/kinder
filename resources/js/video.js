@@ -2,8 +2,116 @@ var resolution = 640;
 window.innerWidth > 640 && (resolution = 1024);
 window.innerWidth > 1024 && (resolution = 1280);
 var balls = false;
-var redImg, whiteImg, goldImg;
 var hlsIs = false;
+
+var createEl = function(id) {
+    window.scrollTo(0, 1);
+    var videoHeight = player.el().offsetHeight,
+        videoWidth = player.el().offsetWidth;
+    if (videoHeight > (videoWidth * 720) / 1280) {
+        var width = videoWidth,
+            height = (width / 1280) * 720,
+            top = (videoHeight - height) / 2,
+            left = 0;
+    } else {
+        var height = videoHeight,
+            width = (height / 720) * 1280;
+        (top = 0), (left = (videoWidth - width) / 2);
+    }
+    el = document.createElement("div");
+    el.id = id;
+    el.style.position = "absolute";
+    el.classList.add("resizable");
+    el.style.height = height + "px";
+    el.style.width = width + "px";
+    el.style.top = top + "px";
+    el.style.left = left + "px";
+    el.style.zIndex = "-10";
+    el.style.backgroundColor = "#000000";
+    return el;
+};
+
+window.addEventListener('resize', function(){
+    var videoHeight = player.el().offsetHeight,
+        videoWidth = player.el().offsetWidth;
+    if (videoHeight > (videoWidth * 720) / 1280) {
+        var width = videoWidth,
+            height = (width / 1280) * 720,
+            top = (videoHeight - height) / 2,
+            left = 0;
+    } else {
+        var height = videoHeight,
+            width = (height / 720) * 1280;
+        (top = 0), (left = (videoWidth - width) / 2);
+    }
+    var els = document.getElementsByClassName("resizable")
+    Array.from(els).forEach((el) => {
+        el.style.height = height + "px";
+        el.style.width = width + "px";
+        el.style.top = top + "px";
+        el.style.left = left + "px";
+    });
+}, true);
+
+var photoElement = createEl("photoElement");
+photoElement.style.background =
+    "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
+    photo +
+    "') no-repeat top left 57%/auto 92%";
+document.getElementById("video").appendChild(photoElement);
+
+var ballsElement = createEl("ballsElement");
+ballsElement.style.background =
+    "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
+document.getElementById("video").appendChild(ballsElement);
+
+var giftsElement = createEl("giftsElement");
+giftsElement.style.background =
+    "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
+document.getElementById("video").appendChild(giftsElement);
+
+var redImg = document.createElement("img");
+redImg.id = "redImg";
+redImg.src =
+    "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
+redImg.alt = "";
+redImg.style.position = "absolute";
+redImg.style.top = "41.015%";
+redImg.style.left = "47.1%";
+redImg.style.opacity = "0";
+redImg.style.height = "42.4%";
+
+var whiteImg = document.createElement("img");
+whiteImg.id = "whiteImg";
+whiteImg.src =
+    "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/white.png";
+whiteImg.alt = "";
+whiteImg.style.position = "absolute";
+whiteImg.style.top = "64.715%";
+whiteImg.style.left = "38.1%";
+whiteImg.style.opacity = "0";
+whiteImg.style.height = "31.4%";
+
+var goldImg = document.createElement("img");
+goldImg.id = "goldImg";
+goldImg.src =
+    "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/gold.png";
+goldImg.alt = "";
+goldImg.style.position = "absolute";
+goldImg.style.top = "47.3%";
+goldImg.style.left = "66%";
+goldImg.style.opacity = "0";
+goldImg.style.height = "42.4%";
+giftsElement.appendChild(redImg);
+giftsElement.appendChild(whiteImg);
+giftsElement.appendChild(goldImg);
+
+redImg.addEventListener("touchstart", chooseGift);
+redImg.addEventListener("click", chooseGift);
+whiteImg.addEventListener("touchstart", chooseGift);
+whiteImg.addEventListener("click", chooseGift);
+goldImg.addEventListener("touchstart", chooseGift);
+goldImg.addEventListener("click", chooseGift);
 
 var checkTimeouts = function() {
     var ct = player.currentTime();
@@ -100,64 +208,6 @@ var player = videojs(
             if (!hlsIs) {
                 tg = part_ix_duration + part_x_duration;
             }
-            photoElement = createEl("photoElement");
-            photoElement.style.background =
-                "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
-                photo +
-                "') no-repeat top left 57%/auto 92%";
-            document.getElementById("video").appendChild(photoElement);
-            ballsElement = createEl("ballsElement");
-            ballsElement.style.background =
-                "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
-            document.getElementById("video").appendChild(ballsElement);
-            giftsElement = createEl("giftsElement");
-            giftsElement.style.background =
-                "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
-            document.getElementById("video").appendChild(giftsElement);
-
-            redImg = document.createElement("img")
-            redImg.id = "redImg";
-            redImg.src =
-                "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
-            redImg.alt = "";
-            redImg.style.position = "absolute";
-            redImg.style.top = "41.015%";
-            redImg.style.left = "47.1%";
-            redImg.style.opacity = "0";
-            redImg.style.height = "42.4%";
-
-            whiteImg = document.createElement("img");
-            whiteImg.id = "whiteImg";
-            whiteImg.src =
-                "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/white.png";
-            whiteImg.alt = "";
-            whiteImg.style.position = "absolute";
-            whiteImg.style.top = "64.715%";
-            whiteImg.style.left = "38.1%";
-            whiteImg.style.opacity = "0";
-            whiteImg.style.height = "31.4%";
-
-            goldImg = document.createElement("img");
-            goldImg.id = "goldImg";
-            goldImg.src =
-                "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/gold.png";
-            goldImg.alt = "";
-            goldImg.style.position = "absolute";
-            goldImg.style.top = "47.3%";
-            goldImg.style.left = "66%";
-            goldImg.style.opacity = "0";
-            goldImg.style.height = "42.4%";
-            giftsElement.appendChild(redImg);
-            giftsElement.appendChild(whiteImg);
-            giftsElement.appendChild(goldImg);
-
-            redImg.addEventListener("touchstart", chooseGift);
-            redImg.addEventListener("click", chooseGift);
-            whiteImg.addEventListener("touchstart", chooseGift);
-            whiteImg.addEventListener("click", chooseGift);
-            goldImg.addEventListener("touchstart", chooseGift);
-            goldImg.addEventListener("click", chooseGift);
-
         });
         this.on("change", function() {
             checkTimeouts(that);
@@ -197,10 +247,7 @@ var timeoutPhoto,
         part_v_duration +
         part_vi_duration +
         part_vii_duration,
-    tg = tb + part_viii_duration + part_ix_duration + part_x_duration,
-    photoElement,
-    ballsElement,
-    giftsElement;
+    tg = tb + part_viii_duration + part_ix_duration + part_x_duration;
 
 var chooseBall = function(e) {
     clearTimeout(setBallPause);
@@ -356,9 +403,12 @@ var chooseGift = function(e) {
     clearTimeout(setBallPause);
     e.target.style.opacity = "1";
     if (
-        document.getElementById('redImg') && document.getElementById('redImg').style.opacity == "1" &&
-        document.getElementById('whiteImg') && document.getElementById('whiteImg').style.opacity == "1" &&
-        document.getElementById('goldImg') && document.getElementById('goldImg').style.opacity == "1"
+        document.getElementById("redImg") &&
+        document.getElementById("redImg").style.opacity == "1" &&
+        document.getElementById("whiteImg") &&
+        document.getElementById("whiteImg").style.opacity == "1" &&
+        document.getElementById("goldImg") &&
+        document.getElementById("goldImg").style.opacity == "1"
     ) {
         player.currentTime(tg + part_xi_duration + 0.5);
         player.play();
@@ -388,30 +438,4 @@ var setPhoto = function() {
     timeoutRemovePhoto = setTimeout(function() {
         removePhoto();
     }, (tp + part_iv_duration - ct) * 1000 + 350);
-};
-
-var createEl = function(id) {
-    window.scrollTo(0, 1);
-    var videoHeight = player.el().offsetHeight,
-        videoWidth = player.el().offsetWidth;
-    if (videoHeight > (videoWidth * 720) / 1280) {
-        var width = videoWidth,
-            height = (width / 1280) * 720,
-            top = (videoHeight - height) / 2,
-            left = 0;
-    } else {
-        var height = videoHeight,
-            width = (height / 720) * 1280;
-        (top = 0), (left = (videoWidth - width) / 2);
-    }
-    el = document.createElement("div");
-    el.id = id;
-    el.style.position = "absolute";
-    el.style.height = height + "px";
-    el.style.width = width + "px";
-    el.style.top = top + "px";
-    el.style.left = left + "px";
-    el.style.zIndex = "-10";
-    el.style.backgroundColor = "#000000";
-    return el;
 };
