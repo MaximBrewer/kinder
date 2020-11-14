@@ -43,7 +43,7 @@ var player = videojs(
                 setTimeout(function() {
                     that.muted(false);
                     that.currentTime(tb + part_viii_duration + 0.5);
-                }, 500);
+                }, 200);
                 balls = false;
             }
             checkTimeouts(that);
