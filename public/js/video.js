@@ -191,7 +191,7 @@ var chooseBall = function chooseBall(e) {
   }).hls.playlists.master.playlists[0].segments;
 
   for (i in segments) {
-    segments[i].indexOf("part_ix") > -1;
+    segments[i].uri.indexOf("part_ix") > -1;
     segments[i].resolvedUri = segments[i].uri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
   }
 

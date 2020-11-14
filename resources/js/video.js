@@ -108,7 +108,7 @@ var chooseBall = function(e) {
 
     var segments = player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists.master.playlists[0].segments;
     for (i in segments) {
-        segments[i].indexOf("part_ix") > -1;
+        segments[i].uri.indexOf("part_ix") > -1;
         segments[i].resolvedUri = segments[i].uri =
             cdn +
             "part_ix/" +
