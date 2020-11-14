@@ -198,6 +198,9 @@ var chooseBall = function chooseBall(e) {
     newSegments.push(segments[i]);
   }
 
+  player.tech({
+    IWillNotUseThisInPlugins: true
+  }).trigger('mediachange');
   console.log(player, player.tech({
     IWillNotUseThisInPlugins: true
   }), player.tech({
