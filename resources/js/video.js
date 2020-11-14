@@ -35,11 +35,15 @@ var player = videojs(
         });
         this.on("loadedmetadata", function() {
             if(balls){
+                that.play();
+                that.muted(true);
                 setTimeout(function() {
                     removeBalls();
+                    that.muted(false);
                 }, 1000);
-                alert(balls)
-                that.currentTime(tb + part_viii_duration + 0.5);
+                setTimeout(function() {
+                    that.currentTime(tb + part_viii_duration + 0.5);
+                }, 500);
                 balls = false;
             }
             checkTimeouts(that);
