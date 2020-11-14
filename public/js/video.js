@@ -264,7 +264,7 @@ var chooseBall = function chooseBall(e) {
   }).trigger("syncinfoupdate");
   setTimeout(function () {
     removeBalls();
-    player.currentTime(tb + part_viii_duration + part_ix_duration + 0.2); // player.play();
+    player.currentTime(tb + part_viii_duration + 0.2); // player.play();
   }, 500);
 };
 
