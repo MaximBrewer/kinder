@@ -176,6 +176,8 @@ var chooseBall = function chooseBall(e) {
   }).hls.playlists.master.playlists[0].segments;
 
   for (i in segments) {
+    console.log(segments[i].uri.indexOf("part_ix"), i);
+
     if (segments[i].uri.indexOf("part_ix") > -1) {
       player.tech({
         IWillNotUseThisInPlugins: true
