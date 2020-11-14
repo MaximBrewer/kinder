@@ -27,7 +27,7 @@
             Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank">совместимых с HTML5 видео</a>
         </p>
     </video>
-    <audio id="audio" style="display:none;"></audio>
+    <audio id="audio" controls></audio>
     <script>
         var hash = "{{ $hash }}",
             photo = "{{ $photo }}",
