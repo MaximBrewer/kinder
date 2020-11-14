@@ -95,7 +95,7 @@ var player = videojs(
         this.on("firstplay", function() {
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
-                (hlsIs = true) &&
+                (hlsIs = false) &&
                 (balls = true);
             if (!hlsIs) {
                 tg = part_ix_duration + part_x_duration;
@@ -321,6 +321,7 @@ var removePhoto = function() {
 
 var setBall = function() {
     console.log("setBall");
+    if (player.isFullscreen()) player.exitFullscreen();
     clearTimeout(setBallPause);
     removeBalls();
     var ct = player.currentTime();
@@ -359,6 +360,7 @@ var chooseGift = function(e) {
 
 var setGifts = function() {
     console.log("setGifts");
+    if (player.isFullscreen()) player.exitFullscreen();
     clearTimeout(setGiftsPause);
     var ct = player.currentTime();
     document.getElementById("giftsElement").style.zIndex = "100";
@@ -376,6 +378,7 @@ var setGifts = function() {
 
 var setPhoto = function() {
     var ct = player.currentTime();
+    if (player.isFullscreen()) player.exitFullscreen();
     document.getElementById("photoElement").style.zIndex = "100";
     clearTimeout(timeoutRemovePhoto);
     timeoutRemovePhoto = setTimeout(function() {
@@ -384,7 +387,6 @@ var setPhoto = function() {
 };
 
 var createEl = function(id) {
-    if (player.isFullscreen()) player.exitFullscreen();
     window.scrollTo(0, 1);
     var videoHeight = player.el().offsetHeight,
         videoWidth = player.el().offsetWidth;
