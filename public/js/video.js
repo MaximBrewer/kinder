@@ -234,16 +234,16 @@ var chooseBall = function chooseBall(e) {
 
   for (i in segments) {
     // console.log(segments[i].uri.indexOf("part_ix"), i, color);
-    if (segments[i].end) {
-      start = segments[i].end;
-    } else {
-      start += segments[i].duration;
-    }
-
     if (segments[i].uri.indexOf("part_ix") > -1) {
       segments[i].resolvedUri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
       segments[i].uri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
       break;
+    }
+
+    if (segments[i].end) {
+      start = segments[i].end;
+    } else {
+      start += segments[i].duration;
     }
   }
 
@@ -253,9 +253,9 @@ var chooseBall = function chooseBall(e) {
     IWillNotUseThisInPlugins: true
   }).hls);
   console.log(start, start + 1000);
-  console.log(player.tech({
+  player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000));
+  }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
   setTimeout(function () {
     removeBalls(); // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
     // player.play();
