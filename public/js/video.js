@@ -94,7 +94,7 @@
 /***/ (function(module, exports) {
 
 var resolution = 1280;
-var step = 0;
+var currentTime = 0;
 var redImg, whiteImg, goldImg;
 var player = videojs("video", {
   sources: [{
@@ -111,6 +111,7 @@ var player = videojs("video", {
   });
   this.on("play", function () {
     checkTimeouts(that);
+    player.currentTime(currentTime);
   });
   this.on("firstplay", function () {
     checkTimeouts(that);
@@ -172,10 +173,8 @@ var chooseBall = function chooseBall(e) {
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
     type: "application/x-mpegURL"
   });
+  currentTime = tb + part_viii_duration + 0.5;
   player.play();
-  setTimeout(function () {
-    player.currentTime(tb + part_viii_duration + 0.5);
-  }, 200);
   setTimeout(function () {
     removeBalls();
   }, 1000);
