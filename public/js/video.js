@@ -309,10 +309,10 @@ var checkTimeouts = function checkTimeouts() {
 
 var audio = videojs("audio", {
   sources: [{
-    src: "" + cdn + "site.mp3",
+    src: "https://montage-cache.cdnvideo.ru/montage/kindern/site.mp3",
     type: "audio/mpeg"
   }, {
-    src: "" + cdn + "site.wav",
+    src: "https://montage-cache.cdnvideo.ru/montage/kindern/site.wav",
     type: "audio/wav"
   }]
 }, function () {
