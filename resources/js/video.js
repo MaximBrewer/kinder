@@ -59,6 +59,7 @@ var player = videojs(
             checkTimeouts(that);
         });
         this.on("play", function() {
+            if(!document.getElementById('audio').playing) document.getElementById('audio').play()
             checkTimeouts(that);
         });
         this.on("pause", function() {

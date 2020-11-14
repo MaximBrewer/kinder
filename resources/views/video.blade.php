@@ -49,7 +49,12 @@
             part_xvi_duration = "{{ $part_xvi_duration }}" * 1,
             part_xvii_duration = "{{ $part_xvii_duration }}" * 1;
     </script>
+    <audio id="audio" style="display:none;">
+        <!-- <source src="https://montage-cache.cdnvideo.ru/montage/kindern/music.mp3" type="audio/mpeg"> -->
+        <source src="https://montage-cache.cdnvideo.ru/montage/kindern/music.wav" type="audio/wav;">
+    </audio>
     <script src="/js/video.js?v=1.01"></script>
+
 </body>
 
 </html>
