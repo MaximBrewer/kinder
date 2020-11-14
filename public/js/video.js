@@ -254,7 +254,7 @@ var setGifts = function setGifts() {
 };
 
 var setPhoto = function setPhoto() {
-  document.getElementById("video")["delete"]();
+  document.getElementById("video").remove();
   var ct = player.currentTime();
   photoElement = createEl();
   photoElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" + photo + "') no-repeat top left 57%/auto 92%";

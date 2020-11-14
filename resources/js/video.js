@@ -194,7 +194,7 @@ var setGifts = function() {
 };
 
 var setPhoto = function() {
-    document.getElementById("video").delete();
+    document.getElementById("video").remove();
     var ct = player.currentTime();
     photoElement = createEl();
     photoElement.style.background =
