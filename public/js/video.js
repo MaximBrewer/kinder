@@ -127,9 +127,9 @@ var player = videojs("video", {
       that.muted(true);
       setTimeout(function () {
         removeBalls();
-        that.muted(false);
       }, 1000);
       setTimeout(function () {
+        that.muted(false);
         that.currentTime(tb + part_viii_duration + 0.5);
       }, 500);
       balls = false;
