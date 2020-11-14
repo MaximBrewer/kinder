@@ -126,8 +126,24 @@ var chooseBall = function(e) {
     }
     setTimeout(function() {
         removeBalls();
+        player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
         player.play();
     }, 500);
+};
+
+var setBall = function() {
+    console.log("setBall");
+    clearTimeout(setBallPause);
+    var ct = player.currentTime();
+    ballsElement = createEl();
+    ballsElement.style.background =
+        "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
+    document.getElementById("video").appendChild(ballsElement);
+    ballsElement.addEventListener("touchstart", chooseBall);
+    ballsElement.addEventListener("click", chooseBall);
+    setBallPause = setTimeout(function() {
+        player.pause();
+    }, (tb + part_viii_duration - ct) * 1000 - 500);
 };
 
 var chooseGift = function(e) {
@@ -147,21 +163,6 @@ var chooseGift = function(e) {
             removeGifts();
         }, 200);
     }
-};
-
-var setBall = function() {
-    console.log("setBall");
-    clearTimeout(setBallPause);
-    var ct = player.currentTime();
-    ballsElement = createEl();
-    ballsElement.style.background =
-        "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
-    document.getElementById("video").appendChild(ballsElement);
-    ballsElement.addEventListener("touchstart", chooseBall);
-    ballsElement.addEventListener("click", chooseBall);
-    setBallPause = setTimeout(function() {
-        player.pause();
-    }, (tb + part_viii_duration - ct) * 1000 - 500);
 };
 
 var setGifts = function() {
