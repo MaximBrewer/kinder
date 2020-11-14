@@ -248,9 +248,9 @@ var chooseBall = function chooseBall(e) {
     IWillNotUseThisInPlugins: true
   }).hls); // player.tech({ IWillNotUseThisInPlugins: true }).hls.resyncLoader();
 
-  player.tech({
+  console.log(player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls.mediaSource.removeSourceBuffer(player.currentTime(), player.currentTime() + player.remainingTime());
+  }).hls.mediaSource.sourceBuffers);
   player.trigger("mediachange");
   player.tech({
     IWillNotUseThisInPlugins: true
