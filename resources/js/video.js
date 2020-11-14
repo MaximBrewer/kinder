@@ -127,7 +127,7 @@ var chooseBall = function(e) {
         }
         newSegments.push(segments[i])
     }
-    console.log(player.buffer, player.tech({ IWillNotUseThisInPlugins: true }).buffer);
+    console.log(player.buffer(), player.tech({ IWillNotUseThisInPlugins: true }).buffer());
 
     // player.tech({ IWillNotUseThisInPlugins: true }).hls.updateSegments(segments, newSegments);
 
