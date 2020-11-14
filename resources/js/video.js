@@ -123,6 +123,7 @@ var timeoutPhoto,
 
 var chooseBall = function(e) {
     clearTimeout(setBallPause);
+    alert(1)
     var videoHeight = player.children()[0].offsetHeight,
         videoWidth = player.children()[0].offsetWidth;
     if (videoHeight > (videoWidth * 720) / 1280) {
@@ -137,6 +138,7 @@ var chooseBall = function(e) {
     }
     var color = "g";
 
+    alert(2)
     var margin = (window.innerWidth - width) / 2;
 
     var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
@@ -144,6 +146,7 @@ var chooseBall = function(e) {
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
 
+    alert(3)
     var segments = player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists
         .master.playlists[0].segments;
     var start = 0;
@@ -172,6 +175,7 @@ var chooseBall = function(e) {
             start += segments[i].duration;
         }
     }
+    alert(4)
     setTimeout(function() {
         player.play();
         removeBalls();
@@ -188,12 +192,14 @@ var chooseBall = function(e) {
         .tech({ IWillNotUseThisInPlugins: true })
         .hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
 
+        alert(5)
     player.tech({ IWillNotUseThisInPlugins: true }).trigger("syncinfoupdate");
     player.play();
     setTimeout(function() {
         player.pause();
         player.currentTime(tb + part_viii_duration + 0.2);
     }, 200);
+    alert(6)
 };
 
 var removeBalls = function() {
