@@ -22,10 +22,14 @@ var player = videojs(
             checkTimeouts(that);
         });
         this.on("play", function() {
+            player.currentTime(currentTime);
+            checkTimeouts(that);
+        });
+        this.on("pause", function() {
+            player.currentTime(currentTime);
             checkTimeouts(that);
         });
         this.on("firstplay", function() {
-            player.currentTime(currentTime);
             checkTimeouts(that);
         });
         this.on("change", function() {
@@ -38,9 +42,11 @@ var player = videojs(
             checkTimeouts(that);
         });
         this.on("seeking", function() {
+            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("seeked", function() {
+            currentTime = player.currentTime();
             checkTimeouts(that);
         });
     }
