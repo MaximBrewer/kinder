@@ -152,7 +152,7 @@ var chooseBall = function(e) {
     var start = 0;
     for (i in segments) {
         // console.log(segments[i].uri.indexOf("part_ix"), i, color);
-        if (end) {
+        if (segments[i].end) {
             start = segments[i].end;
         } else {
             start += segments[i].duration;
