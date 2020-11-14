@@ -144,7 +144,7 @@ var chooseBall = function(e) {
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
 
-    alert(0)
+    alert(player.tech({ IWillNotUseThisInPlugins: true }).hls)
     var segments = player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists
         .master.playlists[0].segments;
     var start = 0;
