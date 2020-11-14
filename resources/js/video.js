@@ -19,6 +19,7 @@ var player = videojs(
     function() {
         var that = this;
         this.on("ended", function() {
+            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("play", function() {
@@ -26,19 +27,23 @@ var player = videojs(
             checkTimeouts(that);
         });
         this.on("pause", function() {
-            player.currentTime(currentTime);
+            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("firstplay", function() {
+            player.currentTime(currentTime);
             checkTimeouts(that);
         });
         this.on("change", function() {
+            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("loadedmetadata", function() {
+            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("progress", function() {
+            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("seeking", function() {
