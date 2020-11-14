@@ -1,4 +1,4 @@
-var resolution = 1280;
+var resolution = 640;
 var balls = false;
 var redImg, whiteImg, goldImg;
 var hlsIs = false;
