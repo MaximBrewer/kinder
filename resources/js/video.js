@@ -239,6 +239,8 @@ var createEl = function() {
             width = (height / 720) * 1280;
         (top = 0), (left = (videoWidth - width) / 2);
     }
+
+    console.log(videoHeight,videoWidth,width,height);
     el = document.createElement("div");
     el.style.position = "absolute";
     el.style.height = height + "px";

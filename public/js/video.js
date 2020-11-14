@@ -296,6 +296,7 @@ var createEl = function createEl() {
     top = 0, left = (videoWidth - width) / 2;
   }
 
+  console.log(videoHeight, videoWidth, width, height);
   el = document.createElement("div");
   el.style.position = "absolute";
   el.style.height = height + "px";
