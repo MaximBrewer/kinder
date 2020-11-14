@@ -267,25 +267,39 @@ var setPhoto = function setPhoto() {
 
 var removeGifts = function removeGifts() {
   console.log("removeGifts");
-  player.requestFullscreen();
+
+  try {
+    player.requestFullscreen();
+  } catch (e) {
+    console.log(e);
+  }
+
   document.getElementById("video").removeChild(giftsElement);
   giftsElement = null;
 };
 
 var removePhoto = function removePhoto() {
   console.log("removePhoto");
-  player.requestFullscreen().then(function () {
-    return console.log("Document Exited form Full screen mode");
-  })["catch"](function (err) {
-    return console.error(err);
-  });
+
+  try {
+    player.requestFullscreen();
+  } catch (e) {
+    console.log(e);
+  }
+
   document.getElementById("video").removeChild(photoElement);
   photoElement = null;
 };
 
 var removeBalls = function removeBalls() {
   console.log("removeBalls");
-  player.requestFullscreen();
+
+  try {
+    player.requestFullscreen();
+  } catch (e) {
+    console.log(e);
+  }
+
   document.getElementById("video").removeChild(ballsElement);
   ballsElement = null;
 };

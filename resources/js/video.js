@@ -211,23 +211,33 @@ var setPhoto = function() {
 
 var removeGifts = function() {
     console.log("removeGifts");
-    player.requestFullscreen();
+    try {
+        player.requestFullscreen();
+    } catch (e) {
+        console.log(e);
+    }
     document.getElementById("video").removeChild(giftsElement);
     giftsElement = null;
 };
 
 var removePhoto = function() {
     console.log("removePhoto");
-    player.requestFullscreen()
-    .then(() => console.log("Document Exited form Full screen mode"))
-    .catch((err) => console.error(err));
+    try {
+        player.requestFullscreen();
+    } catch (e) {
+        console.log(e);
+    }
     document.getElementById("video").removeChild(photoElement);
     photoElement = null;
 };
 
 var removeBalls = function() {
     console.log("removeBalls");
-    player.requestFullscreen();
+    try {
+        player.requestFullscreen();
+    } catch (e) {
+        console.log(e);
+    }
     document.getElementById("video").removeChild(ballsElement);
     ballsElement = null;
 };
