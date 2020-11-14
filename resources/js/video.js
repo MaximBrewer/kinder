@@ -8,6 +8,8 @@ var options = {
     }
 };
 
+videojs.Hls.GOAL_BUFFER_LENGTH = 5; 
+
 var player = videojs(
     "video",
     {
@@ -55,6 +57,7 @@ var player = videojs(
         });
     }
 );
+
 
 var timeoutPhoto,
     timeoutRemovePhoto,
