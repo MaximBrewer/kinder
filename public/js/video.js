@@ -150,6 +150,13 @@ var playerS = videojs("videoS", {
   });
   this.on("play", function () {
     checkTimeouts(that);
+    playerG.muted(true);
+    playerS.muted(true);
+    playerR.muted(true);
+    playerG.play();
+    playerS.play();
+    playerR.play();
+    that.muted(false);
   });
   this.on("pause", function () {
     checkTimeouts(that);
