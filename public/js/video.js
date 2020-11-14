@@ -186,7 +186,7 @@ var chooseBall = function chooseBall(e) {
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s";
-  console.log(player.hls.playlists.master);
+  console.log(player.hls.playlists.master.playlists[0].segments);
   balls = true;
 };
 
