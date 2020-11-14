@@ -1,5 +1,5 @@
 var resolution = 1280;
-var currentTime = 0;
+var balls = false;
 var redImg, whiteImg, goldImg;
 
 var player = videojs(
@@ -19,40 +19,34 @@ var player = videojs(
     function() {
         var that = this;
         this.on("ended", function() {
-            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("play", function() {
-            alert(currentTime)
-            player.currentTime(currentTime);
             checkTimeouts(that);
         });
         this.on("pause", function() {
-            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("firstplay", function() {
-            player.currentTime(currentTime);
             checkTimeouts(that);
         });
         this.on("change", function() {
-            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("loadedmetadata", function() {
-            currentTime = player.currentTime();
+            if(balls){
+                that.currentTime(tb + part_viii_duration + 0.5);
+                balls = false;
+            }
             checkTimeouts(that);
         });
         this.on("progress", function() {
-            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("seeking", function() {
-            currentTime = player.currentTime();
             checkTimeouts(that);
         });
         this.on("seeked", function() {
-            currentTime = player.currentTime();
             checkTimeouts(that);
         });
     }
@@ -112,7 +106,7 @@ var chooseBall = function(e) {
             color,
         type: "application/x-mpegURL"
     });
-    currentTime = tb + part_viii_duration + 0.5;
+    balls = true;
     player.play();
     setTimeout(function() {
         removeBalls();
