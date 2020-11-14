@@ -203,9 +203,9 @@ var setPhoto = function() {
     document.getElementById("video").appendChild(photoElement);
 
     clearTimeout(timeoutRemovePhoto);
-    // timeoutRemovePhoto = setTimeout(function() {
-    //     removePhoto();
-    // }, (tp + part_iv_duration - ct) * 1000 + 350);
+    timeoutRemovePhoto = setTimeout(function() {
+        removePhoto();
+    }, (tp + part_iv_duration - ct) * 1000 + 350);
 };
 
 var removeGifts = function() {
@@ -227,7 +227,6 @@ var removeBalls = function() {
 };
 
 var createEl = function() {
-    console.log(player, player.el());
     var videoHeight = player.el().offsetHeight,
         videoWidth = player.el().offsetWidth;
     if (videoHeight > (videoWidth * 720) / 1280) {
@@ -240,8 +239,6 @@ var createEl = function() {
             width = (height / 720) * 1280;
         (top = 0), (left = (videoWidth - width) / 2);
     }
-
-    console.log(videoHeight,videoWidth,width,height);
     el = document.createElement("div");
     el.style.position = "absolute";
     el.style.height = height + "px";
