@@ -172,12 +172,7 @@ var chooseBall = function(e) {
             start += segments[i].duration;
         }
     }
-    console.log(
-        player,
-        player.tech({ IWillNotUseThisInPlugins: true }),
-        player.tech({ IWillNotUseThisInPlugins: true }).hls
-    );
-    console.log(start, start + 1000);
+
     player
         .tech({ IWillNotUseThisInPlugins: true })
         .hls.masterPlaylistController_.mainSegmentLoader_.remove(
@@ -188,13 +183,14 @@ var chooseBall = function(e) {
     player
         .tech({ IWillNotUseThisInPlugins: true })
         .hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
+
     player.tech({ IWillNotUseThisInPlugins: true }).trigger("syncinfoupdate");
+    // player.play();
+    player.currentTime(tb + part_viii_duration + 0.2);
+
     setTimeout(function() {
         removeBalls();
-
-        player.currentTime(tb + part_viii_duration + 0.2);
-        // player.play();
-    }, 500);
+    }, 1500);
 };
 
 var removeBalls = function() {
@@ -215,7 +211,7 @@ var setBall = function() {
     console.log("setBall");
     clearTimeout(setBallPause);
     var ct = player.currentTime();
-    ballsElement = createEl('ballsElement');
+    ballsElement = createEl("ballsElement");
     ballsElement.style.background =
         "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
     document.getElementById("video").appendChild(ballsElement);
@@ -248,7 +244,7 @@ var setGifts = function() {
     console.log("setGifts");
     clearTimeout(setGiftsPause);
     var ct = player.currentTime();
-    giftsElement = createEl('giftsElement');
+    giftsElement = createEl("giftsElement");
     giftsElement.style.background =
         "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
     document.getElementById("video").appendChild(giftsElement);
@@ -299,7 +295,7 @@ var setGifts = function() {
 
 var setPhoto = function() {
     var ct = player.currentTime();
-    photoElement = createEl('photoElement');
+    photoElement = createEl("photoElement");
     photoElement.style.background =
         "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
         photo +
@@ -311,7 +307,6 @@ var setPhoto = function() {
         removePhoto();
     }, (tp + part_iv_duration - ct) * 1000 + 350);
 };
-
 
 var createEl = function(id) {
     if (player.isFullscreen()) player.exitFullscreen();
