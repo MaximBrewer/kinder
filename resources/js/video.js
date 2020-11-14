@@ -100,7 +100,9 @@ var chooseBall = function(e) {
         type: "application/x-mpegURL"
     });
     player.play();
-    player.currentTime(tb + part_viii_duration + 0.5);
+    setTimeout(function() {
+        player.currentTime(tb + part_viii_duration + 0.5);
+    }, 200);
     setTimeout(function() {
         removeBalls();
     }, 1000);
