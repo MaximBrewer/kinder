@@ -35,15 +35,17 @@ var player = videojs(
         });
         this.on("loadedmetadata", function() {
             if(balls){
-                that.play();
+                player.play();
                 that.muted(true);
                 setTimeout(function() {
                     removeBalls();
+                    that.muted(false);
                 }, 1000);
                 setTimeout(function() {
-                    that.muted(false);
                     that.currentTime(tb + part_viii_duration + 0.5);
-                }, 200);
+                    removeBalls();
+                }, 500);
+                alert(balls)
                 balls = false;
             }
             checkTimeouts(that);
@@ -104,7 +106,8 @@ var chooseBall = function(e) {
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
 
-    player.src({
+    console.log(player)
+    that.src({
         src:
             "/playlist/" +
             hash +

@@ -123,15 +123,17 @@ var player = videojs("video", {
   });
   this.on("loadedmetadata", function () {
     if (balls) {
-      that.play();
+      player.play();
       that.muted(true);
       setTimeout(function () {
         removeBalls();
+        that.muted(false);
       }, 1000);
       setTimeout(function () {
-        that.muted(false);
         that.currentTime(tb + part_viii_duration + 0.5);
-      }, 200);
+        removeBalls();
+      }, 500);
+      alert(balls);
       balls = false;
     }
 
@@ -184,7 +186,8 @@ var chooseBall = function chooseBall(e) {
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s";
-  player.src({
+  console.log(player);
+  that.src({
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
     type: "application/x-mpegURL"
   });
