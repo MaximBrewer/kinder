@@ -176,6 +176,9 @@ var chooseBall = function(e) {
         newSegments.push(segments[i]);
     }
     // player.tech({ IWillNotUseThisInPlugins: true }).hls.resyncLoader();
+    player.tech({ IWillNotUseThisInPlugins: true }).hls.audioBuffer().remove();
+    player.tech({ IWillNotUseThisInPlugins: true }).hls.videoBuffer().remove();
+    
     player.trigger("mediachange");
     player.tech({ IWillNotUseThisInPlugins: true }).trigger("mediachange");
     player.tech({ IWillNotUseThisInPlugins: true }).hls.trigger("mediachange");
