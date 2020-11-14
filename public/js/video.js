@@ -192,7 +192,11 @@ var chooseBall = function chooseBall(e) {
 
   for (i in segments) {
     segments[i].uri.indexOf("part_ix") > -1;
-    segments[i].resolvedUri = segments[i].uri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
+    player.tech({
+      IWillNotUseThisInPlugins: true
+    }).hls.playlists.master.playlists[0].segments[i].resolvedUri = player.tech({
+      IWillNotUseThisInPlugins: true
+    }).hls.playlists.master.playlists[0].segments[i].uri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
   }
 
   setTimeout(function () {
