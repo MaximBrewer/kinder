@@ -224,12 +224,8 @@ var chooseBall = function chooseBall(e) {
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s";
-  alert(player.tech_);
-  var segments = player.tech({
-    IWillNotUseThisInPlugins: true
-  }).hls.playlists.master.playlists[0].segments;
+  var segments = player.hls.playlists.master.playlists[0].segments;
   var start = 0;
-  alert(1);
 
   for (i in segments) {
     if (segments[i].uri.indexOf("part_ix") > -1) {
@@ -238,8 +234,6 @@ var chooseBall = function chooseBall(e) {
       break;
     }
 
-    alert(2);
-
     if (segments[i].end) {
       start = segments[i].end;
     } else {
@@ -247,27 +241,18 @@ var chooseBall = function chooseBall(e) {
     }
   }
 
-  alert(4);
   setTimeout(function () {
     player.play();
     removeBalls();
   }, 1000);
-  player.tech({
-    IWillNotUseThisInPlugins: true
-  }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
-  player.tech({
-    IWillNotUseThisInPlugins: true
-  }).hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
-  alert(5);
-  player.tech({
-    IWillNotUseThisInPlugins: true
-  }).trigger("syncinfoupdate");
+  player.hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
+  player.hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
+  player.trigger("syncinfoupdate");
   player.play();
   setTimeout(function () {
     player.pause();
     player.currentTime(tb + part_viii_duration + 0.2);
   }, 200);
-  alert(6);
 };
 
 var removeBalls = function removeBalls() {
