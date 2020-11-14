@@ -5,6 +5,52 @@ window.innerWidth > 640 && (resolution = 1024);
 window.innerWidth > 1024 && (resolution = 1280);
 var balls = false;
 var hlsIs = false;
+var player = videojs("video", {
+  sources: [{
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
+    type: "application/x-mpegURL"
+  }],
+  controls: true,
+  control: true,
+  poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg"
+}, function () {
+  var that = this;
+  this.on("ended", function () {
+    checkTimeouts(that);
+  });
+  this.on("play", function () {
+    checkTimeouts(that);
+  });
+  this.on("pause", function () {
+    checkTimeouts(that);
+  });
+  this.on("firstplay", function () {
+    that.tech({
+      IWillNotUseThisInPlugins: true
+    }) && that.tech({
+      IWillNotUseThisInPlugins: true
+    }).hls && (hlsIs = false) && (balls = true);
+
+    if (!hlsIs) {
+      tg = part_ix_duration + part_x_duration;
+    }
+  });
+  this.on("change", function () {
+    checkTimeouts(that);
+  });
+  this.on("loadedmetadata", function () {
+    checkTimeouts(that);
+  });
+  this.on("progress", function () {
+    checkTimeouts(that);
+  });
+  this.on("seeking", function () {
+    checkTimeouts(that);
+  });
+  this.on("seeked", function () {
+    checkTimeouts(that);
+  });
+});
 
 var createEl = function createEl(id) {
   window.scrollTo(0, 1);
@@ -35,29 +81,6 @@ var createEl = function createEl(id) {
   return el;
 };
 
-window.addEventListener('resize', function () {
-  var videoHeight = player.el().offsetHeight,
-      videoWidth = player.el().offsetWidth;
-
-  if (videoHeight > videoWidth * 720 / 1280) {
-    var width = videoWidth,
-        height = width / 1280 * 720,
-        top = (videoHeight - height) / 2,
-        left = 0;
-  } else {
-    var height = videoHeight,
-        width = height / 720 * 1280;
-    top = 0, left = (videoWidth - width) / 2;
-  }
-
-  var els = document.getElementsByClassName("resizable");
-  Array.from(els).forEach(function (el) {
-    el.style.height = height + "px";
-    el.style.width = width + "px";
-    el.style.top = top + "px";
-    el.style.left = left + "px";
-  });
-}, true);
 var photoElement = createEl("photoElement");
 photoElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" + photo + "') no-repeat top left 57%/auto 92%";
 document.getElementById("video").appendChild(photoElement);
@@ -203,6 +226,31 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
 });
+window.addEventListener("resize", function () {
+  if (player) {
+    var videoHeight = player.el().offsetHeight,
+        videoWidth = player.el().offsetWidth;
+
+    if (videoHeight > videoWidth * 720 / 1280) {
+      var width = videoWidth,
+          height = width / 1280 * 720,
+          top = (videoHeight - height) / 2,
+          left = 0;
+    } else {
+      var height = videoHeight,
+          width = height / 720 * 1280;
+      top = 0, left = (videoWidth - width) / 2;
+    }
+
+    var els = document.getElementsByClassName("resizable");
+    Array.from(els).forEach(function (el) {
+      el.style.height = height + "px";
+      el.style.width = width + "px";
+      el.style.top = top + "px";
+      el.style.left = left + "px";
+    });
+  }
+}, true);
 document.getElementById("video").addEventListener("click", function () {
   if (audio.paused()) audio.play();
 });
