@@ -240,8 +240,13 @@ var chooseBall = function chooseBall(e) {
     }
 
     newSegments.push(segments[i]);
-  } // player.tech({ IWillNotUseThisInPlugins: true }).hls.resyncLoader();
+  }
 
+  console.log(player, player.tech({
+    IWillNotUseThisInPlugins: true
+  }), player.tech({
+    IWillNotUseThisInPlugins: true
+  }).hls); // player.tech({ IWillNotUseThisInPlugins: true }).hls.resyncLoader();
 
   player.tech({
     IWillNotUseThisInPlugins: true
@@ -255,12 +260,7 @@ var chooseBall = function chooseBall(e) {
   }).trigger("mediachange");
   player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls.trigger("mediachange");
-  console.log(player, player.tech({
-    IWillNotUseThisInPlugins: true
-  }), player.tech({
-    IWillNotUseThisInPlugins: true
-  }).hls); // player.tech({ IWillNotUseThisInPlugins: true }).hls.updateSegments(segments, newSegments);
+  }).hls.trigger("mediachange"); // player.tech({ IWillNotUseThisInPlugins: true }).hls.updateSegments(segments, newSegments);
 
   setTimeout(function () {
     removeBalls(); // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
