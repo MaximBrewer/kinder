@@ -256,6 +256,12 @@ var chooseBall = function chooseBall(e) {
   player.tech({
     IWillNotUseThisInPlugins: true
   }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
+  player.tech({
+    IWillNotUseThisInPlugins: true
+  }).trigger("progress");
+  player.tech({
+    IWillNotUseThisInPlugins: true
+  }).trigger("loadstart");
   setTimeout(function () {
     removeBalls(); // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
     // player.play();

@@ -187,6 +187,8 @@ var chooseBall = function(e) {
             start,
             start + 1000
         );
+    player.tech({ IWillNotUseThisInPlugins: true }).trigger("progress");
+    player.tech({ IWillNotUseThisInPlugins: true }).trigger("loadstart");
     setTimeout(function() {
         removeBalls();
         // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
