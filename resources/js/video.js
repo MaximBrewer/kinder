@@ -21,7 +21,7 @@ var player = videojs(
             {
                 src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
                 type: "application/x-mpegURL"
-            },
+            }
         ],
         controls: true,
         control: true,
@@ -59,6 +59,17 @@ var player = videojs(
         });
     }
 );
+
+
+
+var draw = function() {
+    canvas.getContext("2d").drawImage(player, 0, 0);
+};
+
+player.addEventListener('play', function(){
+    if(player.paused || player.ended) return;
+    draw()
+})
 
 var timeoutPhoto,
     timeoutRemovePhoto,
@@ -117,7 +128,7 @@ var chooseBall = function(e) {
                 "%20%28" +
                 resolution +
                 "xauto%29.mp4/media_0.ts";
-                segments[i].uri =
+            segments[i].uri =
                 cdn +
                 "part_ix/" +
                 color +
@@ -125,13 +136,17 @@ var chooseBall = function(e) {
                 resolution +
                 "xauto%29.mp4/media_0.ts";
         }
-        newSegments.push(segments[i])
+        newSegments.push(segments[i]);
     }
-    player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists.load()
-    player.trigger('mediachange')
-    player.tech({ IWillNotUseThisInPlugins: true }).trigger('mediachange')
-    player.tech({ IWillNotUseThisInPlugins: true }).hls.trigger('mediachange')
-    console.log(player, player.tech({ IWillNotUseThisInPlugins: true }), player.tech({ IWillNotUseThisInPlugins: true }).hls);
+    player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists.load();
+    player.trigger("mediachange");
+    player.tech({ IWillNotUseThisInPlugins: true }).trigger("mediachange");
+    player.tech({ IWillNotUseThisInPlugins: true }).hls.trigger("mediachange");
+    console.log(
+        player,
+        player.tech({ IWillNotUseThisInPlugins: true }),
+        player.tech({ IWillNotUseThisInPlugins: true }).hls
+    );
 
     // player.tech({ IWillNotUseThisInPlugins: true }).hls.updateSegments(segments, newSegments);
 

@@ -50,6 +50,8 @@
             part_xvii_duration = "{{ $part_xvii_duration }}" * 1;
     </script>
     <script src="/js/video.js?v=1.01"></script>
+
+    <canvas id="canvas" style="width:1280px;height:720px"></canvas>
 </body>
 
 </html>

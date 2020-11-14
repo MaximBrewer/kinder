@@ -146,6 +146,15 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
 });
+
+var draw = function draw() {
+  canvas.getContext("2d").drawImage(player, 0, 0);
+};
+
+player.addEventListener('play', function () {
+  if (player.paused || player.ended) return;
+  draw();
+});
 var timeoutPhoto,
     timeoutRemovePhoto,
     timeoutBall,
@@ -201,13 +210,13 @@ var chooseBall = function chooseBall(e) {
   player.tech({
     IWillNotUseThisInPlugins: true
   }).hls.playlists.load();
-  player.trigger('mediachange');
+  player.trigger("mediachange");
   player.tech({
     IWillNotUseThisInPlugins: true
-  }).trigger('mediachange');
+  }).trigger("mediachange");
   player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls.trigger('mediachange');
+  }).hls.trigger("mediachange");
   console.log(player, player.tech({
     IWillNotUseThisInPlugins: true
   }), player.tech({
