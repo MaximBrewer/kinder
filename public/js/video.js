@@ -247,8 +247,10 @@ var chooseBall = function chooseBall(e) {
     IWillNotUseThisInPlugins: true
   }), player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls); // console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.masterPlaylistController_.mainSegmentLoader_.remove());
-
+  }).hls);
+  console.log(player.tech({
+    IWillNotUseThisInPlugins: true
+  }).hls.masterPlaylistController_.mainSegmentLoader_.resyncLoader());
   setTimeout(function () {
     removeBalls(); // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
     // player.play();

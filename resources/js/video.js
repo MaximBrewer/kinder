@@ -181,7 +181,7 @@ var chooseBall = function(e) {
         player.tech({ IWillNotUseThisInPlugins: true }),
         player.tech({ IWillNotUseThisInPlugins: true }).hls
     );
-    // console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.masterPlaylistController_.mainSegmentLoader_.remove());
+    console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.masterPlaylistController_.mainSegmentLoader_.resyncLoader());
     setTimeout(function() {
         removeBalls();
         // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
