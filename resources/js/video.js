@@ -23,9 +23,7 @@ var player = videojs(
         });
         this.on("play", function() {
             checkTimeouts(that);
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            }
+            that.requestFullscreen();
         });
         this.on("firstplay", function() {
             checkTimeouts(that);
