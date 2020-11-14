@@ -127,7 +127,9 @@ var chooseBall = function(e) {
         }
         newSegments.push(segments[i])
     }
+    player.trigger('mediachange')
     player.tech({ IWillNotUseThisInPlugins: true }).trigger('mediachange')
+    player.tech({ IWillNotUseThisInPlugins: true }).hls.trigger('mediachange')
     console.log(player, player.tech({ IWillNotUseThisInPlugins: true }), player.tech({ IWillNotUseThisInPlugins: true }).hls);
 
     // player.tech({ IWillNotUseThisInPlugins: true }).hls.updateSegments(segments, newSegments);
