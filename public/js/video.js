@@ -103,7 +103,6 @@ var options = {
 };
 
 videojs.Hls.xhr.beforeRequest = function () {
-  console.log(player);
   return false;
 };
 
@@ -190,8 +189,7 @@ var chooseBall = function chooseBall(e) {
   var newSegments = [];
 
   for (i in segments) {
-    console.log(segments[i].uri.indexOf("part_ix"), i, color);
-
+    // console.log(segments[i].uri.indexOf("part_ix"), i, color);
     if (segments[i].uri.indexOf("part_ix") > -1) {
       segments[i].resolvedUri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
       segments[i].uri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
@@ -236,7 +234,6 @@ var chooseGift = function chooseGift(e) {
   clearTimeout(setGiftsPause);
   clearTimeout(setBallPause);
   console.log("chooseGift");
-  console.log(e);
   e.target.style.opacity = "1";
 
   if (redImg.style.opacity == "1" && whiteImg.style.opacity == "1" && goldImg.style.opacity == "1") {
