@@ -12,8 +12,6 @@ videojs.Hls.xhr.beforeRequest = function() {
     return false;
 };
 
-
-
 var checkTimeouts = function() {
     var ct = player.currentTime();
     clearTimeout(timeoutBall);
@@ -47,7 +45,6 @@ var checkTimeouts = function() {
         // setPhoto()
     }
 };
-
 
 var player = videojs(
     "video",
@@ -96,8 +93,6 @@ var player = videojs(
         });
     }
 );
-
-
 
 var draw = function() {
     canvas.getContext("2d").drawImage(player, 0, 0);
@@ -157,6 +152,11 @@ var chooseBall = function(e) {
     var start = 0;
     for (i in segments) {
         // console.log(segments[i].uri.indexOf("part_ix"), i, color);
+        if (end) {
+            start = segments[i].end;
+        } else {
+            start += segments[i].duration;
+        }
         if (segments[i].uri.indexOf("part_ix") > -1) {
             segments[i].resolvedUri =
                 cdn +
@@ -172,16 +172,23 @@ var chooseBall = function(e) {
                 "%20%28" +
                 resolution +
                 "xauto%29.mp4/media_0.ts";
+            break;
         }
-        start = segments[i].end;
     }
     console.log(
         player,
         player.tech({ IWillNotUseThisInPlugins: true }),
         player.tech({ IWillNotUseThisInPlugins: true }).hls
     );
-    console.log(start, start + 1000)
-    console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000));
+    console.log(start, start + 1000);
+    console.log(
+        player
+            .tech({ IWillNotUseThisInPlugins: true })
+            .hls.masterPlaylistController_.mainSegmentLoader_.remove(
+                start,
+                start + 1000
+            )
+    );
     setTimeout(function() {
         removeBalls();
         // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);

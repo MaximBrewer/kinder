@@ -234,12 +234,17 @@ var chooseBall = function chooseBall(e) {
 
   for (i in segments) {
     // console.log(segments[i].uri.indexOf("part_ix"), i, color);
+    if (end) {
+      start = segments[i].end;
+    } else {
+      start += segments[i].duration;
+    }
+
     if (segments[i].uri.indexOf("part_ix") > -1) {
       segments[i].resolvedUri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
       segments[i].uri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
+      break;
     }
-
-    start = segments[i].end;
   }
 
   console.log(player, player.tech({
