@@ -255,10 +255,8 @@ var chooseBall = function chooseBall(e) {
   console.log(start, start + 1000);
   player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
-  player.tech({
-    IWillNotUseThisInPlugins: true
-  }).trigger("progress");
+  }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000); // player.tech({ IWillNotUseThisInPlugins: true }).trigger("progress");
+
   player.tech({
     IWillNotUseThisInPlugins: true
   }).trigger("loadstart");
