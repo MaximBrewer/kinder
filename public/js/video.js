@@ -106,6 +106,41 @@ videojs.Hls.xhr.beforeRequest = function () {
   return false;
 };
 
+var checkTimeouts = function checkTimeouts() {
+  var ct = player.currentTime();
+  clearTimeout(timeoutBall);
+  clearTimeout(timeoutPhoto);
+  clearTimeout(timeoutGifts);
+
+  if (photo) {
+    if (ct < tp) {
+      timeoutPhoto = setTimeout(function () {
+        setPhoto();
+      }, (tp - ct) * 1000 - 350);
+    } else if (ct < tp + part_iv_duration - 350) {
+      setPhoto();
+    }
+
+    if (ct > tp + part_iv_duration + 350) {
+      removePhoto();
+    }
+  }
+
+  if (ct < tb) {
+    timeoutBall = setTimeout(function () {
+      setBall();
+    }, (tb - ct) * 1000 - 350);
+  } else {// setBall()
+  }
+
+  if (ct < tg) {
+    timeoutGifts = setTimeout(function () {
+      setGifts();
+    }, (tg - ct) * 1000 - 350);
+  } else {// setPhoto()
+  }
+};
+
 var player = videojs("video", {
   flash: options,
   html5: options,
@@ -356,41 +391,6 @@ var createEl = function createEl() {
   el.style.zIndex = "100";
   el.style.backgroundColor = "#000000";
   return el;
-};
-
-var checkTimeouts = function checkTimeouts() {
-  var ct = player.currentTime();
-  clearTimeout(timeoutBall);
-  clearTimeout(timeoutPhoto);
-  clearTimeout(timeoutGifts);
-
-  if (photo) {
-    if (ct < tp) {
-      timeoutPhoto = setTimeout(function () {
-        setPhoto();
-      }, (tp - ct) * 1000 - 350);
-    } else if (ct < tp + part_iv_duration - 350) {
-      setPhoto();
-    }
-
-    if (ct > tp + part_iv_duration + 350) {
-      removePhoto();
-    }
-  }
-
-  if (ct < tb) {
-    timeoutBall = setTimeout(function () {
-      setBall();
-    }, (tb - ct) * 1000 - 350);
-  } else {// setBall()
-  }
-
-  if (ct < tg) {
-    timeoutGifts = setTimeout(function () {
-      setGifts();
-    }, (tg - ct) * 1000 - 350);
-  } else {// setPhoto()
-  }
 };
 
 /***/ }),
