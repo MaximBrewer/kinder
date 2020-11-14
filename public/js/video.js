@@ -199,12 +199,9 @@ var timeoutPhoto,
     tp = part_i_duration + part_ii_duration + part_iii_duration,
     tb = tp + part_iv_duration + part_v_duration + part_vi_duration + part_vii_duration,
     tg = tb + part_viii_duration + part_ix_duration + part_x_duration,
-    photoElement = document.createElement("div"),
-    ballsElement = document.createElement("div"),
-    giftsElement = document.createElement("div"),
-    redGiftElement = document.createElement("div"),
-    whiteGiftElement = document.createElement("div"),
-    goldGiftElement = document.createElement("div");
+    photoElement,
+    ballsElement,
+    giftsElement;
 
 var chooseBall = function chooseBall(e) {
   clearTimeout(setBallPause);
@@ -270,14 +267,24 @@ var chooseBall = function chooseBall(e) {
 
 var removeBalls = function removeBalls() {
   console.log("removeBalls");
-  ballsElement.remove();
+  document.getElementById("ballsElement").remove();
+};
+
+var removeGifts = function removeGifts() {
+  console.log("removeGifts");
+  document.getElementById("giftsElement").remove();
+};
+
+var removePhoto = function removePhoto() {
+  console.log("removePhoto");
+  document.getElementById("photoElement").remove();
 };
 
 var setBall = function setBall() {
   console.log("setBall");
   clearTimeout(setBallPause);
   var ct = player.currentTime();
-  ballsElement = createEl();
+  ballsElement = createEl('ballsElement');
   ballsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
   document.getElementById("video").appendChild(ballsElement);
   ballsElement.addEventListener("touchstart", chooseBall);
@@ -306,7 +313,7 @@ var setGifts = function setGifts() {
   console.log("setGifts");
   clearTimeout(setGiftsPause);
   var ct = player.currentTime();
-  giftsElement = createEl();
+  giftsElement = createEl('giftsElement');
   giftsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
   document.getElementById("video").appendChild(giftsElement);
   redImg = document.createElement("img");
@@ -349,7 +356,7 @@ var setGifts = function setGifts() {
 
 var setPhoto = function setPhoto() {
   var ct = player.currentTime();
-  photoElement = createEl();
+  photoElement = createEl('photoElement');
   photoElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" + photo + "') no-repeat top left 57%/auto 92%";
   document.getElementById("video").appendChild(photoElement);
   clearTimeout(timeoutRemovePhoto);
@@ -358,17 +365,7 @@ var setPhoto = function setPhoto() {
   }, (tp + part_iv_duration - ct) * 1000 + 350);
 };
 
-var removeGifts = function removeGifts() {
-  console.log("removeGifts");
-  document.getElementById("video").removeChild(giftsElement);
-};
-
-var removePhoto = function removePhoto() {
-  console.log("removePhoto");
-  document.getElementById("video").removeChild(photoElement);
-};
-
-var createEl = function createEl() {
+var createEl = function createEl(id) {
   if (player.isFullscreen()) player.exitFullscreen();
   window.scrollTo(0, 1);
   var videoHeight = player.el().offsetHeight,
@@ -386,6 +383,7 @@ var createEl = function createEl() {
   }
 
   el = document.createElement("div");
+  el.id = id;
   el.style.position = "absolute";
   el.style.height = height + "px";
   el.style.width = width + "px";
