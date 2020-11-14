@@ -103,10 +103,10 @@ var draw = function() {
     canvas.getContext("2d").drawImage(player, 0, 0);
 };
 
-player.addEventListener('play', function(){
-    if(player.paused || player.ended) return;
-    draw()
-})
+// player.addEventListener('play', function(){
+//     if(player.paused || player.ended) return;
+//     draw()
+// })
 
 var timeoutPhoto,
     timeoutRemovePhoto,
