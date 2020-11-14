@@ -186,11 +186,7 @@ var chooseBall = function chooseBall(e) {
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s";
-  console.log(player);
-  that.src({
-    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
-    type: "application/x-mpegURL"
-  });
+  console.log(player.hls);
   balls = true;
 };
 
