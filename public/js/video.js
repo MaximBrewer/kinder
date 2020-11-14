@@ -223,15 +223,15 @@ var chooseBall = function chooseBall(e) {
   var margin = (window.innerWidth - width) / 2;
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   if (margin + width * 0.375 < clientX) color = "r";
-  if (margin + (width - width * 0.375) < clientX) color = "s";
-  alert(0);
-  alert(player.hls.playlists);
-  alert(player.hls.playlists.master);
-  alert(player.hls.playlists.master.playlists[0]);
-  alert(player.hls.playlists.master.playlists[0].segments);
+  if (margin + (width - width * 0.375) < clientX) color = "s"; // alert(0)
+
+  alert(player.hls); // alert(player.hls)
+
+  alert(player.hls.playlists); // alert(player.hls.playlists.master.playlists[0])
+  // alert(player.hls.playlists.master.playlists[0].segments)
+
   var segments = player.hls.playlists.master.playlists[0].segments;
-  var start = 0;
-  alert(1);
+  var start = 0; // alert(1)
 
   for (i in segments) {
     if (segments[i].uri.indexOf("part_ix") > -1) {
