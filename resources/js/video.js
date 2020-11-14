@@ -185,32 +185,38 @@ var chooseBall = function(e) {
         .hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
 
     player.tech({ IWillNotUseThisInPlugins: true }).trigger("syncinfoupdate");
-    player.pause();
-    player.currentTime(tb + part_viii_duration + 0.2);
-
+    player.play();
+    setTimeout(function() {
+        player.pause();
+        player.currentTime(tb + part_viii_duration + 0.2);
+    }, 200);
     setTimeout(function() {
         player.play();
         removeBalls();
-    }, 1500);
+    }, 1000);
 };
 
 var removeBalls = function() {
     console.log("removeBalls");
-    document.getElementById("ballsElement").remove();
+    document.getElementById("ballsElement") &&
+        document.getElementById("ballsElement").remove();
 };
 var removeGifts = function() {
     console.log("removeGifts");
-    document.getElementById("giftsElement").remove();
+    document.getElementById("giftsElement") &&
+        document.getElementById("giftsElement").remove();
 };
 
 var removePhoto = function() {
     console.log("removePhoto");
-    document.getElementById("photoElement").remove();
+    document.getElementById("photoElement") &&
+        document.getElementById("photoElement").remove();
 };
 
 var setBall = function() {
     console.log("setBall");
     clearTimeout(setBallPause);
+    removeBalls();
     var ct = player.currentTime();
     ballsElement = createEl("ballsElement");
     ballsElement.style.background =

@@ -253,32 +253,36 @@ var chooseBall = function chooseBall(e) {
   player.tech({
     IWillNotUseThisInPlugins: true
   }).trigger("syncinfoupdate");
-  player.pause();
-  player.currentTime(tb + part_viii_duration + 0.2);
+  player.play();
+  setTimeout(function () {
+    player.pause();
+    player.currentTime(tb + part_viii_duration + 0.2);
+  }, 200);
   setTimeout(function () {
     player.play();
     removeBalls();
-  }, 1500);
+  }, 1000);
 };
 
 var removeBalls = function removeBalls() {
   console.log("removeBalls");
-  document.getElementById("ballsElement").remove();
+  document.getElementById("ballsElement") && document.getElementById("ballsElement").remove();
 };
 
 var removeGifts = function removeGifts() {
   console.log("removeGifts");
-  document.getElementById("giftsElement").remove();
+  document.getElementById("giftsElement") && document.getElementById("giftsElement").remove();
 };
 
 var removePhoto = function removePhoto() {
   console.log("removePhoto");
-  document.getElementById("photoElement").remove();
+  document.getElementById("photoElement") && document.getElementById("photoElement").remove();
 };
 
 var setBall = function setBall() {
   console.log("setBall");
   clearTimeout(setBallPause);
+  removeBalls();
   var ct = player.currentTime();
   ballsElement = createEl("ballsElement");
   ballsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
