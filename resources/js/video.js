@@ -147,8 +147,8 @@ var chooseBall = function(e) {
     // alert(0)
     alert(player)
     alert(player.tech_)
-    // alert(player.hls)
-    alert(player.hls.playlists)
+    alert(player.tech_.hls)
+    alert(player.tech_.hls.playlists)
     // alert(player.hls.playlists.master.playlists[0])
     // alert(player.hls.playlists.master.playlists[0].segments)
     var segments = player.hls.playlists.master.playlists[0].segments;

@@ -226,9 +226,9 @@ var chooseBall = function chooseBall(e) {
   if (margin + (width - width * 0.375) < clientX) color = "s"; // alert(0)
 
   alert(player);
-  alert(player.tech_); // alert(player.hls)
-
-  alert(player.hls.playlists); // alert(player.hls.playlists.master.playlists[0])
+  alert(player.tech_);
+  alert(player.tech_.hls);
+  alert(player.tech_.hls.playlists); // alert(player.hls.playlists.master.playlists[0])
   // alert(player.hls.playlists.master.playlists[0].segments)
 
   var segments = player.hls.playlists.master.playlists[0].segments;
