@@ -131,6 +131,12 @@ var chooseBall = function(e) {
     }, 500);
 };
 
+var removeBalls = function() {
+    console.log("removeBalls");
+    ballsElement.remove();
+};
+
+
 var setBall = function() {
     console.log("setBall");
     clearTimeout(setBallPause);
@@ -241,11 +247,6 @@ var removeGifts = function() {
 var removePhoto = function() {
     console.log("removePhoto");
     document.getElementById("video").removeChild(photoElement);
-};
-
-var removeBalls = function() {
-    console.log("removeBalls");
-    document.getElementById("video").removeChild(ballsElement);
 };
 
 var createEl = function() {

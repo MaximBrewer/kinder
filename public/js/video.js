@@ -206,6 +206,11 @@ var chooseBall = function chooseBall(e) {
   }, 500);
 };
 
+var removeBalls = function removeBalls() {
+  console.log("removeBalls");
+  ballsElement.remove();
+};
+
 var setBall = function setBall() {
   console.log("setBall");
   clearTimeout(setBallPause);
@@ -300,11 +305,6 @@ var removeGifts = function removeGifts() {
 var removePhoto = function removePhoto() {
   console.log("removePhoto");
   document.getElementById("video").removeChild(photoElement);
-};
-
-var removeBalls = function removeBalls() {
-  console.log("removeBalls");
-  document.getElementById("video").removeChild(ballsElement);
 };
 
 var createEl = function createEl() {
