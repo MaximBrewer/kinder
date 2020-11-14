@@ -23,7 +23,6 @@ var player = videojs(
         });
         this.on("play", function() {
             checkTimeouts(that);
-            that.requestFullscreen();
         });
         this.on("firstplay", function() {
             checkTimeouts(that);
@@ -211,39 +210,25 @@ var setPhoto = function() {
 
 var removeGifts = function() {
     console.log("removeGifts");
-    try {
-        player.requestFullscreen();
-    } catch (e) {
-        console.log(e);
-    }
     document.getElementById("video").removeChild(giftsElement);
     giftsElement = null;
 };
 
 var removePhoto = function() {
     console.log("removePhoto");
-    try {
-        player.requestFullscreen();
-    } catch (e) {
-        console.log(e);
-    }
     document.getElementById("video").removeChild(photoElement);
     photoElement = null;
 };
 
 var removeBalls = function() {
     console.log("removeBalls");
-    try {
-        player.requestFullscreen();
-    } catch (e) {
-        console.log(e);
-    }
     document.getElementById("video").removeChild(ballsElement);
     ballsElement = null;
 };
 
 var createEl = function() {
     player.exitFullscreen();
+    window.scrollTo(0, 1);
     var videoHeight = player.el().offsetHeight,
         videoWidth = player.el().offsetWidth;
     if (videoHeight > (videoWidth * 720) / 1280) {
