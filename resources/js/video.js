@@ -94,15 +94,6 @@ var player = videojs(
     }
 );
 
-var draw = function() {
-    canvas.getContext("2d").drawImage(player, 0, 0);
-};
-
-// player.addEventListener('play', function(){
-//     if(player.paused || player.ended) return;
-//     draw()
-// })
-
 var timeoutPhoto,
     timeoutRemovePhoto,
     timeoutBall,
@@ -143,62 +134,99 @@ var chooseBall = function(e) {
 
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
-
-    // alert(0)
-    alert(player)
-    alert(player.tech_)
-    alert(player.tech_.hls)
-    alert(player.tech_.hls.playlists)
-    // alert(player.hls.playlists.master.playlists[0])
-    // alert(player.hls.playlists.master.playlists[0].segments)
-    var segments = player.hls.playlists.master.playlists[0].segments;
-    var start = 0;
-// alert(1)
-    for (i in segments) {
-        if (segments[i].uri.indexOf("part_ix") > -1) {
-            segments[i].resolvedUri =
-                cdn +
-                "part_ix/" +
-                color +
-                "%20%28" +
-                resolution +
-                "xauto%29.mp4/media_0.ts";
-            segments[i].uri =
-                cdn +
-                "part_ix/" +
-                color +
-                "%20%28" +
-                resolution +
-                "xauto%29.mp4/media_0.ts";
-            break;
-        }
-        if (segments[i].end) {
-            start = segments[i].end;
-        } else {
-            start += segments[i].duration;
-        }
-    }
-    alert(2)
-    setTimeout(function() {
-        player.play();
-        removeBalls();
-    }, 1000);
-    alert(3)
-
-    player.hls.masterPlaylistController_.mainSegmentLoader_.remove(
-        start,
-        start + 1000
-    );
-
-    player.hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
-
-    player.trigger("syncinfoupdate");
+    player.src({
+        src: "/playlist-iii/" + color + ".m3u8",
+        type: "application/x-mpegURL"
+    });
     player.play();
     setTimeout(function() {
         player.pause();
         player.currentTime(tb + part_viii_duration + 0.2);
     }, 200);
+    setTimeout(function() {
+        player.play();
+        removeBalls();
+    }, 1000);
 };
+
+// var chooseBall = function(e) {
+//     clearTimeout(setBallPause);
+//     var videoHeight = player.children()[0].offsetHeight,
+//         videoWidth = player.children()[0].offsetWidth;
+//     if (videoHeight > (videoWidth * 720) / 1280) {
+//         var width = videoWidth,
+//             height = (width / 1280) * 720,
+//             top = (videoHeight - height) / 2,
+//             left = 0;
+//     } else {
+//         var height = videoHeight,
+//             width = (height / 720) * 1280;
+//         (top = 0), (left = (videoWidth - width) / 2);
+//     }
+//     var color = "g";
+
+//     var margin = (window.innerWidth - width) / 2;
+
+//     var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+
+//     if (margin + width * 0.375 < clientX) color = "r";
+//     if (margin + (width - width * 0.375) < clientX) color = "s";
+
+//     // alert(0)
+//     alert(player)
+//     alert(player.tech_)
+//     alert(player.tech_.hls)
+//     alert(player.tech_.hls.playlists)
+//     // alert(player.hls.playlists.master.playlists[0])
+//     // alert(player.hls.playlists.master.playlists[0].segments)
+//     var segments = player.hls.playlists.master.playlists[0].segments;
+//     var start = 0;
+// // alert(1)
+//     for (i in segments) {
+//         if (segments[i].uri.indexOf("part_ix") > -1) {
+//             segments[i].resolvedUri =
+//                 cdn +
+//                 "part_ix/" +
+//                 color +
+//                 "%20%28" +
+//                 resolution +
+//                 "xauto%29.mp4/media_0.ts";
+//             segments[i].uri =
+//                 cdn +
+//                 "part_ix/" +
+//                 color +
+//                 "%20%28" +
+//                 resolution +
+//                 "xauto%29.mp4/media_0.ts";
+//             break;
+//         }
+//         if (segments[i].end) {
+//             start = segments[i].end;
+//         } else {
+//             start += segments[i].duration;
+//         }
+//     }
+//     alert(2)
+//     setTimeout(function() {
+//         player.play();
+//         removeBalls();
+//     }, 1000);
+//     alert(3)
+
+//     player.hls.masterPlaylistController_.mainSegmentLoader_.remove(
+//         start,
+//         start + 1000
+//     );
+
+//     player.hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
+
+//     player.trigger("syncinfoupdate");
+//     player.play();
+//     setTimeout(function() {
+//         player.pause();
+//         player.currentTime(tb + part_viii_duration + 0.2);
+//     }, 200);
+// };
 
 var removeBalls = function() {
     console.log("removeBalls");
