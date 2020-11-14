@@ -114,7 +114,7 @@ var chooseBall = function(e) {
         }
     }
 
-    console.log();
+    console.log(player.hls.playlists.master.playlists[0].segments);
     setTimeout(function() {
         removeBalls();
         // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
