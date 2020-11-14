@@ -135,7 +135,13 @@ var chooseBall = function(e) {
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
     player.src({
-        src: "/playlist-iii/" + color + ".m3u8",
+        src:
+            "/playlist/" +
+            hash +
+            ".m3u8?resolution=" +
+            resolution +
+            "&color=" +
+            color,
         type: "application/x-mpegURL"
     });
     player.play();
