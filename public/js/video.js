@@ -282,6 +282,7 @@ var removeBalls = function removeBalls() {
 };
 
 var createEl = function createEl() {
+  console.log(player, player.children());
   var videoHeight = player.children()[0].offsetHeight,
       videoWidth = player.children()[0].offsetWidth;
 
