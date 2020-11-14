@@ -250,10 +250,10 @@ var chooseBall = function chooseBall(e) {
 
   player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls.audioBuffer.remove();
+  }).hls.mediaSource.audioBuffer().remove();
   player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls.videoBuffer.remove();
+  }).hls.mediaSource.videoBuffer().remove();
   player.trigger("mediachange");
   player.tech({
     IWillNotUseThisInPlugins: true
