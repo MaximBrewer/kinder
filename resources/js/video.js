@@ -184,7 +184,7 @@ var chooseBall = function(e) {
     setTimeout(function() {
         removeBalls();
         // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
-        player.play();
+        // player.play();
     }, 500);
 };
 
