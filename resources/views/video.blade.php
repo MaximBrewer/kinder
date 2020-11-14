@@ -22,26 +22,11 @@
 </head>
 
 <body style="margin:0;padding:0;">
-    <video id="videoS" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered vjs-nofull" webkit-playsinline playsinline>
+    <video id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered vjs-nofull" webkit-playsinline playsinline>
         <p class="vjs-no-js">
             Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank">совместимых с HTML5 видео</a>
         </p>
     </video>
-    <video id="videoG" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered vjs-nofull" webkit-playsinline playsinline>
-        <p class="vjs-no-js">
-            Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank">совместимых с HTML5 видео</a>
-        </p>
-    </video>
-    <video id="videoR" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered vjs-nofull" webkit-playsinline playsinline>
-        <p class="vjs-no-js">
-            Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank">совместимых с HTML5 видео</a>
-        </p>
-    </video>
-    <style>
-        .video-js {
-            display: none;
-        }
-    </style>
     <script>
         var hash = "{{ $hash }}",
             photo = "{{ $photo }}",

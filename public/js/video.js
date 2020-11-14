@@ -96,11 +96,9 @@
 var resolution = 1280;
 var balls = false;
 var redImg, whiteImg, goldImg;
-var elid = "videoS";
-document.getElementById("videoS").style.display = "block";
+var hlsIs = false;
 
 var checkTimeouts = function checkTimeouts() {
-  console.log(player);
   var ct = player.currentTime();
   clearTimeout(timeoutBall);
   clearTimeout(timeoutPhoto);
@@ -135,9 +133,9 @@ var checkTimeouts = function checkTimeouts() {
   }
 };
 
-var playerS = videojs("videoS", {
+var player = videojs("video", {
   sources: [{
-    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=s",
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
     type: "application/x-mpegURL"
   }],
   controls: true,
@@ -150,18 +148,16 @@ var playerS = videojs("videoS", {
   });
   this.on("play", function () {
     checkTimeouts(that);
-    playerG.muted(true);
-    playerS.muted(true);
-    playerR.muted(true);
-    playerG.play();
-    playerS.play();
-    playerR.play();
-    that.muted(false);
   });
   this.on("pause", function () {
     checkTimeouts(that);
   });
   this.on("firstplay", function () {
+    that.tech({
+      IWillNotUseThisInPlugins: true
+    }) && that.tech({
+      IWillNotUseThisInPlugins: true
+    }).hls && (hlsIs = true);
     checkTimeouts(that);
   });
   this.on("change", function () {
@@ -180,83 +176,6 @@ var playerS = videojs("videoS", {
     checkTimeouts(that);
   });
 });
-var playerR = videojs("videoR", {
-  sources: [{
-    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=r",
-    type: "application/x-mpegURL"
-  }],
-  controls: true,
-  control: true,
-  poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg"
-}, function () {
-  var that = this;
-  this.on("ended", function () {
-    checkTimeouts(that);
-  });
-  this.on("play", function () {
-    checkTimeouts(that);
-  });
-  this.on("pause", function () {
-    checkTimeouts(that);
-  });
-  this.on("firstplay", function () {
-    checkTimeouts(that);
-  });
-  this.on("change", function () {
-    checkTimeouts(that);
-  });
-  this.on("loadedmetadata", function () {
-    checkTimeouts(that);
-  });
-  this.on("progress", function () {
-    checkTimeouts(that);
-  });
-  this.on("seeking", function () {
-    checkTimeouts(that);
-  });
-  this.on("seeked", function () {
-    checkTimeouts(that);
-  });
-});
-var playerG = videojs("videoG", {
-  sources: [{
-    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=g",
-    type: "application/x-mpegURL"
-  }],
-  controls: true,
-  control: true,
-  poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg"
-}, function () {
-  var that = this;
-  this.on("ended", function () {
-    checkTimeouts(that);
-  });
-  this.on("play", function () {
-    checkTimeouts(that);
-  });
-  this.on("pause", function () {
-    checkTimeouts(that);
-  });
-  this.on("firstplay", function () {
-    checkTimeouts(that);
-  });
-  this.on("change", function () {
-    checkTimeouts(that);
-  });
-  this.on("loadedmetadata", function () {
-    checkTimeouts(that);
-  });
-  this.on("progress", function () {
-    checkTimeouts(that);
-  });
-  this.on("seeking", function () {
-    checkTimeouts(that);
-  });
-  this.on("seeked", function () {
-    checkTimeouts(that);
-  });
-});
-var player = playerS;
 var timeoutPhoto,
     timeoutRemovePhoto,
     timeoutBall,
@@ -291,88 +210,67 @@ var chooseBall = function chooseBall(e) {
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s";
-  player.pause();
-  player = color == "r" ? playerR : color == "g" ? playerG : playerS;
-  player.currentTime(tb + part_viii_duration + 0.2);
-  document.getElementById("videoG").style.display = "none";
-  document.getElementById("videoS").style.display = "none";
-  document.getElementById("videoR").style.display = "none";
-  elid = player.el().id;
-  document.getElementById(elid).style.display = "block";
-  player.el().player.play();
-  balls = true;
-}; // var chooseBall = function(e) {
-//     clearTimeout(setBallPause);
-//     var videoHeight = player.children()[0].offsetHeight,
-//         videoWidth = player.children()[0].offsetWidth;
-//     if (videoHeight > (videoWidth * 720) / 1280) {
-//         var width = videoWidth,
-//             height = (width / 1280) * 720,
-//             top = (videoHeight - height) / 2,
-//             left = 0;
-//     } else {
-//         var height = videoHeight,
-//             width = (height / 720) * 1280;
-//         (top = 0), (left = (videoWidth - width) / 2);
-//     }
-//     var color = "g";
-//     var margin = (window.innerWidth - width) / 2;
-//     var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-//     if (margin + width * 0.375 < clientX) color = "r";
-//     if (margin + (width - width * 0.375) < clientX) color = "s";
-//     // alert(0)
-//     alert(player)
-//     alert(player.tech_)
-//     alert(player.tech_.hls)
-//     alert(player.tech_.hls.playlists)
-//     // alert(player.hls.playlists.master.playlists[0])
-//     // alert(player.hls.playlists.master.playlists[0].segments)
-//     var segments = player.hls.playlists.master.playlists[0].segments;
-//     var start = 0;
-// // alert(1)
-//     for (i in segments) {
-//         if (segments[i].uri.indexOf("part_ix") > -1) {
-//             segments[i].resolvedUri =
-//                 cdn +
-//                 "part_ix/" +
-//                 color +
-//                 "%20%28" +
-//                 resolution +
-//                 "xauto%29.mp4/media_0.ts";
-//             segments[i].uri =
-//                 cdn +
-//                 "part_ix/" +
-//                 color +
-//                 "%20%28" +
-//                 resolution +
-//                 "xauto%29.mp4/media_0.ts";
-//             break;
-//         }
-//         if (segments[i].end) {
-//             start = segments[i].end;
-//         } else {
-//             start += segments[i].duration;
-//         }
-//     }
-//     alert(2)
-//     setTimeout(function() {
-//         player.play();
-//         removeBalls();
-//     }, 1000);
-//     alert(3)
-//     player.hls.masterPlaylistController_.mainSegmentLoader_.remove(
-//         start,
-//         start + 1000
-//     );
-//     player.hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
-//     player.trigger("syncinfoupdate");
-//     player.play();
-//     setTimeout(function() {
-//         player.pause();
-//         player.currentTime(tb + part_viii_duration + 0.2);
-//     }, 200);
-// };
+  player.src({
+    src: "/playlist-color/" + hash + ".m3u8?resolution=" + resolution + "color=" + color,
+    type: "application/x-mpegURL"
+  });
+  player.play();
+  setTimeout(function () {
+    removeBalls();
+  }, 1000);
+};
 
+var chooseBallHls = function chooseBallHls(e) {
+  clearTimeout(setBallPause);
+  var videoHeight = player.children()[0].offsetHeight,
+      videoWidth = player.children()[0].offsetWidth;
+
+  if (videoHeight > videoWidth * 720 / 1280) {
+    var width = videoWidth,
+        height = width / 1280 * 720,
+        top = (videoHeight - height) / 2,
+        left = 0;
+  } else {
+    var height = videoHeight,
+        width = height / 720 * 1280;
+    top = 0, left = (videoWidth - width) / 2;
+  }
+
+  var color = "g";
+  var margin = (window.innerWidth - width) / 2;
+  var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+  if (margin + width * 0.375 < clientX) color = "r";
+  if (margin + (width - width * 0.375) < clientX) color = "s";
+  var segments = player.tech_.hls.playlists.master.playlists[0].segments;
+  var start = 0;
+
+  for (i in segments) {
+    if (segments[i].uri.indexOf("part_ix") > -1) {
+      segments[i].resolvedUri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
+      segments[i].uri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
+      break;
+    }
+
+    if (segments[i].end) {
+      start = segments[i].end;
+    } else {
+      start += segments[i].duration;
+    }
+  }
+
+  setTimeout(function () {
+    player.play();
+    removeBalls();
+  }, 1000);
+  player.tech_.hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
+  player.tech_.hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
+  player.trigger("syncinfoupdate");
+  player.play();
+  setTimeout(function () {
+    player.pause();
+    player.currentTime(tb + part_viii_duration + 0.2);
+  }, 200);
+};
 
 var removeBalls = function removeBalls() {
   console.log("removeBalls");
@@ -396,9 +294,16 @@ var setBall = function setBall() {
   var ct = player.currentTime();
   ballsElement = createEl("ballsElement");
   ballsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
-  document.getElementById(elid).appendChild(ballsElement);
-  ballsElement.addEventListener("touchstart", chooseBall);
-  ballsElement.addEventListener("click", chooseBall);
+  document.getElementById("video").appendChild(ballsElement);
+
+  if (hlsIs) {
+    ballsElement.addEventListener("touchstart", chooseBallHls);
+    ballsElement.addEventListener("click", chooseBallHls);
+  } else {
+    ballsElement.addEventListener("touchstart", chooseBall);
+    ballsElement.addEventListener("click", chooseBall);
+  }
+
   setBallPause = setTimeout(function () {
     player.pause();
   }, (tb + part_viii_duration - ct) * 1000 - 500);
@@ -425,7 +330,7 @@ var setGifts = function setGifts() {
   var ct = player.currentTime();
   giftsElement = createEl("giftsElement");
   giftsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
-  document.getElementById(elid).appendChild(giftsElement);
+  document.getElementById("video").appendChild(giftsElement);
   redImg = document.createElement("img");
   redImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
   redImg.alt = "";
@@ -468,7 +373,7 @@ var setPhoto = function setPhoto() {
   var ct = player.currentTime();
   photoElement = createEl("photoElement");
   photoElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" + photo + "') no-repeat top left 57%/auto 92%";
-  document.getElementById(elid).appendChild(photoElement);
+  document.getElementById("video").appendChild(photoElement);
   clearTimeout(timeoutRemovePhoto);
   timeoutRemovePhoto = setTimeout(function () {
     removePhoto();

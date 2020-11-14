@@ -297,4 +297,57 @@ class SiteController extends Controller
             'cdn' => $this->cdn
         ]);
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function playlistColor(Request $request, $hash)
+    {
+        $resolution = $request->get('resolution', 1280);
+        $color = $request->get('color', 's');
+        $order = Order::where('hash', $hash)->first();
+
+        $chunks = unserialize($order->gift->{"chunks" . $resolution});
+        $giftChunk = "";
+
+        foreach ($chunks as $key => $chunk) {
+            if ($key) $giftChunk .= PHP_EOL;
+            $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) $giftChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+        }
+
+        $chunks = unserialize($order->from->{"chunks" . $resolution});
+        $fromChunk = "";
+
+        foreach ($chunks as $key => $chunk) {
+            if ($key) $fromChunk .= PHP_EOL;
+            $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) $fromChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+        }
+
+        $partIXChunk = view('chunks.part_ix.' . $color . $resolution, ['cdn' => $this->cdn]);
+        $partXChunk = view('chunks.part_x.' . $resolution, ['cdn' => $this->cdn]);
+        $partXIChunk = view('chunks.part_xi.' . $resolution, ['cdn' => $this->cdn]);
+        $partXIIChunk = view('chunks.part_xii.' . $resolution, ['cdn' => $this->cdn]);
+        $partXVChunk = view('chunks.part_xv.' . $resolution, ['cdn' => $this->cdn]);
+        $partXVIChunk = view('chunks.part_xvi.' . $resolution, ['cdn' => $this->cdn]);
+        $partXVIIChunk = view('chunks.part_xvii.' . $resolution, ['cdn' => $this->cdn]);
+
+        return view('playlist', [
+            'partIXChunk' => $partIXChunk,
+            'partXChunk' => $partXChunk,
+            'partXIChunk' => $partXIChunk,
+            'partXIIChunk' => $partXIIChunk,
+            'giftChunk' => $giftChunk,
+            'fromChunk' => $fromChunk,
+            'partXVChunk' => $partXVChunk,
+            'partXVIChunk' => $partXVIChunk,
+            'partXVIIChunk' => $partXVIIChunk,
+            'cdn' => $this->cdn
+        ]);
+    }
 }
