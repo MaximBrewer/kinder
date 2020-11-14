@@ -27,13 +27,16 @@ var checkTimeouts = function() {
             setBall();
         }, (tb - ct) * 1000 - 350);
     } else {
-        // setBall()
+        if (ct > tb + part_viii_duration) {
+            removeBalls();
+        }
     }
 
     if (ct < tg) {
-        timeoutGifts = setTimeout(function() {
-            setGifts();
-        }, (tg - ct) * 1000 - 350);
+        if (balls)
+            timeoutGifts = setTimeout(function() {
+                setGifts();
+            }, (tg - ct) * 1000 - 350);
     } else {
         // setPhoto()
     }
@@ -84,7 +87,6 @@ var player = videojs(
             checkTimeouts(that);
         });
         this.on("play", function() {
-            
             checkTimeouts(that);
         });
         this.on("pause", function() {
@@ -93,7 +95,8 @@ var player = videojs(
         this.on("firstplay", function() {
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
-                (hlsIs = true);
+                (hlsIs = true) &&
+                (balls = true);
             if (!hlsIs) {
                 tg = part_ix_duration + part_x_duration;
             }
@@ -162,14 +165,14 @@ var player = videojs(
     }
 );
 
-document.getElementById('video').addEventListener('click', function(){
-    console.log(9)
+document.getElementById("video").addEventListener("click", function() {
+    console.log(9);
     if (audio.paused()) audio.play();
-})
-document.getElementById('video').addEventListener('touchstart', function(){
-    console.log(9)
+});
+document.getElementById("video").addEventListener("touchstart", function() {
+    console.log(9);
     if (audio.paused()) audio.play();
-})
+});
 
 var timeoutPhoto,
     timeoutRemovePhoto,
@@ -211,6 +214,8 @@ var chooseBall = function(e) {
 
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
+    balls = true;
+    photo = false;
     player.src({
         src:
             "/playlist-color/" +

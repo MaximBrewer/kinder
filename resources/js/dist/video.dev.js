@@ -31,11 +31,14 @@ var checkTimeouts = function checkTimeouts() {
     timeoutBall = setTimeout(function () {
       setBall();
     }, (tb - ct) * 1000 - 350);
-  } else {// setBall()
+  } else {
+    if (ct > tb + part_viii_duration) {
+      removeBalls();
+    }
   }
 
   if (ct < tg) {
-    timeoutGifts = setTimeout(function () {
+    if (balls) timeoutGifts = setTimeout(function () {
       setGifts();
     }, (tg - ct) * 1000 - 350);
   } else {// setPhoto()
@@ -81,7 +84,7 @@ var player = videojs("video", {
       IWillNotUseThisInPlugins: true
     }) && that.tech({
       IWillNotUseThisInPlugins: true
-    }).hls && (hlsIs = true);
+    }).hls && (hlsIs = true) && (balls = true);
 
     if (!hlsIs) {
       tg = part_ix_duration + part_x_duration;
@@ -140,11 +143,11 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
 });
-document.getElementById('video').addEventListener('click', function () {
+document.getElementById("video").addEventListener("click", function () {
   console.log(9);
   if (audio.paused()) audio.play();
 });
-document.getElementById('video').addEventListener('touchstart', function () {
+document.getElementById("video").addEventListener("touchstart", function () {
   console.log(9);
   if (audio.paused()) audio.play();
 });
@@ -182,6 +185,8 @@ var chooseBall = function chooseBall(e) {
   var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
   if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s";
+  balls = true;
+  photo = false;
   player.src({
     src: "/playlist-color/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
     type: "application/x-mpegURL"
