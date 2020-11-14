@@ -187,11 +187,15 @@ var chooseBall = function(e) {
             start,
             start + 1000
         );
-    // player.tech({ IWillNotUseThisInPlugins: true }).trigger("progress");
-    // player.tech({ IWillNotUseThisInPlugins: true }).trigger("loadstart");
+
+    player
+        .tech({ IWillNotUseThisInPlugins: true })
+        .hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
+    player.tech({ IWillNotUseThisInPlugins: true }).trigger("syncinfoupdate");
     setTimeout(function() {
         removeBalls();
-        // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
+
+        player.currentTime(tb + part_viii_duration + part_ix_duration + 1500);
         // player.play();
     }, 500);
 };

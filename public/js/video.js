@@ -255,12 +255,16 @@ var chooseBall = function chooseBall(e) {
   console.log(start, start + 1000);
   player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000); // player.tech({ IWillNotUseThisInPlugins: true }).trigger("progress");
-  // player.tech({ IWillNotUseThisInPlugins: true }).trigger("loadstart");
-
+  }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
+  player.tech({
+    IWillNotUseThisInPlugins: true
+  }).hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
+  player.tech({
+    IWillNotUseThisInPlugins: true
+  }).trigger("syncinfoupdate");
   setTimeout(function () {
-    removeBalls(); // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
-    // player.play();
+    removeBalls();
+    player.currentTime(tb + part_viii_duration + part_ix_duration + 1500); // player.play();
   }, 500);
 };
 
