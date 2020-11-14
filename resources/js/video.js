@@ -123,7 +123,6 @@ var timeoutPhoto,
 
 var chooseBall = function(e) {
     clearTimeout(setBallPause);
-    alert(1)
     var videoHeight = player.children()[0].offsetHeight,
         videoWidth = player.children()[0].offsetWidth;
     if (videoHeight > (videoWidth * 720) / 1280) {
@@ -138,7 +137,6 @@ var chooseBall = function(e) {
     }
     var color = "g";
 
-    alert(2)
     var margin = (window.innerWidth - width) / 2;
 
     var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
@@ -146,12 +144,11 @@ var chooseBall = function(e) {
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
 
-    alert(3)
     var segments = player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists
         .master.playlists[0].segments;
     var start = 0;
+    alert(1)
     for (i in segments) {
-        // console.log(segments[i].uri.indexOf("part_ix"), i, color);
         if (segments[i].uri.indexOf("part_ix") > -1) {
             segments[i].resolvedUri =
                 cdn +
@@ -169,6 +166,7 @@ var chooseBall = function(e) {
                 "xauto%29.mp4/media_0.ts";
             break;
         }
+        alert(2)
         if (segments[i].end) {
             start = segments[i].end;
         } else {
