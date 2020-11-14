@@ -290,19 +290,16 @@ var setPhoto = function setPhoto() {
 var removeGifts = function removeGifts() {
   console.log("removeGifts");
   document.getElementById("video").removeChild(giftsElement);
-  giftsElement = null;
 };
 
 var removePhoto = function removePhoto() {
   console.log("removePhoto");
   document.getElementById("video").removeChild(photoElement);
-  photoElement = null;
 };
 
 var removeBalls = function removeBalls() {
   console.log("removeBalls");
   document.getElementById("video").removeChild(ballsElement);
-  ballsElement = null;
 };
 
 var createEl = function createEl() {
