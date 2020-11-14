@@ -3,7 +3,7 @@
 var resolution = 640;
 window.innerWidth > 640 && (resolution = 1024);
 window.innerWidth > 1024 && (resolution = 1280);
-window.innerWidth > 1280 && (resolution = 1920);
+window.innerWidth > 1280 && (resolution = 1280);
 var balls = false;
 var hlsIs = false;
 var secpart = false;
