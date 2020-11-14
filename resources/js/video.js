@@ -181,7 +181,7 @@ var chooseBall = function(e) {
         player.tech({ IWillNotUseThisInPlugins: true }).hls
     );
     // player.tech({ IWillNotUseThisInPlugins: true }).hls.resyncLoader();
-    console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.mediaSource.sourceBuffers);
+    console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.mainSegmentLoader());
     player.trigger("mediachange");
     player.tech({ IWillNotUseThisInPlugins: true }).trigger("mediachange");
     player.tech({ IWillNotUseThisInPlugins: true }).hls.trigger("mediachange");
