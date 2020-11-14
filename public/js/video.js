@@ -158,6 +158,14 @@ var player = videojs("video", {
   });
   this.on("play", function () {
     checkTimeouts(that);
+
+    if (balls) {
+      setTimeout(function () {
+        removeBalls();
+        that.currentTime(tb + part_viii_duration + 0.2);
+      }, 1000);
+      balls = false;
+    }
   });
   this.on("pause", function () {
     checkTimeouts(that);
@@ -170,6 +178,14 @@ var player = videojs("video", {
   });
   this.on("loadedmetadata", function () {
     checkTimeouts(that);
+
+    if (balls) {
+      setTimeout(function () {
+        removeBalls();
+        that.currentTime(tb + part_viii_duration + 0.2);
+      }, 1000);
+      balls = false;
+    }
   });
   this.on("progress", function () {
     checkTimeouts(that);
@@ -220,14 +236,7 @@ var chooseBall = function chooseBall(e) {
     type: "application/x-mpegURL"
   });
   player.play();
-  setTimeout(function () {
-    player.pause();
-    player.currentTime(tb + part_viii_duration + 0.2);
-  }, 200);
-  setTimeout(function () {
-    player.play();
-    removeBalls();
-  }, 1000);
+  balls = true;
 }; // var chooseBall = function(e) {
 //     clearTimeout(setBallPause);
 //     var videoHeight = player.children()[0].offsetHeight,
