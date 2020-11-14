@@ -298,7 +298,7 @@ var chooseGift = function chooseGift(e) {
   clearTimeout(setBallPause);
   e.target.style.opacity = "1";
 
-  if (document.getElementById('redImg').style.opacity == "1" && document.getElementById('whiteImg').style.style.opacity == "1" && document.getElementById('goldImg').style.style.opacity == "1") {
+  if (document.getElementById('redImg') && document.getElementById('redImg').style.opacity == "1" && document.getElementById('whiteImg') && document.getElementById('whiteImg').style.opacity == "1" && document.getElementById('goldImg') && document.getElementById('goldImg').style.opacity == "1") {
     player.currentTime(tg + part_xi_duration + 0.5);
     player.play();
     setTimeout(function () {
