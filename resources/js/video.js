@@ -23,9 +23,9 @@ var player = videojs(
         });
         this.on("play", function() {
             checkTimeouts(that);
-            player.currentTime(currentTime);
         });
         this.on("firstplay", function() {
+            player.currentTime(currentTime);
             checkTimeouts(that);
         });
         this.on("change", function() {
