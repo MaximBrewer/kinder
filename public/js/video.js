@@ -123,6 +123,10 @@ var player = videojs("video", {
   });
   this.on("loadedmetadata", function () {
     if (balls) {
+      setTimeout(function () {
+        removeBalls();
+      }, 1000);
+      alert(balls);
       that.currentTime(tb + part_viii_duration + 0.5);
       balls = false;
     }
@@ -181,10 +185,6 @@ var chooseBall = function chooseBall(e) {
     type: "application/x-mpegURL"
   });
   balls = true;
-  player.play();
-  setTimeout(function () {
-    removeBalls();
-  }, 1000);
 };
 
 var chooseGift = function chooseGift(e) {
