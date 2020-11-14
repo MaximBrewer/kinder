@@ -240,11 +240,9 @@ var chooseBall = function chooseBall(e) {
     }
 
     newSegments.push(segments[i]);
-  }
+  } // player.tech({ IWillNotUseThisInPlugins: true }).hls.resyncLoader();
 
-  player.tech({
-    IWillNotUseThisInPlugins: true
-  }).hls.resyncLoader();
+
   player.trigger("mediachange");
   player.tech({
     IWillNotUseThisInPlugins: true
