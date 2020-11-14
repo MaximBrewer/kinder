@@ -154,7 +154,7 @@ var chooseBall = function(e) {
 
     var segments = player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists
         .master.playlists[0].segments;
-    var newSegments = [];
+    var start = 0;
     for (i in segments) {
         // console.log(segments[i].uri.indexOf("part_ix"), i, color);
         if (segments[i].uri.indexOf("part_ix") > -1) {
@@ -173,15 +173,14 @@ var chooseBall = function(e) {
                 resolution +
                 "xauto%29.mp4/media_0.ts";
         }
-        newSegments.push(segments[i]);
-        console.log(segments[i]);
+        start = segments[i].end;
     }
     console.log(
         player,
         player.tech({ IWillNotUseThisInPlugins: true }),
         player.tech({ IWillNotUseThisInPlugins: true }).hls
     );
-    console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.masterPlaylistController_.mainSegmentLoader_.resyncLoader());
+    console.log(player.tech({ IWillNotUseThisInPlugins: true }).hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000));
     setTimeout(function() {
         removeBalls();
         // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
