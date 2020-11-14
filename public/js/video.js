@@ -110,7 +110,13 @@ var player = videojs("video", {
   flash: options,
   html5: options,
   sources: [{
-    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=g",
+    type: "application/x-mpegURL"
+  }, {
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=r",
+    type: "application/x-mpegURL"
+  }, {
+    src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=s",
     type: "application/x-mpegURL"
   }],
   controls: true,
