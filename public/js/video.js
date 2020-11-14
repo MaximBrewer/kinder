@@ -188,8 +188,8 @@ var chooseBall = function chooseBall(e) {
 
   console.log();
   setTimeout(function () {
-    removeBalls();
-    player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
+    removeBalls(); // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
+
     player.play();
   }, 500);
 };

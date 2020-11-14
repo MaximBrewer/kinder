@@ -116,7 +116,7 @@ var chooseBall = function(e) {
     console.log();
     setTimeout(function() {
         removeBalls();
-        player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
+        // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
         player.play();
     }, 500);
 };
