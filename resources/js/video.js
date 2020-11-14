@@ -23,6 +23,7 @@ var player = videojs(
             checkTimeouts(that);
         });
         this.on("play", function() {
+            alert(currentTime)
             player.currentTime(currentTime);
             checkTimeouts(that);
         });
