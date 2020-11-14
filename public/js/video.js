@@ -203,7 +203,9 @@ var chooseBall = function chooseBall(e) {
   player.tech({
     IWillNotUseThisInPlugins: true
   }).hls.updateSegments(segments, newSegments);
-  console.log(player.hls.playlists.master.playlists[0].segments);
+  console.log(player.tech({
+    IWillNotUseThisInPlugins: true
+  }).buffered());
   setTimeout(function () {
     removeBalls(); // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
 
