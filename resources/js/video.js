@@ -84,13 +84,14 @@ var player = videojs(
             checkTimeouts(that);
         });
         this.on("play", function() {
-            if (audio.paused()) audio.play();
+            
             checkTimeouts(that);
         });
         this.on("pause", function() {
             checkTimeouts(that);
         });
         this.on("firstplay", function() {
+            if (audio.paused()) audio.play();
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
                 (hlsIs = true);
