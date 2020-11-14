@@ -193,6 +193,7 @@ var player = videojs("video", {
     giftsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
     document.getElementById("video").appendChild(giftsElement);
     redImg = document.createElement("img");
+    redImg.id = "redImg";
     redImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
     redImg.alt = "";
     redImg.style.position = "absolute";
@@ -201,6 +202,7 @@ var player = videojs("video", {
     redImg.style.opacity = "0";
     redImg.style.height = "42.4%";
     whiteImg = document.createElement("img");
+    whiteImg.id = "whiteImg";
     whiteImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/white.png";
     whiteImg.alt = "";
     whiteImg.style.position = "absolute";
@@ -209,6 +211,7 @@ var player = videojs("video", {
     whiteImg.style.opacity = "0";
     whiteImg.style.height = "31.4%";
     goldImg = document.createElement("img");
+    goldImg.id = "goldImg";
     goldImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/gold.png";
     goldImg.alt = "";
     goldImg.style.position = "absolute";
@@ -219,6 +222,12 @@ var player = videojs("video", {
     giftsElement.appendChild(redImg);
     giftsElement.appendChild(whiteImg);
     giftsElement.appendChild(goldImg);
+    redImg.addEventListener("touchstart", chooseGift);
+    redImg.addEventListener("click", chooseGift);
+    whiteImg.addEventListener("touchstart", chooseGift);
+    whiteImg.addEventListener("click", chooseGift);
+    goldImg.addEventListener("touchstart", chooseGift);
+    goldImg.addEventListener("click", chooseGift);
   });
   this.on("change", function () {
     checkTimeouts(that);
@@ -237,11 +246,9 @@ var player = videojs("video", {
   });
 });
 document.getElementById("video").addEventListener("click", function () {
-  console.log(9);
   if (audio.paused()) audio.play();
 });
 document.getElementById("video").addEventListener("touchstart", function () {
-  console.log(9);
   if (audio.paused()) audio.play();
 });
 var timeoutPhoto,
@@ -379,12 +386,12 @@ var setBall = function setBall() {
 };
 
 var chooseGift = function chooseGift(e) {
+  console.log("chooseGift");
   clearTimeout(setGiftsPause);
   clearTimeout(setBallPause);
-  console.log("chooseGift");
   e.target.style.opacity = "1";
 
-  if (redImg.style.opacity == "1" && whiteImg.style.opacity == "1" && goldImg.style.opacity == "1") {
+  if (document.getElementById('redImg').style.opacity == "1" && document.getElementById('whiteImg').style.style.opacity == "1" && document.getElementById('goldImg').style.style.opacity == "1") {
     player.currentTime(tg + part_xi_duration + 0.5);
     player.play();
     setTimeout(function () {
@@ -399,12 +406,6 @@ var setGifts = function setGifts() {
   clearTimeout(setGiftsPause);
   var ct = player.currentTime();
   document.getElementById("giftsElement").style.zIndex = "100";
-  redImg.addEventListener("touchstart", chooseGift);
-  redImg.addEventListener("click", chooseGift);
-  whiteImg.addEventListener("touchstart", chooseGift);
-  whiteImg.addEventListener("click", chooseGift);
-  goldImg.addEventListener("touchstart", chooseGift);
-  goldImg.addEventListener("click", chooseGift);
   setGiftsPause = setTimeout(function () {
     player.pause();
   }, (tg + part_xi_duration - ct) * 1000 - 500);

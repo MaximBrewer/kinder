@@ -115,7 +115,8 @@ var player = videojs(
                 "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/podarki.png') no-repeat 0 0 / 100%";
             document.getElementById("video").appendChild(giftsElement);
 
-            redImg = document.createElement("img");
+            redImg = document.createElement("img")
+            redImg.id = "redImg";
             redImg.src =
                 "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
             redImg.alt = "";
@@ -126,6 +127,7 @@ var player = videojs(
             redImg.style.height = "42.4%";
 
             whiteImg = document.createElement("img");
+            whiteImg.id = "whiteImg";
             whiteImg.src =
                 "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/white.png";
             whiteImg.alt = "";
@@ -134,7 +136,9 @@ var player = videojs(
             whiteImg.style.left = "38.1%";
             whiteImg.style.opacity = "0";
             whiteImg.style.height = "31.4%";
+
             goldImg = document.createElement("img");
+            goldImg.id = "goldImg";
             goldImg.src =
                 "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/gold.png";
             goldImg.alt = "";
@@ -146,6 +150,14 @@ var player = videojs(
             giftsElement.appendChild(redImg);
             giftsElement.appendChild(whiteImg);
             giftsElement.appendChild(goldImg);
+
+            redImg.addEventListener("touchstart", chooseGift);
+            redImg.addEventListener("click", chooseGift);
+            whiteImg.addEventListener("touchstart", chooseGift);
+            whiteImg.addEventListener("click", chooseGift);
+            goldImg.addEventListener("touchstart", chooseGift);
+            goldImg.addEventListener("click", chooseGift);
+
         });
         this.on("change", function() {
             checkTimeouts(that);
@@ -166,11 +178,9 @@ var player = videojs(
 );
 
 document.getElementById("video").addEventListener("click", function() {
-    console.log(9);
     if (audio.paused()) audio.play();
 });
 document.getElementById("video").addEventListener("touchstart", function() {
-    console.log(9);
     if (audio.paused()) audio.play();
 });
 
@@ -341,14 +351,14 @@ var setBall = function() {
 };
 
 var chooseGift = function(e) {
+    console.log("chooseGift");
     clearTimeout(setGiftsPause);
     clearTimeout(setBallPause);
-    console.log("chooseGift");
     e.target.style.opacity = "1";
     if (
-        redImg.style.opacity == "1" &&
-        whiteImg.style.opacity == "1" &&
-        goldImg.style.opacity == "1"
+        document.getElementById('redImg').style.opacity == "1" &&
+        document.getElementById('whiteImg').style.style.opacity == "1" &&
+        document.getElementById('goldImg').style.style.opacity == "1"
     ) {
         player.currentTime(tg + part_xi_duration + 0.5);
         player.play();
@@ -364,12 +374,6 @@ var setGifts = function() {
     clearTimeout(setGiftsPause);
     var ct = player.currentTime();
     document.getElementById("giftsElement").style.zIndex = "100";
-    redImg.addEventListener("touchstart", chooseGift);
-    redImg.addEventListener("click", chooseGift);
-    whiteImg.addEventListener("touchstart", chooseGift);
-    whiteImg.addEventListener("click", chooseGift);
-    goldImg.addEventListener("touchstart", chooseGift);
-    goldImg.addEventListener("click", chooseGift);
 
     setGiftsPause = setTimeout(function() {
         player.pause();
