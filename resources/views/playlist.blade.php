@@ -3,7 +3,6 @@
 #EXT-X-MEDIA-SEQUENCE:0
 #EXT-X-TARGETDURATION:12
 #EXT-X-PLAYLIST-TYPE:EVENT
-#EXT-X-ALLOW-CACHE:NO
 {{ $partIChunk }}
 {{ $nameChunk }}
 {{ $partIIIChunk }}
