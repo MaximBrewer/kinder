@@ -1,4 +1,6 @@
 var resolution = 640;
+window.innerWidth > 640 && (resolution = 1024);
+window.innerWidth > 1024 && (resolution = 1280);
 var balls = false;
 var redImg, whiteImg, goldImg;
 var hlsIs = false;
@@ -65,8 +67,10 @@ var player = videojs(
         this.on("firstplay", function() {
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
-                (hlsIs = false);
-            checkTimeouts(that);
+                (hlsIs = true);
+            if (!hlsIs) {
+                tg = part_ix_duration + part_x_duration;
+            }
         });
         this.on("change", function() {
             checkTimeouts(that);
