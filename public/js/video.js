@@ -252,10 +252,11 @@ var chooseBall = function chooseBall(e) {
   }).hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
   player.tech({
     IWillNotUseThisInPlugins: true
-  }).trigger("syncinfoupdate"); // player.play();
-
+  }).trigger("syncinfoupdate");
+  player.pause();
   player.currentTime(tb + part_viii_duration + 0.2);
   setTimeout(function () {
+    player.play();
     removeBalls();
   }, 1500);
 };
