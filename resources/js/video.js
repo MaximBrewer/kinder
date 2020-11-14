@@ -32,7 +32,7 @@ var player = videojs(
         this.on("firstplay", function() {
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
-                (hlsIs = false) &&
+                (hlsIs = true) &&
                 (balls = true);
             if (!hlsIs) {
                 tg = part_ix_duration + part_x_duration;
@@ -226,6 +226,7 @@ var player = videojs(
         });
         this.on("play", function() {
             checkTimeouts(that);
+            audio.play();
         });
         this.on("pause", function() {
             checkTimeouts(that);
@@ -285,12 +286,16 @@ window.addEventListener(
     true
 );
 
-document.getElementById("video").addEventListener("click", function() {
+function touchAudio() {
     if (audio.paused()) audio.play();
-});
-document.getElementById("video").addEventListener("touchstart", function() {
-    if (audio.paused()) audio.play();
-});
+    document.getElementById("video").removeEventListener("click", touchAudio);
+    document
+        .getElementById("video")
+        .removeEventListener("touchstart", touchAudio);
+}
+
+document.getElementById("video").addEventListener("click", touchAudio);
+document.getElementById("video").addEventListener("touchstart", touchAudio);
 
 var timeoutPhoto,
     timeoutRemovePhoto,
@@ -308,18 +313,15 @@ var timeoutPhoto,
     tg = tb + part_viii_duration + part_ix_duration + part_x_duration;
 
 var chooseBall = function(e) {
-    clearTimeout(setBallPause);
-    var videoHeight = player.children()[0].offsetHeight,
-        videoWidth = player.children()[0].offsetWidth;
+    var videoHeight = player.el().offsetHeight,
+        videoWidth = player.el().offsetWidth;
+
     if (videoHeight > (videoWidth * 720) / 1280) {
         var width = videoWidth,
-            height = (width / 1280) * 720,
-            top = (videoHeight - height) / 2,
-            left = 0;
+            height = (width / 1280) * 720;
     } else {
         var height = videoHeight,
             width = (height / 720) * 1280;
-        (top = 0), (left = (videoWidth - width) / 2);
     }
     var color = "g";
 
@@ -329,6 +331,7 @@ var chooseBall = function(e) {
 
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
+
     balls = true;
     photo = false;
     player.src({
@@ -349,17 +352,14 @@ var chooseBall = function(e) {
 
 var chooseBallHls = function(e) {
     clearTimeout(setBallPause);
-    var videoHeight = player.children()[0].offsetHeight,
-        videoWidth = player.children()[0].offsetWidth;
+    var videoHeight = player.el().offsetHeight,
+        videoWidth = player.el().offsetWidth;
     if (videoHeight > (videoWidth * 720) / 1280) {
         var width = videoWidth,
-            height = (width / 1280) * 720,
-            top = (videoHeight - height) / 2,
-            left = 0;
+            height = (width / 1280) * 720;
     } else {
         var height = videoHeight,
             width = (height / 720) * 1280;
-        (top = 0), (left = (videoWidth - width) / 2);
     }
     var color = "g";
 
