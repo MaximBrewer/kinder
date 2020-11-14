@@ -122,21 +122,6 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
   this.on("loadedmetadata", function () {
-    if (balls) {
-      player.play();
-      that.muted(true);
-      setTimeout(function () {
-        removeBalls();
-        that.muted(false);
-      }, 1000);
-      setTimeout(function () {
-        that.currentTime(tb + part_viii_duration + 0.5);
-        removeBalls();
-      }, 500);
-      alert(balls);
-      balls = false;
-    }
-
     checkTimeouts(that);
   });
   this.on("progress", function () {
@@ -199,6 +184,7 @@ var chooseBall = function chooseBall(e) {
     }).hls.playlists.master.playlists[0].segments[i].uri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
   }
 
+  console.log();
   setTimeout(function () {
     removeBalls();
     player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
