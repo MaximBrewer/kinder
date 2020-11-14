@@ -157,7 +157,7 @@ var player = videojs("video", {
       IWillNotUseThisInPlugins: true
     }) && that.tech({
       IWillNotUseThisInPlugins: true
-    }).hls && (hlsIs = true);
+    }).hls && (hlsIs = false);
     checkTimeouts(that);
   });
   this.on("change", function () {
@@ -211,7 +211,7 @@ var chooseBall = function chooseBall(e) {
   if (margin + width * 0.375 < clientX) color = "r";
   if (margin + (width - width * 0.375) < clientX) color = "s";
   player.src({
-    src: "/playlist-color/" + hash + ".m3u8?resolution=" + resolution + "color=" + color,
+    src: "/playlist-color/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
     type: "application/x-mpegURL"
   });
   player.play();

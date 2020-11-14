@@ -337,7 +337,7 @@ class SiteController extends Controller
         $partXVIChunk = view('chunks.part_xvi.' . $resolution, ['cdn' => $this->cdn]);
         $partXVIIChunk = view('chunks.part_xvii.' . $resolution, ['cdn' => $this->cdn]);
 
-        return view('playlist', [
+        return view('playlist-color', [
             'partIXChunk' => $partIXChunk,
             'partXChunk' => $partXChunk,
             'partXIChunk' => $partXIChunk,

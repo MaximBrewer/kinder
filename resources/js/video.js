@@ -65,7 +65,7 @@ var player = videojs(
         this.on("firstplay", function() {
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
-                (hlsIs = true);
+                (hlsIs = false);
             checkTimeouts(that);
         });
         this.on("change", function() {
@@ -132,7 +132,7 @@ var chooseBall = function(e) {
             hash +
             ".m3u8?resolution=" +
             resolution +
-            "color=" +
+            "&color=" +
             color,
         type: "application/x-mpegURL"
     });
