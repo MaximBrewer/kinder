@@ -127,6 +127,7 @@ var chooseBall = function(e) {
         }
         newSegments.push(segments[i])
     }
+    player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists.load()
     player.trigger('mediachange')
     player.tech({ IWillNotUseThisInPlugins: true }).trigger('mediachange')
     player.tech({ IWillNotUseThisInPlugins: true }).hls.trigger('mediachange')

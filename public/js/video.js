@@ -198,6 +198,9 @@ var chooseBall = function chooseBall(e) {
     newSegments.push(segments[i]);
   }
 
+  player.tech({
+    IWillNotUseThisInPlugins: true
+  }).hls.playlists.load();
   player.trigger('mediachange');
   player.tech({
     IWillNotUseThisInPlugins: true
