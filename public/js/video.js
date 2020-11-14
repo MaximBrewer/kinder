@@ -246,25 +246,13 @@ var chooseBall = function chooseBall(e) {
     IWillNotUseThisInPlugins: true
   }), player.tech({
     IWillNotUseThisInPlugins: true
-  }).hls); // player.tech({ IWillNotUseThisInPlugins: true }).hls.resyncLoader();resetEverything
-
+  }).hls);
   console.log(player.tech({
     IWillNotUseThisInPlugins: true
   }).hls.masterPlaylistController_.mainSegmentLoader_.resetEverything());
-  console.log(player.tech({
-    IWillNotUseThisInPlugins: true
-  }).hls.mainSegmentLoader());
-  player.trigger("mediachange");
-  player.tech({
-    IWillNotUseThisInPlugins: true
-  }).trigger("mediachange");
-  player.tech({
-    IWillNotUseThisInPlugins: true
-  }).hls.trigger("mediachange"); // player.tech({ IWillNotUseThisInPlugins: true }).hls.updateSegments(segments, newSegments);
-
   setTimeout(function () {
-    removeBalls(); // player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
-
+    removeBalls();
+    player.currentTime(tb + part_viii_duration + part_ix_duration + 200);
     player.play();
   }, 500);
 };
