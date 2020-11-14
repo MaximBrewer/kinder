@@ -242,7 +242,6 @@ var chooseBall = function chooseBall(e) {
     newSegments.push(segments[i]);
   }
 
-  player.resyncLoader();
   player.tech({
     IWillNotUseThisInPlugins: true
   }).resyncLoader();
