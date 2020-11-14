@@ -106,7 +106,9 @@ var chooseBall = function(e) {
     if (margin + width * 0.375 < clientX) color = "r";
     if (margin + (width - width * 0.375) < clientX) color = "s";
 
-    console.log(player.hls.playlists.master.playlists[0].segments)
+    console.log(player.hls.playlists.master.playlists[0].segments[17].resolvedUri)
+    player.hls.playlists.master.playlists[0].segments[17].resolvedUri = "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/part_ix/g%20%281280xauto%29.mp4/media_0.ts";
+    player.hls.playlists.master.playlists[0].segments[17].uri = "https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/part_ix/g%20%281280xauto%29.mp4/media_0.ts";
     balls = true;
 };
 
