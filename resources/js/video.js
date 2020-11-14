@@ -91,7 +91,6 @@ var player = videojs(
             checkTimeouts(that);
         });
         this.on("firstplay", function() {
-            if (audio.paused()) audio.play();
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
                 (hlsIs = true);
@@ -162,6 +161,10 @@ var player = videojs(
         });
     }
 );
+
+document.getElementById('video').addEventListener('click', function(){
+    if (audio.paused()) audio.play();
+})
 
 var timeoutPhoto,
     timeoutRemovePhoto,

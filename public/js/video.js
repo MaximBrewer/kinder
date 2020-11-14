@@ -170,7 +170,6 @@ var player = videojs("video", {
     checkTimeouts(that);
   });
   this.on("firstplay", function () {
-    if (audio.paused()) audio.play();
     that.tech({
       IWillNotUseThisInPlugins: true
     }) && that.tech({
@@ -233,6 +232,9 @@ var player = videojs("video", {
   this.on("seeked", function () {
     checkTimeouts(that);
   });
+});
+document.getElementById('video').addEventListener('click', function () {
+  if (audio.paused()) audio.play();
 });
 var timeoutPhoto,
     timeoutRemovePhoto,
