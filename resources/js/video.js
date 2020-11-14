@@ -2,9 +2,17 @@ var resolution = 1280;
 var balls = false;
 var redImg, whiteImg, goldImg;
 
+var options = {
+    hls: {
+        maxBufferLength: 3
+    }
+};
+
 var player = videojs(
     "video",
     {
+        flash: options,
+        html5: options,
         sources: [
             {
                 src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
@@ -95,7 +103,7 @@ var chooseBall = function(e) {
     var segments = player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists
         .master.playlists[0].segments;
     for (i in segments) {
-        console.log(segments[i].uri.indexOf("part_ix"), i, color)
+        console.log(segments[i].uri.indexOf("part_ix"), i, color);
         if (segments[i].uri.indexOf("part_ix") > -1) {
             player.hls.playlists.master.playlists[0].segments[i].resolvedUri =
                 cdn +

@@ -96,7 +96,14 @@
 var resolution = 1280;
 var balls = false;
 var redImg, whiteImg, goldImg;
+var options = {
+  hls: {
+    maxBufferLength: 3
+  }
+};
 var player = videojs("video", {
+  flash: options,
+  html5: options,
   sources: [{
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
     type: "application/x-mpegURL"
