@@ -196,7 +196,6 @@ var setGifts = function() {
 
 var setPhoto = function() {
     var ct = player.currentTime();
-    player.exitFullscreen();
     photoElement = createEl();
     photoElement.style.background =
         "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
@@ -212,23 +211,27 @@ var setPhoto = function() {
 
 var removeGifts = function() {
     console.log("removeGifts");
+    player.requestFullscreen();
     document.getElementById("video").removeChild(giftsElement);
     giftsElement = null;
 };
 
 var removePhoto = function() {
     console.log("removePhoto");
+    player.requestFullscreen();
     document.getElementById("video").removeChild(photoElement);
     photoElement = null;
 };
 
 var removeBalls = function() {
     console.log("removeBalls");
+    player.requestFullscreen();
     document.getElementById("video").removeChild(ballsElement);
     ballsElement = null;
 };
 
 var createEl = function() {
+    player.exitFullscreen();
     var videoHeight = player.el().offsetHeight,
         videoWidth = player.el().offsetWidth;
     if (videoHeight > (videoWidth * 720) / 1280) {
