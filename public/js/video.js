@@ -226,6 +226,7 @@ var chooseBall = function chooseBall(e) {
   if (margin + (width - width * 0.375) < clientX) color = "s";
   var segments = player.hls.playlists.master.playlists[0].segments;
   var start = 0;
+  alert(1);
 
   for (i in segments) {
     if (segments[i].uri.indexOf("part_ix") > -1) {
@@ -241,10 +242,12 @@ var chooseBall = function chooseBall(e) {
     }
   }
 
+  alert(2);
   setTimeout(function () {
     player.play();
     removeBalls();
   }, 1000);
+  alert(3);
   player.hls.masterPlaylistController_.mainSegmentLoader_.remove(start, start + 1000);
   player.hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
   player.trigger("syncinfoupdate");
