@@ -175,7 +175,9 @@ var chooseBall = function(e) {
         }
         newSegments.push(segments[i]);
     }
-    player.tech({ IWillNotUseThisInPlugins: true }).hls.playlists.load();
+    player.resyncLoader();
+    player.tech({ IWillNotUseThisInPlugins: true }).resyncLoader();
+    player.tech({ IWillNotUseThisInPlugins: true }).hls.resyncLoader();
     player.trigger("mediachange");
     player.tech({ IWillNotUseThisInPlugins: true }).trigger("mediachange");
     player.tech({ IWillNotUseThisInPlugins: true }).hls.trigger("mediachange");
