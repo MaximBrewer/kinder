@@ -1,5 +1,5 @@
 var resolution = 1280;
-
+var step = 0;
 var redImg, whiteImg, goldImg;
 
 var player = videojs(
@@ -99,9 +99,9 @@ var chooseBall = function(e) {
             color,
         type: "application/x-mpegURL"
     });
-    player.currentTime(tb + part_viii_duration + 0.5);
     player.play();
     setTimeout(function() {
+        player.currentTime(tb + part_viii_duration + 0.5);
         removeBalls();
     }, 1000);
 };

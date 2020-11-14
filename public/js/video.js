@@ -94,6 +94,7 @@
 /***/ (function(module, exports) {
 
 var resolution = 1280;
+var step = 0;
 var redImg, whiteImg, goldImg;
 var player = videojs("video", {
   sources: [{
@@ -171,9 +172,9 @@ var chooseBall = function chooseBall(e) {
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution + "&color=" + color,
     type: "application/x-mpegURL"
   });
-  player.currentTime(tb + part_viii_duration + 0.5);
   player.play();
   setTimeout(function () {
+    player.currentTime(tb + part_viii_duration + 0.5);
     removeBalls();
   }, 1000);
 };
