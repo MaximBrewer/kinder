@@ -274,7 +274,11 @@ var removeGifts = function removeGifts() {
 
 var removePhoto = function removePhoto() {
   console.log("removePhoto");
-  player.requestFullscreen();
+  player.requestFullscreen().then(function () {
+    return console.log("Document Exited form Full screen mode");
+  })["catch"](function (err) {
+    return console.error(err);
+  });
   document.getElementById("video").removeChild(photoElement);
   photoElement = null;
 };

@@ -218,7 +218,9 @@ var removeGifts = function() {
 
 var removePhoto = function() {
     console.log("removePhoto");
-    player.requestFullscreen();
+    player.requestFullscreen()
+    .then(() => console.log("Document Exited form Full screen mode"))
+    .catch((err) => console.error(err));
     document.getElementById("video").removeChild(photoElement);
     photoElement = null;
 };
