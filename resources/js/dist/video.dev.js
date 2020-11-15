@@ -21,6 +21,7 @@ window.innerWidth > 1280 && (resolution = 1280);
 
 var checkTimeouts = function checkTimeouts() {
   var ct = player.currentTime();
+  paused = true;
 
   if (!secpart) {
     if (photo) {
@@ -39,6 +40,7 @@ var checkTimeouts = function checkTimeouts() {
 
     if (ct > tb - 0.5 && ct < tb + part_viii_duration + 0.5) {
       !ballsSetted && setBall();
+      paused = false;
     } else if (ct > tb + part_viii_duration + 0.5) {
       ballsSetted && removeBalls();
     }
@@ -52,6 +54,7 @@ var checkTimeouts = function checkTimeouts() {
       giftsSetted && removeGifts();
     } else if (ct > tg - 0.5 && ct < tg + part_xi_duration + 0.5) {
       !giftsSetted && setGifts();
+      paused = false;
     } else if (ct > tg + part_xi_duration + 0.5) {
       giftsSetted && removeGifts();
     }
@@ -96,7 +99,6 @@ var setBall = function setBall() {
   clearTimeout(setBallsPause);
   var ct = player.currentTime();
   setBallsPause = setTimeout(function () {
-    paused = false;
     player.pause();
   }, (tb + part_viii_duration - ct - 0.5) * 1000);
 };
@@ -120,7 +122,6 @@ var setGifts = function setGifts() {
   var ct = player.currentTime();
   document.getElementById("giftsElement").style.zIndex = "100";
   setGiftsPause = setTimeout(function () {
-    paused = false;
     player.pause();
   }, (tg + part_xi_duration - ct - 0.5) * 1000);
 };
@@ -132,7 +133,6 @@ var removeGifts = function removeGifts() {
 };
 
 var chooseBall = function chooseBall(e) {
-  paused = true;
   clearTimeout(setBallsPause);
   var videoHeight = player.el().offsetHeight,
       videoWidth = player.el().offsetWidth;
@@ -164,7 +164,6 @@ var chooseBall = function chooseBall(e) {
 };
 
 var chooseBallHls = function chooseBallHls(e) {
-  paused = true;
   clearTimeout(setBallsPause);
   var videoHeight = player.el().offsetHeight,
       videoWidth = player.el().offsetWidth;
@@ -263,10 +262,10 @@ var createEl = function createEl(id) {
 
 var audio = videojs("audio", {
   sources: [{
-    src: "https://montage-cache.cdnvideo.ru/montage/kindern/music4.mp3",
+    src: "https://montage-cache.cdnvideo.ru/montage/kindern/music5.mp3",
     type: "audio/mpeg"
   }, {
-    src: "https://montage-cache.cdnvideo.ru/montage/kindern/music4.wav",
+    src: "https://montage-cache.cdnvideo.ru/montage/kindern/music5.wav",
     type: "audio/wav"
   }]
 }, function () {
@@ -293,7 +292,6 @@ var stopMusic = function stopMusic() {
 
 var chooseGift = function chooseGift(e) {
   e.stopPropagation();
-  paused = true;
   console.log("chooseGift");
   clearTimeout(setGiftsPause);
   e.target.style.opacity = "1";

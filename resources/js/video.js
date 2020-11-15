@@ -25,6 +25,7 @@ window.innerWidth > 1280 && (resolution = 1280);
 
 var checkTimeouts = function() {
     var ct = player.currentTime();
+    paused = true;
     if (!secpart) {
         if (photo) {
             if (ct < tp - 0.5) {
@@ -40,6 +41,7 @@ var checkTimeouts = function() {
         }
         if (ct > tb - 0.5 && ct < tb + part_viii_duration + 0.5) {
             !ballsSetted && setBall();
+            paused = false;
         } else if (ct > tb + part_viii_duration + 0.5) {
             ballsSetted && removeBalls();
         }
@@ -52,6 +54,7 @@ var checkTimeouts = function() {
             giftsSetted && removeGifts();
         } else if (ct > tg - 0.5 && ct < tg + part_xi_duration + 0.5) {
             !giftsSetted && setGifts();
+            paused = false;
         } else if (ct > tg + part_xi_duration + 0.5) {
             giftsSetted && removeGifts();
         }
@@ -104,7 +107,6 @@ var setBall = function() {
     clearTimeout(setBallsPause);
     var ct = player.currentTime();
     setBallsPause = setTimeout(function() {
-        paused = false;
         player.pause();
     }, (tb + part_viii_duration - ct - 0.5) * 1000);
 };
@@ -129,7 +131,6 @@ var setGifts = function() {
     var ct = player.currentTime();
     document.getElementById("giftsElement").style.zIndex = "100";
     setGiftsPause = setTimeout(function() {
-        paused = false;
         player.pause();
     }, (tg + part_xi_duration - ct - 0.5) * 1000);
 };
@@ -141,7 +142,6 @@ var removeGifts = function() {
 };
 
 var chooseBall = function(e) {
-    paused = true;
     clearTimeout(setBallsPause);
     var videoHeight = player.el().offsetHeight,
         videoWidth = player.el().offsetWidth;
@@ -182,7 +182,6 @@ var chooseBall = function(e) {
 };
 
 var chooseBallHls = function(e) {
-    paused = true;
     clearTimeout(setBallsPause);
     var videoHeight = player.el().offsetHeight,
         videoWidth = player.el().offsetWidth;
@@ -299,12 +298,12 @@ var audio = videojs(
         sources: [
             {
                 src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/music4.mp3",
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music5.mp3",
                 type: "audio/mpeg"
             },
             {
                 src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/music4.wav",
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music5.wav",
                 type: "audio/wav"
             }
         ]
@@ -334,7 +333,6 @@ var stopMusic = function() {
 
 var chooseGift = function(e) {
     e.stopPropagation();
-    paused = true;
     console.log("chooseGift");
     clearTimeout(setGiftsPause);
     e.target.style.opacity = "1";
