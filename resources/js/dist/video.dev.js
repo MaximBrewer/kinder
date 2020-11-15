@@ -108,6 +108,9 @@ var removeBalls = function removeBalls() {
 };
 
 var setGifts = function setGifts() {
+  document.getElementById("redImg").style.opacity = 0;
+  document.getElementById("whiteImg").style.opacity = 0;
+  document.getElementById("goldImg").style.opacity = 0;
   giftsSetted = 1;
   player.play();
   console.log("setGifts");

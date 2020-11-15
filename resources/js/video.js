@@ -77,7 +77,7 @@ var checkTimeouts = function() {
 var setPhoto = function() {
         photoSetted = 1;
         if (player.isFullscreen()) player.exitFullscreen();
-        player.play()
+        player.play();
         document.getElementById("photoElement").style.zIndex = "100";
     },
     removePhoto = function() {
@@ -92,7 +92,7 @@ var setBall = function() {
     player.play();
     console.log("setBall");
     if (player.isFullscreen()) player.exitFullscreen();
-    player.play()
+    player.play();
     document.getElementById("ballsElement").style.zIndex = "100";
     if (hlsIs) {
         ballsElement.addEventListener("touchstart", chooseBallHls);
@@ -117,11 +117,14 @@ var removeBalls = function() {
 };
 
 var setGifts = function() {
+    document.getElementById("redImg").style.opacity = 0;
+    document.getElementById("whiteImg").style.opacity = 0;
+    document.getElementById("goldImg").style.opacity = 0;
     giftsSetted = 1;
     player.play();
     console.log("setGifts");
     if (player.isFullscreen()) player.exitFullscreen();
-    player.play()
+    player.play();
     clearTimeout(setGiftsPause);
     var ct = player.currentTime();
     document.getElementById("giftsElement").style.zIndex = "100";
@@ -355,7 +358,7 @@ var player = videojs(
     "video",
     {
         controlBar: {
-          fullscreenToggle: false
+            fullscreenToggle: false
         },
         sources: [
             {
