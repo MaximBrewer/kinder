@@ -337,6 +337,9 @@ var player = videojs("video", {
   });
   this.on("firstplay", function () {
     player.play();
+    console.log(that.tech({
+      IWillNotUseThisInPlugins: true
+    }));
     that.tech({
       IWillNotUseThisInPlugins: true
     }) && that.tech({
