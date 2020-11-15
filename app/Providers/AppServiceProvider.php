@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use TCG\Voyager\Facades\Voyager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Gift::observe(\App\Observers\Gift::class);
         \App\Models\Hobby::observe(\App\Observers\Hobby::class);
         \App\Models\Order::observe(\App\Observers\Order::class);
+        Voyager::addAction(\App\Actions\PublishAction::class);
     }
 }
