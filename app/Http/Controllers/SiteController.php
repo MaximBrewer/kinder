@@ -166,10 +166,13 @@ class SiteController extends Controller
         if($request->get('name'))
             $orderName = \App\Models\Name::find($request->get('name'));
 
+            var_dump($orderName);die;
+
         if (!$orderName->chunks640) $this->setChunks($orderName, 'part_ii', 640);
         if (!$orderName->chunks1024) $this->setChunks($orderName, 'part_ii', 1024);
+        if (!$orderName->chunks1920) $this->setChunks($orderName, 'part_ii', 1920);
         if (!$orderName->chunks1280) $duration = $this->setChunks($orderName, 'part_ii', 1280);
-        else $duration = $this->countDuration($orderName->chunks1280);
+        else $duration = $this->countDuration($orderName->chunks1920);
         $data['part_ii_duration'] = $duration;
 
 
@@ -179,8 +182,9 @@ class SiteController extends Controller
 
         if (!$orderAchieve->chunks640) $this->setChunks($orderAchieve, 'part_v', 640);
         if (!$orderAchieve->chunks1024) $this->setChunks($orderAchieve, 'part_v', 1024);
-        if (!$orderAchieve->chunks1280) $duration = $this->setChunks($orderAchieve, 'part_v', 1280);
-        else $duration = $this->countDuration($orderAchieve->chunks1280);
+        if (!$orderAchieve->chunks1280) $this->setChunks($orderAchieve, 'part_v', 1280);
+        if (!$orderAchieve->chunks1920) $duration = $this->setChunks($orderAchieve, 'part_v', 1920);
+        else $duration = $this->countDuration($orderAchieve->chunks1920);
         $data['part_v_duration'] = $duration;
 
 
@@ -190,8 +194,9 @@ class SiteController extends Controller
 
         if (!$orderHobby->chunks640) $this->setChunks($orderHobby, 'part_vi', 640);
         if (!$orderHobby->chunks1024) $this->setChunks($orderHobby, 'part_vi', 1024);
-        if (!$orderHobby->chunks1280) $duration = $this->setChunks($orderHobby, 'part_vi', 1280);
-        else $duration = $this->countDuration($orderHobby->chunks1280);
+        if (!$orderHobby->chunks1280) $this->setChunks($orderHobby, 'part_vi', 1280);
+        if (!$orderHobby->chunks1920) $duration = $this->setChunks($orderHobby, 'part_vi', 1920);
+        else $duration = $this->countDuration($orderHobby->chunks1920);
         $data['part_vi_duration'] = $duration;
 
 
@@ -201,8 +206,9 @@ class SiteController extends Controller
 
         if (!$orderGift->chunks640) $this->setChunks($orderGift, 'part_xiii', 640);
         if (!$orderGift->chunks1024) $this->setChunks($orderGift, 'part_xiii', 1024);
-        if (!$orderGift->chunks1280) $duration = $this->setChunks($orderGift, 'part_xiii', 1280);
-        else $duration = $this->countDuration($orderGift->chunks1280);
+        if (!$orderGift->chunks1280) $this->setChunks($orderGift, 'part_xiii', 1280);
+        if (!$orderGift->chunks1920) $duration = $this->setChunks($orderGift, 'part_xiii', 1920);
+        else $duration = $this->countDuration($orderGift->chunks1920);
         $data['part_xiii_duration'] = $duration;
 
 
@@ -212,8 +218,9 @@ class SiteController extends Controller
 
         if (!$orderFrom->chunks640) $this->setChunks($orderFrom, 'part_xiv', 640);
         if (!$orderFrom->chunks1024) $this->setChunks($orderFrom, 'part_xiv', 1024);
-        if (!$orderFrom->chunks1280) $duration = $this->setChunks($orderFrom, 'part_xiv', 1280);
-        else $duration = $this->countDuration($orderFrom->chunks1280);
+        if (!$orderFrom->chunks1280) $this->setChunks($orderFrom, 'part_xiv', 1280);
+        if (!$orderFrom->chunks1920) $duration = $this->setChunks($orderFrom, 'part_xiv', 1920);
+        else $duration = $this->countDuration($orderFrom->chunks1920);
         $data['part_xiv_duration'] = $duration;
 
         return view('video', $data);
