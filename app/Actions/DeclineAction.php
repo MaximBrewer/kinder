@@ -22,7 +22,8 @@ class DeclineAction extends AbstractAction
     {
         // Класс кнопки действия
         return [
-            'class' => 'btn btn-sm btn-danger pull-right',
+            'class' => 'btn btn-sm btn-danger pull-left',
+            'style' => 'margin-left:5px;'
         ];
     }
     public function shouldActionDisplayOnDataType()
