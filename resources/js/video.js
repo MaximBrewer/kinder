@@ -231,17 +231,6 @@ var chooseBallHls = function(e) {
     player.currentTime(tb + part_viii_duration);
 };
 
-function touchAudio() {
-    if (audio.paused()) audio.play();
-    document.getElementById("video").removeEventListener("click", touchAudio);
-    document
-        .getElementById("video")
-        .removeEventListener("touchstart", touchAudio);
-}
-
-document.getElementById("video").addEventListener("click", touchAudio);
-document.getElementById("video").addEventListener("touchstart", touchAudio);
-
 window.addEventListener(
     "resize",
     function() {
@@ -368,6 +357,8 @@ var player = videojs(
     },
     function() {
         var that = this;
+        that.el().addEventListener("click", touchAudio);
+        that.el().addEventListener("touchstart", touchAudio);
         this.on("play", function() {
             audio.play();
         });
@@ -450,3 +441,11 @@ goldImg.addEventListener("click", chooseGift);
 giftsElement.appendChild(redImg);
 giftsElement.appendChild(whiteImg);
 giftsElement.appendChild(goldImg);
+
+function touchAudio() {
+    if (audio.paused()) audio.play();
+    document.getElementById("video").removeEventListener("click", touchAudio);
+    document
+        .getElementById("video")
+        .removeEventListener("touchstart", touchAudio);
+}

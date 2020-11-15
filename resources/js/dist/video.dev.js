@@ -196,14 +196,6 @@ var chooseBallHls = function chooseBallHls(e) {
   player.currentTime(tb + part_viii_duration);
 };
 
-function touchAudio() {
-  if (audio.paused()) audio.play();
-  document.getElementById("video").removeEventListener("click", touchAudio);
-  document.getElementById("video").removeEventListener("touchstart", touchAudio);
-}
-
-document.getElementById("video").addEventListener("click", touchAudio);
-document.getElementById("video").addEventListener("touchstart", touchAudio);
 window.addEventListener("resize", function () {
   if (player) {
     var videoHeight = player.el().offsetHeight,
@@ -310,6 +302,8 @@ var player = videojs("video", {
   poster: "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg"
 }, function () {
   var that = this;
+  that.el().addEventListener("click", touchAudio);
+  that.el().addEventListener("touchstart", touchAudio);
   this.on("play", function () {
     audio.play();
   });
@@ -377,3 +371,9 @@ goldImg.addEventListener("click", chooseGift);
 giftsElement.appendChild(redImg);
 giftsElement.appendChild(whiteImg);
 giftsElement.appendChild(goldImg);
+
+function touchAudio() {
+  if (audio.paused()) audio.play();
+  document.getElementById("video").removeEventListener("click", touchAudio);
+  document.getElementById("video").removeEventListener("touchstart", touchAudio);
+}
