@@ -161,34 +161,59 @@ class SiteController extends Controller
             'cdn' => $this->cdn
         ];
 
-        if (!$order->name->chunks640) $this->setChunks($order->name, 'part_ii', 640);
-        if (!$order->name->chunks1024) $this->setChunks($order->name, 'part_ii', 1024);
-        if (!$order->name->chunks1280) $duration = $this->setChunks($order->name, 'part_ii', 1280);
-        else $duration = $this->countDuration($order->name->chunks1280);
+        $orderName = $order->name;
+
+        if($request->get('name'))
+            $orderName = \App\Models\Name::find($request->get('name'));
+
+        if (!$orderName->chunks640) $this->setChunks($orderName, 'part_ii', 640);
+        if (!$orderName->chunks1024) $this->setChunks($orderName, 'part_ii', 1024);
+        if (!$orderName->chunks1280) $duration = $this->setChunks($orderName, 'part_ii', 1280);
+        else $duration = $this->countDuration($orderName->chunks1280);
         $data['part_ii_duration'] = $duration;
 
-        if (!$order->achieve->chunks640) $this->setChunks($order->achieve, 'part_v', 640);
-        if (!$order->achieve->chunks1024) $this->setChunks($order->achieve, 'part_v', 1024);
-        if (!$order->achieve->chunks1280) $duration = $this->setChunks($order->achieve, 'part_v', 1280);
-        else $duration = $this->countDuration($order->achieve->chunks1280);
+
+        $orderAchieve = $order->achieve;
+        if($request->get('achieve'))
+            $orderAchieve = \App\Models\Achieve::find($request->get('achieve'));
+
+        if (!$orderAchieve->chunks640) $this->setChunks($orderAchieve, 'part_v', 640);
+        if (!$orderAchieve->chunks1024) $this->setChunks($orderAchieve, 'part_v', 1024);
+        if (!$orderAchieve->chunks1280) $duration = $this->setChunks($orderAchieve, 'part_v', 1280);
+        else $duration = $this->countDuration($orderAchieve->chunks1280);
         $data['part_v_duration'] = $duration;
 
-        if (!$order->hobby->chunks640) $this->setChunks($order->hobby, 'part_vi', 640);
-        if (!$order->hobby->chunks1024) $this->setChunks($order->hobby, 'part_vi', 1024);
-        if (!$order->hobby->chunks1280) $duration = $this->setChunks($order->hobby, 'part_vi', 1280);
-        else $duration = $this->countDuration($order->hobby->chunks1280);
+
+        $orderHobby = $order->hobby;
+        if($request->get('hobby'))
+            $orderHobby = \App\Models\Hobby::find($request->get('hobby'));
+
+        if (!$orderHobby->chunks640) $this->setChunks($orderHobby, 'part_vi', 640);
+        if (!$orderHobby->chunks1024) $this->setChunks($orderHobby, 'part_vi', 1024);
+        if (!$orderHobby->chunks1280) $duration = $this->setChunks($orderHobby, 'part_vi', 1280);
+        else $duration = $this->countDuration($orderHobby->chunks1280);
         $data['part_vi_duration'] = $duration;
 
-        if (!$order->gift->chunks640) $this->setChunks($order->gift, 'part_xiii', 640);
-        if (!$order->gift->chunks1024) $this->setChunks($order->gift, 'part_xiii', 1024);
-        if (!$order->gift->chunks1280) $duration = $this->setChunks($order->gift, 'part_xiii', 1280);
-        else $duration = $this->countDuration($order->gift->chunks1280);
+
+        $orderGift = $order->gift;
+        if($request->get('gift'))
+            $orderGift = \App\Models\Gift::find($request->get('gift'));
+
+        if (!$orderGift->chunks640) $this->setChunks($orderGift, 'part_xiii', 640);
+        if (!$orderGift->chunks1024) $this->setChunks($orderGift, 'part_xiii', 1024);
+        if (!$orderGift->chunks1280) $duration = $this->setChunks($orderGift, 'part_xiii', 1280);
+        else $duration = $this->countDuration($orderGift->chunks1280);
         $data['part_xiii_duration'] = $duration;
 
-        if (!$order->from->chunks640) $this->setChunks($order->from, 'part_xiv', 640);
-        if (!$order->from->chunks1024) $this->setChunks($order->from, 'part_xiv', 1024);
-        if (!$order->from->chunks1280) $duration = $this->setChunks($order->from, 'part_xiv', 1280);
-        else $duration = $this->countDuration($order->from->chunks1280);
+
+        $orderFrom = $order->from;
+        if($request->get('from'))
+            $orderFrom = \App\Models\From::find($request->get('from'));
+
+        if (!$orderFrom->chunks640) $this->setChunks($orderFrom, 'part_xiv', 640);
+        if (!$orderFrom->chunks1024) $this->setChunks($orderFrom, 'part_xiv', 1024);
+        if (!$orderFrom->chunks1280) $duration = $this->setChunks($orderFrom, 'part_xiv', 1280);
+        else $duration = $this->countDuration($orderFrom->chunks1280);
         $data['part_xiv_duration'] = $duration;
 
         return view('video', $data);
