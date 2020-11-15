@@ -317,6 +317,11 @@ var audio = videojs("audio", {
   }]
 }, function () {
   var that = this;
+  this.on("play", function () {
+    console.log("audioPlay");
+    console.log(that.volume());
+    that.volume(0.3);
+  });
   this.on("ended", function () {
     console.log("audioEnded");
     that.play();

@@ -131,7 +131,8 @@ document.getElementById("video").appendChild(giftsElement);
 
 var redImg = document.createElement("img");
 redImg.id = "redImg";
-redImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
+redImg.src =
+    "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/red.png";
 redImg.alt = "";
 redImg.style.position = "absolute";
 redImg.style.top = "41.015%";
@@ -141,7 +142,8 @@ redImg.style.height = "42.4%";
 
 var whiteImg = document.createElement("img");
 whiteImg.id = "whiteImg";
-whiteImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/white.png";
+whiteImg.src =
+    "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/white.png";
 whiteImg.alt = "";
 whiteImg.style.position = "absolute";
 whiteImg.style.top = "64.715%";
@@ -151,7 +153,8 @@ whiteImg.style.height = "31.4%";
 
 var goldImg = document.createElement("img");
 goldImg.id = "goldImg";
-goldImg.src = "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/gold.png";
+goldImg.src =
+    "https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/gold.png";
 goldImg.alt = "";
 goldImg.style.position = "absolute";
 goldImg.style.top = "47.3%";
@@ -244,6 +247,11 @@ var audio = videojs(
     },
     function() {
         var that = this;
+        this.on("play", function() {
+            console.log("audioPlay");
+            console.log(that.volume());
+            that.volume(0.3);
+        });
         this.on("ended", function() {
             console.log("audioEnded");
             that.play();
