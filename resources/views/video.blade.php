@@ -32,23 +32,11 @@
         var hash = "{{ $hash }}",
             photo = "{{ $photo }}",
             cdn = "{{ $cdn }}",
-            part_i_duration = "{{ $part_i_duration }}" * 1,
             part_ii_duration = "{{ $part_ii_duration }}" * 1,
-            part_iii_duration = "{{ $part_iii_duration }}" * 1,
-            part_iv_duration = "{{ $part_iv_duration }}" * 1,
             part_v_duration = "{{ $part_v_duration }}" * 1,
             part_vi_duration = "{{ $part_vi_duration }}" * 1,
-            part_vii_duration = "{{ $part_vii_duration }}" * 1,
-            part_viii_duration = "{{ $part_viii_duration }}" * 1,
-            part_ix_duration = "{{ $part_ix_duration }}" * 1,
-            part_x_duration = "{{ $part_x_duration }}" * 1,
-            part_xi_duration = "{{ $part_xi_duration }}" * 1,
-            part_xii_duration = "{{ $part_xii_duration }}" * 1,
             part_xiii_duration = "{{ $part_xiii_duration }}" * 1,
-            part_xiv_duration = "{{ $part_xiv_duration }}" * 1,
-            part_xv_duration = "{{ $part_xv_duration }}" * 1,
-            part_xvi_duration = "{{ $part_xvi_duration }}" * 1,
-            part_xvii_duration = "{{ $part_xvii_duration }}" * 1;
+            part_xiv_duration = "{{ $part_xiv_duration }}" * 1
     </script>
     <script src="/js/video.js?v=1.01"></script>
 

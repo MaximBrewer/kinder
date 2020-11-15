@@ -1,5 +1,22 @@
-var resolution = 640,
-    balls = false,
+var resolution = 640;
+window.innerWidth > 640 && (resolution = 1024);
+window.innerWidth > 1024 && (resolution = 1280);
+window.innerWidth > 1280 && (resolution = 1280);
+
+var part_i_duration = resolution > 1280 ? 71.61 : 71.3,
+    part_iii_duration = 14.272,
+    part_iv_duration = photo ? 5.8 : 0,
+    part_vii_duration = 24.917,
+    part_viii_duration = 10.033,
+    part_ix_duration = 6.967,
+    part_x_duration = 40.1,
+    part_xi_duration = 5.8,
+    part_xii_duration = 13.6,
+    part_xv_duration = 27.04,
+    part_xvi_duration = 6.0,
+    part_xvii_duration = 12.64;
+
+var balls = false,
     hlsIs = false,
     secpart = false,
     paused = true,
@@ -19,9 +36,6 @@ var resolution = 640,
     tg = tb + part_viii_duration + part_ix_duration + part_x_duration,
     musicStopped = false;
 
-window.innerWidth > 640 && (resolution = 1024);
-window.innerWidth > 1024 && (resolution = 1280);
-window.innerWidth > 1280 && (resolution = 1280);
 
 var checkTimeouts = function() {
     var ct = player.currentTime();
@@ -298,12 +312,12 @@ var audio = videojs(
         sources: [
             {
                 src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/music5.mp3",
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music6.mp3",
                 type: "audio/mpeg"
             },
             {
                 src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/music5.wav",
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music6.wav",
                 type: "audio/wav"
             }
         ]
@@ -389,7 +403,7 @@ var player = videojs(
         });
         this.on("firstplay", function() {
             player.play();
-            console.log(that)
+            console.log(that);
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
                 (hlsIs = true) &&
