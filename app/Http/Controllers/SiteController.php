@@ -166,8 +166,6 @@ class SiteController extends Controller
         if($request->get('name'))
             $orderName = \App\Models\Name::find($request->get('name'));
 
-            var_dump($orderName->id);
-
         if (!$orderName->chunks640) $this->setChunks($orderName, 'part_ii', 640);
         if (!$orderName->chunks1024) $this->setChunks($orderName, 'part_ii', 1024);
         if (!$orderName->chunks1280) $this->setChunks($orderName, 'part_ii', 1280);
@@ -238,8 +236,6 @@ class SiteController extends Controller
         $order = Order::where('hash', $hash)->first();
         $chunks = unserialize($order->name->{"chunks" . $resolution});
         $nameChunk = "";
-
-        var_dump([$chunks, $order->name->{"chunks" . $resolution}, $order->name]);die;
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $nameChunk .= PHP_EOL;
