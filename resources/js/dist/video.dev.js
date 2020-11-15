@@ -16,11 +16,11 @@ var chooseGift = function chooseGift(e) {
   e.target.style.opacity = "1";
 
   if (document.getElementById("redImg") && document.getElementById("redImg").style.opacity == "1" && document.getElementById("whiteImg") && document.getElementById("whiteImg").style.opacity == "1" && document.getElementById("goldImg") && document.getElementById("goldImg").style.opacity == "1") {
-    player.currentTime(tg + part_xi_duration + 0.3);
+    player.currentTime(tg + part_xi_duration + 1);
     player.play();
     setTimeout(function () {
       removeGifts();
-    }, 500);
+    }, 1000);
   }
 };
 
@@ -195,19 +195,19 @@ var checkTimeouts = function checkTimeouts() {
   }
 
   if (balls) {
-    if (ct < tg && (ct >= tb + part_viii_duration + 0.35 || secpart)) {
+    if (ct < tg && (ct >= tb + part_viii_duration + 1 || secpart)) {
       removeGifts();
       timeoutGifts = setTimeout(function () {
         setGifts();
-      }, (tg - ct) * 1000 - 350);
-    } else if (ct > tg && ct < tg + part_xi_duration - 0.35) {
+      }, (tg - ct) * 1000 - 1000);
+    } else if (ct > tg && ct < tg + part_xi_duration - 1) {
       setGifts();
-    } else if (ct > tg + part_xi_duration + 0.35) {
+    } else if (ct > tg + part_xi_duration + 1) {
       removeGifts();
     }
   }
 
-  if (hlsIs && ct > tg + part_xi_duration + 0.35) {
+  if (hlsIs && ct > tg + part_xi_duration + 1) {
     removeBalls();
     removePhoto();
     removeGifts();
