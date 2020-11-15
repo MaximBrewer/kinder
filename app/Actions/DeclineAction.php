@@ -10,7 +10,7 @@ class DeclineAction extends AbstractAction
     {
         // Название действия, которое отображается в кнопке 
         // в зависимости от текущего состояния
-        return 'Утвердить';
+        return 'Отлконить';
     }
     public function getIcon()
     {
