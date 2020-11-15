@@ -8,7 +8,7 @@
         Теперь Ваш ребёнок точно поверит, что
         Новый Год – время чудес, ведь Дед Мороз записал
         для него личное видеопоздравление! Вот оно:<br /><br />
-        <a href="{{ $video }}" style="color: #F04E23 !important;">https://kinder.gpucloud.ru/video</a>
+        <a href="https://kinder.gpucloud.ru/video/{{ $video }}" style="color: #F04E23 !important;">https://kinder.gpucloud.ru/video</a>
     </p>
     <p>
         Надеемся, Вы не забыли про подарок Kinder, ведь
