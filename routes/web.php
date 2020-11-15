@@ -22,6 +22,6 @@ Route::get('/playlist-color/{hash}.m3u8', '\App\Http\Controllers\SiteController@
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
-    Route::get('orders/{id}/confirm', '\App\Http\Controllers\VoyagerOrdersController@confirm');
-    Route::get('orders/{id}/decline', '\App\Http\Controllers\VoyagerOrdersController@decline');
+    Route::get('orders/{id}/confirm', '\App\Http\Controllers\VoyagerOrdersController@confirm')->name('orders.confirm');
+    Route::get('orders/{id}/decline', '\App\Http\Controllers\VoyagerOrdersController@decline')->name('orders.decline');
 });
