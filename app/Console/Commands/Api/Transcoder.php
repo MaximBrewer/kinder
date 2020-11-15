@@ -55,7 +55,7 @@ class Transcoder extends Command
             "del_original" => false
         ];
 
-        for ($i = 625; $i <= 834; $i++) {
+        for ($i = 1; $i <= 24; $i++) {
             curl_setopt(
                 $ch,
                 CURLOPT_URL,
@@ -80,8 +80,9 @@ class Transcoder extends Command
                 $responce = json_decode(curl_exec($ch));
                 var_dump($responce);
             } catch (\Exception $e) {
+                var_dump($e->getMessage());
             }
-            sleep(1);
+            sleep(0.3);
         }
         curl_close($ch);
         return 0;
