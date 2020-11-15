@@ -102,6 +102,88 @@ var hlsIs = false;
 var secpart = false;
 var paused = true;
 
+var checkTimeouts = function checkTimeouts() {
+  var ct = player.currentTime();
+  clearTimeout(timeoutBall);
+  clearTimeout(timeoutPhoto);
+  clearTimeout(timeoutGifts);
+
+  if (!secpart) {
+    if (photo) {
+      if (ct < tp - 1) {
+        removePhoto();
+      }
+
+      if (ct < tp) {
+        timeoutPhoto = setTimeout(function () {
+          setPhoto();
+        }, (tp - ct) * 1000 - 1000);
+      } else if (ct < tp + part_iv_duration - 1) {
+        setPhoto();
+      } else if (ct > tp + part_iv_duration + 1) {
+        removePhoto();
+      }
+    }
+
+    if (ct < tb - 0.35) {
+      removeBalls();
+    }
+
+    if (ct < tb && ct >= tp + part_iv_duration + 0.35) {
+      timeoutBall = setTimeout(function () {
+        setBall();
+      }, (tb - ct) * 1000 - 350);
+    } else if (ct >= tb && ct < tb + part_viii_duration - 0.35) {
+      setBall();
+    } else if (ct > tb + part_viii_duration + 0.35) {
+      removeBalls();
+    }
+  } else {
+    removeBalls();
+    removePhoto();
+  }
+
+  if (balls) {
+    if (ct < tg && (ct >= tb + part_viii_duration + 1 || secpart)) {
+      removeGifts();
+      timeoutGifts = setTimeout(function () {
+        setGifts();
+      }, (tg - ct) * 1000 - 1000);
+    } else if (ct > tg && ct < tg + part_xi_duration - 1) {
+      setGifts();
+    } else if (ct > tg + part_xi_duration + 1) {
+      removeGifts();
+    }
+  }
+
+  if (hlsIs && ct > tg + part_xi_duration + 1) {
+    removeBalls();
+    removePhoto();
+    removeGifts();
+  }
+
+  console.log(ct, tg + part_xi_duration + part_xii_duration + part_xiii_duration + part_xiv_duration + part_xv_duration + part_xvi_duration);
+
+  if (ct > tg + part_xi_duration + part_xii_duration + part_xiii_duration + part_xiv_duration + part_xv_duration + part_xvi_duration) {
+    if (!musicStopped) stopMusic(audio.volume() * 100);
+  } else {
+    audio.volume(0.3);
+  }
+};
+
+var musicStopped = false;
+
+var stopMusic = function stopMusic(v) {
+  console.log('stopMusic');
+  musicStopped = true;
+  --v;
+  if (v < 0) return false;
+  setInterval(function () {
+    audio.volume(v / 100);
+    stopMusic(v);
+  }, 60);
+};
+
 var chooseGift = function chooseGift(e) {
   paused = true;
   player.pause();
@@ -245,68 +327,6 @@ goldImg.addEventListener("click", chooseGift);
 giftsElement.appendChild(redImg);
 giftsElement.appendChild(whiteImg);
 giftsElement.appendChild(goldImg);
-
-var checkTimeouts = function checkTimeouts() {
-  var ct = player.currentTime();
-  clearTimeout(timeoutBall);
-  clearTimeout(timeoutPhoto);
-  clearTimeout(timeoutGifts);
-
-  if (!secpart) {
-    if (photo) {
-      if (ct < tp - 1) {
-        removePhoto();
-      }
-
-      if (ct < tp) {
-        timeoutPhoto = setTimeout(function () {
-          setPhoto();
-        }, (tp - ct) * 1000 - 1000);
-      } else if (ct < tp + part_iv_duration - 1) {
-        setPhoto();
-      } else if (ct > tp + part_iv_duration + 1) {
-        removePhoto();
-      }
-    }
-
-    if (ct < tb - 0.35) {
-      removeBalls();
-    }
-
-    if (ct < tb && ct >= tp + part_iv_duration + 0.35) {
-      timeoutBall = setTimeout(function () {
-        setBall();
-      }, (tb - ct) * 1000 - 350);
-    } else if (ct >= tb && ct < tb + part_viii_duration - 0.35) {
-      setBall();
-    } else if (ct > tb + part_viii_duration + 0.35) {
-      removeBalls();
-    }
-  } else {
-    removeBalls();
-    removePhoto();
-  }
-
-  if (balls) {
-    if (ct < tg && (ct >= tb + part_viii_duration + 1 || secpart)) {
-      removeGifts();
-      timeoutGifts = setTimeout(function () {
-        setGifts();
-      }, (tg - ct) * 1000 - 1000);
-    } else if (ct > tg && ct < tg + part_xi_duration - 1) {
-      setGifts();
-    } else if (ct > tg + part_xi_duration + 1) {
-      removeGifts();
-    }
-  }
-
-  if (hlsIs && ct > tg + part_xi_duration + 1) {
-    removeBalls();
-    removePhoto();
-    removeGifts();
-  }
-};
-
 var audio = videojs("audio", {
   sources: [{
     src: "https://montage-cache.cdnvideo.ru/montage/kindern/music2.mp3",
