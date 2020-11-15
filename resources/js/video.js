@@ -1,15 +1,27 @@
-var resolution = 640;
+var resolution = 640,
+    balls = false,
+    hlsIs = false,
+    secpart = false,
+    paused = true,
+    photoSetted = 0,
+    ballsSetted = 0,
+    giftsSetted = 0,
+    volumeInit = 0.2,
+    setBallsPause,
+    setGiftsPause,
+    tp = part_i_duration + part_ii_duration + part_iii_duration,
+    tb =
+        tp +
+        part_iv_duration +
+        part_v_duration +
+        part_vi_duration +
+        part_vii_duration,
+    tg = tb + part_viii_duration + part_ix_duration + part_x_duration,
+    musicStopped = false;
+
 window.innerWidth > 640 && (resolution = 1024);
 window.innerWidth > 1024 && (resolution = 1280);
 window.innerWidth > 1280 && (resolution = 1280);
-var balls = false;
-var hlsIs = false;
-var secpart = false;
-var paused = true;
-var photoSetted = 0;
-var ballsSetted = 0;
-var giftsSetted = 0;
-var volumeInit = 0.2;
 
 var checkTimeouts = function() {
     var ct = player.currentTime();
@@ -58,7 +70,260 @@ var checkTimeouts = function() {
         audio.volume(volumeInit);
     }
 };
-var musicStopped = false;
+
+var setPhoto = function() {
+        photoSetted = 1;
+        if (player.isFullscreen()) player.exitFullscreen();
+        document.getElementById("photoElement").style.zIndex = "100";
+    },
+    removePhoto = function() {
+        photoSetted = 0;
+        console.log("removePhoto");
+        document.getElementById("photoElement") &&
+            (document.getElementById("photoElement").style.zIndex = "-1");
+    };
+
+var setBall = function() {
+    ballsSetted = 1;
+    player.play();
+    console.log("setBall");
+    if (player.isFullscreen()) player.exitFullscreen();
+    document.getElementById("ballsElement").style.zIndex = "100";
+    if (hlsIs) {
+        ballsElement.addEventListener("touchstart", chooseBallHls);
+        ballsElement.addEventListener("click", chooseBallHls);
+    } else {
+        ballsElement.addEventListener("touchstart", chooseBall);
+        ballsElement.addEventListener("click", chooseBall);
+    }
+    clearTimeout(setBallsPause);
+    var ct = player.currentTime();
+    setBallsPause = setTimeout(function() {
+        paused = false;
+        player.pause();
+    }, (tb + part_viii_duration - ct - 0.5) * 1000);
+};
+
+var removeBalls = function() {
+    ballsSetted = 0;
+    console.log("removeBalls");
+    document.getElementById("ballsElement") &&
+        (document.getElementById("ballsElement").style.zIndex = "-1");
+};
+
+var setGifts = function() {
+        giftsSetted = 1;
+        player.play();
+        console.log("setGifts");
+        if (player.isFullscreen()) player.exitFullscreen();
+        clearTimeout(setGiftsPause);
+        var ct = player.currentTime();
+        document.getElementById("giftsElement").style.zIndex = "100";
+
+        setGiftsPause = setTimeout(function() {
+            paused = false;
+            player.pause();
+        }, (tg + part_xi_duration - ct - 0.5) * 1000);
+    },
+    removeGifts = function() {
+        giftsSetted = 0;
+        console.log("removeGifts");
+        document.getElementById("giftsElement") &&
+            (document.getElementById("giftsElement").style.zIndex = "-1");
+    };
+
+var chooseBall = function(e) {
+    paused = true;
+    clearTimeout(setBallsPause);
+    var videoHeight = player.el().offsetHeight,
+        videoWidth = player.el().offsetWidth;
+
+    if (videoHeight > (videoWidth * 720) / 1280) {
+        var width = videoWidth,
+            height = (width / 1280) * 720;
+    } else {
+        var height = videoHeight,
+            width = (height / 720) * 1280;
+    }
+    var color = "g";
+
+    var margin = (window.innerWidth - width) / 2;
+
+    var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+
+    if (margin + width * 0.375 < clientX) color = "r";
+    if (margin + (width - width * 0.375) < clientX) color = "s";
+
+    balls = true;
+    photo = false;
+    player.src({
+        src:
+            "/playlist-color/" +
+            hash +
+            ".m3u8?resolution=" +
+            resolution +
+            "&color=" +
+            color,
+        type: "application/x-mpegURL"
+    });
+    secpart = true;
+    player.play();
+    setTimeout(function() {
+        removeBalls();
+    }, 1000);
+};
+
+var chooseBallHls = function(e) {
+    paused = true;
+    clearTimeout(setBallsPause);
+    var videoHeight = player.el().offsetHeight,
+        videoWidth = player.el().offsetWidth;
+    if (videoHeight > (videoWidth * 720) / 1280) {
+        var width = videoWidth,
+            height = (width / 1280) * 720;
+    } else {
+        var height = videoHeight,
+            width = (height / 720) * 1280;
+    }
+    var color = "g";
+
+    var margin = (window.innerWidth - width) / 2;
+
+    var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+
+    if (margin + width * 0.375 < clientX) color = "r";
+    if (margin + (width - width * 0.375) < clientX) color = "s";
+
+    var segments = player.tech_.hls.playlists.master.playlists[0].segments;
+    var start = 0;
+
+    for (i in segments) {
+        if (segments[i].uri.indexOf("part_ix") > -1) {
+            segments[i].resolvedUri =
+                cdn +
+                "part_ix/" +
+                color +
+                "%20%28" +
+                resolution +
+                "xauto%29.mp4/media_0.ts";
+            segments[i].uri =
+                cdn +
+                "part_ix/" +
+                color +
+                "%20%28" +
+                resolution +
+                "xauto%29.mp4/media_0.ts";
+            break;
+        }
+        if (segments[i].end) {
+            start = segments[i].end;
+        } else {
+            start += segments[i].duration;
+        }
+    }
+    player.tech_.hls.masterPlaylistController_.mainSegmentLoader_.remove(
+        start,
+        start + 1000
+    );
+    player.tech_.hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
+    player.trigger("syncinfoupdate");
+    player.play();
+    player.currentTime(tb + part_viii_duration);
+};
+
+function touchAudio() {
+    if (audio.paused()) audio.play();
+    document.getElementById("video").removeEventListener("click", touchAudio);
+    document
+        .getElementById("video")
+        .removeEventListener("touchstart", touchAudio);
+}
+
+document.getElementById("video").addEventListener("click", touchAudio);
+document.getElementById("video").addEventListener("touchstart", touchAudio);
+
+window.addEventListener(
+    "resize",
+    function() {
+        if (player) {
+            var videoHeight = player.el().offsetHeight,
+                videoWidth = player.el().offsetWidth;
+            if (videoHeight > (videoWidth * 720) / 1280) {
+                var width = videoWidth,
+                    height = (width / 1280) * 720,
+                    top = (videoHeight - height) / 2,
+                    left = 0;
+            } else {
+                var height = videoHeight,
+                    width = (height / 720) * 1280;
+                (top = 0), (left = (videoWidth - width) / 2);
+            }
+            var els = document.getElementsByClassName("resizable");
+            Array.from(els).forEach(el => {
+                el.style.height = height + "px";
+                el.style.width = width + "px";
+                el.style.top = top + "px";
+                el.style.left = left + "px";
+            });
+        }
+    },
+    true
+);
+
+var createEl = function(id) {
+    window.scrollTo(0, 1);
+    var videoHeight = player.el().offsetHeight,
+        videoWidth = player.el().offsetWidth;
+    if (videoHeight > (videoWidth * 720) / 1280) {
+        var width = videoWidth,
+            height = (width / 1280) * 720,
+            top = (videoHeight - height) / 2,
+            left = 0;
+    } else {
+        var height = videoHeight,
+            width = (height / 720) * 1280;
+        (top = 0), (left = (videoWidth - width) / 2);
+    }
+    el = document.createElement("div");
+    el.id = id;
+    el.style.position = "absolute";
+    el.classList.add("resizable");
+    el.style.height = height + "px";
+    el.style.width = width + "px";
+    el.style.top = top + "px";
+    el.style.left = left + "px";
+    el.style.zIndex = "-10";
+    el.style.backgroundColor = "#000000";
+    return el;
+};
+var audio = videojs(
+    "audio",
+    {
+        sources: [
+            {
+                src:
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music2.mp3",
+                type: "audio/mpeg"
+            },
+            {
+                src:
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music2.wav",
+                type: "audio/wav"
+            }
+        ]
+    },
+    function() {
+        var that = this;
+        this.on("play", function() {
+            console.log("audioPlay");
+            that.volume(volumeInit);
+        });
+        this.on("ended", function() {
+            console.log("audioEnded");
+            that.play();
+        });
+    }
+);
 
 var stopMusic = function(v) {
     console.log("stopMusic", v);
@@ -124,33 +389,6 @@ var player = videojs(
     }
 );
 
-var createEl = function(id) {
-    window.scrollTo(0, 1);
-    var videoHeight = player.el().offsetHeight,
-        videoWidth = player.el().offsetWidth;
-    if (videoHeight > (videoWidth * 720) / 1280) {
-        var width = videoWidth,
-            height = (width / 1280) * 720,
-            top = (videoHeight - height) / 2,
-            left = 0;
-    } else {
-        var height = videoHeight,
-            width = (height / 720) * 1280;
-        (top = 0), (left = (videoWidth - width) / 2);
-    }
-    el = document.createElement("div");
-    el.id = id;
-    el.style.position = "absolute";
-    el.classList.add("resizable");
-    el.style.height = height + "px";
-    el.style.width = width + "px";
-    el.style.top = top + "px";
-    el.style.left = left + "px";
-    el.style.zIndex = "-10";
-    el.style.backgroundColor = "#000000";
-    return el;
-};
-
 var photoElement = createEl("photoElement");
 photoElement.style.background =
     "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
@@ -212,238 +450,3 @@ goldImg.addEventListener("click", chooseGift);
 giftsElement.appendChild(redImg);
 giftsElement.appendChild(whiteImg);
 giftsElement.appendChild(goldImg);
-var audio = videojs(
-    "audio",
-    {
-        sources: [
-            {
-                src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/music2.mp3",
-                type: "audio/mpeg"
-            },
-            {
-                src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/music2.wav",
-                type: "audio/wav"
-            }
-        ]
-    },
-    function() {
-        var that = this;
-        this.on("play", function() {
-            console.log("audioPlay");
-            that.volume(volumeInit);
-        });
-        this.on("ended", function() {
-            console.log("audioEnded");
-            that.play();
-        });
-    }
-);
-
-window.addEventListener(
-    "resize",
-    function() {
-        if (player) {
-            var videoHeight = player.el().offsetHeight,
-                videoWidth = player.el().offsetWidth;
-            if (videoHeight > (videoWidth * 720) / 1280) {
-                var width = videoWidth,
-                    height = (width / 1280) * 720,
-                    top = (videoHeight - height) / 2,
-                    left = 0;
-            } else {
-                var height = videoHeight,
-                    width = (height / 720) * 1280;
-                (top = 0), (left = (videoWidth - width) / 2);
-            }
-            var els = document.getElementsByClassName("resizable");
-            Array.from(els).forEach(el => {
-                el.style.height = height + "px";
-                el.style.width = width + "px";
-                el.style.top = top + "px";
-                el.style.left = left + "px";
-            });
-        }
-    },
-    true
-);
-
-function touchAudio() {
-    if (audio.paused()) audio.play();
-    document.getElementById("video").removeEventListener("click", touchAudio);
-    document
-        .getElementById("video")
-        .removeEventListener("touchstart", touchAudio);
-}
-
-document.getElementById("video").addEventListener("click", touchAudio);
-document.getElementById("video").addEventListener("touchstart", touchAudio);
-
-var timeoutPhoto,
-    timeoutRemovePhoto,
-    timeoutBall,
-    setBallPause,
-    timeoutGifts,
-    setGiftsPause,
-    tp = part_i_duration + part_ii_duration + part_iii_duration,
-    tb =
-        tp +
-        part_iv_duration +
-        part_v_duration +
-        part_vi_duration +
-        part_vii_duration,
-    tg = tb + part_viii_duration + part_ix_duration + part_x_duration;
-
-var chooseBall = function(e) {
-    paused = true;
-    clearTimeout(setBallPause);
-    var videoHeight = player.el().offsetHeight,
-        videoWidth = player.el().offsetWidth;
-
-    if (videoHeight > (videoWidth * 720) / 1280) {
-        var width = videoWidth,
-            height = (width / 1280) * 720;
-    } else {
-        var height = videoHeight,
-            width = (height / 720) * 1280;
-    }
-    var color = "g";
-
-    var margin = (window.innerWidth - width) / 2;
-
-    var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-
-    if (margin + width * 0.375 < clientX) color = "r";
-    if (margin + (width - width * 0.375) < clientX) color = "s";
-
-    balls = true;
-    photo = false;
-    player.src({
-        src:
-            "/playlist-color/" +
-            hash +
-            ".m3u8?resolution=" +
-            resolution +
-            "&color=" +
-            color,
-        type: "application/x-mpegURL"
-    });
-    secpart = true;
-    player.play();
-    setTimeout(function() {
-        removeBalls();
-    }, 1000);
-};
-
-var chooseBallHls = function(e) {
-    paused = true;
-    clearTimeout(setBallPause);
-    var videoHeight = player.el().offsetHeight,
-        videoWidth = player.el().offsetWidth;
-    if (videoHeight > (videoWidth * 720) / 1280) {
-        var width = videoWidth,
-            height = (width / 1280) * 720;
-    } else {
-        var height = videoHeight,
-            width = (height / 720) * 1280;
-    }
-    var color = "g";
-
-    var margin = (window.innerWidth - width) / 2;
-
-    var clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-
-    if (margin + width * 0.375 < clientX) color = "r";
-    if (margin + (width - width * 0.375) < clientX) color = "s";
-
-    var segments = player.tech_.hls.playlists.master.playlists[0].segments;
-    var start = 0;
-
-    for (i in segments) {
-        if (segments[i].uri.indexOf("part_ix") > -1) {
-            segments[i].resolvedUri =
-                cdn +
-                "part_ix/" +
-                color +
-                "%20%28" +
-                resolution +
-                "xauto%29.mp4/media_0.ts";
-            segments[i].uri =
-                cdn +
-                "part_ix/" +
-                color +
-                "%20%28" +
-                resolution +
-                "xauto%29.mp4/media_0.ts";
-            break;
-        }
-        if (segments[i].end) {
-            start = segments[i].end;
-        } else {
-            start += segments[i].duration;
-        }
-    }
-    player.tech_.hls.masterPlaylistController_.mainSegmentLoader_.remove(
-        start,
-        start + 1000
-    );
-    player.tech_.hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
-    player.trigger("syncinfoupdate");
-    player.play();
-    player.currentTime(tb + part_viii_duration);
-};
-
-var removeBalls = function() {
-    console.log("removeBalls");
-    ballsSetted = 0;
-    document.getElementById("ballsElement") &&
-        (document.getElementById("ballsElement").style.zIndex = "-1");
-};
-var removeGifts = function() {
-    console.log("removeGifts");
-    giftsSetted = 0;
-    document.getElementById("giftsElement") &&
-        (document.getElementById("giftsElement").style.zIndex = "-1");
-};
-
-var removePhoto = function() {
-    console.log("removePhoto");
-    photoSetted = 0;
-    document.getElementById("photoElement") &&
-        (document.getElementById("photoElement").style.zIndex = "-1");
-};
-
-var setBall = function() {
-    player.play();
-    console.log("setBall");
-    if (player.isFullscreen()) player.exitFullscreen();
-    document.getElementById("ballsElement").style.zIndex = "100";
-    if (hlsIs) {
-        ballsElement.addEventListener("touchstart", chooseBallHls);
-        ballsElement.addEventListener("click", chooseBallHls);
-    } else {
-        ballsElement.addEventListener("touchstart", chooseBall);
-        ballsElement.addEventListener("click", chooseBall);
-    }
-};
-
-var setGifts = function() {
-    player.play();
-    console.log("setGifts");
-    if (player.isFullscreen()) player.exitFullscreen();
-    clearTimeout(setGiftsPause);
-    var ct = player.currentTime();
-    document.getElementById("giftsElement").style.zIndex = "100";
-
-    setGiftsPause = setTimeout(function() {
-        paused = false;
-        player.pause();
-    }, (tg + part_xi_duration - ct - ю5) * 1000);
-};
-
-var setPhoto = function() {
-    photoSetted = 1;
-    if (player.isFullscreen()) player.exitFullscreen();
-    document.getElementById("photoElement").style.zIndex = "100";
-};
