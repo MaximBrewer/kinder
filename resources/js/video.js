@@ -77,6 +77,7 @@ var checkTimeouts = function() {
 var setPhoto = function() {
         photoSetted = 1;
         if (player.isFullscreen()) player.exitFullscreen();
+        player.play()
         document.getElementById("photoElement").style.zIndex = "100";
     },
     removePhoto = function() {
@@ -91,6 +92,7 @@ var setBall = function() {
     player.play();
     console.log("setBall");
     if (player.isFullscreen()) player.exitFullscreen();
+    player.play()
     document.getElementById("ballsElement").style.zIndex = "100";
     if (hlsIs) {
         ballsElement.addEventListener("touchstart", chooseBallHls);
@@ -115,25 +117,25 @@ var removeBalls = function() {
 };
 
 var setGifts = function() {
-        giftsSetted = 1;
-        player.play();
-        console.log("setGifts");
-        if (player.isFullscreen()) player.exitFullscreen();
-        clearTimeout(setGiftsPause);
-        var ct = player.currentTime();
-        document.getElementById("giftsElement").style.zIndex = "100";
-
-        setGiftsPause = setTimeout(function() {
-            paused = false;
-            player.pause();
-        }, (tg + part_xi_duration - ct - 0.5) * 1000);
-    },
-    removeGifts = function() {
-        giftsSetted = 0;
-        console.log("removeGifts");
-        document.getElementById("giftsElement") &&
-            (document.getElementById("giftsElement").style.zIndex = "-1");
-    };
+    giftsSetted = 1;
+    player.play();
+    console.log("setGifts");
+    if (player.isFullscreen()) player.exitFullscreen();
+    player.play()
+    clearTimeout(setGiftsPause);
+    var ct = player.currentTime();
+    document.getElementById("giftsElement").style.zIndex = "100";
+    setGiftsPause = setTimeout(function() {
+        paused = false;
+        player.pause();
+    }, (tg + part_xi_duration - ct - 0.5) * 1000);
+};
+var removeGifts = function() {
+    giftsSetted = 0;
+    console.log("removeGifts");
+    document.getElementById("giftsElement") &&
+        (document.getElementById("giftsElement").style.zIndex = "-1");
+};
 
 var chooseBall = function(e) {
     paused = true;
@@ -328,9 +330,10 @@ var stopMusic = function() {
 };
 
 var chooseGift = function(e) {
+    e.stopPropagation();
     paused = true;
-    player.pause();
     console.log("chooseGift");
+    clearTimeout(setGiftsPause);
     e.target.style.opacity = "1";
     if (
         document.getElementById("redImg") &&
@@ -340,10 +343,14 @@ var chooseGift = function(e) {
         document.getElementById("goldImg") &&
         document.getElementById("goldImg").style.opacity == "1"
     ) {
-        player.currentTime(tg + part_xi_duration + 1);
-        player.play();
+        setTimeout(function() {
+            player.currentTime(tg + part_xi_duration + 1.3);
+            player.play();
+        }, 300);
     }
 };
+
+var pauseTimeout30 = false;
 var player = videojs(
     "video",
     {
@@ -362,10 +369,16 @@ var player = videojs(
         that.el().addEventListener("click", touchAudio);
         that.el().addEventListener("touchstart", touchAudio);
         this.on("play", function() {
+            clearTimeout(pauseTimeout30);
             audio.play();
         });
         this.on("pause", function() {
             if (paused) audio.pause();
+            else {
+                pauseTimeout30 = setTimeout(function() {
+                    that.play();
+                }, 30000);
+            }
         });
         this.on("ended", function() {
             audio.pause();

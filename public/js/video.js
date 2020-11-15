@@ -161,6 +161,7 @@ var checkTimeouts = function checkTimeouts() {
 var setPhoto = function setPhoto() {
   photoSetted = 1;
   if (player.isFullscreen()) player.exitFullscreen();
+  player.play();
   document.getElementById("photoElement").style.zIndex = "100";
 },
     removePhoto = function removePhoto() {
@@ -174,6 +175,7 @@ var setBall = function setBall() {
   player.play();
   console.log("setBall");
   if (player.isFullscreen()) player.exitFullscreen();
+  player.play();
   document.getElementById("ballsElement").style.zIndex = "100";
 
   if (hlsIs) {
@@ -203,6 +205,7 @@ var setGifts = function setGifts() {
   player.play();
   console.log("setGifts");
   if (player.isFullscreen()) player.exitFullscreen();
+  player.play();
   clearTimeout(setGiftsPause);
   var ct = player.currentTime();
   document.getElementById("giftsElement").style.zIndex = "100";
@@ -210,8 +213,9 @@ var setGifts = function setGifts() {
     paused = false;
     player.pause();
   }, (tg + part_xi_duration - ct - 0.5) * 1000);
-},
-    removeGifts = function removeGifts() {
+};
+
+var removeGifts = function removeGifts() {
   giftsSetted = 0;
   console.log("removeGifts");
   document.getElementById("giftsElement") && (document.getElementById("giftsElement").style.zIndex = "-1");
@@ -378,17 +382,21 @@ var stopMusic = function stopMusic() {
 };
 
 var chooseGift = function chooseGift(e) {
+  e.stopPropagation();
   paused = true;
-  player.pause();
   console.log("chooseGift");
+  clearTimeout(setGiftsPause);
   e.target.style.opacity = "1";
 
   if (document.getElementById("redImg") && document.getElementById("redImg").style.opacity == "1" && document.getElementById("whiteImg") && document.getElementById("whiteImg").style.opacity == "1" && document.getElementById("goldImg") && document.getElementById("goldImg").style.opacity == "1") {
-    player.currentTime(tg + part_xi_duration + 1);
-    player.play();
+    setTimeout(function () {
+      player.currentTime(tg + part_xi_duration + 1.3);
+      player.play();
+    }, 300);
   }
 };
 
+var pauseTimeout30 = false;
 var player = videojs("video", {
   sources: [{
     src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
@@ -401,10 +409,15 @@ var player = videojs("video", {
   that.el().addEventListener("click", touchAudio);
   that.el().addEventListener("touchstart", touchAudio);
   this.on("play", function () {
+    clearTimeout(pauseTimeout30);
     audio.play();
   });
   this.on("pause", function () {
-    if (paused) audio.pause();
+    if (paused) audio.pause();else {
+      pauseTimeout30 = setTimeout(function () {
+        that.play();
+      }, 30000);
+    }
   });
   this.on("ended", function () {
     audio.pause();
