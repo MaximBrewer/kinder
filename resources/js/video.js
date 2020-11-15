@@ -6,7 +6,7 @@ var resolution = 640,
     photoSetted = 0,
     ballsSetted = 0,
     giftsSetted = 0,
-    volumeInit = 0.25,
+    volumeInit = 1,
     setBallsPause,
     setGiftsPause,
     tp = part_i_duration + part_ii_duration + part_iii_duration,
@@ -296,13 +296,13 @@ var audio = videojs(
         sources: [
             {
                 src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/music2.mp3",
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music4.mp3",
                 type: "audio/mpeg"
             },
             {
                 src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/music2.wav",
-                type: "audio/wav"
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music4.ogg",
+                type: "audio/ogg"
             }
         ]
     },
