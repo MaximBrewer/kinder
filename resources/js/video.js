@@ -6,67 +6,42 @@ var balls = false;
 var hlsIs = false;
 var secpart = false;
 var paused = true;
+var photoSetted = 0;
+var ballsSetted = 0;
+var giftsSetted = 0;
+var volumeInit = 0.2;
 
 var checkTimeouts = function() {
     var ct = player.currentTime();
-    clearTimeout(timeoutBall);
-    clearTimeout(timeoutPhoto);
-    clearTimeout(timeoutGifts);
     if (!secpart) {
         if (photo) {
-            if (ct < tp - 1) {
-                removePhoto();
-            }
-            if (ct < tp) {
-                timeoutPhoto = setTimeout(function() {
-                    setPhoto();
-                }, (tp - ct) * 1000 - 1000);
-            } else if (ct < tp + part_iv_duration - 1) {
-                setPhoto();
-            } else if (ct > tp + part_iv_duration + 1) {
-                removePhoto();
+            if (ct < tp - 0.5) {
+                photoSetted && removePhoto();
+            } else if (ct < tp + part_iv_duration + 0.5) {
+                !photoSetted && setPhoto();
+            } else if (ct > tp + part_iv_duration + 0.5) {
+                photoSetted && removePhoto();
             }
         }
-        if (ct < tb - 0.35) {
-            removeBalls();
+        if (ct < tb - 0.5) {
+            ballsSetted && removeBalls();
         }
-        if (ct < tb && ct >= tp + part_iv_duration + 0.35) {
-            timeoutBall = setTimeout(function() {
-                setBall();
-            }, (tb - ct) * 1000 - 350);
-        } else if (ct >= tb && ct < tb + part_viii_duration - 0.35) {
-            setBall();
-        } else if (ct > tb + part_viii_duration + 0.35) {
-            removeBalls();
+        if (ct > tb - 0.5 && ct < tb + part_viii_duration + 0.5) {
+            !ballsSetted && setBall();
+        } else if (ct > tb + part_viii_duration + 0.5) {
+            ballsSetted && removeBalls();
         }
     } else {
-        removeBalls();
-        removePhoto();
+        ballsSetted && removeBalls();
+        photoSetted && removePhoto();
     }
-    if (balls) {
-        if (ct < tg && (ct >= tb + part_viii_duration + 1 || secpart)) {
-            removeGifts();
-            timeoutGifts = setTimeout(function() {
-                setGifts();
-            }, (tg - ct) * 1000 - 1000);
-        } else if (ct > tg && ct < tg + part_xi_duration - 1) {
-            setGifts();
-        } else if (ct > tg + part_xi_duration + 1) {
-            removeGifts();
-        }
+    if (ct < tg - 0.5) {
+        giftsSetted && removeGifts();
+    } else if (ct > tg - 0.5 && ct < tg + part_xi_duration + 0.5) {
+        !giftsSetted && setGifts();
+    } else if (ct > tg + part_xi_duration + 0.5) {
+        giftsSetted && removeGifts();
     }
-    if (hlsIs && ct > tg + part_xi_duration + 1) {
-        removeBalls();
-        removePhoto();
-        removeGifts();
-    }
-    console.log(ct, tg +
-        part_xi_duration +
-        part_xii_duration +
-        part_xiii_duration +
-        part_xiv_duration +
-        part_xv_duration +
-        part_xvi_duration)
     if (
         ct >
         tg +
@@ -75,26 +50,26 @@ var checkTimeouts = function() {
             part_xiii_duration +
             part_xiv_duration +
             part_xv_duration +
-            part_xvi_duration
+            part_xvi_duration -
+            2
     ) {
         if (!musicStopped) stopMusic(audio.volume() * 100);
     } else {
-        audio.volume(0.3);
+        audio.volume(volumeInit);
     }
 };
 var musicStopped = false;
 
 var stopMusic = function(v) {
-    console.log('stopMusic')
+    console.log("stopMusic", v);
     musicStopped = true;
     --v;
     if (v < 0) return false;
-    setInterval(function() {
-        audio.volume(v / 100);
-        stopMusic(v);
-    }, 60);
+    // setInterval(function() {
+    //     audio.volume(v / 100);
+    //     stopMusic(v);
+    // }, 60);
 };
-
 
 var chooseGift = function(e) {
     paused = true;
@@ -111,9 +86,6 @@ var chooseGift = function(e) {
     ) {
         player.currentTime(tg + part_xi_duration + 1);
         player.play();
-        setTimeout(function() {
-            removeGifts();
-        }, 1000);
     }
 };
 var player = videojs(
@@ -126,23 +98,15 @@ var player = videojs(
             }
         ],
         controls: true,
-        control: true,
         poster:
             "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg"
     },
     function() {
         var that = this;
-        this.on("ended", function() {
-            checkTimeouts(that);
-        });
         this.on("play", function() {
-            checkTimeouts(that);
             audio.play();
         });
         this.on("pause", function() {
-            clearTimeout(timeoutBall);
-            clearTimeout(timeoutPhoto);
-            clearTimeout(timeoutGifts);
             if (paused) audio.pause();
         });
         this.on("firstplay", function() {
@@ -153,21 +117,8 @@ var player = videojs(
             if (!hlsIs) {
                 tg = part_ix_duration + part_x_duration;
             }
-            checkTimeouts(that);
         });
-        this.on("change", function() {
-            checkTimeouts(that);
-        });
-        this.on("loadedmetadata", function() {
-            checkTimeouts(that);
-        });
-        this.on("progress", function() {
-            checkTimeouts(that);
-        });
-        this.on("seeking", function() {
-            checkTimeouts(that);
-        });
-        this.on("seeked", function() {
+        this.on("timeupdate", function() {
             checkTimeouts(that);
         });
     }
@@ -281,65 +232,11 @@ var audio = videojs(
         var that = this;
         this.on("play", function() {
             console.log("audioPlay");
-            console.log(that.volume());
-            that.volume(0.3);
+            that.volume(volumeInit);
         });
         this.on("ended", function() {
             console.log("audioEnded");
             that.play();
-        });
-    }
-);
-
-var player = videojs(
-    "video",
-    {
-        sources: [
-            {
-                src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
-                type: "application/x-mpegURL"
-            }
-        ],
-        controls: true,
-        control: true,
-        poster:
-            "https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg"
-    },
-    function() {
-        var that = this;
-        this.on("ended", function() {
-            checkTimeouts(that);
-        });
-        this.on("play", function() {
-            checkTimeouts(that);
-            audio.play();
-        });
-        this.on("pause", function() {
-            checkTimeouts(that);
-        });
-        this.on("firstplay", function() {
-            that.tech({ IWillNotUseThisInPlugins: true }) &&
-                that.tech({ IWillNotUseThisInPlugins: true }).hls &&
-                (hlsIs = true) &&
-                (balls = true);
-            if (!hlsIs) {
-                tg = part_ix_duration + part_x_duration;
-            }
-        });
-        this.on("change", function() {
-            checkTimeouts(that);
-        });
-        this.on("loadedmetadata", function() {
-            checkTimeouts(that);
-        });
-        this.on("progress", function() {
-            checkTimeouts(that);
-        });
-        this.on("seeking", function() {
-            checkTimeouts(that);
-        });
-        this.on("seeked", function() {
-            checkTimeouts(that);
         });
     }
 );
@@ -487,41 +384,32 @@ var chooseBallHls = function(e) {
             start += segments[i].duration;
         }
     }
-    setTimeout(function() {
-        player.play();
-        paused = true;
-        removeBalls();
-    }, 1000);
-
     player.tech_.hls.masterPlaylistController_.mainSegmentLoader_.remove(
         start,
         start + 1000
     );
-
     player.tech_.hls.masterPlaylistController_.mainSegmentLoader_.resetLoader();
-
     player.trigger("syncinfoupdate");
     player.play();
-    setTimeout(function() {
-        player.pause();
-        paused = false;
-        player.currentTime(tb + part_viii_duration + 0.2);
-    }, 200);
+    player.currentTime(tb + part_viii_duration);
 };
 
 var removeBalls = function() {
     console.log("removeBalls");
+    ballsSetted = 0;
     document.getElementById("ballsElement") &&
         (document.getElementById("ballsElement").style.zIndex = "-1");
 };
 var removeGifts = function() {
     console.log("removeGifts");
+    giftsSetted = 0;
     document.getElementById("giftsElement") &&
         (document.getElementById("giftsElement").style.zIndex = "-1");
 };
 
 var removePhoto = function() {
     console.log("removePhoto");
+    photoSetted = 0;
     document.getElementById("photoElement") &&
         (document.getElementById("photoElement").style.zIndex = "-1");
 };
@@ -530,11 +418,7 @@ var setBall = function() {
     player.play();
     console.log("setBall");
     if (player.isFullscreen()) player.exitFullscreen();
-    clearTimeout(setBallPause);
-    removeBalls();
-    var ct = player.currentTime();
     document.getElementById("ballsElement").style.zIndex = "100";
-
     if (hlsIs) {
         ballsElement.addEventListener("touchstart", chooseBallHls);
         ballsElement.addEventListener("click", chooseBallHls);
@@ -542,11 +426,6 @@ var setBall = function() {
         ballsElement.addEventListener("touchstart", chooseBall);
         ballsElement.addEventListener("click", chooseBall);
     }
-
-    setBallPause = setTimeout(function() {
-        player.pause();
-        paused = false;
-    }, (tb + part_viii_duration - ct) * 1000 - 500);
 };
 
 var setGifts = function() {
@@ -560,15 +439,11 @@ var setGifts = function() {
     setGiftsPause = setTimeout(function() {
         paused = false;
         player.pause();
-    }, (tg + part_xi_duration - ct) * 1000 - 500);
+    }, (tg + part_xi_duration - ct - ю5) * 1000);
 };
 
 var setPhoto = function() {
-    var ct = player.currentTime();
+    photoSetted = 1;
     if (player.isFullscreen()) player.exitFullscreen();
     document.getElementById("photoElement").style.zIndex = "100";
-    clearTimeout(timeoutRemovePhoto);
-    timeoutRemovePhoto = setTimeout(function() {
-        removePhoto();
-    }, (tp + part_iv_duration - ct) * 1000 + 350);
 };
