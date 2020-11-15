@@ -22,7 +22,7 @@ class ConfirmAction extends AbstractAction
     {
         // Класс кнопки действия
         return [
-            'class' => 'btn btn-sm btn-success pull-left',
+            'class' => 'btn btn-sm btn-success pull-right',
         ];
     }
     public function shouldActionDisplayOnDataType()
