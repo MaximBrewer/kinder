@@ -354,6 +354,9 @@ var pauseTimeout30 = false;
 var player = videojs(
     "video",
     {
+        controlBar: {
+          fullscreenToggle: false
+        },
         sources: [
             {
                 src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
