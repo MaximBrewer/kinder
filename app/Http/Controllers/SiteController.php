@@ -166,7 +166,6 @@ class SiteController extends Controller
         if($request->get('name'))
             $orderName = \App\Models\Name::find($request->get('name'));
 
-            var_dump($orderName);die;
 
         if (!$orderName->chunks640) $this->setChunks($orderName, 'part_ii', 640);
         if (!$orderName->chunks1024) $this->setChunks($orderName, 'part_ii', 1024);
