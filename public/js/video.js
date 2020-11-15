@@ -140,12 +140,14 @@ var checkTimeouts = function checkTimeouts() {
     photoSetted && removePhoto();
   }
 
-  if (ct < tg - 0.5) {
-    giftsSetted && removeGifts();
-  } else if (ct > tg - 0.5 && ct < tg + part_xi_duration + 0.5) {
-    !giftsSetted && setGifts();
-  } else if (ct > tg + part_xi_duration + 0.5) {
-    giftsSetted && removeGifts();
+  if (secpart || hlsIs) {
+    if (ct < tg - 0.5) {
+      giftsSetted && removeGifts();
+    } else if (ct > tg - 0.5 && ct < tg + part_xi_duration + 0.5) {
+      !giftsSetted && setGifts();
+    } else if (ct > tg + part_xi_duration + 0.5) {
+      giftsSetted && removeGifts();
+    }
   }
 
   if (ct > tg + part_xi_duration + part_xii_duration + part_xiii_duration + part_xiv_duration + part_xv_duration + part_xvi_duration - 2) {
@@ -402,6 +404,9 @@ var player = videojs("video", {
   });
   this.on("pause", function () {
     if (paused) audio.pause();
+  });
+  this.on("ended", function () {
+    audio.pause();
   });
   this.on("firstplay", function () {
     that.tech({
