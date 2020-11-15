@@ -170,7 +170,7 @@ class SiteController extends Controller
 
         if (!$orderName->chunks640) $this->setChunks($orderName, 'part_ii', 640);
         if (!$orderName->chunks1024) $this->setChunks($orderName, 'part_ii', 1024);
-        if (!$orderName->chunks1920) $this->setChunks($orderName, 'part_ii', 1280);
+        if (!$orderName->chunks1280) $this->setChunks($orderName, 'part_ii', 1280);
         if (!$orderName->chunks1920) $duration = $this->setChunks($orderName, 'part_ii', 1920);
         else $duration = $this->countDuration($orderName->chunks1920);
         $data['part_ii_duration'] = $duration;
