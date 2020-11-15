@@ -266,8 +266,8 @@ var audio = videojs("audio", {
     src: "https://montage-cache.cdnvideo.ru/montage/kindern/music4.mp3",
     type: "audio/mpeg"
   }, {
-    src: "https://montage-cache.cdnvideo.ru/montage/kindern/music4.ogg",
-    type: "audio/ogg"
+    src: "https://montage-cache.cdnvideo.ru/montage/kindern/music4.wav",
+    type: "audio/wav"
   }]
 }, function () {
   var that = this;
@@ -337,9 +337,7 @@ var player = videojs("video", {
   });
   this.on("firstplay", function () {
     player.play();
-    console.log(that.tech({
-      IWillNotUseThisInPlugins: true
-    }));
+    console.log(that);
     that.tech({
       IWillNotUseThisInPlugins: true
     }) && that.tech({

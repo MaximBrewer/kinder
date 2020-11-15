@@ -304,8 +304,8 @@ var audio = videojs(
             },
             {
                 src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/music4.ogg",
-                type: "audio/ogg"
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music4.wav",
+                type: "audio/wav"
             }
         ]
     },
@@ -391,7 +391,7 @@ var player = videojs(
         });
         this.on("firstplay", function() {
             player.play();
-            console.log(that.tech({ IWillNotUseThisInPlugins: true }))
+            console.log(that)
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
                 (hlsIs = true) &&
