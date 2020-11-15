@@ -6,7 +6,7 @@ var resolution = 640,
     photoSetted = 0,
     ballsSetted = 0,
     giftsSetted = 0,
-    volumeInit = 0.1,
+    volumeInit = 0.25,
     setBallsPause,
     setGiftsPause,
     tp = part_i_duration + part_ii_duration + part_iii_duration,
@@ -67,8 +67,9 @@ var checkTimeouts = function() {
             part_xvi_duration -
             2
     ) {
-        if (!musicStopped) stopMusic(audio.volume() * 100);
+        if (!musicStopped) stopMusic();
     } else {
+        musicStopped = false;
         audio.volume(volumeInit);
     }
 };
@@ -316,15 +317,14 @@ var audio = videojs(
     }
 );
 
-var stopMusic = function(v) {
-    console.log("stopMusic", v);
+var stopMusic = function() {
     musicStopped = true;
-    --v;
-    if (v < 0) return false;
-    // setInterval(function() {
-    //     audio.volume(v / 100);
-    //     stopMusic(v);
-    // }, 60);
+    var v = audio.volume() * 100 - 1;
+    audio.volume(v / 100);
+    if (--v * 1 < 0) return false;
+    setTimeout(function() {
+        stopMusic();
+    }, 100);
 };
 
 var chooseGift = function(e) {
@@ -371,6 +371,7 @@ var player = videojs(
             audio.pause();
         });
         this.on("firstplay", function() {
+            player.play();
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
                 (hlsIs = true) &&
