@@ -111,7 +111,10 @@ class SiteController extends Controller
     private function setChunks($entity, $part, $resolution)
     {
         $chunks = [];
-        $res = file_get_contents($this->cdn . $part . "/" . $entity->link . "%20%28" . $resolution . "xauto%29.mp4/chunklist.m3u8");
+        if ($resolution < 1920)
+            $res = file_get_contents($this->cdn . $part . "/" . $entity->link . "%20%28" . $resolution . "xauto%29.mp4/chunklist.m3u8");
+        else
+            $res = file_get_contents($this->cdn . $part . "/" . $entity->link . "%20%28" . $resolution . "x1080%29.mp4/chunklist.m3u8");
         $lines = explode(PHP_EOL, $res);
         $next = false;
         $summ = 0;
@@ -220,7 +223,10 @@ class SiteController extends Controller
             if ($key) $nameChunk .= PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            if ($resolution < 1920)
+                $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            else
+                $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->achieve->{"chunks" . $resolution});
@@ -230,7 +236,10 @@ class SiteController extends Controller
             if ($key) $achieveChunk .= PHP_EOL;
             $achieveChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $achieveChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            if ($resolution < 1920)
+                $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            else
+                $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->hobby->{"chunks" . $resolution});
@@ -240,7 +249,10 @@ class SiteController extends Controller
             if ($key) $hobbyChunk .= PHP_EOL;
             $hobbyChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            if ($resolution < 1920)
+                $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            else
+                $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->gift->{"chunks" . $resolution});
@@ -250,7 +262,10 @@ class SiteController extends Controller
             if ($key) $giftChunk .= PHP_EOL;
             $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $giftChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            if ($resolution < 1920)
+                $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            else
+                $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->from->{"chunks" . $resolution});
@@ -260,7 +275,10 @@ class SiteController extends Controller
             if ($key) $fromChunk .= PHP_EOL;
             $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $fromChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            if ($resolution < 1920)
+                $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            else
+                $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
         }
 
         $partIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
@@ -316,7 +334,10 @@ class SiteController extends Controller
             if ($key) $giftChunk .= PHP_EOL;
             $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $giftChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            if ($resolution < 1920)
+                $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            else
+                $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->from->{"chunks" . $resolution});
@@ -326,7 +347,10 @@ class SiteController extends Controller
             if ($key) $fromChunk .= PHP_EOL;
             $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $fromChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            if ($resolution < 1920)
+                $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+            else
+                $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
         }
 
         $partIXChunk = view('chunks.part_ix.' . $color . $resolution, ['cdn' => $this->cdn]);

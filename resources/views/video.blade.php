@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Happy New Year</title>
+    <title>Kinder New Year</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="//s.platformcraft.ru/video/videojs/video-js5.19.2.min.css" rel="stylesheet">

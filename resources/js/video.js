@@ -232,12 +232,12 @@ var audio = videojs(
         sources: [
             {
                 src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/site.mp3",
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music2.mp3",
                 type: "audio/mpeg"
             },
             {
                 src:
-                    "https://montage-cache.cdnvideo.ru/montage/kindern/site.wav",
+                    "https://montage-cache.cdnvideo.ru/montage/kindern/music2.wav",
                 type: "audio/wav"
             }
         ]
