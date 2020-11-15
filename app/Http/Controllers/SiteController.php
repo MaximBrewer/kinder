@@ -239,7 +239,7 @@ class SiteController extends Controller
         $chunks = unserialize($order->name->{"chunks" . $resolution});
         $nameChunk = "";
 
-        var_dump($chunks);die;
+        var_dump([$chunks, $order->name->{"chunks" . $resolution}, $order->name]);die;
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $nameChunk .= PHP_EOL;
