@@ -254,17 +254,17 @@ var checkTimeouts = function checkTimeouts() {
 
   if (!secpart) {
     if (photo) {
-      if (ct < tp - 0.35) {
+      if (ct < tp - 1) {
         removePhoto();
       }
 
       if (ct < tp) {
         timeoutPhoto = setTimeout(function () {
           setPhoto();
-        }, (tp - ct) * 1000 - 350);
-      } else if (ct < tp + part_iv_duration - 0.35) {
+        }, (tp - ct) * 1000 - 1000);
+      } else if (ct < tp + part_iv_duration - 1) {
         setPhoto();
-      } else if (ct > tp + part_iv_duration + 0.35) {
+      } else if (ct > tp + part_iv_duration + 1) {
         removePhoto();
       }
     }
