@@ -23,7 +23,7 @@ var balls = false,
     photoSetted = 0,
     ballsSetted = 0,
     giftsSetted = 0,
-    volumeInit = 1,
+    volumeInit = 0.7,
     setBallsPause,
     setGiftsPause,
     tp = part_i_duration + part_ii_duration + part_iii_duration,
@@ -363,7 +363,7 @@ var player = videojs("video", {
   });
 });
 var photoElement = createEl("photoElement");
-photoElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" + photo + "') no-repeat top left 57%/auto 92%";
+photoElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" + photo + "') no-repeat top left 57.5%/auto 92%";
 document.getElementById("video").appendChild(photoElement);
 var ballsElement = createEl("ballsElement");
 ballsElement.style.background = "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_viii/balls.png') no-repeat 0 0 / 100%";
