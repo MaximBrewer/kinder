@@ -62,7 +62,7 @@ class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
     {
         $order = Order::findOrFail($id);
         $image = Image::make($order->photo);
-        $image->imagerotate($image, 90, 0);
+        $image->imagerotate(90, 0);
         $image->save(storage_path("app/public/" . $order->photo));
 
         // $exif = exif_read_data($request->file('image_file'));
