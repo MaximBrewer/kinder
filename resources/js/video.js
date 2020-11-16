@@ -1,7 +1,7 @@
-var resolution = 640;
-window.innerWidth > 640 && (resolution = 1024);
-window.innerWidth > 1024 && (resolution = 1280);
-window.innerWidth > 1280 && (resolution = 1920);
+var resolution = 1024;
+window.innerWidth > 640 && (resolution = 1280);
+window.innerWidth > 1024 && (resolution = 1920);
+// window.innerWidth > 1280 && (resolution = 1920);
 
 var part_i_duration = resolution > 1280 ? 71.61 : 71.3,
     part_iii_duration = 14.272,

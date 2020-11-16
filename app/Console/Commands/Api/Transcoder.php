@@ -63,7 +63,7 @@ class Transcoder extends Command
         // return 0;
 
         $data_array = [
-            "presets" => ['5e1ba97c0e47cf2f7dfdbd18', '5676a27cf9cb101634000002'],
+            "presets" => ['5e1ba97c0e47cf2f7dfdbd17', '5e1ba97c0e47cf2f7dfdbd18', '5676a27cf9cb101634000002'],
             "del_original" => false
         ];
 
