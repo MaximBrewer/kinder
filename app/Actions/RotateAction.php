@@ -22,8 +22,8 @@ class RotateAction extends AbstractAction
     {
         // Класс кнопки действия
         return [
-            'class' => 'btn btn-sm btn-default pull-left',
-            'onclick' => "function(e){e.preventDefault();rotateImage('" . $this->dataType->id . "')}"
+            'class' => 'btn btn-sm btn-default pull-left rotate-image',
+            'data-id' => $this->dataType->id 
         ];
     }
     public function shouldActionDisplayOnDataType()
