@@ -41,7 +41,7 @@ class ForeachUrls extends Command
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-        for ($i = 1; $i <= 158; $i++) {
+        for ($i = 760; $i <= 831; $i++) {
             curl_setopt(
                 $ch,
                 CURLOPT_URL,

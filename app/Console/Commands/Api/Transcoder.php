@@ -55,7 +55,7 @@ class Transcoder extends Command
             "del_original" => false
         ];
 
-        for ($i = 1; $i <= 23; $i++) {
+        for ($i = 1; $i <= 53; $i++) {
             curl_setopt(
                 $ch,
                 CURLOPT_URL,

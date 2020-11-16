@@ -406,7 +406,6 @@ var player = videojs(
         });
         this.on("firstplay", function() {
             player.play();
-            console.log(that);
             that.tech({ IWillNotUseThisInPlugins: true }) &&
                 that.tech({ IWillNotUseThisInPlugins: true }).hls &&
                 (hlsIs = true) &&
