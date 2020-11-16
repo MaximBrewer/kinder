@@ -11,7 +11,7 @@ $(function() {
                 el = $(event.target).parent();
             }
             console.log($(el).data())
-            let res = $.get("/admin/orders/" + el.dataset.id + "/rotate");
+            let res = $.get("/admin/orders/" + $(el).data('id') + "/rotate");
             if (res.status == 200) {
                 let img = $(el)
                     .closest("tr")

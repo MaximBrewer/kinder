@@ -103,7 +103,7 @@ $(function () {
         el = $(event.target).parent();
       }
       console.log($(el).data());
-      var res = $.get("/admin/orders/" + el.dataset.id + "/rotate");
+      var res = $.get("/admin/orders/" + $(el).data('id') + "/rotate");
 
       if (res.status == 200) {
         var img = $(el).closest("tr").find("img[src=https://kinder.gpucloud.ru" + res.responseText + "]");
