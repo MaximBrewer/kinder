@@ -2,7 +2,7 @@ $(function() {
     $(".rotate-image").on("click", e => {
         e.preventDefault();
         let el = e.target;
-        console.log($(el), $(el).data("id"));
+        console.log($(this), $(el), $(el).data("id"));
         let res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
         if (res.status == 200) {
             let img = $(el)
