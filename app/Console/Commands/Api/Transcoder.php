@@ -50,16 +50,28 @@ class Transcoder extends Command
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json", "Authorization: Bearer " . $array->access_token]);
 
+        // curl_setopt(
+        //     $ch,
+        //     CURLOPT_URL,
+        //     "https://api.platformcraft.ru/1/transcoder/presets"
+        // );
+        // $result = curl_exec($ch);
+        // $array = json_decode($result);
+
+        // file_put_contents('1.txt', print_r($array, 1));
+        // curl_close($ch);
+        // return 0;
+
         $data_array = [
-            "presets" => ['5676a27cf9cb101634000002'],
+            "presets" => ['5e1ba97c0e47cf2f7dfdbd18', '5676a27cf9cb101634000002'],
             "del_original" => false
         ];
 
-        for ($i = 1; $i <= 53; $i++) {
+        for ($i = 1; $i <= 1; $i++) {
             curl_setopt(
                 $ch,
                 CURLOPT_URL,
-                "https://filespot.platformcraft.ru/2/fs/container/" . $array->user_id . "/object/kindern/" . $this->argument('path') . "/" . $i . ".mp4"
+                "https://filespot.platformcraft.ru/2/fs/container/" . $array->user_id . "/object/kindern/part_i/pt1boy.mp4"
             );
             curl_setopt($ch, CURLOPT_POST, 0);
             $object = json_decode(curl_exec($ch));
