@@ -11,6 +11,7 @@ $(function() {
                 el = $(event.target).parent();
             }
             let res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
+            console.log(res.status == 200, res);
             if (res.status == 200) {
                 console.log(
                     $(el).parent(),
