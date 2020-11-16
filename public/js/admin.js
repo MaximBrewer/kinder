@@ -96,10 +96,10 @@
 $(function () {
   var _this = this;
 
-  $(".rotate-image").on("click", function (e) {
+  $(document).on("click", ".rotate-image", function (e) {
     e.preventDefault();
     var el = e.target;
-    console.log($(_this), $(el), $(el).data("id"));
+    console.log(_this, $(el), $(el).data("id"));
     var res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
 
     if (res.status == 200) {
