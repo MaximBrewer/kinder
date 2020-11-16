@@ -97,6 +97,7 @@ $(function () {
   var _this = this;
 
   $(document).on("click", ".rotate-image", function (e) {
+    e.stopPropagation();
     console.log(e.target, _this);
     var res = $.get("/admin/orders/" + $(_this).data("id") + "/rotate");
 

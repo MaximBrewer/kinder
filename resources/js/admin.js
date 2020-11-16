@@ -1,5 +1,6 @@
 $(function() {
     $(document).on("click", ".rotate-image", (e) => {
+        e.stopPropagation()
         console.log(e.target, this)
         let res = $.get("/admin/orders/" + $(this).data("id") + "/rotate");
         if (res.status == 200) {
