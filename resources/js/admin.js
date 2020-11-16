@@ -12,6 +12,12 @@ $(function() {
             }
             let res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
             if (res.status == 200) {
+                console.log(
+                    $(el).parent(),
+                    $(el)
+                        .parent()
+                        .parent()
+                );
                 let img = $(el)
                     .parent()
                     .parent()
