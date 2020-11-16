@@ -10,15 +10,9 @@ $(function() {
             else {
                 el = $(event.target).parent();
             }
-            let res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
-            console.log(res.status, res, res.statusText);
-            if (res.status == 200) {
-                console.log(
-                    $(el).parent(),
-                    $(el)
-                        .parent()
-                        .parent()
-                );
+            $.get("/admin/orders/" + $(el).data("id") + "/rotate", function(
+                data
+            ) {
                 let img = $(el)
                     .parent()
                     .parent()
@@ -27,7 +21,7 @@ $(function() {
                     "src",
                     img.attr("src").split("?")[0] + "?" + Math.random()
                 );
-            }
+            });
         });
     });
 });

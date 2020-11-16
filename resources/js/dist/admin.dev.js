@@ -9,14 +9,10 @@ $(function () {
       if (event.target.dataset.id) el = event.target;else {
         el = $(event.target).parent();
       }
-      var res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
-      console.log(res.status, res, res.statusText);
-
-      if (res.status == 200) {
-        console.log($(el).parent(), $(el).parent().parent());
+      $.get("/admin/orders/" + $(el).data("id") + "/rotate", function (data) {
         var img = $(el).parent().parent().find("img");
         img.attr("src", img.attr("src").split("?")[0] + "?" + Math.random());
-      }
+      });
     });
   });
 });
