@@ -10,8 +10,7 @@ rotators.forEach(rotator => {
         request.addEventListener("readystatechange", () => {
             if (request.readyState === 4 && request.status === 200) {
                 let obj = request.response;
-                let arr = obj.results;
-                console.log(request.response)
+                console.log(obj)
             }
         });
         request.send();
