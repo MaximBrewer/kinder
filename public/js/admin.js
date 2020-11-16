@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function rotateImage(id) {}
+window.rotateImage = function (id) {};
 
 /***/ }),
 
