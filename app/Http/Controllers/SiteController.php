@@ -96,6 +96,23 @@ class SiteController extends Controller
 
         if ($request->file('photo')) {
             $path = $request->file('photo')->store('public/orders/' . $order->id);
+
+            $exif = exif_read_data($request->file('photo'));
+            if (!empty($exif['Orientation'])) {
+                switch ($exif['Orientation']) {
+                    case 8:
+                        $image = imagerotate($image, 90, 0);
+                        break;
+                    case 3:
+                        $image = imagerotate($image, 180, 0);
+                        break;
+                    case 6:
+                        $image = imagerotate($image, -90, 0);
+                        break;
+                }
+            }
+
+
             $data['photo'] = str_replace("public/", "", $path);
             $fullpath = $_SERVER['DOCUMENT_ROOT'] . '/../storage/app/' . $path;
             exec("convert $fullpath -resize 600x600\> $fullpath");
@@ -163,7 +180,7 @@ class SiteController extends Controller
 
         $orderName = $order->name;
 
-        if($request->get('name'))
+        if ($request->get('name'))
             $orderName = \App\Models\Name::find($request->get('name'));
 
         if (!$orderName->chunks640) $this->setChunks($orderName, 'part_ii', 640);
@@ -175,7 +192,7 @@ class SiteController extends Controller
 
 
         $orderAchieve = $order->achieve;
-        if($request->get('achieve'))
+        if ($request->get('achieve'))
             $orderAchieve = \App\Models\Achieve::find($request->get('achieve'));
 
         if (!$orderAchieve->chunks640) $this->setChunks($orderAchieve, 'part_v', 640);
@@ -187,7 +204,7 @@ class SiteController extends Controller
 
 
         $orderHobby = $order->hobby;
-        if($request->get('hobby'))
+        if ($request->get('hobby'))
             $orderHobby = \App\Models\Hobby::find($request->get('hobby'));
 
         if (!$orderHobby->chunks640) $this->setChunks($orderHobby, 'part_vi', 640);
@@ -199,7 +216,7 @@ class SiteController extends Controller
 
 
         $orderGift = $order->gift;
-        if($request->get('gift'))
+        if ($request->get('gift'))
             $orderGift = \App\Models\Gift::find($request->get('gift'));
 
         if (!$orderGift->chunks640) $this->setChunks($orderGift, 'part_xiii', 640);
@@ -211,7 +228,7 @@ class SiteController extends Controller
 
 
         $orderFrom = $order->from;
-        if($request->get('from'))
+        if ($request->get('from'))
             $orderFrom = \App\Models\From::find($request->get('from'));
 
         if (!$orderFrom->chunks640) $this->setChunks($orderFrom, 'part_xiv', 640);

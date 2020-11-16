@@ -24,4 +24,5 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::get('orders/{id}/confirm', '\App\Http\Controllers\VoyagerOrdersController@confirm')->name('orders.confirm');
     Route::get('orders/{id}/decline', '\App\Http\Controllers\VoyagerOrdersController@decline')->name('orders.decline');
+    Route::get('orders/{id}/rotate', '\App\Http\Controllers\VoyagerOrdersController@rotate')->name('orders.rotate');
 });

@@ -16,6 +16,7 @@ use TCG\Voyager\Events\BreadImagesDeleted;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use App\Models\Order;
+use Intervention\Image\Facades\Image;
 
 class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
 {
@@ -50,6 +51,36 @@ class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
         Order::findOrFail($id)->update([
             'status' => 'canceled'
         ]);
+        $redirect = redirect()->back();
+        return $redirect->with([
+            'message'    => "Заявка отклонена",
+            'alert-type' => 'error',
+        ]);
+    }
+
+    public function rotate(Request $request, $id)
+    {
+        $order = Order::findOrFail($id);
+        $image = Image::make($order->photo);
+        var_dump($image);die;
+        $image = imagerotate($image, 90, 0);
+
+        // $exif = exif_read_data($request->file('image_file'));
+        // if (!empty($exif['Orientation'])) {
+        //     switch ($exif['Orientation']) {
+        //         case 8:
+                    
+        //             break;
+        //         case 3:
+        //             $image = imagerotate($image, 180, 0);
+        //             break;
+        //         case 6:
+        //             $image = imagerotate($image, -90, 0);
+        //             break;
+        //     }
+        // }
+
+
         $redirect = redirect()->back();
         return $redirect->with([
             'message'    => "Заявка отклонена",
