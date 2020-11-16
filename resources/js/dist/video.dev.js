@@ -198,8 +198,10 @@ var chooseBallHls = function chooseBallHls(e) {
 
   for (i in segments) {
     if (segments[i].uri.indexOf("part_ix") > -1) {
-      segments[i].resolvedUri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
-      segments[i].uri = cdn + "part_ix/" + color + "%20%28" + resolution + "xauto%29.mp4/media_0.ts";
+      var xres = resolution < 1920 ? "xauto" : "x1080";
+      segments[i].resolvedUri = cdn + "part_ix/" + color + "%20%28" + resolution + xres;
+      "%29.mp4/media_0.ts";
+      segments[i].uri = segments[i].resolvedUri;
       break;
     }
 

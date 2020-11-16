@@ -111,11 +111,19 @@ var setBall = function() {
     player.play();
     document.getElementById("ballsElement").style.zIndex = "100";
     if (hlsIs) {
-        document.getElementById("ballsElement").addEventListener("touchstart", chooseBallHls);
-        document.getElementById("ballsElement").addEventListener("click", chooseBallHls);
+        document
+            .getElementById("ballsElement")
+            .addEventListener("touchstart", chooseBallHls);
+        document
+            .getElementById("ballsElement")
+            .addEventListener("click", chooseBallHls);
     } else {
-        document.getElementById("ballsElement").addEventListener("touchstart", chooseBall);
-        document.getElementById("ballsElement").addEventListener("click", chooseBall);
+        document
+            .getElementById("ballsElement")
+            .addEventListener("touchstart", chooseBall);
+        document
+            .getElementById("ballsElement")
+            .addEventListener("click", chooseBall);
     }
     clearTimeout(setBallsPause);
     var ct = player.currentTime();
@@ -219,20 +227,11 @@ var chooseBallHls = function(e) {
 
     for (i in segments) {
         if (segments[i].uri.indexOf("part_ix") > -1) {
+            var xres = resolution < 1920 ? "xauto" : "x1080";
             segments[i].resolvedUri =
-                cdn +
-                "part_ix/" +
-                color +
-                "%20%28" +
-                resolution +
-                "xauto%29.mp4/media_0.ts";
-            segments[i].uri =
-                cdn +
-                "part_ix/" +
-                color +
-                "%20%28" +
-                resolution +
-                "xauto%29.mp4/media_0.ts";
+                cdn + "part_ix/" + color + "%20%28" + resolution + xres;
+            ("%29.mp4/media_0.ts");
+            segments[i].uri = segments[i].resolvedUri;
             break;
         }
         if (segments[i].end) {
