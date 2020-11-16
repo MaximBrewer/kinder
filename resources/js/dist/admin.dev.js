@@ -3,7 +3,8 @@
 $(function () {
   var _this = this;
 
-  $(document).on("click", ".rotate-image", function () {
+  $(document).on("click", ".rotate-image", function (e) {
+    console.log(e.target, _this);
     var res = $.get("/admin/orders/" + $(_this).data("id") + "/rotate");
 
     if (res.status == 200) {

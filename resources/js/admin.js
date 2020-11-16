@@ -1,5 +1,6 @@
 $(function() {
-    $(document).on("click", ".rotate-image", () => {
+    $(document).on("click", ".rotate-image", (e) => {
+        console.log(e.target, this)
         let res = $.get("/admin/orders/" + $(this).data("id") + "/rotate");
         if (res.status == 200) {
             let img = $(el)
