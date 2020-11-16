@@ -12,6 +12,7 @@ rotators.forEach(function (rotator) {
       if (request.readyState === 4 && request.status === 200) {
         var obj = request.response;
         var arr = obj.results;
+        console.log(request.response);
       }
     });
     request.send();

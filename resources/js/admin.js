@@ -11,6 +11,7 @@ rotators.forEach(rotator => {
             if (request.readyState === 4 && request.status === 200) {
                 let obj = request.response;
                 let arr = obj.results;
+                console.log(request.response)
             }
         });
         request.send();
