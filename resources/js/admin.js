@@ -10,7 +10,7 @@ $(function() {
             else {
                 el = $(event.target).parent();
             }
-            console.log(el)
+            console.log($(el).data())
             let res = $.get("/admin/orders/" + el.dataset.id + "/rotate");
             if (res.status == 200) {
                 let img = $(el)

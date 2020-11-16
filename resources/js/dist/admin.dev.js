@@ -9,7 +9,7 @@ $(function () {
       if (event.target.dataset.id) el = event.target;else {
         el = $(event.target).parent();
       }
-      console.log(el);
+      console.log($(el).data());
       var res = $.get("/admin/orders/" + el.dataset.id + "/rotate");
 
       if (res.status == 200) {
