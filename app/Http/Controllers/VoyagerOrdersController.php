@@ -80,7 +80,7 @@ class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
         //             break;
         //     }
         // }
-        return $image);
+        return $image;
     }
 
     public function index(Request $request)
