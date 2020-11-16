@@ -12,9 +12,9 @@ $(function() {
             }
             let res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
             if (res.status == 200) {
-                console.log($(el).closest("tr"));
                 let img = $(el)
-                    .closest("tr")
+                    .parent()
+                    .parent()
                     .find("img");
                 img.attr(
                     "src",

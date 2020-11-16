@@ -105,8 +105,7 @@ $(function () {
       var res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
 
       if (res.status == 200) {
-        console.log($(el).closest("tr"));
-        var img = $(el).closest("tr").find("img");
+        var img = $(el).parent().parent().find("img");
         img.attr("src", img.attr("src").split("?")[0] + "?" + Math.random());
       }
     });
