@@ -29,7 +29,7 @@ class RotateAction extends AbstractAction
     public function shouldActionDisplayOnDataType()
     {
         // Показывать или скрыть кнопку действия. Отображается только для модели Posts
-        return $this->data->{'status'} == "new" && $this->dataType->slug == 'orders';
+        return $this->dataType->slug == 'orders';
     }
     public function getDefaultRoute()
     {
