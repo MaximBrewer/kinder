@@ -1,5 +1,5 @@
 #EXT-X-DISCONTINUITY
-#EXTINF:10.8,
+#EXTINF:12,
 {{ $cdn }}part_xvii/pf17%20%281280xauto%29.mp4/media_0.ts
-#EXTINF:1.84,
+#EXTINF:0.562,
 {{ $cdn }}part_xvii/pf17%20%281280xauto%29.mp4/media_1.ts

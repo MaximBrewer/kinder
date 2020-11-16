@@ -3,5 +3,5 @@
 {{ $cdn }}part_xv/pf15%20%281024xauto%29.mp4/media_0.ts
 #EXTINF:12,
 {{ $cdn }}part_xv/pf15%20%281024xauto%29.mp4/media_1.ts
-#EXTINF:3.033,
+#EXTINF:2.958,
 {{ $cdn }}part_xv/pf15%20%281024xauto%29.mp4/media_2.ts
