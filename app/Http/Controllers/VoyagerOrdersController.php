@@ -17,6 +17,7 @@ use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use App\Models\Order;
 use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
 
 class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
 {
@@ -61,7 +62,8 @@ class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
     public function rotate(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        $image = Image::make(storage_path("app/public/" . $order->photo));
+        $manager = new ImageManager(array('driver' => 'imagick'));
+        $image = $manager->make(storage_path("app/public/" . $order->photo));
         $image->imagerotate(90, 0);
         $image->save(storage_path("app/public/" . $order->photo));
 
