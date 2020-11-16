@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
 
 
 class SiteController extends Controller
@@ -97,22 +99,6 @@ class SiteController extends Controller
         if ($request->file('photo')) {
             $path = $request->file('photo')->store('public/orders/' . $order->id);
 
-            $exif = exif_read_data($request->file('photo'));
-            if (!empty($exif['Orientation'])) {
-                switch ($exif['Orientation']) {
-                    case 8:
-                        $image = imagerotate($image, 90, 0);
-                        break;
-                    case 3:
-                        $image = imagerotate($image, 180, 0);
-                        break;
-                    case 6:
-                        $image = imagerotate($image, -90, 0);
-                        break;
-                }
-            }
-
-
             $data['photo'] = str_replace("public/", "", $path);
             $fullpath = $_SERVER['DOCUMENT_ROOT'] . '/../storage/app/' . $path;
             exec("convert $fullpath -resize 600x600\> $fullpath");
@@ -120,6 +106,22 @@ class SiteController extends Controller
             $order->update([
                 "photo" => $data['photo']
             ]);
+
+            // $exif = exif_read_data($request->file('photo'));
+            // if (!empty($exif['Orientation'])) {
+            //     switch ($exif['Orientation']) {
+            //         case 8:
+            //             Image::make(storage_path("app/public/" . $order->photo))->rotate(90, 0)->save(storage_path("app/public/" . $order->photo));
+            //             break;
+            //         case 3:
+            //             Image::make(storage_path("app/public/" . $order->photo))->rotate(180, 0)->save(storage_path("app/public/" . $order->photo));
+            //             break;
+            //         case 6:
+            //             Image::make(storage_path("app/public/" . $order->photo))->rotate(-90, 0)->save(storage_path("app/public/" . $order->photo));
+            //             break;
+            //     }
+            // }
+
         }
 
         return [];
