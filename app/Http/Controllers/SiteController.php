@@ -107,20 +107,20 @@ class SiteController extends Controller
                 "photo" => $data['photo']
             ]);
 
-            // $exif = exif_read_data($request->file('photo'));
-            // if (!empty($exif['Orientation'])) {
-            //     switch ($exif['Orientation']) {
-            //         case 8:
-            //             Image::make(storage_path("app/public/" . $order->photo))->rotate(90, 0)->save(storage_path("app/public/" . $order->photo));
-            //             break;
-            //         case 3:
-            //             Image::make(storage_path("app/public/" . $order->photo))->rotate(180, 0)->save(storage_path("app/public/" . $order->photo));
-            //             break;
-            //         case 6:
-            //             Image::make(storage_path("app/public/" . $order->photo))->rotate(-90, 0)->save(storage_path("app/public/" . $order->photo));
-            //             break;
-            //     }
-            // }
+            $exif = exif_read_data($request->file('photo'));
+            if (!empty($exif['Orientation'])) {
+                switch ($exif['Orientation']) {
+                    case 8:
+                        Image::make(storage_path("app/public/" . $order->photo))->rotate(90, 0)->save(storage_path("app/public/" . $order->photo));
+                        break;
+                    case 3:
+                        Image::make(storage_path("app/public/" . $order->photo))->rotate(180, 0)->save(storage_path("app/public/" . $order->photo));
+                        break;
+                    case 6:
+                        Image::make(storage_path("app/public/" . $order->photo))->rotate(-90, 0)->save(storage_path("app/public/" . $order->photo));
+                        break;
+                }
+            }
 
         }
 
