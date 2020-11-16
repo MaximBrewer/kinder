@@ -80,13 +80,7 @@ class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
         //             break;
         //     }
         // }
-
-
-        $redirect = redirect()->back();
-        return $redirect->with([
-            'message'    => "Заявка отклонена",
-            'alert-type' => 'error',
-        ]);
+        return $image);
     }
 
     public function index(Request $request)
