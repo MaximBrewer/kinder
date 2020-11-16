@@ -5,7 +5,6 @@ $(function () {
 
   $(".rotate-image").on("click", function (e) {
     e.preventDefault();
-    $(_this).data("id");
-    console.log($.get("/admin/orders/" + rotator.dataset.id + "/rotate"));
+    console.log($.get("/admin/orders/" + $(_this).data("id") + "/rotate"));
   });
 });
