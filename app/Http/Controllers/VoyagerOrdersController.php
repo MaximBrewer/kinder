@@ -62,7 +62,7 @@ class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
     public function rotate(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        return(Image::make(storage_path("app/public/" . $order->photo))->rotate(-90, 0)->save(storage_path("app/public/" . $order->photo)));
+        Image::make(storage_path("app/public/" . $order->photo))->rotate(-90, 0)->save(storage_path("app/public/" . $order->photo));
 
         // $exif = exif_read_data($request->file('image_file'));
         // if (!empty($exif['Orientation'])) {
@@ -78,7 +78,7 @@ class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
         //             break;
         //     }
         // }
-        return $image;
+        return storage_path("app/public/" . $order->photo);
     }
 
     public function index(Request $request)
