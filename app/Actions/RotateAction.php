@@ -23,8 +23,7 @@ class RotateAction extends AbstractAction
         // Класс кнопки действия
         return [
             'class' => 'btn btn-sm btn-default pull-left',
-            'onclick' => "rotateImage('".$this->dataType->id."')",
-            'style' => 'margin-left:5px;'
+            'onclick' => "rotateImage('".$this->dataType->id."')"
         ];
     }
     public function shouldActionDisplayOnDataType()
