@@ -3,10 +3,8 @@ const rotators = Object.values(document.getElementsByClassName("rotate-image"));
 rotators.forEach(rotator => {
     rotator.addEventListener("click", event => {
         event.preventDefault();
-        console.log(rotator.dataset, event.target.dataset);
-
         const request = new XMLHttpRequest();
-        const url = "/admin/orders/" + event.target.dataset.id + "/rotate";
+        const url = "/admin/orders/" + rotator.dataset.id + "/rotate";
         request.responseType = "json";
         request.open("GET", url, true);
         request.addEventListener("readystatechange", () => {
