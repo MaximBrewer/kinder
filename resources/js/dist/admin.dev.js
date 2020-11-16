@@ -3,7 +3,7 @@
 $(function () {
   $(".rotate-image").on("click", function (e) {
     e.preventDefault();
-    var el = $(e.target);
+    var el = e.target;
     var res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
 
     if (res.status == 200) {
