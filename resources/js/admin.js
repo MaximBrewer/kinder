@@ -1,3 +1,3 @@
-var rotateImage = function(id){
-    
+function rotateImage(id){
+
 }

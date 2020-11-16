@@ -1,3 +1,3 @@
 "use strict";
 
-var rotateImage = function rotateImage(id) {};
+function rotateImage(id) {}
