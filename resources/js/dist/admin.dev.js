@@ -7,7 +7,7 @@ $(function () {
       event.preventDefault();
       var el;
       if (event.target.dataset.id) el = event.target;else {
-        el = $(event.target).closest('a');
+        el = $(event.target).parent();
       }
       console.log(el);
       var res = $.get("/admin/orders/" + el.dataset.id + "/rotate");
