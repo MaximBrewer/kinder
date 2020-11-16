@@ -4,7 +4,7 @@ var rotators = Object.values(document.getElementsByClassName("rotate-image"));
 rotators.forEach(function (rotator) {
   rotator.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log(event.target.dataset);
+    console.log(rotator.dataset, event.target.dataset);
     var request = new XMLHttpRequest();
     var url = "/admin/orders/" + event.target.dataset.id + "/rotate";
     request.responseType = "json";
