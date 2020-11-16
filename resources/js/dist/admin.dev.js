@@ -1,19 +1,11 @@
 "use strict";
 
-var rotators = Object.values(document.getElementsByClassName("rotate-image"));
-rotators.forEach(function (rotator) {
-  rotator.addEventListener("click", function (event) {
-    event.preventDefault();
-    var request = new XMLHttpRequest();
-    var url = "/admin/orders/" + rotator.dataset.id + "/rotate";
-    request.responseType = "json";
-    request.open("GET", url, true);
-    request.addEventListener("readystatechange", function () {
-      if (request.readyState === 4 && request.status === 200) {
-        var obj = request.response;
-        console.log(obj);
-      }
-    });
-    request.send();
+$(function () {
+  var _this = this;
+
+  $(".rotate-image").on("click", function (e) {
+    e.preventDefault();
+    $(_this).data("id");
+    console.log($.get("/admin/orders/" + rotator.dataset.id + "/rotate"));
   });
 });
