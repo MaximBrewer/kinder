@@ -421,7 +421,7 @@ var photoElement = createEl("photoElement");
 photoElement.style.background =
     "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
     photo +
-    "') no-repeat top left 57.5%/auto 92%";
+    "') no-repeat top left 57.5%/auto 92%, #000000";
 document.getElementById("video").appendChild(photoElement);
 
 var ballsElement = createEl("ballsElement");
