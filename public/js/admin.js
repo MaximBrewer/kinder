@@ -102,10 +102,10 @@ $(function () {
       if (event.target.dataset.id) el = event.target;else {
         el = $(event.target).parent();
       }
-      console.log($(el).data());
-      var res = $.get("/admin/orders/" + $(el).data('id') + "/rotate");
+      var res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
 
       if (res.status == 200) {
+        console.log($(el).closest("tr"));
         var img = $(el).closest("tr").find("img");
         img.attr("src", img.attr("src").split("?")[0] + "?" + Math.random());
       }

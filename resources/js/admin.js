@@ -10,9 +10,9 @@ $(function() {
             else {
                 el = $(event.target).parent();
             }
-            console.log($(el).data())
-            let res = $.get("/admin/orders/" + $(el).data('id') + "/rotate");
+            let res = $.get("/admin/orders/" + $(el).data("id") + "/rotate");
             if (res.status == 200) {
+                console.log($(el).closest("tr"));
                 let img = $(el)
                     .closest("tr")
                     .find("img");
