@@ -5,8 +5,12 @@ $(function() {
     rotators.forEach(rotator => {
         rotator.addEventListener("click", event => {
             event.preventDefault();
-            console.log(event.target, this);
-            let res = $.get("/admin/orders/" + $(this).data("id") + "/rotate");
+            let el;
+            if (event.target.dataset.id) el = event.target;
+            else {
+                el = $(event.target).closest('a');
+            }
+            let res = $.get("/admin/orders/" + el.dataset.id + "/rotate");
             if (res.status == 200) {
                 let img = $(el)
                     .closest("tr")
