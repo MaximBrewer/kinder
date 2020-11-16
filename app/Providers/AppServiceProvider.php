@@ -33,5 +33,6 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Order::observe(\App\Observers\Order::class);
         Voyager::addAction(\App\Actions\ConfirmAction::class);
         Voyager::addAction(\App\Actions\DeclineAction::class);
+        Voyager::addAction(\App\Actions\RotateAction::class);
     }
 }
