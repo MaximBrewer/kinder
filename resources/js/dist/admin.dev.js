@@ -7,7 +7,7 @@ $(function () {
   rotators.forEach(function (rotator) {
     rotator.addEventListener("click", function (event) {
       event.preventDefault();
-      console.log(e.target, _this);
+      console.log(event.target, _this);
       var res = $.get("/admin/orders/" + $(_this).data("id") + "/rotate");
 
       if (res.status == 200) {

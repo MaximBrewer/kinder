@@ -5,7 +5,7 @@ $(function() {
     rotators.forEach(rotator => {
         rotator.addEventListener("click", event => {
             event.preventDefault();
-            console.log(e.target, this);
+            console.log(event.target, this);
             let res = $.get("/admin/orders/" + $(this).data("id") + "/rotate");
             if (res.status == 200) {
                 let img = $(el)
