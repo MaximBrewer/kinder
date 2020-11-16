@@ -61,7 +61,7 @@ class VoyagerOrdersController extends \TCG\Voyager\Http\Controllers\Controller
     public function rotate(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        $image = Image::make($order->photo);
+        $image = Image::make(storage_path("app/public/" . $order->photo));
         $image->imagerotate(90, 0);
         $image->save(storage_path("app/public/" . $order->photo));
 
