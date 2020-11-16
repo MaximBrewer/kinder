@@ -1,5 +1,5 @@
 $(function() {
-    $(document).on("click", ".rotate-image", (e) => {
+    $(".rotate-image").click((e) => {
         e.stopPropagation()
         console.log(e.target, this)
         let res = $.get("/admin/orders/" + $(this).data("id") + "/rotate");
