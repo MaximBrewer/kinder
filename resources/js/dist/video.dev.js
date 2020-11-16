@@ -101,11 +101,11 @@ var setBall = function setBall() {
   document.getElementById("ballsElement").style.zIndex = "100";
 
   if (hlsIs) {
-    ballsElement.addEventListener("touchstart", chooseBallHls);
-    ballsElement.addEventListener("click", chooseBallHls);
+    document.getElementById("ballsElement").addEventListener("touchstart", chooseBallHls);
+    document.getElementById("ballsElement").addEventListener("click", chooseBallHls);
   } else {
-    ballsElement.addEventListener("touchstart", chooseBall);
-    ballsElement.addEventListener("click", chooseBall);
+    document.getElementById("ballsElement").addEventListener("touchstart", chooseBall);
+    document.getElementById("ballsElement").addEventListener("click", chooseBall);
   }
 
   clearTimeout(setBallsPause);
