@@ -4,18 +4,18 @@ var resolution = 1024;
 window.innerWidth > 640 && (resolution = 1280);
 window.innerWidth > 1024 && (resolution = 1920); // window.innerWidth > 1280 && (resolution = 1920);
 
-var part_i_duration = resolution > 1280 ? 71.61 : 71.3,
-    part_iii_duration = 14.272,
+var part_i_duration = 71.517,
+    part_iii_duration = 14.187,
     part_iv_duration = photo ? 5.8 : 0,
-    part_vii_duration = 24.917,
+    part_vii_duration = 24.845,
     part_viii_duration = 10.033,
     part_ix_duration = 6.967,
-    part_x_duration = 40.1,
+    part_x_duration = 40.914,
     part_xi_duration = 5.8,
-    part_xii_duration = 13.6,
-    part_xv_duration = 27.04,
-    part_xvi_duration = 6.0,
-    part_xvii_duration = 12.64;
+    part_xii_duration = 13.514,
+    part_xv_duration = 26.958,
+    part_xvi_duration = 5.921,
+    part_xvii_duration = 12.562;
 var balls = false,
     hlsIs = false,
     secpart = false,
