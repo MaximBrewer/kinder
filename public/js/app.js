@@ -69075,6 +69075,7 @@ function Form(props) {
 
   var initialState = {
     boysValue: null,
+    sending: false,
     girlsValue: null,
     achieveValue: null,
     genderValue: null,
@@ -69131,6 +69132,11 @@ function Form(props) {
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
+    setState(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        sending: true
+      });
+    });
     var errors = {};
     if (!state.boysValue && !state.girlsValue) errors = _objectSpread(_objectSpread({}, errors), {}, {
       name: "Выберите имя"
@@ -69187,7 +69193,8 @@ function Form(props) {
       }).then(function () {
         setState(function (prevState) {
           return _objectSpread(_objectSpread({}, initialState), {}, {
-            contHeight: prevState.contHeight
+            contHeight: prevState.contHeight,
+            sending: false
           });
         });
         window.dispatchEvent(new CustomEvent("reactloaded"));
@@ -69202,6 +69209,11 @@ function Form(props) {
 
         window.dispatchEvent(new CustomEvent("reactloaded"));
         alert(errors);
+        setState(function (prevState) {
+          return _objectSpread(_objectSpread({}, prevState), {}, {
+            sending: false
+          });
+        });
         console.log(err.response.status, err.response.data); // setState(prevState => ({ ...prevState, errors }));
       });
     } else {
@@ -69355,7 +69367,8 @@ function Form(props) {
       width: "100%"
     },
     className: "visible-sm nhy-btn",
-    type: "submit"
+    type: "submit",
+    disabled: sending
   }, "\u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C \u0417\u0410\u042F\u0412\u041A\u0423")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "gift-select"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -69467,7 +69480,8 @@ function Form(props) {
       width: "100%"
     },
     className: "nhy-btn",
-    type: "submit"
+    type: "submit",
+    disabled: sending
   }, "\u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C \u0417\u0410\u042F\u0412\u041A\u0423"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_6___default.a, {
     isOpen: state.isOpen // onAfterOpen={afterOpenModal}
     ,

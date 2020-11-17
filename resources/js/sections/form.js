@@ -98,6 +98,7 @@ function Form(props) {
 
     const initialState = {
         boysValue: null,
+        sending: false,
         girlsValue: null,
         achieveValue: null,
         genderValue: null,
@@ -154,6 +155,7 @@ function Form(props) {
     const handleSubmit = e => {
         e.preventDefault();
 
+        setState(prevState => ({ ...prevState, sending: true }));
         let errors = {};
 
         if (!state.boysValue && !state.girlsValue)
@@ -218,7 +220,8 @@ function Form(props) {
                 .then(() => {
                     setState(prevState => ({
                         ...initialState,
-                        contHeight: prevState.contHeight
+                        contHeight: prevState.contHeight,
+                        sending: false
                     }));
                     window.dispatchEvent(new CustomEvent("reactloaded"));
                     setFiles([]);
@@ -231,6 +234,10 @@ function Form(props) {
                     }
                     window.dispatchEvent(new CustomEvent("reactloaded"));
                     alert(errors);
+                    setState(prevState => ({
+                        ...prevState,
+                        sending: false
+                    }));
                     console.log(err.response.status, err.response.data);
                     // setState(prevState => ({ ...prevState, errors }));
                 });
@@ -471,6 +478,7 @@ function Form(props) {
                                     style={{ width: "100%" }}
                                     className={"visible-sm nhy-btn"}
                                     type="submit"
+                                    disabled={sending}
                                 >{`ОТПРАВИТЬ ЗАЯВКУ`}</button>
                             </div>
                         </div>
@@ -645,6 +653,7 @@ function Form(props) {
                         style={{ width: "100%" }}
                         className={"nhy-btn"}
                         type="submit"
+                        disabled={sending}
                     >{`ОТПРАВИТЬ ЗАЯВКУ`}</button>
                     <br />
                     <br />
