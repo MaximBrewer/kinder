@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -10,20 +10,11 @@
     <link rel="preload" href="/assets/img/moroz_sneg-2.png" as="image" media="(min-width: 1280px)">
     <link rel="preload" href="/assets/img/promo-presents.png" as="image" media="(min-width: 1280px)">
     <link rel="preload" href="/assets/img/promo-bublle.png" as="image" media="(min-width: 1280px)">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
 </head>
 
 <body>
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://urldefense.proofpoint.com/v2/url?u=https-3A__www.googletagmanager.com_gtm.js-3Fid-3D-27-2Bi-2Bdl-3Bf.parentNode.insertBefore-28j-2Cf-29&d=DwIGAg&c=9lPwXtTRqNEqum6117Q8FA&r=tJ7W2aOoC3cdckGnTWDCeRJW3qMqok6QRf9tBV-gbHM&m=zNUdopABRIs2py42NlGKQEMsc4uJ3GVIbcR49NVMBKU&s=_JIFuXmrLUDatPK9UJvRFDybiIuWdpX9G9gsy-fMuoQ&e= ;
-            })(window,document,'script','dataLayer','GTM-PFJ27KH');
-    </script>
-    <!-- End Google Tag Manager -->
     <div id="trigger" class="steps__trigger"></div>
     <h1 class="visually-hidden">Kinder New Year</h1>
     <section class="promo">
@@ -60,7 +51,7 @@
             </div>
             <div class="promo__guests">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="/assets/img/promo-guests-mobile.png">
+                    <source media="(max-width: 767px)" srcset="assets/img/promo-guests-mobile.png">
                     <img src="/assets/img/moroz_sneg-2.png" alt="Снегурочка и дед мороз">
                 </picture>
             </div>
@@ -108,7 +99,12 @@
                             <h3 class="steps__item-count">Шаг 2</h3>
                             <p class="steps__item-action">Оживите героев на&nbsp;упаковке</p>
                             <div class="steps__item-interactive">
-                                <img class="steps__item-interactive-img" src="/assets/img/interactive/ipad/2-min.png" alt="">
+                                <div class="steps__item-interactive-img steps__item-interactive-img--2">
+                                    <video class="steps__item-interactive-video" width="100%" height="100%" autoplay loop muted playsinline>
+                                        <source src="/assets/video/ded8.mp4" type='video/mp4'>
+                                    </video>
+                                </div>
+                                <!-- <img class="steps__item-interactive-img" src="/assets/img/interactive/ipad/2-min.png" alt=""> -->
                                 <img class="steps__item-interactive-border" src="/assets/img/interactive/ipad/phone-min.png" alt="">
                             </div>
                         </li>
@@ -116,7 +112,12 @@
                             <h3 class="steps__item-count">Шаг 3</h3>
                             <p class="steps__item-action">Окунитесь <br>в&nbsp;сказочный мир игр</p>
                             <div class="steps__item-interactive">
-                                <img class="steps__item-interactive-img" src="/assets/img/interactive/ipad/3-min.png" alt="">
+                                <div class="steps__item-interactive-img  steps__item-interactive-img--3">
+                                    <video class="steps__item-interactive-video" width="100%" height="100%" autoplay loop muted playsinline>
+                                        <source src="/assets/video/girl3.mp4" type='video/mp4'>
+                                    </video>
+                                </div>
+                                <!-- <img class="steps__item-interactive-img" src="/assets/img/interactive/ipad/3-min.png" alt=""> -->
                                 <img class="steps__item-interactive-border" src="/assets/img/interactive/ipad/phone-min.png" alt="">
                             </div>
                         </li>
@@ -124,7 +125,12 @@
                             <h3 class="steps__item-count">Шаг 4</h3>
                             <p class="steps__item-action">Станьте героем&nbsp;сказки!<br>Создайте волшебные новогодние образы!</p>
                             <div class="steps__item-interactive">
-                                <img class="steps__item-interactive-img" src="/assets/img/interactive/ipad/4-min.png" alt="">
+                                <div class="steps__item-interactive-img steps__item-interactive-img--4">
+                                    <video class="steps__item-interactive-video" width="100%" height="100%" autoplay loop muted playsinline>
+                                        <source src="/assets/video/ded7.mp4" type='video/mp4'>
+                                    </video>
+                                </div>
+                                <!-- <img class="steps__item-interactive-img" src="/assets/img/interactive/ipad/4-min.png" alt=""> -->
                                 <img class="steps__item-interactive-border" src="/assets/img/interactive/ipad/phone-min.png" alt="">
                             </div>
                         </li>
@@ -140,9 +146,26 @@
                                 <!-- <img src="/assets/img/qr.gif" alt="Анимации сканированияф кода" type="image/gif"> -->
                                 <div class="spritesheets spritesheets--qr"></div>
                             </div>
-                            <img class="steps__interactive-content steps__interactive-content--2" src="/assets/img/interactive/desc/2-min.png" alt="Анимации оживления героев">
-                            <img class="steps__interactive-content steps__interactive-content--3" src="/assets/img/interactive/desc/3-min.png" alt="Анимации сказочного мира">
-                            <img class="steps__interactive-content steps__interactive-content--4" src="/assets/img/interactive/desc/4-min.png" alt="Анимации создания образа">
+                            <div class="steps__interactive-content steps__interactive-content--2">
+                                <video class="steps__video" width="100%" height="100%" autoplay loop muted playsinline>
+                                    <source src="/assets/video/ded8.mp4" type='video/mp4'>
+                                </video>
+                            </div>
+
+                            <div class="steps__interactive-content steps__interactive-content--3">
+                                <video class="steps__video" width="100%" height="100%" autoplay loop muted playsinline>
+                                    <source src="/assets/video/girl3.mp4" type='video/mp4'>
+                                </video>
+                            </div>
+
+                            <div class="steps__interactive-content steps__interactive-content--4">
+                                <video class="steps__video" width="100%" height="100%" autoplay loop muted playsinline>
+                                    <source src="/assets/video/ded7.mp4" type='video/mp4'>
+                                </video>
+                            </div>
+
+                            <!-- <img class="steps__interactive-content steps__interactive-content--3" src="/assets/img/interactive/desc/3-min.png" alt="Анимации сказочного мира">
+            <img class="steps__interactive-content steps__interactive-content--4" src="/assets/img/interactive/desc/4-min.png" alt="Анимации создания образа"> -->
                             <div class="steps__interactive-border"></div>
                         </div>
                     </div>
@@ -162,7 +185,7 @@
             <img class="video__snowflake video__snowflake--3" src="/assets/img/video-snowflake-3.png" width="54" height="50" alt="снежинка">
             <div class="video__wrapper-img">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="/assets/img/video-mobile.png">
+                    <source media="(max-width: 767px)" srcset="assets/img/video-mobile.png">
                     <img src="/assets/img/video-content2.png" alt="Специальная упаковка с видео">
                 </picture>
                 <img class="video__spray" src="/assets/img/video-spray.png" alt="" width="186" height="209">
@@ -210,8 +233,8 @@
                 ** В&nbsp;активации участвуют наборы кондитерских изделий Kinder Mini Mix 106,5г; Kinder Mix 199г и Kinder Maxi Mix 223г. </p>
         </div>
     </section>
-    <script src="/assets/js/vendors.js"></script>
-    <script src="/assets/js/bundle.js"></script>
+    <script src="/js/vendors.js"></script>
+    <script src="/js/bundle.js"></script>
 </body>
 
 </html>
