@@ -478,7 +478,7 @@ function Form(props) {
                                     style={{ width: "100%" }}
                                     className={"visible-sm nhy-btn"}
                                     type="submit"
-                                    disabled={sending}
+                                    disabled={state.sending}
                                 >{`ОТПРАВИТЬ ЗАЯВКУ`}</button>
                             </div>
                         </div>
@@ -653,7 +653,7 @@ function Form(props) {
                         style={{ width: "100%" }}
                         className={"nhy-btn"}
                         type="submit"
-                        disabled={sending}
+                        disabled={state.sending}
                     >{`ОТПРАВИТЬ ЗАЯВКУ`}</button>
                     <br />
                     <br />

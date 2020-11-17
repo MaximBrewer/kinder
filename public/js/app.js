@@ -69368,7 +69368,7 @@ function Form(props) {
     },
     className: "visible-sm nhy-btn",
     type: "submit",
-    disabled: sending
+    disabled: state.sending
   }, "\u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C \u0417\u0410\u042F\u0412\u041A\u0423")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "gift-select"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -69481,7 +69481,7 @@ function Form(props) {
     },
     className: "nhy-btn",
     type: "submit",
-    disabled: sending
+    disabled: state.sending
   }, "\u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C \u0417\u0410\u042F\u0412\u041A\u0423"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_6___default.a, {
     isOpen: state.isOpen // onAfterOpen={afterOpenModal}
     ,
