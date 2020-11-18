@@ -14,7 +14,7 @@ class Order extends Model
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    protected $perPage = 100;
+    protected $perPage = 20;
 
     protected $fillable = [
         'name_id', 'age', 'achieve_id', 'hobby_id', 'from_id', 'email', 'gift_id', 'photo', 'hash', 'news', 'email_hash', 'status'
