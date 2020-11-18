@@ -2,6 +2,7 @@
 
 namespace App\Actions;
 
+use App\Models\Order;
 use TCG\Voyager\Actions\AbstractAction;
 
 class ConfirmAction extends AbstractAction
@@ -36,5 +37,12 @@ class ConfirmAction extends AbstractAction
         // URL-адрес для кнопки действия при нажатии кнопки
         return
             route('orders.confirm', array("id" => $this->data->{$this->data->getKeyName()}));
+    }
+
+    public function massAction($ids, $comingFrom)
+    {
+        // Do something with the IDs
+        Order::whereIn('id', $ids)->update(['status' => 'confirmed']);
+        return redirect($comingFrom);
     }
 }
