@@ -43,6 +43,6 @@ class ConfirmAction extends AbstractAction
     {
         // Do something with the IDs
         Order::whereIn('id', $ids)->update(['status' => 'confirmed']);
-        return redirect($comingFrom);
+        return redirect('/admin/orders?key=status&filter=equals&s=new');
     }
 }
