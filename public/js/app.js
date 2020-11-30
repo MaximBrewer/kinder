@@ -69256,7 +69256,7 @@ function Form(props) {
     className: (window.innerWidth < 768 ? "hint--bottom" : "hint--right") + " hint--error hint--always hint--rounded",
     "aria-label": state.errors.ageValue ? state.errors.ageValue : ""
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_select__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(function (item, index) {
+    options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(function (item, index) {
       return {
         value: item,
         label: item
