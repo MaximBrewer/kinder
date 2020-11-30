@@ -39,18 +39,18 @@ class Cron extends Command
      */
     public function handle()
     {
-        // $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 0)->orderBy('id', 'desc')->limit(100)->get();
-        // foreach($orders as $order){
-        //     try {
-        //         $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-        //         Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
-        //         $order->update([
-        //             'sent' => 1
-        //         ]);
-        //     } catch (Throwable $e) {
-        //         report($e);
-        //     }
-        // }
+        $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 0)->orderBy('id', 'desc')->limit(5)->get();
+        foreach($orders as $order){
+            try {
+                $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+                Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
+                $order->update([
+                    'sent' => 1
+                ]);
+            } catch (Throwable $e) {
+                report($e);
+            }
+        }
         return 0;
     }
 }
