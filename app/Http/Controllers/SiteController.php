@@ -85,8 +85,8 @@ class SiteController extends Controller
             'name_id' => $request->name,
             'age' => $request->age,
             'achieve_id' => $request->achieve,
-            'hobby_id' => (integer) $request->hobby,
-            'from_id' => (integer) $request->from,
+            'hobby_id' => (int) $request->hobby,
+            'from_id' => (int) $request->from,
             'email' => $request->email,
             'gift_id' => $request->gift,
             'hash' => Str::random(80),
@@ -195,28 +195,35 @@ class SiteController extends Controller
         $data['part_ii_duration'] = $duration;
 
 
-        $orderAchieve = $order->achieve;
-        if ($request->get('achieve'))
-            $orderAchieve = \App\Models\Achieve::find($request->get('achieve'));
+        if ($order->achieve_id) {
+            $orderAchieve = $order->achieve;
+            if ($request->get('achieve'))
+                $orderAchieve = \App\Models\Achieve::find($request->get('achieve'));
 
-        if (!$orderAchieve->chunks640) $this->setChunks($orderAchieve, 'part_v', 640);
-        if (!$orderAchieve->chunks1024) $this->setChunks($orderAchieve, 'part_v', 1024);
-        if (!$orderAchieve->chunks1280) $this->setChunks($orderAchieve, 'part_v', 1280);
-        if (!$orderAchieve->chunks1920) $duration = $this->setChunks($orderAchieve, 'part_v', 1920);
-        else $duration = $this->countDuration($orderAchieve->chunks1920);
-        $data['part_v_duration'] = $duration;
+            if (!$orderAchieve->chunks640) $this->setChunks($orderAchieve, 'part_v', 640);
+            if (!$orderAchieve->chunks1024) $this->setChunks($orderAchieve, 'part_v', 1024);
+            if (!$orderAchieve->chunks1280) $this->setChunks($orderAchieve, 'part_v', 1280);
+            if (!$orderAchieve->chunks1920) $duration = $this->setChunks($orderAchieve, 'part_v', 1920);
+            else $duration = $this->countDuration($orderAchieve->chunks1920);
+            $data['part_v_duration'] = $duration;
+        } else {
+            $data['part_v_duration'] = 0;
+        }
 
+        if ($order->hobby_id) {
+            $orderHobby = $order->hobby;
+            if ($request->get('hobby'))
+                $orderHobby = \App\Models\Hobby::find($request->get('hobby'));
 
-        $orderHobby = $order->hobby;
-        if ($request->get('hobby'))
-            $orderHobby = \App\Models\Hobby::find($request->get('hobby'));
-
-        if (!$orderHobby->chunks640) $this->setChunks($orderHobby, 'part_vi', 640);
-        if (!$orderHobby->chunks1024) $this->setChunks($orderHobby, 'part_vi', 1024);
-        if (!$orderHobby->chunks1280) $this->setChunks($orderHobby, 'part_vi', 1280);
-        if (!$orderHobby->chunks1920) $duration = $this->setChunks($orderHobby, 'part_vi', 1920);
-        else $duration = $this->countDuration($orderHobby->chunks1920);
-        $data['part_vi_duration'] = $duration;
+            if (!$orderHobby->chunks640) $this->setChunks($orderHobby, 'part_vi', 640);
+            if (!$orderHobby->chunks1024) $this->setChunks($orderHobby, 'part_vi', 1024);
+            if (!$orderHobby->chunks1280) $this->setChunks($orderHobby, 'part_vi', 1280);
+            if (!$orderHobby->chunks1920) $duration = $this->setChunks($orderHobby, 'part_vi', 1920);
+            else $duration = $this->countDuration($orderHobby->chunks1920);
+            $data['part_vi_duration'] = $duration;
+        } else {
+            $data['part_vi_duration'] = 0;
+        }
 
 
         $orderGift = $order->gift;
@@ -268,30 +275,39 @@ class SiteController extends Controller
                 $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
         }
 
-        $chunks = unserialize($order->achieve->{"chunks" . $resolution});
+
         $achieveChunk = "";
 
-        foreach ($chunks as $key => $chunk) {
-            if ($key) $achieveChunk .= PHP_EOL;
-            $achieveChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
-            if (!$key) $achieveChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            if ($resolution < 1920)
-                $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
-            else
-                $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+        if ($order->achieve_id) {
+
+            $chunks = unserialize($order->achieve->{"chunks" . $resolution});
+
+            foreach ($chunks as $key => $chunk) {
+                if ($key) $achieveChunk .= PHP_EOL;
+                $achieveChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+                if (!$key) $achieveChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                if ($resolution < 1920)
+                    $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+                else
+                    $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+            }
         }
 
-        $chunks = unserialize($order->hobby->{"chunks" . $resolution});
         $hobbyChunk = "";
 
-        foreach ($chunks as $key => $chunk) {
-            if ($key) $hobbyChunk .= PHP_EOL;
-            $hobbyChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
-            if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            if ($resolution < 1920)
-                $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
-            else
-                $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+        if ($order->hobby_id) {
+
+            $chunks = unserialize($order->hobby->{"chunks" . $resolution});
+
+            foreach ($chunks as $key => $chunk) {
+                if ($key) $hobbyChunk .= PHP_EOL;
+                $hobbyChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+                if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                if ($resolution < 1920)
+                    $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
+                else
+                    $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+            }
         }
 
         $chunks = unserialize($order->gift->{"chunks" . $resolution});
