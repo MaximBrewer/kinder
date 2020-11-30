@@ -162,10 +162,10 @@ function Form(props) {
             errors = { ...errors, name: "Выберите имя" };
         if (!state.ageValue)
             errors = { ...errors, ageValue: "Выберите возраст" };
-        if (!state.achieveValue)
-            errors = { ...errors, achieveValue: "Выберите достижение" };
-        if (!state.hobbyValue)
-            errors = { ...errors, hobbyValue: "Выберите хобби" };
+        //if (!state.achieveValue)
+        //   errors = { ...errors, achieveValue: "Выберите достижение" };
+        //if (!state.hobbyValue)
+        //    errors = { ...errors, hobbyValue: "Выберите хобби" };
         if (!state.fromValue)
             errors = { ...errors, fromValue: "Выберите от кого" };
         if (!state.giftValue)
