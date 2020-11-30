@@ -39,7 +39,7 @@ class Cron extends Command
      */
     public function handle()
     {
-        $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 1)->where('email', 'pimax1978@icloud.com')->limit(10)->get();
+        $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 0)->where('email', 'pimax1978@icloud.com')->limit(10)->get();
         foreach($orders as $order){
             try {
                 $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
