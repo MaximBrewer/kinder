@@ -199,9 +199,9 @@ function Form(props) {
                 "name",
                 state.boysValue ? state.boysValue.value : state.girlsValue.value
             );
-            formData.append("achieve", state.achieveValue.value);
             formData.append("email", state.emailValue);
-            formData.append("hobby", state.hobbyValue.value);
+            formData.append("achieve", state.achieveValue ? state.achieveValue.value : 0);
+            formData.append("hobby", state.hobbyValue ? state.hobbyValue.value : 0);
             formData.append("from", state.fromValue.value);
             formData.append("age", state.ageValue.value);
             formData.append("gift", state.giftValue.id);
