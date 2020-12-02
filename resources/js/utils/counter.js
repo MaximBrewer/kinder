@@ -47,7 +47,7 @@ function Counter() {
             axios
                 .get("/api/orders/total")
                 .then(res => { 
-                    console.log(res.total) 
+                    console.log(res) 
                 })
                 .catch(err => console.log(err));
         }, 10000)
