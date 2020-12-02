@@ -47,7 +47,7 @@ function Counter() {
             axios
                 .get("/orders/total")
                 .then(res => { 
-                    console.log(res, res.total) 
+                    tickTimeout(res.data.total) 
                 })
                 .catch(err => console.log(err));
         }, 10000)
