@@ -46,7 +46,9 @@ function Counter() {
         const interval = setInterval(() => {
             axios
                 .get("/api/orders/total")
-                .then(res => console.log(res.total))
+                .then(res => { 
+                    console.log(res.total) 
+                })
                 .catch(err => console.log(err));
         }, 10000)
         // window.addEventListener("refresh", tick);
