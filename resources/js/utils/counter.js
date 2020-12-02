@@ -48,7 +48,7 @@ function Counter() {
                 .get("/api/orders/total")
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
-        }, 5000)
+        }, 10000)
         // window.addEventListener("refresh", tick);
         window.dispatchEvent(new CustomEvent("reactloaded"));
         return () => {

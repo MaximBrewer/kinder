@@ -70604,7 +70604,7 @@ function Counter() {
       })["catch"](function (err) {
         return console.log(err);
       });
-    }, 5000); // window.addEventListener("refresh", tick);
+    }, 10000); // window.addEventListener("refresh", tick);
 
     window.dispatchEvent(new CustomEvent("reactloaded"));
     return function () {
