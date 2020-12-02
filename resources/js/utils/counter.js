@@ -1,6 +1,6 @@
 import { map } from "lodash";
 import React, { useState, useEffect, useRef } from "react";
-const axios = require('axios');
+import axios from "axios";
 
 function pad(num, size) {
     return ("000000" + num).substr(-size);
@@ -44,24 +44,10 @@ function Counter() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            fetch("/api/orders/total")
-                .then(res => console.log(res.json()))
-                .then(
-                    (result) => {
-                        this.setState({
-                            isLoaded: true,
-                            items: result.items
-                        });
-                    },
-                    // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-                    // чтобы не перехватывать исключения из ошибок в самих компонентах.
-                    (error) => {
-                        this.setState({
-                            isLoaded: true,
-                            error
-                        });
-                    }
-                )
+            axios
+                .get("/api/orders/total")
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
         }, 5000)
         // window.addEventListener("refresh", tick);
         window.dispatchEvent(new CustomEvent("reactloaded"));

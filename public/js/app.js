@@ -70437,6 +70437,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
 
@@ -70547,15 +70549,12 @@ function _arrayWithHoles(arr) {
 
 
 
-var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 function pad(num, size) {
   return ("000000" + num).substr(-size);
 }
 
 function Counter() {
-  var _this = this;
-
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
     current: pad(window.App.data.orders, 6),
     next: pad(window.App.data.orders, 6)
@@ -70600,20 +70599,10 @@ function Counter() {
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     var interval = setInterval(function () {
-      fetch("/api/orders/total").then(function (res) {
-        return console.log(res.json());
-      }).then(function (result) {
-        _this.setState({
-          isLoaded: true,
-          items: result.items
-        });
-      }, // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-      // чтобы не перехватывать исключения из ошибок в самих компонентах.
-      function (error) {
-        _this.setState({
-          isLoaded: true,
-          error: error
-        });
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/orders/total").then(function (res) {
+        return console.log(res);
+      })["catch"](function (err) {
+        return console.log(err);
       });
     }, 5000); // window.addEventListener("refresh", tick);
 
