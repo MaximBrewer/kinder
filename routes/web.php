@@ -26,3 +26,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('orders/{id}/decline', '\App\Http\Controllers\VoyagerOrdersController@decline')->name('orders.decline');
     Route::get('orders/{id}/rotate', '\App\Http\Controllers\VoyagerOrdersController@rotate')->name('orders.rotate');
 });
+
+Route::get('/orders/total', '\App\Http\Controllers\OrdersController@total');

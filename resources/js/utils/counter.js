@@ -45,8 +45,8 @@ function Counter() {
     useEffect(() => {
         const interval = setInterval(() => {
             axios
-                .get("/api/orders/total")
-                .then(res => console.log(res))
+                .get("/orders/total")
+                .then(res => tickTimeout(res.total))
                 .catch(err => console.log(err));
         }, 10000)
         // window.addEventListener("refresh", tick);
