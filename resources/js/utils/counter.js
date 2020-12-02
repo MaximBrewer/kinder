@@ -37,6 +37,10 @@ function Counter() {
         }, 500);
     };
 
+    const tickTimeout = () => {
+        
+    }
+
     useEffect(() => {
         window.addEventListener("refresh", tick);
         window.dispatchEvent(new CustomEvent("reactloaded"));
