@@ -68441,18 +68441,18 @@ if (typeof Object.assign != "function") {
 
 window.axios = axios__WEBPACK_IMPORTED_MODULE_2___default.a; // Enable pusher logging - don't include this in production
 // Pusher.logToConsole = true;
+// var pusher = new Pusher("c354da67c98f8f62d901", {
+//     cluster: "eu"
+// });
+// var channel = pusher.subscribe("kinder");
+// channel.bind("refresh", function(res) {
+//     window.dispatchEvent(
+//         new CustomEvent("refresh", {
+//             detail: { cnt: res.cnt }
+//         })
+//     );
+// });
 
-var pusher = new Pusher("c354da67c98f8f62d901", {
-  cluster: "eu"
-});
-var channel = pusher.subscribe("kinder");
-channel.bind("refresh", function (res) {
-  window.dispatchEvent(new CustomEvent("refresh", {
-    detail: {
-      cnt: res.cnt
-    }
-  }));
-});
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_counter__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById("counterEl"));
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_form__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById("formEl"));
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sections_gifts__WEBPACK_IMPORTED_MODULE_5__["default"], null), document.getElementById("giftsEl"));
@@ -70546,12 +70546,15 @@ function _arrayWithHoles(arr) {
 
 
 
+axios;
 
 function pad(num, size) {
   return ("000000" + num).substr(-size);
 }
 
 function Counter() {
+  var _this = this;
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
     current: pad(window.App.data.orders, 6),
     next: pad(window.App.data.orders, 6)
@@ -70561,9 +70564,13 @@ function Counter() {
       setState = _useState2[1];
 
   var tick = function tick(event) {
+    tickTimeout(event.detail.cnt);
+  };
+
+  var tickTimeout = function tickTimeout(cnt) {
     setState(function (prevState) {
       var digits = prevState.current.split(""),
-          newDigits = pad(event.detail.cnt, 6).split("");
+          newDigits = pad(cnt, 6).split("");
 
       for (var i in digits) {
         if (digits[i] != newDigits[i]) {
@@ -70578,23 +70585,40 @@ function Counter() {
       }
 
       return _objectSpread(_objectSpread({}, prevState), {}, {
-        next: pad(event.detail.cnt, 6)
+        next: pad(cnt, 6)
       });
     });
     setTimeout(function () {
       setState(function (prevState) {
         return _objectSpread(_objectSpread({}, prevState), {}, {
-          current: pad(event.detail.cnt, 6)
+          current: pad(cnt, 6)
         });
       });
     }, 500);
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    window.addEventListener("refresh", tick);
+    var interval = setInterval(function () {
+      fetch("/api/orders/total").then(function (res) {
+        return console.log(res.json());
+      }).then(function (result) {
+        _this.setState({
+          isLoaded: true,
+          items: result.items
+        });
+      }, // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+      // чтобы не перехватывать исключения из ошибок в самих компонентах.
+      function (error) {
+        _this.setState({
+          isLoaded: true,
+          error: error
+        });
+      });
+    }, 5000); // window.addEventListener("refresh", tick);
+
     window.dispatchEvent(new CustomEvent("reactloaded"));
     return function () {
-      window.removeEventListener("refresh", tick);
+      clearInterval(interval); // window.removeEventListener("refresh", tick);
     };
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {

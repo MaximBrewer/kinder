@@ -148,19 +148,19 @@ window.axios = axios;
 // Enable pusher logging - don't include this in production
 // Pusher.logToConsole = true;
 
-var pusher = new Pusher("c354da67c98f8f62d901", {
-    cluster: "eu"
-});
+// var pusher = new Pusher("c354da67c98f8f62d901", {
+//     cluster: "eu"
+// });
 
-var channel = pusher.subscribe("kinder");
+// var channel = pusher.subscribe("kinder");
 
-channel.bind("refresh", function(res) {
-    window.dispatchEvent(
-        new CustomEvent("refresh", {
-            detail: { cnt: res.cnt }
-        })
-    );
-});
+// channel.bind("refresh", function(res) {
+//     window.dispatchEvent(
+//         new CustomEvent("refresh", {
+//             detail: { cnt: res.cnt }
+//         })
+//     );
+// });
 
 ReactDOM.render(<Counter />, document.getElementById("counterEl"));
 ReactDOM.render(<Form />, document.getElementById("formEl"));

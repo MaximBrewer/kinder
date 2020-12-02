@@ -1,5 +1,6 @@
 import { map } from "lodash";
 import React, { useState, useEffect, useRef } from "react";
+axios
 
 function pad(num, size) {
     return ("000000" + num).substr(-size);
@@ -12,40 +13,61 @@ function Counter() {
     });
 
     const tick = event => {
+        tickTimeout(event.detail.cnt)
+    };
+
+    const tickTimeout = (cnt) => {
         setState(prevState => {
             let digits = prevState.current.split(""),
-                newDigits = pad(event.detail.cnt, 6).split("");
+                newDigits = pad(cnt, 6).split("");
             for (let i in digits) {
                 if (digits[i] != newDigits[i]) {
                     let el = document.getElementsByClassName("number-" + i)[0];
                     el.classList.add("flip");
-                    setTimeout(function() {
+                    setTimeout(function () {
                         el.classList.remove("flip");
                     }, 500);
                 }
             }
             return {
                 ...prevState,
-                next: pad(event.detail.cnt, 6)
+                next: pad(cnt, 6)
             };
         });
-        setTimeout(function() {
+        setTimeout(function () {
             setState(prevState => ({
                 ...prevState,
-                current: pad(event.detail.cnt, 6)
+                current: pad(cnt, 6)
             }));
         }, 500);
-    };
-
-    const tickTimeout = () => {
-        
     }
 
     useEffect(() => {
-        window.addEventListener("refresh", tick);
+        const interval = setInterval(() => {
+            fetch("/api/orders/total")
+                .then(res => console.log(res.json()))
+                .then(
+                    (result) => {
+                        this.setState({
+                            isLoaded: true,
+                            items: result.items
+                        });
+                    },
+                    // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+                    // чтобы не перехватывать исключения из ошибок в самих компонентах.
+                    (error) => {
+                        this.setState({
+                            isLoaded: true,
+                            error
+                        });
+                    }
+                )
+        }, 5000)
+        // window.addEventListener("refresh", tick);
         window.dispatchEvent(new CustomEvent("reactloaded"));
         return () => {
-            window.removeEventListener("refresh", tick);
+            clearInterval(interval)
+            // window.removeEventListener("refresh", tick);
         };
     }, []);
 

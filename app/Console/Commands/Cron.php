@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Throwable;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Cache;
 
 class Cron extends Command
 {
@@ -39,14 +40,14 @@ class Cron extends Command
      */
     public function handle()
     {
-
-        $cnt = \App\Models\Order::whereIn('status', ['new', 'confirmed'])->count();
+        // $cnt = \App\Models\Order::whereIn('status', ['new', 'confirmed'])->count();
+        $cnt = (int)Cache::get('total');
         file_put_contents(
             storage_path(('app/public') . '/orders.js'),
             'window.App.data.orders = ' . $cnt
         );
         $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 0)->orderBy('id', 'desc')->limit(50)->get();
-        foreach($orders as $order){
+        foreach ($orders as $order) {
             try {
                 $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
                 Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
