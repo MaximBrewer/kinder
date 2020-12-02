@@ -40,8 +40,8 @@ class Cron extends Command
      */
     public function handle()
     {
-        // $cnt = \App\Models\Order::whereIn('status', ['new', 'confirmed'])->count();
-        $cnt = (int)Cache::get('total');
+        $cnt = \App\Models\Order::whereIn('status', ['new', 'confirmed'])->count();
+        Cache::put('total', $cnt);
         file_put_contents(
             storage_path(('app/public') . '/orders.js'),
             'window.App.data.orders = ' . $cnt
