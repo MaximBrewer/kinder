@@ -70546,7 +70546,8 @@ function _arrayWithHoles(arr) {
 
 
 
-axios;
+
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 function pad(num, size) {
   return ("000000" + num).substr(-size);

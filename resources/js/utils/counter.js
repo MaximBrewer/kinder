@@ -1,6 +1,6 @@
 import { map } from "lodash";
 import React, { useState, useEffect, useRef } from "react";
-axios
+const axios = require('axios');
 
 function pad(num, size) {
     return ("000000" + num).substr(-size);
