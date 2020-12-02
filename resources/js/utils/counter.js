@@ -45,9 +45,9 @@ function Counter() {
     useEffect(() => {
         const interval = setInterval(() => {
             axios
-                .get("/api/orders/total")
+                .get("/orders/total")
                 .then(res => { 
-                    console.log(res) 
+                    console.log(res, res.total) 
                 })
                 .catch(err => console.log(err));
         }, 10000)

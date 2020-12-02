@@ -70599,8 +70599,8 @@ function Counter() {
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     var interval = setInterval(function () {
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/orders/total").then(function (res) {
-        console.log(res);
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/orders/total").then(function (res) {
+        console.log(res, res.total);
       })["catch"](function (err) {
         return console.log(err);
       });
