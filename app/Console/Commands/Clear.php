@@ -48,10 +48,9 @@ class Clear extends Command
                 ->where('email', $order->email)
                 ->where('gift_id', $order->gift_id)
                 ->where('name_id', $order->name_id)
-                ->where('name_id', $order->name_id)
-                ->get();
-            if (!empty($delete)) {
-                var_dump($delete);
+                ->where('name_id', $order->name_id);
+            if ($delete->count()) {
+                var_dump($delete->get());
                 break;
             }
         }
