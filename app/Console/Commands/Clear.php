@@ -50,9 +50,10 @@ class Clear extends Command
                 ->where('name_id', $order->name_id)
                 ->where('name_id', $order->name_id)
                 ->get();
-
-            var_dump($delete);
-            break;
+            if (!empty($delete)) {
+                var_dump($delete);
+                break;
+            }
         }
         return 0;
     }
