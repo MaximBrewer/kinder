@@ -9,7 +9,7 @@ class Name
     {
         $json = is_file(storage_path('app/public') . '/data.json') ? json_decode(file_get_contents(storage_path('app/public') . '/data.json'), true) : [];
         $json['boys'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['boy', 'both'])->orderBy('sort', 'ASC')->get());
-        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both'])->orderBy('sort', 'ASC')->get());
+        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both'])->where('id', 'not', 625)->orderBy('sort', 'ASC')->get());
         $json = str_replace(['\r', '\n'], '', json_encode($json));
         file_put_contents(
             storage_path(('app/public') . '/data.json'),
@@ -25,7 +25,7 @@ class Name
     {
         $json = is_file(storage_path('app/public') . '/data.json') ? json_decode(file_get_contents(storage_path('app/public') . '/data.json'), true) : [];
         $json['boys'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['boy', 'both'])->orderBy('sort', 'ASC')->get());
-        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both'])->orderBy('sort', 'ASC')->get());
+        $json['girls'] = \App\Http\Resources\Name::collection(\App\Models\Name::whereIn('gender', ['girl', 'both'])->where('id', 'not', 625)->orderBy('sort', 'ASC')->get());
         $json = str_replace(['\r', '\n'], '', json_encode($json));
         file_put_contents(
             storage_path(('app/public') . '/data.json'),
