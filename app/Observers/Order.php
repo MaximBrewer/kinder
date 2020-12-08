@@ -17,7 +17,6 @@ class Order
             case "old":
                 break;
             case "new":
-                Cache::put('total', \App\Models\Order::whereIn('status', ['new', 'confirmed'])->count());
                 try {
                     $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
                     Mail::to($order->email)->send(new \App\Mail\Frame2($unsubscribe));
@@ -25,6 +24,10 @@ class Order
                 } catch (Throwable $e) {
                     report($e);
                 }
+                file_put_contents(
+                    storage_path(('app/public') . '/total.json'),
+                    '{"total":' . \App\Models\Order::whereIn('status', ['new', 'confirmed'])->count() . '}'
+                );
                 break;
             case "unsubscribed":
                 break;

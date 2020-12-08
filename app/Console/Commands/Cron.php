@@ -41,10 +41,13 @@ class Cron extends Command
     public function handle()
     {
         $cnt = \App\Models\Order::whereIn('status', ['new', 'confirmed'])->count();
-        Cache::put('total', $cnt);
         file_put_contents(
             storage_path(('app/public') . '/orders.js'),
             'window.App.data.orders = ' . $cnt
+        );
+        file_put_contents(
+            storage_path(('app/public') . '/total.json'),
+            '{"total":'.$cnt.'}'
         );
         $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 0)->orderBy('id', 'desc')->limit(50)->get();
         foreach ($orders as $order) {
