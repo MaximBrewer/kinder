@@ -155,7 +155,6 @@ function Form(props) {
     const handleSubmit = e => {
         e.preventDefault();
 
-        setState(prevState => ({ ...prevState, sending: true }));
         let errors = {};
 
         if (!state.boysValue && !state.girlsValue)
@@ -193,6 +192,9 @@ function Form(props) {
             };
 
         if (Object.keys(errors).length < 1) {
+
+            setState(prevState => ({ ...prevState, sending: true }));
+
             let formData = new FormData();
             files.length && formData.append("photo", files[0]);
             formData.append(
@@ -473,8 +475,8 @@ function Form(props) {
                                         </div>
                                     </div>
                                 ) : (
-                                    <Upload setFiles={setFiles} files={files} />
-                                )}
+                                        <Upload setFiles={setFiles} files={files} />
+                                    )}
                             </div>
                             <div>
                                 <button
@@ -543,55 +545,55 @@ function Form(props) {
                                 </a>
                             </div>
                         ) : (
-                            <div style={{ height: state.contHeight }}>
-                                <Scrollbars
-                                    style={{ height: "100%" }}
-                                    renderView={renderView}
-                                    renderThumbHorizontal={
-                                        renderThumbHorizontal
-                                    }
-                                    renderThumbVertical={renderThumbVertical}
-                                    renderTrackHorizontal={
-                                        renderTrackHorizontal
-                                    }
-                                    renderTrackVertical={renderTrackVertical}
-                                    mobile={true}
-                                >
-                                    <div
-                                        className="gifts-container"
-                                        ref={contEl}
+                                <div style={{ height: state.contHeight }}>
+                                    <Scrollbars
+                                        style={{ height: "100%" }}
+                                        renderView={renderView}
+                                        renderThumbHorizontal={
+                                            renderThumbHorizontal
+                                        }
+                                        renderThumbVertical={renderThumbVertical}
+                                        renderTrackHorizontal={
+                                            renderTrackHorizontal
+                                        }
+                                        renderTrackVertical={renderTrackVertical}
+                                        mobile={true}
                                     >
-                                        {window.App.data.gifts.map(
-                                            (item, index) => (
-                                                <div
-                                                    className={
-                                                        `gift` +
-                                                        (state.giftValue &&
-                                                        state.giftValue.id ==
-                                                            item.id
-                                                            ? ` active`
-                                                            : ``)
-                                                    }
-                                                    key={index}
-                                                    onClick={e =>
-                                                        chooseGift(item)
-                                                    }
-                                                >
+                                        <div
+                                            className="gifts-container"
+                                            ref={contEl}
+                                        >
+                                            {window.App.data.gifts.map(
+                                                (item, index) => (
                                                     <div
-                                                        style={{
-                                                            backgroundImage:
-                                                                `url(` +
-                                                                item.img +
-                                                                `)`
-                                                        }}
-                                                    ></div>
-                                                </div>
-                                            )
-                                        )}
-                                    </div>
-                                </Scrollbars>
-                            </div>
-                        )}
+                                                        className={
+                                                            `gift` +
+                                                            (state.giftValue &&
+                                                                state.giftValue.id ==
+                                                                item.id
+                                                                ? ` active`
+                                                                : ``)
+                                                        }
+                                                        key={index}
+                                                        onClick={e =>
+                                                            chooseGift(item)
+                                                        }
+                                                    >
+                                                        <div
+                                                            style={{
+                                                                backgroundImage:
+                                                                    `url(` +
+                                                                    item.img +
+                                                                    `)`
+                                                            }}
+                                                        ></div>
+                                                    </div>
+                                                )
+                                            )}
+                                        </div>
+                                    </Scrollbars>
+                                </div>
+                            )}
                         <div
                             className="hint--bottom hint--error hint--always hint--rounded"
                             aria-label={
