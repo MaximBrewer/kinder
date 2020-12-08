@@ -4,7 +4,7 @@ window.innerWidth > 1024 && (resolution = 1920);
 // window.innerWidth > 1280 && (resolution = 1920);
 
 var part_i_duration = 71.517,
-    part_iii_duration = 14.187,
+    part_iii_duration = 14.272,
     part_iv_duration = photo ? 5.8 : 0,
     part_vii_duration = 24.845,
     part_viii_duration = 10.033,
