@@ -1,6 +1,7 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:3s
 #EXT-X-PLAYLIST-TYPE:EVENT
 #EXTINF:3,
 https://montage-cache.cdnvideo.ru/montage/kindern/part_i/girl/1024/media_0.ts
