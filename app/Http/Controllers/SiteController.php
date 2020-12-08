@@ -267,8 +267,8 @@ class SiteController extends Controller
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $nameChunk .= PHP_EOL;
-            $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
 
             if ($order->name->link == 810 && $resolution < 1280) {
                 $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "-" . $resolution . ".mp4/" . $chunk[1];
@@ -288,8 +288,8 @@ class SiteController extends Controller
 
             foreach ($chunks as $key => $chunk) {
                 if ($key) $achieveChunk .= PHP_EOL;
-                $achieveChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
                 if (!$key) $achieveChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                $achieveChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
                 if ($resolution < 1920)
                     $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
                 else
@@ -305,8 +305,8 @@ class SiteController extends Controller
 
             foreach ($chunks as $key => $chunk) {
                 if ($key) $hobbyChunk .= PHP_EOL;
-                $hobbyChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
                 if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                $hobbyChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
                 if ($resolution < 1920)
                     $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
                 else
@@ -319,8 +319,8 @@ class SiteController extends Controller
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $giftChunk .= PHP_EOL;
-            $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $giftChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if ($resolution < 1920)
                 $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
@@ -332,8 +332,8 @@ class SiteController extends Controller
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $fromChunk .= PHP_EOL;
-            $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $fromChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if ($resolution < 1920)
                 $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
@@ -391,8 +391,8 @@ class SiteController extends Controller
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $giftChunk .= PHP_EOL;
-            $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $giftChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if ($resolution < 1920)
                 $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
@@ -404,8 +404,8 @@ class SiteController extends Controller
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $fromChunk .= PHP_EOL;
-            $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if (!$key) $fromChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
             if ($resolution < 1920)
                 $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
