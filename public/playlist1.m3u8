@@ -17,10 +17,7 @@ https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/de
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/dev/810.mp4/media_0.ts
 #EXT-X-DISCONTINUITY
 #EXTINF:10,
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/dev/p3.mp4/media_0.ts
-#EXTINF:4.272,
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/dev/p3.mp4/media_1.ts
-#EXT-X-DISCONTINUITY
-#EXTINF:5.781,
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/dev/p4.mp4/media_0.ts
+https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/dev/p34.mp4/media_0.ts
+#EXTINF:10.021,
+https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/dev/p34.mp4/media_1.ts
 #EXT-X-ENDLIST
