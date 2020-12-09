@@ -1,13 +1,15 @@
 #EXTM3U
 #EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:60
+#EXT-X-DISCONTINUITY-SEQUENCE:0
 #EXT-X-TARGETDURATION:90
 #EXT-X-PLAYLIST-TYPE:EVENT
 #EXTINF:71.60,
 https://montage-cache.cdnvideo.ru/montage/kindern/part_i/girl/1920/p1.ts
+#EXT-X-DISCONTINUITY
 #EXTINF:2.92,
-#EXT-X-DISCONTINUITY
 https://montage-cache.cdnvideo.ru/montage/kindern/names/1920/1.ts
-#EXTINF:20.02,
 #EXT-X-DISCONTINUITY
+#EXTINF:20.02,
 https://montage-cache.cdnvideo.ru/montage/kindern/part_iii/1920/p3.ts
 #EXT-X-ENDLIST
