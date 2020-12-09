@@ -1,9 +1,9 @@
 #EXTM3U
 #EXT-X-VERSION:3
-#EXT-X-TARGETDURATION:17
+#EXT-X-TARGETDURATION:90
 #EXT-X-PLAYLIST-TYPE:EVENT
-#EXTINF:16,
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/dev/p1.mp4/media_0.ts
+#EXTINF:71.600,
+https://montage-cache.cdnvideo.ru/montage/kindern/part_i/girl/1024/p1.ts
 #EXTINF:10.04,
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/dev/p1.mp4/media_1.ts
 #EXTINF:12.88,
