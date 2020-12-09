@@ -4,7 +4,7 @@
 #EXT-X-PLAYLIST-TYPE:VOD
 #EXT-X-MEDIA-SEQUENCE:0
 #EXTINF:71.60,
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/part_i/pt1boy%20%281024xauto%29.mp4/playlist.m3u8
+https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/part_i/pt1boy%20%281024xauto%29.mp4/chunklist.m3u8
 #EXT-X-DISCONTINUITY
 #EXTINF:2.92,
 #EXT-X-BYTERANGE:82112@0
