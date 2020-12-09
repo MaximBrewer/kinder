@@ -2,9 +2,9 @@
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:90
 #EXT-X-PLAYLIST-TYPE:EVENT
-#EXTINF:71.600,
+#EXTINF:71.60,
 https://montage-cache.cdnvideo.ru/montage/kindern/part_i/girl/1024/p1.ts
-#EXTINF:2.940000,
+#EXTINF:2.92,
 #EXT-X-DISCONTINUITY
 https://montage-cache.cdnvideo.ru/montage/kindern/names/1024/1.ts
 #EXTINF:20.02,
