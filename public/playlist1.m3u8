@@ -2,7 +2,6 @@
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:5
 #EXT-X-PLAYLIST-TYPE:VOD
-#EXT-X-I-FRAMES-ONLY
 #EXTINF:71.60,
 #EXT-X-DISCONTINUITY
 https://montage-cache.cdnvideo.ru/montage/kindern/part_i/girl/1024/p1.ts
