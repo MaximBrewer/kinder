@@ -270,9 +270,9 @@ class SiteController extends Controller
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
 
-            if ($order->name->link == 810 && $resolution < 1280) {
-                $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "-" . $resolution . ".mp4/" . $chunk[1];
-            } else
+            // if ($order->name->link == 810 && $resolution < 1280) {
+            //     $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "-" . $resolution . ".mp4/" . $chunk[1];
+            // } else
             if ($resolution < 1920)
                 $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
