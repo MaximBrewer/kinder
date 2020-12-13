@@ -5,7 +5,4 @@
 #EXT-X-PLAYLIST-TYPE:EVENT
 #EXTINF:90,
 https://montage-cache.cdnvideo.ru/montage/kinderts/1/1920/1.ts
-#EXT-X-DISCONTINUITY
-#EXTINF:20,
-https://montage-cache.cdnvideo.ru/montage/kinderts/2/1920/p5.ts
 #EXT-X-ENDLIST
