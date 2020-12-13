@@ -30,3 +30,4 @@ https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/pa
 #EXT-X-DISCONTINUITY
 #EXTINF:5.8,
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/part_iv/pt4%20%281920x1080%29.mp4/media_0.ts
+#EXT-X-ENDLIST
