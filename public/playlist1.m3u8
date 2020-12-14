@@ -3,5 +3,14 @@
 #EXT-X-TARGETDURATION:90
 #EXT-X-PLAYLIST-TYPE:VOD
 #EXTINF:90,
-https://montage-cache.cdnvideo.ru/montage/kinderts/1/1024/p1.ts
+https://montage-cache.cdnvideo.ru/montage/kinderts/p1_1.ts
+#EXT-X-DISCONTINUITY
+#EXTINF:90,
+https://montage-cache.cdnvideo.ru/montage/kinderts/p1_2.ts
+#EXT-X-DISCONTINUITY
+#EXTINF:90,
+https://montage-cache.cdnvideo.ru/montage/kinderts/p1_3.ts
+#EXT-X-DISCONTINUITY
+#EXTINF:90,
+https://montage-cache.cdnvideo.ru/montage/kinderts/1.ts
 #EXT-X-ENDLIST
