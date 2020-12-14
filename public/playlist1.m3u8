@@ -3,11 +3,5 @@
 #EXT-X-MEDIA-SEQUENCE:60
 #EXT-X-DISCONTINUITY-SEQUENCE:0
 #EXTINF:20.04,
-https://montage-cache.cdnvideo.ru/montage/kinderts/p115.ts
-#EXT-X-DISCONTINUITY
-#EXTINF:43.52,
-https://montage-cache.cdnvideo.ru/montage/kinderts/p125.ts
-#EXT-X-DISCONTINUITY
-#EXTINF:28.68,
-https://montage-cache.cdnvideo.ru/montage/kinderts/p135.ts
+https://montage-cache.cdnvideo.ru/montage/kinderts/p1r20.ts
 #EXT-X-ENDLIST
