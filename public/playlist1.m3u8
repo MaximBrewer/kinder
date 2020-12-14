@@ -1,6 +1,8 @@
 #EXTM3U
-#EXT-X-VERSION:3
-#EXT-X-TARGETDURATION:30
+#EXT-X-VERSION:6
+#EXT-X-MEDIA-SEQUENCE:60
+#EXT-X-DISCONTINUITY-SEQUENCE:0
+#EXT-X-ALLOW-CACHE:NO
 #EXTINF:16,
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/outp1.mp4/media_0.ts
 #EXTINF:10.04,
