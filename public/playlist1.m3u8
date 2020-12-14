@@ -12,10 +12,8 @@ https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/o
 #EXTINF:16.915,
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/outp1.mp4/media_4.ts
 #EXT-X-DISCONTINUITY
-#EXTINF:10,
+#EXTINF:2.944,
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/out1.mp4/media_0.ts
-#EXTINF:4.767,
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/out1.mp4/media_1.ts
 #EXT-X-DISCONTINUITY
 #EXTINF:10,
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/outp3.mp4/media_0.ts
@@ -23,5 +21,5 @@ https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/o
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/outp3.mp4/media_1.ts
 #EXT-X-DISCONTINUITY
 #EXTINF:5.781,
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/outp3.mp4/media_0.ts
+https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/outp4.mp4/media_0.ts
 #EXT-X-ENDLIST
