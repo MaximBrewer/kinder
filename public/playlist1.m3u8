@@ -1,5 +1,6 @@
 #EXTM3U
 #EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:30
 #EXTINF:12,
 https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/p1x1%20%281024xauto%29.mp4/media_0.ts
 #EXTINF:7.477,
