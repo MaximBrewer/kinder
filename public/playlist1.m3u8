@@ -3,8 +3,7 @@
 #EXT-X-MEDIA-SEQUENCE:60
 #EXT-X-DISCONTINUITY-SEQUENCE:0
 #EXT-X-ALLOW-CACHE:NO
-#EXT-X-STREAM-INF:BANDWIDTH=2013719,RESOLUTION=1920x1080,CODECS="avc1.66.40,mp4a.40.2"
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/outp1%20%281920x1080%29.mp4/chunklist.m3u8
+#EXTINF:20.04,
+https://montage-cache.cdnvideo.ru/montage/kinderts/p1_15.ts
 #EXT-X-DISCONTINUITY
-#EXT-X-STREAM-INF:BANDWIDTH=7767278,RESOLUTION=1920x1080,CODECS="avc1.66.40,mp4a.40.2"
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/outp1%20%281920x1080%29.mp4/chunklist.m3u8
+#EXT-X-ENDLIST
