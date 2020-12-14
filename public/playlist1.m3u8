@@ -4,6 +4,10 @@
 #EXTINF:19.8,
 https://montage-cache.cdnvideo.ru/montage/kinderts/pn1_15.ts
 #EXT-X-DISCONTINUITY
-#EXTINF:7.8,
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/p1_1%20%281024xauto%29.mp4/media_1.ts
+#EXTINF:23.54,
+https://montage-cache.cdnvideo.ru/montage/kinderts/pn1_25.ts
+#EXT-X-DISCONTINUITY
+#EXTINF:19.26,
+https://montage-cache.cdnvideo.ru/montage/kinderts/pn1_35.ts
+#EXT-X-DISCONTINUITY
 #EXT-X-ENDLIST
