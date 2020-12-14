@@ -1,5 +1,3 @@
 #EXTM3U
 #EXT-X-VERSION:3
-#EXTINF:20.04,
-https://montage-cache.cdnvideo.ru/montage/kinderts/p1_1r10.ts?12
-#EXT-X-ENDLIST
+https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kinderts/p1_1.mp4/chunklist.m3u8
