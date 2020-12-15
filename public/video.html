@@ -33,16 +33,16 @@
 
     <script>
         var video = document.getElementById('video_html5_api');
-            var poster = document.getElementById('poster');
+        var poster = document.getElementById('poster');
         var videoSrc = '/playlist1.m3u8';
         var hls = new Hls();
         hls.loadSource(videoSrc);
         hls.attachMedia(video);
 
-        video.on("play", function() {
+        video.addEventListener("play", function() {
             poster.style.display = "none";
         });
-        video.on("pause", function() {
+        video.addEventListener("pause", function() {
             console.log(this);
             poster.style.display = "inline-block";
         });
