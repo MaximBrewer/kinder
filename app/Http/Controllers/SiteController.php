@@ -352,9 +352,6 @@ class SiteController extends Controller
         $partXVIChunk = view('chunks.part_xvi.' . $resolution, ['cdn' => $this->cdn]);
         $partXVIIChunk = view('chunks.part_xvii.' . $resolution, ['cdn' => $this->cdn]);
 
-
-        @mkdir(public_path("playlist"), 0755, true);
-
         $return = view('playlist', [
             'partIChunk' => $partIChunk,
             'nameChunk' => $nameChunk,
@@ -476,9 +473,6 @@ class SiteController extends Controller
         $partXVChunk = view('chunks.part_xv.' . $resolution, ['cdn' => $this->cdn]);
         $partXVIChunk = view('chunks.part_xvi.' . $resolution, ['cdn' => $this->cdn]);
         $partXVIIChunk = view('chunks.part_xvii.' . $resolution, ['cdn' => $this->cdn]);
-
-
-        @mkdir(public_path("uploadlist"), 0755, true);
 
         $return = view('playlist', [
             'partIChunk' => $partIChunk,
