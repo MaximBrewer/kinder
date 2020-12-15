@@ -30,7 +30,7 @@
                 Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank" class="vjs-hidden" hidden="hidden">совместимых с HTML5 видео</a>
             </p>
         </video>
-        <div class="vjs-poster" id="poster" tabindex="-1" aria-disabled="false" style="background-image: url(&quot;https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg&quot;);">
+        <div class="vjs-poster" id="poster" tabindex="-1" aria-disabled="false" style="background-image: url(https://montage-cache.cdnvideo.ru/montage/kindern/poster.jpg);">
         </div>
     </div>
     <script>
