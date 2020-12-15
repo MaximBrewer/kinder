@@ -68293,6 +68293,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 Object(es6_promise__WEBPACK_IMPORTED_MODULE_7__["polyfill"])();
+console.log(navigator.userAgent);
 /*! https://mths.be/scrollingelement v1.5.2 by @diegoperini & @mathias | MIT license */
 
 if (!('scrollingElement' in document)) (function () {
