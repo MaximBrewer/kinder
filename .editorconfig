@@ -1,15 +1,13 @@
-root = true
 
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-indent_style = space
-indent_size = 4
-trim_trailing_whitespace = true
 
-[*.md]
-trim_trailing_whitespace = false
 
-[*.{yml,yaml}]
-indent_size = 2
+
+
+
+ffmpeg -v error -i c4.mp4 -f mp4 -vcodec libx264 -vf "scale=1920:1080" -r 25 -b 10M -acodec aac -ac 2 -ar 24000 -ab 128k -strict experimental 1920/c4.mp4
+ffmpeg -v error -i 1920/c4.mp4 -f mp4 -vcodec libx264 -vf "scale=1280:720" -r 25 -b 5M -acodec aac -ac 2 -ar 24000 -ab 128k -strict experimental 1280/c4.mp4
+ffmpeg -v error -i 1280/c4.mp4 -f mp4 -vcodec libx264 -vf "scale=1024:576" -r 25 -b 3M -acodec aac -ac 2 -ar 24000 -ab 128k -strict experimental 1024/c4.mp4
+mkdir 1920 && mkdir 1280 && mkdir 1024
+cd 1024 && ffmpeg -i c4.mp4 -codec: copy -start_number 0 -hls_time 5 -hls_list_size 0 -f hls p_.m3u8
+cd ../1280 && ffmpeg -i c4.mp4 -codec: copy -start_number 0 -hls_time 5 -hls_list_size 0 -f hls p_.m3u8
+cd ../1920 && ffmpeg -i c4.mp4 -codec: copy -start_number 0 -hls_time 5 -hls_list_size 0 -f hls p_.m3u8
