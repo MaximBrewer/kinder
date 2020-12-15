@@ -30,4 +30,7 @@ https://montage-cache.cdnvideo.ru/montage/kinderts/part_11.ts
 https://montage-cache.cdnvideo.ru/montage/kinderts/part_12.ts
 #EXTINF:7.880000,
 https://montage-cache.cdnvideo.ru/montage/kinderts/part_13.ts
+#EXTINF:2.90000,
+#EXT-X-DISCONTINUITY
+https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/part_ii/1%20%281920x1080%29.mp4/media_0.ts
 #EXT-X-ENDLIST
