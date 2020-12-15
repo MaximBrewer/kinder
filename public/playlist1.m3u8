@@ -1,7 +1,6 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:30
-#EXT-X-DISCONTINUITY
 #EXTINF:19.84,
 https://montage-cache.cdnvideo.ru/montage/kinderts/cc1_000.ts
 #EXTINF:19.17,
