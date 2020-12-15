@@ -28,7 +28,7 @@ https://montage-cache.cdnvideo.ru/montage/kinderts/1/1024/p_10.ts
 https://montage-cache.cdnvideo.ru/montage/kinderts/1/1024/p_11.ts
 #EXTINF:2.90000,
 #EXT-X-DISCONTINUITY
-https://montage-vod-hls.cdnvideo.ru/montage-vod/_definst_/mp4:montage/kindern/part_ii/1%20%281024xauto%29.mp4/media_0.ts
+https://montage-cache.cdnvideo.ru/montage/kinderts/2/1024/1_0.ts
 #EXTINF:10.040000,
 #EXT-X-DISCONTINUITY
 https://montage-cache.cdnvideo.ru/montage/kinderts/3/1024/p_0.ts
