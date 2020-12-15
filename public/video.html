@@ -26,17 +26,27 @@
                 Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank" class="vjs-hidden" hidden="hidden">совместимых с HTML5 видео</a>
             </p>
         </video>
-        <div class="vjs-poster" tabindex="-1" aria-disabled="false"
+        <div class="vjs-poster" id="poster" tabindex="-1" aria-disabled="false"
             style="background-image: url(&quot;https://montage-cache.cdnvideo.ru/montage/.previews/preview-5fae91b4ef3db56d66205367.jpg&quot;);">
         </div>
     </div>
 
     <script>
         var video = document.getElementById('video_html5_api');
+            var poster = document.getElementById('poster');
         var videoSrc = '/playlist1.m3u8';
         var hls = new Hls();
         hls.loadSource(videoSrc);
         hls.attachMedia(video);
+
+        video.on("play", function() {
+            poster.style.display = "none";
+        });
+        video.on("pause", function() {
+            console.log(this);
+            poster.style.display = "inline-block";
+        });
+
     </script>
     <a href="javascript:void(0);" onclick="video.play()">Play</a>
 </body>
