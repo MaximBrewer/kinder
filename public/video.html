@@ -54,10 +54,11 @@
             playPause()
         });
 
-        video.addEventListener("play", function () {
+        video.addEventListener("play", function (e) {
             poster.style.display = "none";
         });
-        video.addEventListener("pause", function () {
+        video.addEventListener("pause", function (e) {
+            console.log(e);
             console.log(this);
             poster.style.display = "inline-block";
         });
