@@ -249,7 +249,7 @@ class SiteController extends Controller
         else $duration = $this->countDuration($orderFrom->chunks1920);
         $data['part_xiv_duration'] = $duration;
 
-        mkdir(public_path("video/$hash"));
+        mkdir(public_path("video/$hash"), 0755, true);
         file_put_contents(public_path("video/$hash/index.html"), view('video', $data));
 
         return view('video', $data);
@@ -353,7 +353,7 @@ class SiteController extends Controller
         $partXVIIChunk = view('chunks.part_xvii.' . $resolution, ['cdn' => $this->cdn]);
 
 
-        mkdir(public_path("playlist"));
+        mkdir(public_path("playlist"), 0755, true);
 
         $return = view('playlist', [
             'partIChunk' => $partIChunk,
@@ -478,7 +478,7 @@ class SiteController extends Controller
         $partXVIIChunk = view('chunks.part_xvii.' . $resolution, ['cdn' => $this->cdn]);
 
 
-        mkdir(public_path("playlist"));
+        mkdir(public_path("playlist"), 0755, true);
 
         $return = view('playlist', [
             'partIChunk' => $partIChunk,
