@@ -1,12 +1,16 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:30
+#EXT-X-DISCONTINUITY
 #EXTINF:19.84,
 https://montage-cache.cdnvideo.ru/montage/kinderts/cc1_000.ts
+#EXT-X-DISCONTINUITY
 #EXTINF:19.17,
 https://montage-cache.cdnvideo.ru/montage/kinderts/cc1_001.ts
+#EXT-X-DISCONTINUITY
 #EXTINF:20.73,
 https://montage-cache.cdnvideo.ru/montage/kinderts/cc1_002.ts
+#EXT-X-DISCONTINUITY
 #EXTINF:12.04,
 https://montage-cache.cdnvideo.ru/montage/kinderts/cc1_003.ts
 #EXT-X-ENDLIST
