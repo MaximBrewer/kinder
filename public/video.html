@@ -58,9 +58,7 @@
             poster.style.display = "none";
         });
         video.addEventListener("pause", function (e) {
-            console.log(e);
-            console.log(this);
-            poster.style.display = "inline-block";
+            !e.target.currentTime && (poster.style.display = "inline-block");
         });
 
     </script>
