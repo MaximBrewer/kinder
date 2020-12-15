@@ -26475,6 +26475,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var hls_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! hls.js */ "./node_modules/hls.js/dist/hls.js");
 /* harmony import */ var hls_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(hls_js__WEBPACK_IMPORTED_MODULE_0__);
 
+console.log(navigator.userAgent);
 var resolution = 1024;
 window.innerWidth > 640 && (resolution = 1280);
 window.innerWidth > 1024 && (resolution = 1920); // window.innerWidth > 1280 && (resolution = 1920);

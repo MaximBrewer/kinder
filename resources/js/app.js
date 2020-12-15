@@ -8,7 +8,6 @@ import Faq from "./sections/faq";
 import { polyfill } from 'es6-promise'; 
 polyfill();
 
-console.log(navigator.userAgent);
 
 /*! https://mths.be/scrollingelement v1.5.2 by @diegoperini & @mathias | MIT license */
 if (!('scrollingElement' in document)) (function() {
