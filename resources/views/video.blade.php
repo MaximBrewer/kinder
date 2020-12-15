@@ -44,7 +44,7 @@
             , part_xiv_duration = "{{ $part_xiv_duration }}" * 1
 
     </script>
-    <script src="/js/video.js?v=2.01"></script>
+    <script src="/js/video.js?v=3.01"></script>
     <style>
         .video-js:after {
             content: none;
