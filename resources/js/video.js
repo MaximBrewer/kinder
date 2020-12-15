@@ -1,6 +1,6 @@
 import Hls from 'hls.js';
 
-console.log(navigator.userAgent);
+alert(navigator.userAgent);
 
 var resolution = 1024;
 window.innerWidth > 640 && (resolution = 1280);
