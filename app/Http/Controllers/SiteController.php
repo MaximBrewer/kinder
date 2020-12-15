@@ -494,7 +494,7 @@ class SiteController extends Controller
             'partXVIIChunk' => $partXVIIChunk,
             'cdn' => $this->cdn
         ]);
-return public_path("uploadlist/$hash.m3u8");
+        
         file_put_contents(public_path("uploadlist/$hash.m3u8"), $return);
         return $return;
     }
