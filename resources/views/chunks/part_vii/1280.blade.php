@@ -1,5 +1,5 @@
-#EXT-X-DISCONTINUITY
 #EXTINF:10.8,
+#EXT-X-DISCONTINUITY
 {{ $cdn }}part_vii/pt7%20%281280xauto%29.mp4/media_0.ts
 #EXTINF:10.8,
 {{ $cdn }}part_vii/pt7%20%281280xauto%29.mp4/media_1.ts
