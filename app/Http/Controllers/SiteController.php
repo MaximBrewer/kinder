@@ -187,7 +187,6 @@ class SiteController extends Controller
         if ($request->get('name'))
             $orderName = \App\Models\Name::find($request->get('name'));
 
-        if (!$orderName->chunks640) $this->setChunks($orderName, 'part_ii', 640);
         if (!$orderName->chunks1024) $this->setChunks($orderName, 'part_ii', 1024);
         if (!$orderName->chunks1280) $this->setChunks($orderName, 'part_ii', 1280);
         if (!$orderName->chunks1920) $duration = $this->setChunks($orderName, 'part_ii', 1920);
@@ -200,7 +199,6 @@ class SiteController extends Controller
             if ($request->get('achieve'))
                 $orderAchieve = \App\Models\Achieve::find($request->get('achieve'));
 
-            if (!$orderAchieve->chunks640) $this->setChunks($orderAchieve, 'part_v', 640);
             if (!$orderAchieve->chunks1024) $this->setChunks($orderAchieve, 'part_v', 1024);
             if (!$orderAchieve->chunks1280) $this->setChunks($orderAchieve, 'part_v', 1280);
             if (!$orderAchieve->chunks1920) $duration = $this->setChunks($orderAchieve, 'part_v', 1920);
@@ -215,7 +213,6 @@ class SiteController extends Controller
             if ($request->get('hobby'))
                 $orderHobby = \App\Models\Hobby::find($request->get('hobby'));
 
-            if (!$orderHobby->chunks640) $this->setChunks($orderHobby, 'part_vi', 640);
             if (!$orderHobby->chunks1024) $this->setChunks($orderHobby, 'part_vi', 1024);
             if (!$orderHobby->chunks1280) $this->setChunks($orderHobby, 'part_vi', 1280);
             if (!$orderHobby->chunks1920) $duration = $this->setChunks($orderHobby, 'part_vi', 1920);
@@ -230,7 +227,6 @@ class SiteController extends Controller
         if ($request->get('gift'))
             $orderGift = \App\Models\Gift::find($request->get('gift'));
 
-        if (!$orderGift->chunks640) $this->setChunks($orderGift, 'part_xiii', 640);
         if (!$orderGift->chunks1024) $this->setChunks($orderGift, 'part_xiii', 1024);
         if (!$orderGift->chunks1280) $this->setChunks($orderGift, 'part_xiii', 1280);
         if (!$orderGift->chunks1920) $duration = $this->setChunks($orderGift, 'part_xiii', 1920);
@@ -242,7 +238,6 @@ class SiteController extends Controller
         if ($request->get('from'))
             $orderFrom = \App\Models\From::find($request->get('from'));
 
-        if (!$orderFrom->chunks640) $this->setChunks($orderFrom, 'part_xiv', 640);
         if (!$orderFrom->chunks1024) $this->setChunks($orderFrom, 'part_xiv', 1024);
         if (!$orderFrom->chunks1280) $this->setChunks($orderFrom, 'part_xiv', 1280);
         if (!$orderFrom->chunks1920) $duration = $this->setChunks($orderFrom, 'part_xiv', 1920);
@@ -266,20 +261,24 @@ class SiteController extends Controller
         $order = Order::where('hash', $hash)->first();
         $chunks = unserialize($order->name->{"chunks" . $resolution});
         $nameChunk = "";
+        $nameUploadChunk = "";
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $nameChunk .= PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
-            
+
             if ($resolution < 1920)
                 $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
                 $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+
+            $nameUploadChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%281920x1080%29.mp4/" . $chunk[1];
         }
 
 
         $achieveChunk = "";
+        $achieveUploadChunk = "";
 
         if ($order->achieve_id) {
 
@@ -293,10 +292,13 @@ class SiteController extends Controller
                     $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
                 else
                     $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+
+                $achieveUploadChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%281920x1080%29.mp4/" . $chunk[1];
             }
         }
 
         $hobbyChunk = "";
+        $hobbyUploadChunk = "";
 
         if ($order->hobby_id) {
 
@@ -310,11 +312,14 @@ class SiteController extends Controller
                     $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
                 else
                     $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+
+                $hobbyUploadChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%281920x1080%29.mp4/" . $chunk[1];
             }
         }
 
         $chunks = unserialize($order->gift->{"chunks" . $resolution});
         $giftChunk = "";
+        $giftUploadChunk = "";
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $giftChunk .= PHP_EOL;
@@ -324,10 +329,13 @@ class SiteController extends Controller
                 $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
                 $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+
+            $giftUploadChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%281920x1080%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->from->{"chunks" . $resolution});
         $fromChunk = "";
+        $fromUploadChunk = "";
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $fromChunk .= PHP_EOL;
@@ -337,6 +345,8 @@ class SiteController extends Controller
                 $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
                 $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+
+            $fromUploadChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%281920x1080%29.mp4/" . $chunk[1];
         }
 
         $partIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
@@ -374,6 +384,30 @@ class SiteController extends Controller
         ]);
 
         file_put_contents(public_path("playlist/$hash.m3u8"), $return);
+
+        $returnUpload = view('playlist', [
+            'partIChunk' => $partIChunk,
+            'nameChunk' => $nameChunk,
+            'partIIIChunk' => $partIIIChunk,
+            'partIVChunk' => $partIVChunk,
+            'achieveChunk' => $achieveChunk,
+            'hobbyChunk' => $hobbyChunk,
+            'partVIIChunk' => $partVIIChunk,
+            'partVIIIChunk' => $partVIIIChunk,
+            'partIXChunk' => $partIXChunk,
+            'partXChunk' => $partXChunk,
+            'partXIChunk' => $partXIChunk,
+            'partXIIChunk' => $partXIIChunk,
+            'giftChunk' => $giftChunk,
+            'fromChunk' => $fromChunk,
+            'partXVChunk' => $partXVChunk,
+            'partXVIChunk' => $partXVIChunk,
+            'partXVIIChunk' => $partXVIIChunk,
+            'cdn' => $this->cdn
+        ]);
+
+        file_put_contents(public_path("uploadlist/$hash.m3u8"), $returnUpload);
+
         return $return;
     }
 
@@ -393,7 +427,7 @@ class SiteController extends Controller
             if ($key) $nameChunk .= PHP_EOL;
             if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
             $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
-            
+
             if ($resolution < 1920)
                 $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
@@ -461,13 +495,13 @@ class SiteController extends Controller
                 $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
         }
 
-        $partIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
+        $partIChunk = view('chunks.part_i.' . $order->name->gender . '.1920', ['cdn' => $this->cdn]);
         $partIIIChunk = view('chunks.part_iii.' . $resolution, ['cdn' => $this->cdn]);
-        $partIVChunk = $order->photo ? view('chunks.part_iv.' . $resolution, ['cdn' => $this->cdn]) : PHP_EOL;
-        $partVIIChunk = view('chunks.part_vii.' . $resolution, ['cdn' => $this->cdn]);
-        $partVIIIChunk = view('chunks.part_viii.' . $resolution, ['cdn' => $this->cdn]);
-        $partIXChunk = view('chunks.part_ix.srg' . $resolution, ['cdn' => $this->cdn]);
-        $partXChunk = view('chunks.part_x.' . $resolution, ['cdn' => $this->cdn]);
+        $partIVChunk = $order->photo ? view('chunks.part_iv.' . '.1920', ['cdn' => $this->cdn]) : PHP_EOL;
+        $partVIIChunk = view('chunks.part_vii.1920', ['cdn' => $this->cdn]);
+        $partVIIIChunk = view('chunks.part_viii.1920', ['cdn' => $this->cdn]);
+        $partIXChunk = view('chunks.part_ix.srg1920', ['cdn' => $this->cdn]);
+        $partXChunk = view('chunks.part_x.1920', ['cdn' => $this->cdn]);
         $partXIChunk = view('chunks.part_xi.' . $resolution, ['cdn' => $this->cdn]);
         $partXIIChunk = view('chunks.part_xii.' . $resolution, ['cdn' => $this->cdn]);
         $partXVChunk = view('chunks.part_xv.' . $resolution, ['cdn' => $this->cdn]);
@@ -494,7 +528,7 @@ class SiteController extends Controller
             'partXVIIChunk' => $partXVIIChunk,
             'cdn' => $this->cdn
         ]);
-        
+
         file_put_contents(public_path("uploadlist/$hash.m3u8"), $return);
         return $return;
     }
