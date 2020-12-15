@@ -478,7 +478,7 @@ class SiteController extends Controller
         $partXVIIChunk = view('chunks.part_xvii.' . $resolution, ['cdn' => $this->cdn]);
 
 
-        @mkdir(public_path("playlist"), 0755, true);
+        @mkdir(public_path("uploadlist"), 0755, true);
 
         $return = view('playlist', [
             'partIChunk' => $partIChunk,
