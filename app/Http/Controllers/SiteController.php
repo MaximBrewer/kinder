@@ -385,26 +385,18 @@ class SiteController extends Controller
 
         file_put_contents(public_path("playlist/$hash.m3u8"), $return);
 
-        $returnUpload = view('playlist', [
-            'partIChunk' => $partIChunk,
-            'nameChunk' => $nameChunk,
-            'partIIIChunk' => $partIIIChunk,
-            'partIVChunk' => $partIVChunk,
-            'achieveChunk' => $achieveChunk,
-            'hobbyChunk' => $hobbyChunk,
-            'partVIIChunk' => $partVIIChunk,
-            'partVIIIChunk' => $partVIIIChunk,
-            'partIXChunk' => $partIXChunk,
-            'partXChunk' => $partXChunk,
-            'partXIChunk' => $partXIChunk,
-            'partXIIChunk' => $partXIIChunk,
-            'giftChunk' => $giftChunk,
-            'fromChunk' => $fromChunk,
-            'partXVChunk' => $partXVChunk,
-            'partXVIChunk' => $partXVIChunk,
-            'partXVIIChunk' => $partXVIIChunk,
-            'cdn' => $this->cdn
-        ]);
+        $returnUpload =
+            "https://montage-cache.cdnvideo.ru/montage/upload/" . $order->name->gender . ".ts" . PHP_EOL
+            . $nameUploadChunk . PHP_EOL
+            . "https://montage-cache.cdnvideo.ru/montage/upload/3.ts" . PHP_EOL
+            . "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts" . PHP_EOL
+            . $achieveUploadChunk . PHP_EOL
+            . $hobbyUploadChunk . PHP_EOL
+            . "https://montage-cache.cdnvideo.ru/montage/upload/7.ts" . PHP_EOL
+            . $giftUploadChunk . PHP_EOL
+            . $fromUploadChunk . PHP_EOL
+            . "https://montage-cache.cdnvideo.ru/montage/upload/15.ts" . PHP_EOL
+            . PHP_EOL;
 
         file_put_contents(public_path("uploadlist/$hash.m3u8"), $returnUpload);
 
