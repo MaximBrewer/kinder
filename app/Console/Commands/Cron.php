@@ -62,7 +62,7 @@ class Cron extends Command
             }
         }
 
-        $fp = fopen('./tmp/lock.txt', 'r+');
+        $fp = fopen('./tmp/lock.cron', 'r+');
 
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $orders = \App\Models\Order::where('status', 'confirmed')->where('video', 0)->orderBy('id', 'desc')->limit(10)->get();
