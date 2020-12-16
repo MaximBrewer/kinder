@@ -244,6 +244,9 @@ class SiteController extends Controller
         else $duration = $this->countDuration($orderFrom->chunks1920);
         $data['part_xiv_duration'] = $duration;
 
+        @mkdir(public_path("video/playlist"), 0755, true);
+        @mkdir(public_path("video/uploadlist"), 0755, true);
+        // @mkdir(public_path("video/$hash"), 0755, true);
         // @mkdir(public_path("video/$hash"), 0755, true);
         // file_put_contents(public_path("video/$hash/index.html"), view('video', $data));
 
