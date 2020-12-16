@@ -70,6 +70,8 @@ class Cron extends Command
                 try {
                     $filepath = storage_path(('app/public/' . $order->id) . "/final.ts");
 
+                    echo $order->id;
+
                     if (!is_file($filepath)) {
                         exec("./makevideo.sh " . storage_path(('app/public/') . $order->photo . " " . storage_path(('app/public/') . $order->id)));
                     }
