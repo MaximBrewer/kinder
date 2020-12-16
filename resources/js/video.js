@@ -51,7 +51,7 @@ var pauseTimeout30 = false;
 
 var Android = /(android)/i.test(navigator.userAgent);
 
-if (!Android) {
+if (Android) {
 
     var elVidWrap = document.createElement("div");
     elVidWrap.id = "video";

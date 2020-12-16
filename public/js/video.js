@@ -21729,7 +21729,7 @@ var paused = true,
 var pauseTimeout30 = false;
 var Android = /(android)/i.test(navigator.userAgent);
 
-if (!Android) {
+if (Android) {
   var playPause = function playPause() {
     player.paused && player.play() || player.pause();
   };
