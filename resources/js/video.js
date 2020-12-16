@@ -422,7 +422,7 @@ giftsElement.appendChild(whiteImg);
 giftsElement.appendChild(goldImg);
 
 function touchAudio() {
-    console.log(player.paused);
+    console.log(player);
     player.play();
     audio.play();
     document.getElementById("video").removeEventListener("click", touchAudio);
