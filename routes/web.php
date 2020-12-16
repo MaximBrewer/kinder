@@ -17,6 +17,7 @@ Route::get('/unsubscribe', '\App\Http\Controllers\SiteController@unsubscribe');
 Route::post('/patch', '\App\Http\Controllers\SiteController@patch');
 Route::get('/test-mail', '\App\Http\Controllers\SiteController@testMail');
 Route::get('/video/{hash}', '\App\Http\Controllers\SiteController@video');
+Route::get('/video/{hash}/', '\App\Http\Controllers\SiteController@video');
 Route::get('/playlist/{hash}.m3u8', '\App\Http\Controllers\SiteController@playlist');
 Route::get('/uploadlist/{hash}.m3u8', '\App\Http\Controllers\SiteController@uploadlist');
 Route::get('/playlist-color/{hash}.m3u8', '\App\Http\Controllers\SiteController@playlistColor');

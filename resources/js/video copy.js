@@ -1,4 +1,4 @@
-
+import Hls from 'hls.js';
 
 var resolution = 1024;
 window.innerWidth > 640 && (resolution = 1280);
@@ -16,7 +16,7 @@ var part_i_duration = 71.517,
     part_xii_duration = 13.514,
     part_xv_duration = 26.958,
     part_xvi_duration = 5.921,
-    part_xvii_duration = 12.562, el;
+    part_xvii_duration = 12.562;
 
 var paused = true,
     color = "s",
@@ -40,8 +40,55 @@ var paused = true,
 
 var pauseTimeout30 = false;
 
-var checkTimeouts = function () {
-    var ct = player.currentTime();
+var wrapper = document.getElementById('video');
+var player = document.getElementById('video_html5_api');
+player.allowFullscreen = false;
+
+var audio = document.getElementById('audio');
+
+var poster = document.getElementById('poster');
+var videoSrc = "/playlist/" + hash + ".m3u8?resolution=" + resolution;
+var hls = new Hls();
+hls.loadSource(videoSrc);
+hls.attachMedia(player);
+
+function playPause() {
+    player.paused && player.play() || player.pause()
+}
+poster.addEventListener("click", function () {
+    playPause()
+});
+player.addEventListener("click", function () {
+    playPause()
+});
+
+player.addEventListener("play", function (e) {
+    currentTime = e.target.currentTime;
+    clearTimeout(pauseTimeout30);
+    audio.play();
+    poster.style.display = "none";
+});
+player.addEventListener("pause", function (e) {
+    currentTime = e.target.currentTime;
+    !currentTime && (poster.style.display = "inline-block");
+    if (paused) audio.pause();
+    else {
+        pauseTimeout30 = setTimeout(function () {
+            player.play();
+        }, 30000);
+    }
+});
+player.addEventListener("timeupdate", function (e) {
+    currentTime = e.target.currentTime;
+    checkTimeouts();
+});
+player.addEventListener("firstplay", function (e) {
+    currentTime = e.target.currentTime;
+});
+
+
+var checkTimeouts = function (e) {
+    var ct = currentTime;
     paused = true;
 
     if (photo) {
@@ -75,19 +122,19 @@ var checkTimeouts = function () {
     if (ct < tb + part_viii_duration + part_ix_duration) {
         if (color == "s") {
             if (ct > tb + part_viii_duration + 6.5) {
-                player.currentTime(tb + part_viii_duration + part_ix_duration)
+                player.currentTime = tb + part_viii_duration + part_ix_duration + 0.5
             }
         }
 
         if (color == "g") {
             if (ct > tb + part_viii_duration + 13.5) {
-                player.currentTime(tb + part_viii_duration + part_ix_duration)
+                player.currentTime = tb + part_viii_duration + part_ix_duration + 0.5
             }
         }
 
         if (color == "r") {
             if (ct > tb + part_viii_duration + 20.5) {
-                player.currentTime(tb + part_viii_duration + part_ix_duration)
+                player.currentTime = tb + part_viii_duration + part_ix_duration + 0.5
             }
         }
     }
@@ -129,22 +176,17 @@ var checkTimeouts = function () {
 
 var setPhoto = function () {
     photoSetted = 1;
-    if (player.isFullscreen()) player.exitFullscreen();
     player.play();
     document.getElementById("photoElement").style.zIndex = "100";
-},
-    removePhoto = function () {
-        photoSetted = 0;
-        console.log("removePhoto");
-        document.getElementById("photoElement") &&
-            (document.getElementById("photoElement").style.zIndex = "-1");
-    };
-
-var setBall = function () {
+}, removePhoto = function () {
+    photoSetted = 0;
+    console.log("removePhoto");
+    document.getElementById("photoElement") &&
+        (document.getElementById("photoElement").style.zIndex = "-1");
+}, setBall = function () {
     ballsSetted = 1;
     player.play();
     console.log("setBall");
-    if (player.isFullscreen()) player.exitFullscreen();
     player.play();
     document.getElementById("ballsElement").style.zIndex = "100";
     document
@@ -154,46 +196,39 @@ var setBall = function () {
         .getElementById("ballsElement")
         .addEventListener("click", chooseBall);
     clearTimeout(setBallsPause);
-    var ct = player.currentTime();
+    var ct = currentTime;
     setBallsPause = setTimeout(function () {
         player.pause();
     }, (tb + part_viii_duration - ct - 0.5) * 1000);
-};
-
-var removeBalls = function () {
+}, removeBalls = function () {
     ballsSetted = 0;
     console.log("removeBalls");
     document.getElementById("ballsElement") &&
         (document.getElementById("ballsElement").style.zIndex = "-1");
-};
-
-var setGifts = function () {
+}, setGifts = function () {
     document.getElementById("redImg").style.opacity = 0;
     document.getElementById("whiteImg").style.opacity = 0;
     document.getElementById("goldImg").style.opacity = 0;
     giftsSetted = 1;
     player.play();
     console.log("setGifts");
-    if (player.isFullscreen()) player.exitFullscreen();
+    // if (player.isFullscreen()) player.exitFullscreen();
     player.play();
     clearTimeout(setGiftsPause);
-    var ct = player.currentTime();
+    var ct = currentTime;
     document.getElementById("giftsElement").style.zIndex = "100";
     setGiftsPause = setTimeout(function () {
         player.pause();
     }, (tg + part_xi_duration - ct - 0.5) * 1000);
-};
-var removeGifts = function () {
+}, removeGifts = function () {
     giftsSetted = 0;
     console.log("removeGifts");
     document.getElementById("giftsElement") &&
         (document.getElementById("giftsElement").style.zIndex = "-1");
-};
-
-var chooseBall = function (e) {
+}, chooseBall = function (e) {
     clearTimeout(setBallsPause);
-    var videoHeight = player.el().offsetHeight,
-        videoWidth = player.el().offsetWidth;
+    var videoHeight = wrapper.offsetHeight,
+        videoWidth = wrapper.offsetWidth;
 
     if (videoHeight > (videoWidth * 720) / 1280) {
         var width = videoWidth,
@@ -212,7 +247,7 @@ var chooseBall = function (e) {
     if (margin + (width - width * 0.375) < clientX) color = "s";
 
     photo = false;
-    player.currentTime(tb + part_viii_duration + (color == "s" ? 0.5 : (color == "g" ? 7.5 : 14.5)));
+    player.currentTime = tb + part_viii_duration + (color == "s" ? 0.5 : (color == "g" ? 7.5 : 14.5));
     player.play();
     setTimeout(function () {
         removeBalls();
@@ -223,8 +258,8 @@ window.addEventListener(
     "resize",
     function () {
         if (player) {
-            var videoHeight = player.el().offsetHeight,
-                videoWidth = player.el().offsetWidth;
+            var videoHeight = wrapper.offsetHeight,
+                videoWidth = wrapper.offsetWidth;
             if (videoHeight > (videoWidth * 720) / 1280) {
                 var width = videoWidth,
                     height = (width / 1280) * 720,
@@ -249,8 +284,8 @@ window.addEventListener(
 
 var createEl = function (id) {
     window.scrollTo(0, 1);
-    var videoHeight = player.el().offsetHeight,
-        videoWidth = player.el().offsetWidth;
+    var videoHeight = wrapper.offsetHeight,
+        videoWidth = wrapper.offsetWidth;
     if (videoHeight > (videoWidth * 720) / 1280) {
         var width = videoWidth,
             height = (width / 1280) * 720,
@@ -261,7 +296,7 @@ var createEl = function (id) {
             width = (height / 720) * 1280;
         (top = 0), (left = (videoWidth - width) / 2);
     }
-    el = document.createElement("div");
+    var el = document.createElement("div");
     el.id = id;
     el.style.position = "absolute";
     el.classList.add("resizable");
@@ -272,25 +307,6 @@ var createEl = function (id) {
     el.style.zIndex = "-10";
     el.style.backgroundColor = "#000000";
     return el;
-};
-var audio = document.getElementById("audio");
-audio.addEventListener("play", function () {
-    console.log("audioPlay");
-    audio.volume = volumeInit;
-})
-audio.addEventListener("ended", function () {
-    console.log("audioEnded");
-    audio.play();
-})
-
-var stopMusic = function () {
-    musicStopped = true;
-    var v = audio.volume * 100 - 1;
-    audio.volume = v / 100;
-    if (--v * 1 < 0) return false;
-    setTimeout(function () {
-        stopMusic();
-    }, 100);
 };
 
 var chooseGift = function (e) {
@@ -307,56 +323,11 @@ var chooseGift = function (e) {
         document.getElementById("goldImg").style.opacity == "1"
     ) {
         setTimeout(function () {
-            player.currentTime(tg + part_xi_duration + 1.3);
+            currentTime = tg + part_xi_duration + 1.3;
             player.play();
         }, 300);
     }
 };
-
-var pauseTimeout30 = false;
-var player = videojs(
-    "video",
-    {
-        controlBar: {
-            fullscreenToggle: false
-        },
-        sources: [
-            {
-                src: "/playlist/" + hash + ".m3u8?resolution=" + resolution,
-                type: "application/x-mpegURL"
-            }
-        ],
-        controls: true,
-        poster:
-            "/img/poster.jpg"
-    },
-    function () {
-        var that = this;
-        that.el().addEventListener("click", touchAudio);
-        that.el().addEventListener("touchstart", touchAudio);
-        this.on("play", function () {
-            clearTimeout(pauseTimeout30);
-            audio.play();
-        });
-        this.on("pause", function () {
-            if (paused) audio.pause();
-            else {
-                pauseTimeout30 = setTimeout(function () {
-                    that.play();
-                }, 30000);
-            }
-        });
-        this.on("ended", function () {
-            audio.pause();
-        });
-        this.on("firstplay", function () {
-            player.play();
-        });
-        this.on("timeupdate", function () {
-            checkTimeouts(that);
-        });
-    }
-);
 
 var photoElement = createEl("photoElement");
 photoElement.style.background =
@@ -420,11 +391,23 @@ giftsElement.appendChild(redImg);
 giftsElement.appendChild(whiteImg);
 giftsElement.appendChild(goldImg);
 
-function touchAudio() {
-    if (player.paused()) player.play();
+var touchAudio = function () {
+    if (player.paused) player.play();
     if (audio.paused) audio.play();
     document.getElementById("video").removeEventListener("click", touchAudio);
     document
         .getElementById("video")
         .removeEventListener("touchstart", touchAudio);
-}
+}, stopMusic = function () {
+    musicStopped = true;
+    var v = audio.volume * 100 - 1;
+    audio.volume = v / 100;
+    if (--v * 1 < 0) return false;
+    setTimeout(function () {
+        stopMusic();
+    }, 100);
+};
+
+
+player.addEventListener("click", touchAudio);
+player.addEventListener("touchstart", touchAudio);

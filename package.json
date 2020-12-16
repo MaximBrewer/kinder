@@ -19,9 +19,11 @@
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.27.0",
         "sass-loader": "^8.0.2",
+        "video.js": "^7.10.2",
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@videojs/http-streaming": "^2.4.0",
         "es6-promise": "^4.2.8",
         "hls.js": "^1.0.0-alpha.5",
         "html-react-parser": "^0.14.0",
@@ -47,6 +49,7 @@
         "slick-carousel": "^1.8.1",
         "videojs": "^1.0.0",
         "videojs-canvas-plugin": "^1.0.5",
+        "videojs-contrib-hls": "^5.15.0",
         "videojs-playlist": "^4.3.1"
     }
 }

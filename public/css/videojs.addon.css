@@ -1,0 +1,94 @@
+html, body {
+    height: 100%;
+}
+
+.vjs-control-bar {
+    z-index: 2001;
+}
+
+.video-addon-js {
+    width: 100%!important;
+    height: 100%!important;
+}
+.audio-addon-js {
+    width: 100%!important;
+}
+
+.video-js:after {
+    content: '.';
+    display: block;
+    position: relative;
+    visibility: hidden;
+    margin: 0 0 0 -100%;
+    padding: 40.1% 0 0
+}
+
+.vjs-big-play-button {
+    top: 50%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.vjs-control-bar {
+    z-index: 2001;
+}
+
+.video-addon-js {
+    width: 100%!important;
+    height: 100%!important;
+}
+.audio-addon-js {
+    width: 100%!important;
+}
+
+.video-js:after {
+    content: '.';
+    display: block;
+    position: relative;
+    visibility: hidden;
+    margin: 0 0 0 -100%;
+    padding: 40.1% 0 0
+}
+
+.vjs-big-play-button {
+    top: 50%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+}
+
+.vjs-fullscreen-control {
+    -webkit-box-ordinal-group: 6;
+    -moz-box-ordinal-group: 6;
+    -webkit-order: 6;
+    -ms-flex-order: 6;
+    -ms-order: 6;
+    order: 6;
+}
+
+/*Related*/
+.vjs-related-carousel-holder {
+    top: 5px !important;
+}
+.carousel-item-title {
+    overflow: hidden;
+}
+.carousel-item {
+    margin-right: 10px;
+}
+.vjs-related-carousel-holder {
+    z-index: 2001;
+}
+
+/*Social*/
+.vjs-share-control {
+    cursor: pointer;
+}
+.vjs-social-overlay {
+    z-index: 2001;
+}
