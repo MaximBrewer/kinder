@@ -47,7 +47,6 @@
     </script>
 
     <script src="/js/video.min.js"></script>
-    <script src="/js/videojs-http-streaming.min.js"></script>
     <script src="/js/video.js?v=4.01"></script>
     <style>
         .video-js:after {
