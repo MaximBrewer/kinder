@@ -42,7 +42,6 @@
 
     </script>
 
-    <script src="/js/video.min.js?v=4.02"></script>
     <script src="/js/video.js?v=4.02"></script>
     <style>
         .video-js:after {
