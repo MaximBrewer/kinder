@@ -21,11 +21,11 @@
 
 <body style="margin:0;padding:0;">
     <div style="overflow:hidden;z-index:-1;position:absolute;top:0;left:0;width:1px;height:1px;">
-        <audio id="audio" allowFullscreen="false">
+        <audio id="audio" allowFullscreen="false"  playsinline>
             <source src="https://montage-cache.cdnvideo.ru/montage/kindern/music6.mp3" type="audio/mpeg">
             <source src="https://montage-cache.cdnvideo.ru/montage/kindern/music6.wav" type="audio/wav">
         </audio>
-    </div><video id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered" poster="/img/poster.jpg" preload="true" width="640" height="480" data-setup='{
+    </div><video  playsinline id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered" poster="/img/poster.jpg" preload="true" width="640" height="480" data-setup='{
         "html5": {
             "nativeTextTracks": false
         }
