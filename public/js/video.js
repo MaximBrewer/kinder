@@ -378,6 +378,7 @@ var player = videojs("video", {
   controls: true,
   poster: "/img/poster.jpg"
 }, function () {
+  this.allowFullscreen = false;
   var that = this;
   that.el().addEventListener("click", touchAudio);
   that.el().addEventListener("touchstart", touchAudio);
