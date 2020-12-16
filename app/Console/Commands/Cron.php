@@ -65,7 +65,7 @@ class Cron extends Command
         $fp = fopen(storage_path('tmp/lock.cron'), 'r+');
 
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $orders = \App\Models\Order::where('status', 'confirmed')->where('video', 0)->orderBy('id', 'desc')->limit(10)->get();
+            $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->orderBy('id', 'desc')->limit(10)->get();
             foreach ($orders as $order) {
                 try {
                     $filepath = storage_path(('app/public/' . $order->id) . "/final.ts");
