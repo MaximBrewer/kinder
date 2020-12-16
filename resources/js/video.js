@@ -1,13 +1,13 @@
-import eruda from "eruda";
+// import eruda from "eruda";
 import Hls from 'hls.js';
 
-let ele = document.createElement('div');
-document.body.appendChild(ele);
+// let ele = document.createElement('div');
+// document.body.appendChild(ele);
 
-eruda.init({
-    container: ele,
-    tool: ['console', 'elements']
-});
+// eruda.init({
+//     container: ele,
+//     tool: ['console', 'elements']
+// });
 
 var resolution = 1024;
 window.innerWidth > 640 && (resolution = 1280);
