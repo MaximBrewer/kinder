@@ -451,6 +451,7 @@ giftsElement.appendChild(whiteImg);
 giftsElement.appendChild(goldImg);
 
 function touchAudio() {
+  console.log(1);
   if (player.paused) player.play();
   if (audio.paused) audio.play();
   document.getElementById("video").removeEventListener("click", touchAudio);
