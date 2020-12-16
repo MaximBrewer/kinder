@@ -81,12 +81,13 @@ if (!Android) {
 
     var poster = document.createElement("div");
     poster.ariaDisabled = "false";
-    poster.style.backgroundImage = "/img/poster.jpg";
+    poster.style.backgroundImage = "url(/img/poster.jpg)";
     poster.classList.add("vjs-poster");
 
     elVid.appendChild(elVidP);
     elVidWrap.appendChild(elVid);
     elVidWrap.appendChild(poster);
+    
     document.getElementsByTagName("body")[0].appendChild(elVidWrap);
 
 

@@ -21759,7 +21759,7 @@ if (!Android) {
   elVidP.innerHTML = "Для просмотра включите яваскрипт или обновите браузер до <a href=\"http://videojs.com/html5-video-support/\" target=\"_blank\">совместимых с HTML5 видео</a>";
   var poster = document.createElement("div");
   poster.ariaDisabled = "false";
-  poster.style.backgroundImage = "/img/poster.jpg";
+  poster.style.backgroundImage = "url(/img/poster.jpg)";
   poster.classList.add("vjs-poster");
   elVid.appendChild(elVidP);
   elVidWrap.appendChild(elVid);
