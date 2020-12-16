@@ -54,6 +54,10 @@
             content: none;
         }
 
+        .video-js .vjs-control {
+            overflow: hidden;
+        }
+
     </style>
 </body>
 
