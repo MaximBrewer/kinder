@@ -41,9 +41,9 @@ convert -background None -virtual-pixel transparent -background transparent \
 
 convert "perspective.png"  -background transparent -rotate 1 "rotate.png"
 
-composite -geometry '+'$wdn'+'$hdn "rotate.png" photo.png mask.jpg "final.jpg"
+composite -geometry '+'$wdn'+'$hdn "rotate.png" /home/debian/www/storage/tmp/photo.png /home/debian/www/storage/tmp/mask.jpg "final.jpg"
 
 jpegoptim "final.jpg" --strip-all
 
 ffmpeg -filter_complex aevalsrc=0 -loop 1 -i "final.jpg" -t 5.8 "final.mp4"
-ffmpeg -i "final.mp4" -i sound.aac -c:a aac -c:v libx264 -map 0:v:0 -map 1:a:0 "final.ts"
+ffmpeg -i "final.mp4" -i /home/debian/www/storage/tmp/sound.aac -c:a aac -c:v libx264 -map 0:v:0 -map 1:a:0 "final.ts"
