@@ -72,7 +72,7 @@ var checkTimeouts = function () {
         giftsSetted && removeGifts();
     }
 
-    if (ct < tb + part_viii_duration + part_ix_duration) {
+    if (ct < tb + part_viii_duration + part_ix_duration - 1) {
         if (color == "s") {
             if (ct > tb + part_viii_duration + 6.5) {
                 player.currentTime(tb + part_viii_duration + part_ix_duration)
