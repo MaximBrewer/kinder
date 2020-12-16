@@ -134,7 +134,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ele = document.createElement('div');
 document.body.appendChild(ele);
-eruda.init({
+eruda__WEBPACK_IMPORTED_MODULE_0___default.a.init({
   container: ele,
   tool: ['console', 'elements']
 });

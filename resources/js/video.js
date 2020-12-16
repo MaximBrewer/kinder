@@ -1,4 +1,4 @@
-import "eruda";
+import eruda from "eruda";
 
 let ele = document.createElement('div');
 document.body.appendChild(ele);
