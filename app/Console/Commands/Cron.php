@@ -47,7 +47,7 @@ class Cron extends Command
         );
         file_put_contents(
             storage_path(('app/public') . '/total.json'),
-            '{"total":'.$cnt.'}'
+            '{"total":' . $cnt . '}'
         );
         $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 0)->orderBy('id', 'desc')->limit(50)->get();
         foreach ($orders as $order) {
@@ -61,6 +61,52 @@ class Cron extends Command
                 report($e);
             }
         }
+
+        mkdir('./tmp', 0755);
+
+        $fp = fopen('./tmp/lock.txt', 'r+');
+
+        if (flock($fp, LOCK_EX | LOCK_NB)) {
+            $orders = \App\Models\Order::where('status', 'confirmed')->where('video', 0)->orderBy('id', 'desc')->limit(10)->get();
+            foreach ($orders as $order) {
+                try {
+                    if (!is_file(storage_path(('app/public/' . $order->id) . "/final.ts"))) {
+                        exec("./makevideo.sh " . storage_path(('app/public/') . $order->photo) . " " . storage_path(('app/public/') . $order->id));
+                    }
+
+                    if (is_file(storage_path(('app/public/' . $order->id) . "/final.ts"))) {
+
+                        $client = new \GuzzleHttp\Client();
+
+                        $response = $client->post('https://auth.platformcraft.ru/token', [
+                            'form_params' => ['login' => 'montage', 'password' => 'fz7skpFa']
+                        ]);
+                        $array = json_decode($response->getBody()->getContents());
+
+                        $client->request('POST', "https://filespot.platformcraft.ru/2/fs/container/" . $array->user_id . "/object/photo/" . $order->id . ".ts", [
+                            'multipart' => [
+                                [
+                                    'name'     => 'file',
+                                    'contents' => fopen('/Users/maxim/Downloads/p4/1.final.ts', 'r'),
+                                    'filename' => $order->id . ".ts"
+                                ],
+                            ],
+                            'headers' => [
+                                "Authorization" => "Bearer " . $array->access_token
+                            ]
+                        ]);
+
+                        $order->update([
+                            'video' => 1
+                        ]);
+                    }
+                } catch (Throwable $e) {
+                    report($e);
+                }
+            }
+            fclose($fp);
+        }
+
         return 0;
     }
 }

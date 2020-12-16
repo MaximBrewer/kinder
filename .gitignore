@@ -6,6 +6,7 @@
 /public/video/*
 /public/phpmyadmin
 /storage/*.key
+/tmp
 /vendor
 .env
 /.nginx.conf
