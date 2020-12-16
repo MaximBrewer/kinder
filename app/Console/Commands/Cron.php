@@ -70,11 +70,13 @@ class Cron extends Command
             $orders = \App\Models\Order::where('status', 'confirmed')->where('video', 0)->orderBy('id', 'desc')->limit(10)->get();
             foreach ($orders as $order) {
                 try {
-                    if (!is_file(storage_path(('app/public/' . $order->id) . "/final.ts"))) {
+                    $filepath = storage_path(('app/public/' . $order->id) . "/final.ts");
+
+                    if (!is_file($filepath)) {
                         exec("./makevideo.sh " . storage_path(('app/public/') . $order->photo) . " " . storage_path(('app/public/') . $order->id));
                     }
 
-                    if (is_file(storage_path(('app/public/' . $order->id) . "/final.ts"))) {
+                    if (is_file($filepath)) {
 
                         $client = new \GuzzleHttp\Client();
 
@@ -87,7 +89,7 @@ class Cron extends Command
                             'multipart' => [
                                 [
                                     'name'     => 'file',
-                                    'contents' => fopen('/Users/maxim/Downloads/p4/1.final.ts', 'r'),
+                                    'contents' => fopen($filepath, "r"),
                                     'filename' => $order->id . ".ts"
                                 ],
                             ],
