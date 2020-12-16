@@ -331,7 +331,6 @@ var player = videojs(
             "/img/poster.jpg"
     },
     function () {
-
         this.allowFullscreen = false;
         var that = this;
         that.el().addEventListener("click", touchAudio);
@@ -423,7 +422,7 @@ giftsElement.appendChild(whiteImg);
 giftsElement.appendChild(goldImg);
 
 function touchAudio() {
-    if (player.paused()) player.play();
+    if (player.paused) player.play();
     if (audio.paused) audio.play();
     document.getElementById("video").removeEventListener("click", touchAudio);
     document
