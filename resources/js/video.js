@@ -1,5 +1,15 @@
 import eruda from "eruda";
-import videojs from "video.js"
+
+
+var Android = /(android)/i.test(navigator.userAgent); 
+  
+if(Android) { 
+    console.log("Android")
+} else {
+    console.log("IOS")
+}
+
+
 
 let ele = document.createElement('div');
 document.body.appendChild(ele);
