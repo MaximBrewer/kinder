@@ -71,7 +71,7 @@ class Cron extends Command
                     $filepath = storage_path(('app/public/' . $order->id) . "/final.ts");
 
                     if (!is_file($filepath)) {
-                        exec("./makevideo.sh " . storage_path(('app/public/') . $order->photo) . " " . storage_path(('app/public/') . $order->id));
+                        exec("./makevideo.sh " . storage_path(('app/public/') . $order->photo));
                     }
 
                     if (is_file($filepath)) {
