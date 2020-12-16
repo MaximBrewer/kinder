@@ -68,7 +68,7 @@ class Cron extends Command
             $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->orderBy('id', 'desc')->limit(10)->get();
             foreach ($orders as $order) {
                 try {
-                    $filepath = storage_path(('app/public/' . $order->id) . "/final.ts");
+                    $filepath = storage_path(('app/public/orders/' . $order->id) . "/final.ts");
 
                     if (!is_file($filepath)) {
                         exec("./makevideo.sh " . storage_path(('app/public/') . $order->photo . " " . storage_path(('app/public/') . $order->id)));
