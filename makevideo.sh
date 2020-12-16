@@ -45,5 +45,5 @@ composite -geometry '+'$wdn'+'$hdn "rotate.png" /home/debian/www/storage/tmp/pho
 
 jpegoptim "final.jpg" --strip-all
 
-ffmpeg -filter_complex aevalsrc=0 -loop 1 -i "final.jpg" -t 5.8 "final.mp4"
-ffmpeg -i "final.mp4" -i /home/debian/www/storage/tmp/sound.aac -c:a aac -c:v libx264 -map 0:v:0 -map 1:a:0 "final.ts"
+ffmpeg -hide_banner -loglevel panic -filter_complex aevalsrc=0 -loop 1 -i "final.jpg" -t 5.8 "final.mp4"
+ffmpeg -hide_banner -loglevel panic -i "final.mp4" -i /home/debian/www/storage/tmp/sound.aac -c:a aac -c:v libx264 -map 0:v:0 -map 1:a:0 "final.ts"

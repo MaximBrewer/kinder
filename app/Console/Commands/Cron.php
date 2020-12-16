@@ -70,8 +70,6 @@ class Cron extends Command
                 try {
                     $filepath = storage_path(('app/public/' . $order->id) . "/final.ts");
 
-                    echo $order->id;
-
                     if (!is_file($filepath)) {
                         exec("./makevideo.sh " . storage_path(('app/public/') . $order->photo . " " . storage_path(('app/public/') . $order->id)));
                     }
@@ -84,6 +82,8 @@ class Cron extends Command
                             'form_params' => ['login' => 'montage', 'password' => 'fz7skpFa']
                         ]);
                         $array = json_decode($response->getBody()->getContents());
+
+                        var_dump($array);
 
                         $client->request('POST', "https://filespot.platformcraft.ru/2/fs/container/" . $array->user_id . "/object/photo/" . $order->id . ".ts", [
                             'multipart' => [
