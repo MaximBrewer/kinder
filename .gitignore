@@ -1,6 +1,9 @@
 /node_modules
 /public/hot
 /public/storage
+/public/playlist/*
+/public/uploadlist/*
+/public/video/*
 /public/phpmyadmin
 /storage/*.key
 /vendor
