@@ -1,4 +1,5 @@
 import eruda from "eruda";
+import videojs from "video.js"
 
 let ele = document.createElement('div');
 document.body.appendChild(ele);
