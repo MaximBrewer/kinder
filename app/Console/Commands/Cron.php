@@ -98,6 +98,13 @@ class Cron extends Command
                             ]
                         ]);
 
+                        @unlink(storage_path('app/public/orders/' . $order->id . '/') . "tmp.png");
+                        @unlink(storage_path('app/public/orders/' . $order->id . '/') . "perspective.png");
+                        @unlink(storage_path('app/public/orders/' . $order->id . '/') . "rotate.png");
+                        @unlink(storage_path('app/public/orders/' . $order->id . '/') . "final.jpg");
+                        @unlink(storage_path('app/public/orders/' . $order->id . '/') . "final.mp4");
+                        @unlink(storage_path('app/public/orders/' . $order->id . '/') . "final.ts");
+
                         $order->update([
                             'video' => 1
                         ]);

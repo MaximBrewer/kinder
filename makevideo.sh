@@ -23,11 +23,11 @@ if (($dw < 0)); then
     fi
 fi
 
-convert $1 -crop $(($w - ($w * $crw / 100)))x$(($h - ($h * $crh / 100)))+$(($w * $crw / 100 / 2))+$(($h * $crh / 100 / 2)) "tmp.$suffix"
+convert $1 -crop $(($w - ($w * $crw / 100)))x$(($h - ($h * $crh / 100)))+$(($w * $crw / 100 / 2))+$(($h * $crh / 100 / 2)) "tmp.png"
 
-convert "tmp.$suffix" -scale 660X880 -bordercolor "rgba(0,0,0,0.4)" -border 1 "tmp.$suffix"
+convert "tmp.png" -scale 660X880 -bordercolor "rgba(0,0,0,0.4)" -border 1 "tmp.png"
 
-read wn hn < <(identify -format "%w %h" "tmp.$suffix")
+read wn hn < <(identify -format "%w %h" "tmp.png")
 
 wdn=$((720 + (660 - $wn) / 2))
 hdn=$((115 + (880 - $hn) / 2))
@@ -36,7 +36,7 @@ echo $wdn
 echo $hdn
 
 convert -background None -virtual-pixel transparent -background transparent \
-    \( "tmp.$suffix" +distort Perspective '0,0 0,0  880,10 880,-10  880,630 880,680  0,660 0,660' \) \
+    \( "tmp.png" +distort Perspective '0,0 0,0  880,10 880,-10  880,630 880,680  0,660 0,660' \) \
     "perspective.png"
 
 convert "perspective.png"  -background transparent -rotate 1 "rotate.png"
@@ -46,4 +46,4 @@ composite -geometry '+'$wdn'+'$hdn "rotate.png" photo.png mask.jpg "final.jpg"
 jpegoptim "final.jpg" --strip-all
 
 ffmpeg -filter_complex aevalsrc=0 -loop 1 -i "final.jpg" -t 5.8 "final.mp4"
-ffmpeg -i "final.mp4" -i sound.aac -c:a aac -c copy -map 0:v:0 -map 1:a:0 "final.ts"
+ffmpeg -i "final.mp4" -i sound.aac -c:a aac -c:v libx264 -map 0:v:0 -map 1:a:0 "final.ts"
