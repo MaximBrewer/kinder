@@ -74,6 +74,9 @@ class Cron extends Command
                         exec("./makevideo.sh " . storage_path(('app/public/') . $order->photo . " " . storage_path(('app/public/') . $order->id)));
                     }
 
+                    var_dump([$filepath => is_file($filepath)]);
+
+
                     if (is_file($filepath)) {
 
                         $client = new \GuzzleHttp\Client();
@@ -83,7 +86,6 @@ class Cron extends Command
                         ]);
                         $array = json_decode($response->getBody()->getContents());
 
-                        var_dump($array);
 
                         $client->request('POST', "https://filespot.platformcraft.ru/2/fs/container/" . $array->user_id . "/object/photo/" . $order->id . ".ts", [
                             'multipart' => [
