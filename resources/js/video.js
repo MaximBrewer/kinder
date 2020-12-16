@@ -44,15 +44,51 @@ var paused = true,
         part_vi_duration +
         part_vii_duration,
     tg = tb + part_viii_duration + part_ix_duration + part_x_duration,
-    musicStopped = false;
+    musicStopped = false, el;
 
 
 var pauseTimeout30 = false;
 
 var Android = /(android)/i.test(navigator.userAgent);
 
-if (Android) {
-    console.log("Android")
+if (!Android) {
+
+    var elVidWrap = document.createElement("div");
+    elVidWrap.id = "video";
+    elVidWrap.tabindex = "-1";
+    elVidWrap.preload = true;
+    elVidWrap.role = "region";
+    elVidWrap.ariaLabel = "video player";
+    elVidWrap.playsinline = true;
+    elVidWrap.width = "640";
+    elVidWrap.height = "480";
+    elVidWrap.poster = "/img/poster.jpg";
+    elVidWrap.classList.add("custom-template");
+    elVidWrap.classList.add("video-js");
+    elVidWrap.classList.add("video-addon-js");
+    elVidWrap.classList.add("vjs-default-skin");
+    elVidWrap.classList.add("vjs-big-play-centered");
+
+    var elVid = document.createElement("video");
+    elVid.id = "video_html5_api";
+    elVid.preload = true;
+    elVid.playsinline = true;
+    elVid.poster = "/img/poster.jpg";
+    elVid.classList.add("vjs-tech");
+
+    var elVidP = document.createElement("p");
+    elVidP.innerHTML = "Для просмотра включите яваскрипт или обновите браузер до <a href=\"http://videojs.com/html5-video-support/\" target=\"_blank\">совместимых с HTML5 видео</a>";
+
+    var poster = document.createElement("div");
+    poster.ariaDisabled = "false";
+    poster.style.backgroundImage = "/img/poster.jpg";
+    poster.classList.add("vjs-poster");
+
+    elVid.appendChild(elVidP);
+    elVidWrap.appendChild(elVid);
+    elVidWrap.appendChild(poster);
+    document.getElementsByTagName("body")[0].appendChild(elVidWrap);
+
 
     var wrapper = document.getElementById('video');
     var player = document.getElementById('video_html5_api');
@@ -60,7 +96,6 @@ if (Android) {
 
     var audio = document.getElementById('audio');
 
-    var poster = document.getElementById('poster');
     var videoSrc = "/playlist/" + hash + ".m3u8?resolution=" + resolution;
     var hls = new Hls();
     hls.loadSource(videoSrc);
@@ -136,19 +171,19 @@ if (Android) {
         if (ct < tb + part_viii_duration + part_ix_duration) {
             if (color == "s") {
                 if (ct > tb + part_viii_duration + 6.5) {
-                    player.currentTime = tb + part_viii_duration + part_ix_duration + 0.5
+                    player.currentTime = tb + part_viii_duration + part_ix_duration + 0.2
                 }
             }
 
             if (color == "g") {
                 if (ct > tb + part_viii_duration + 13.5) {
-                    player.currentTime = tb + part_viii_duration + part_ix_duration + 0.5
+                    player.currentTime = tb + part_viii_duration + part_ix_duration + 0.2
                 }
             }
 
             if (color == "r") {
                 if (ct > tb + part_viii_duration + 20.5) {
-                    player.currentTime = tb + part_viii_duration + part_ix_duration + 0.5
+                    player.currentTime = tb + part_viii_duration + part_ix_duration + 0.2
                 }
             }
         }
@@ -261,7 +296,7 @@ if (Android) {
         if (margin + (width - width * 0.375) < clientX) color = "s";
 
         photo = false;
-        player.currentTime = tb + part_viii_duration + (color == "s" ? 0.5 : (color == "g" ? 7.5 : 14.5));
+        player.currentTime = tb + part_viii_duration + (color == "s" ? 0.7 : (color == "g" ? 7.7 : 14.7));
         player.play();
         setTimeout(function () {
             removeBalls();
@@ -422,10 +457,29 @@ if (Android) {
         }, 100);
     };
 
-
     player.addEventListener("click", touchAudio);
     player.addEventListener("touchstart", touchAudio);
+
 } else {
+
+    var elVid = document.createElement("video");
+    elVid.id = "video";
+    elVid.preload = true;
+    elVid.playsinline = true;
+    elVid.width = "640";
+    elVid.height = "480";
+    elVid.poster = "/img/poster.jpg";
+    elVid.classList.add("custom-template");
+    elVid.classList.add("video-js");
+    elVid.classList.add("video-addon-js");
+    elVid.classList.add("vjs-default-skin");
+    elVid.classList.add("vjs-big-play-centered");
+
+    var elVidP = document.createElement("p");
+    elVidP.innerHTML = "Для просмотра включите яваскрипт или обновите браузер до <a href=\"http://videojs.com/html5-video-support/\" target=\"_blank\">совместимых с HTML5 видео</a>";
+
+    elVid.appendChild(elVidP);
+    document.getElementsByTagName("body")[0].appendChild(elVid);
 
     var checkTimeouts = function () {
         var ct = player.currentTime();
@@ -599,7 +653,7 @@ if (Android) {
         if (margin + (width - width * 0.375) < clientX) color = "s";
 
         photo = false;
-        player.currentTime(tb + part_viii_duration + (color == "s" ? 0.5 : (color == "g" ? 7.5 : 14.5)));
+        player.currentTime(tb + part_viii_duration + (color == "s" ? 0.7 : (color == "g" ? 7.7 : 14.7)));
         player.play();
         setTimeout(function () {
             removeBalls();
