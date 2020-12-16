@@ -45,7 +45,7 @@
 	<script src="//s.platformcraft.ru/video/videojs/video5.19.2.min.js"></script>
 	<script src="//s.platformcraft.ru/video/videojs/plugins/hls/videojs-contrib-hls-5.9.min.js"></script>
     <script src="//s.platformcraft.ru/video/videojs/plugins/videojs.framebyframe.min.js"></script>
-    <script src="/js/video.js?v=4.03"></script>
+    <script src="/js/video.js?v=5.03"></script>
     <style>
         .video-js:after {
             content: none;
