@@ -62,8 +62,6 @@ class Cron extends Command
             }
         }
 
-        mkdir('./tmp', 0755);
-
         $fp = fopen('./tmp/lock.txt', 'r+');
 
         if (flock($fp, LOCK_EX | LOCK_NB)) {
