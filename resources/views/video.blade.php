@@ -25,11 +25,7 @@
             <source src="https://montage-cache.cdnvideo.ru/montage/kindern/music6.mp3" type="audio/mpeg">
             <source src="https://montage-cache.cdnvideo.ru/montage/kindern/music6.wav" type="audio/wav">
         </audio>
-    </div><video  playsinline id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered" poster="/img/poster.jpg" preload="true" width="640" height="480" data-setup='{
-        "html5": {
-            "nativeTextTracks": false
-        }
-    }'>
+    </div><video  playsinline id="video" class="custom-template video-js video-addon-js vjs-default-skin vjs-big-play-centered" poster="/img/poster.jpg" preload="true" width="640" height="480">
         <p>
             Для просмотра включите яваскрипт или обновите браузер до <a href="http://videojs.com/html5-video-support/" target="_blank">совместимых с HTML5 видео</a>
         </p>
