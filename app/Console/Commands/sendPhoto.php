@@ -69,7 +69,6 @@ class sendPhoto extends Command
                         ])->then(function ($response) {
                             echo 'I completed! ' . $response->getBody();
                         });
-                        $promise->wait();
                         echo "Sent" . PHP_EOL;
                     } else {
                         echo "No image" . PHP_EOL;
