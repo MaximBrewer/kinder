@@ -54,7 +54,7 @@ class sendPhoto extends Command
                 } else {
                     if (is_file(storage_path("app/public/" . $order->photo))) {
                         $client = new \GuzzleHttp\Client();
-                        $client->popostAsyncst("https://kinderhappynewyear.space/patch", [
+                        $client->postAsync("https://kinderhappynewyear.space/patch", [
                             'multipart' => [
                                 [
                                     'name'     => 'photo',
