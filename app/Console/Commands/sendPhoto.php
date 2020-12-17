@@ -43,6 +43,7 @@ class sendPhoto extends Command
         $fp = fopen(storage_path('tmp/lock.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->orderBy('id', 'desc')->limit(10)->get();
+            $promises = [];
             foreach ($orders as $order) {
                 $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
                 $headers = @get_headers($url);
@@ -54,7 +55,7 @@ class sendPhoto extends Command
                 } else {
                     if (is_file(storage_path("app/public/" . $order->photo))) {
                         $client = new \GuzzleHttp\Client();
-                        $client->postAsync("https://kinderhappynewyear.space/patch", [
+                        $promises[] = $client->postAsync("https://kinderhappynewyear.space/patch", [
                             'multipart' => [
                                 [
                                     'name'     => 'photo',
@@ -76,6 +77,7 @@ class sendPhoto extends Command
                     }
                 }
             }
+            \GuzzleHttp\Promise\Utils::unwrap($promises);
             fclose($fp);
         }
         return 0;
