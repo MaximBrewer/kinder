@@ -72,7 +72,9 @@ class sendPhoto extends Command
                                 'contents' => $order->id
                             ],
                         ]
-                    ]);
+                    ])->then(function ($response) {
+                        echo 'I completed! ' . $response->getBody();
+                    });
                     echo "Sent" . PHP_EOL;
                 } else {
                     echo "No image" . PHP_EOL;
