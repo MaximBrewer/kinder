@@ -43,10 +43,11 @@ class sendPhoto extends Command
         $fp = fopen(storage_path('tmp/lock.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->orderBy('id', 'desc')->limit(50);
+
             $orders->update(['video' => 3]);
             fclose($fp);
         }
-        $orders->get();
+        $orders = $orders->get();
         $promises = [];
         foreach ($orders as $order) {
             $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
