@@ -50,6 +50,7 @@ class sendPhoto extends Command
                     $order->update([
                         'video' => 1
                     ]);
+                    echo 200 . PHP_EOL;
                 } else {
                     if (is_file(storage_path("app/public/" . $order->photo))) {
                         $client = new \GuzzleHttp\Client();
@@ -66,7 +67,9 @@ class sendPhoto extends Command
                                 ],
                             ]
                         ]);
+                        echo "Sent" . PHP_EOL;
                     } else {
+                        echo "No image" . PHP_EOL;
                         $order->update([
                             'video' => 2
                         ]);
