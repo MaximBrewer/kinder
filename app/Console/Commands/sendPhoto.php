@@ -67,7 +67,8 @@ class sendPhoto extends Command
                                     'contents' => $order->id
                                 ],
                             ],
-                            'connect_timeout' => 1
+                            'connect_timeout' => 1,
+                            'timeout' => 1
                         ]);
                         echo "Sent" . PHP_EOL;
                     } else {
