@@ -42,46 +42,45 @@ class sendPhoto extends Command
     {
         $fp = fopen(storage_path('tmp/lock.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->orderBy('id', 'desc')->limit(10)->get();
-            $promises = [];
-            foreach ($orders as $order) {
-                $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
-                $headers = @get_headers($url);
-                if (strpos($headers[0], '200')) {
-                    $order->update([
-                        'video' => 1
-                    ]);
-                    echo 200 . PHP_EOL;
-                } else {
-                    if (is_file(storage_path("app/public/" . $order->photo))) {
-                        $client = new \GuzzleHttp\Client();
-                        $promises[] = $client->postAsync("https://kinderhappynewyear.space/patch", [
-                            'multipart' => [
-                                [
-                                    'name'     => 'photo',
-                                    'contents' => fopen(storage_path("app/public/" . $order->photo), "r"),
-                                    'filename' => basename(storage_path("app/public/" . $order->photo))
-                                ],
-                                [
-                                    'name'     => 'order',
-                                    'contents' => $order->id
-                                ],
-                            ],
-                            'connect_timeout' => 1,
-                            'timeout' => 1
-                        ]);
-                        echo "Sent" . PHP_EOL;
-                    } else {
-                        echo "No image" . PHP_EOL;
-                        $order->update([
-                            'video' => 2
-                        ]);
-                    }
-                }
-            }
-            \GuzzleHttp\Promise\Utils::unwrap($promises);
+            $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->orderBy('id', 'desc')->limit(50)->update(['video' => 3]);
             fclose($fp);
         }
+        $orders->get();
+        $promises = [];
+        foreach ($orders as $order) {
+            $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
+            $headers = @get_headers($url);
+            if (strpos($headers[0], '200')) {
+                $order->update([
+                    'video' => 1
+                ]);
+                echo 200 . PHP_EOL;
+            } else {
+                if (is_file(storage_path("app/public/" . $order->photo))) {
+                    $client = new \GuzzleHttp\Client();
+                    $promises[] = $client->postAsync("https://kinderhappynewyear.space/patch", [
+                        'multipart' => [
+                            [
+                                'name'     => 'photo',
+                                'contents' => fopen(storage_path("app/public/" . $order->photo), "r"),
+                                'filename' => basename(storage_path("app/public/" . $order->photo))
+                            ],
+                            [
+                                'name'     => 'order',
+                                'contents' => $order->id
+                            ],
+                        ]
+                    ]);
+                    echo "Sent" . PHP_EOL;
+                } else {
+                    echo "No image" . PHP_EOL;
+                    $order->update([
+                        'video' => 2
+                    ]);
+                }
+            }
+        }
+        \GuzzleHttp\Promise\Utils::unwrap($promises);
         return 0;
     }
 }
