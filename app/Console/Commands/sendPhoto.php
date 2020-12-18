@@ -42,7 +42,7 @@ class sendPhoto extends Command
     {
         $fp = fopen(storage_path('tmp/lock.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->orderBy('id', 'desc')->limit(1);
+            $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->orderBy('id', 'desc')->limit(100);
 
             $orders->update(['video' => 3]);
             fclose($fp);
