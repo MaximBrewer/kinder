@@ -58,35 +58,37 @@ class sendPhoto extends Command
             $orders->update(['video' => 3]);
             fclose($fp);
         }
-        $orders = $orders->get();
-        $promises = [];
-        foreach ($orders as $order) {
-            if (is_file(storage_path("app/public/" . $order->photo))) {
-                $client = new \GuzzleHttp\Client();
-                $promises[] = $client->postAsync("https://kinderhappynewyear.space/patch", [
-                    'multipart' => [
-                        [
-                            'name'     => 'photo',
-                            'contents' => fopen(storage_path("app/public/" . $order->photo), "r"),
-                            'filename' => basename(storage_path("app/public/" . $order->photo))
-                        ],
-                        [
-                            'name'     => 'order',
-                            'contents' => $order->id
-                        ],
-                    ]
-                ])->then(function ($response) {
-                    echo 'I completed! ' . $response->getBody();
-                });
-                echo "Sent" . PHP_EOL;
-            } else {
-                echo "No image" . PHP_EOL;
-                $order->update([
-                    'video' => 2
-                ]);
+        if (isset($orders)) {
+            $orders = $orders->get();
+            $promises = [];
+            foreach ($orders as $order) {
+                if (is_file(storage_path("app/public/" . $order->photo))) {
+                    $client = new \GuzzleHttp\Client();
+                    $promises[] = $client->postAsync("https://kinderhappynewyear.space/patch", [
+                        'multipart' => [
+                            [
+                                'name'     => 'photo',
+                                'contents' => fopen(storage_path("app/public/" . $order->photo), "r"),
+                                'filename' => basename(storage_path("app/public/" . $order->photo))
+                            ],
+                            [
+                                'name'     => 'order',
+                                'contents' => $order->id
+                            ],
+                        ]
+                    ])->then(function ($response) {
+                        echo 'I completed! ' . $response->getBody();
+                    });
+                    echo "Sent" . PHP_EOL;
+                } else {
+                    echo "No image" . PHP_EOL;
+                    $order->update([
+                        'video' => 2
+                    ]);
+                }
             }
+            \GuzzleHttp\Promise\Utils::unwrap($promises);
         }
-        \GuzzleHttp\Promise\Utils::unwrap($promises);
         return 0;
     }
 }
