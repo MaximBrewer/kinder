@@ -265,7 +265,6 @@ class SiteController extends Controller
         $order = Order::where('hash', $hash)->first();
         $chunks = unserialize($order->name->{"chunks" . $resolution});
         $nameChunk = "";
-        $nameUploadChunk = "";
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $nameChunk .= PHP_EOL;
@@ -276,13 +275,10 @@ class SiteController extends Controller
                 $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
                 $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
-
-            $nameUploadChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%281920x1080%29.mp4/" . $chunk[1];
         }
 
 
         $achieveChunk = "";
-        $achieveUploadChunk = "";
 
         if ($order->achieve_id) {
 
@@ -296,13 +292,10 @@ class SiteController extends Controller
                     $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
                 else
                     $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
-
-                $achieveUploadChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%281920x1080%29.mp4/" . $chunk[1];
             }
         }
 
         $hobbyChunk = "";
-        $hobbyUploadChunk = "";
 
         if ($order->hobby_id) {
 
@@ -316,14 +309,11 @@ class SiteController extends Controller
                     $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
                 else
                     $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
-
-                $hobbyUploadChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%281920x1080%29.mp4/" . $chunk[1];
             }
         }
 
         $chunks = unserialize($order->gift->{"chunks" . $resolution});
         $giftChunk = "";
-        $giftUploadChunk = "";
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $giftChunk .= PHP_EOL;
@@ -333,13 +323,10 @@ class SiteController extends Controller
                 $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
                 $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
-
-            $giftUploadChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%281920x1080%29.mp4/" . $chunk[1];
         }
 
         $chunks = unserialize($order->from->{"chunks" . $resolution});
         $fromChunk = "";
-        $fromUploadChunk = "";
 
         foreach ($chunks as $key => $chunk) {
             if ($key) $fromChunk .= PHP_EOL;
@@ -349,8 +336,6 @@ class SiteController extends Controller
                 $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
             else
                 $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
-
-            $fromUploadChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%281920x1080%29.mp4/" . $chunk[1];
         }
 
         $partIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
@@ -389,18 +374,15 @@ class SiteController extends Controller
 
         file_put_contents(public_path("playlist/$hash.m3u8"), $return);
 
-        $returnUpload =
-            "https://montage-cache.cdnvideo.ru/montage/upload/" . $order->name->gender . ".ts" . PHP_EOL
-            . $nameUploadChunk . PHP_EOL
-            . "https://montage-cache.cdnvideo.ru/montage/upload/3.ts" . PHP_EOL
-            . "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts" . PHP_EOL
-            . $achieveUploadChunk . PHP_EOL
-            . $hobbyUploadChunk . PHP_EOL
-            . "https://montage-cache.cdnvideo.ru/montage/upload/7.ts" . PHP_EOL
-            . $giftUploadChunk . PHP_EOL
-            . $fromUploadChunk . PHP_EOL
-            . "https://montage-cache.cdnvideo.ru/montage/upload/15.ts" . PHP_EOL
-            . PHP_EOL;
+        $returnUpload = json_encode([
+            'gender' => $order->name->gender,
+            'name' => $order->name->link,
+            'photo' => "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts",
+            'achieve' => $order->achieve->link,
+            'hobby' => $order->hobby->link,
+            'gift' => $order->gift->link,
+            'from' => $order->from->link,
+        ]);
 
         file_put_contents(public_path("uploadlist/$hash.m3u8"), $returnUpload);
 
