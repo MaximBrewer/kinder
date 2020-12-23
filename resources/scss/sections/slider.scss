@@ -145,6 +145,9 @@
             margin-right: 2%;
             width: 20%;
             position: relative;
+            @media (min-width: 768px) {
+                width: 15%;
+            }
             @media (min-width: 1280px) {
                 width: 10%;
             }

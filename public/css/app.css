@@ -2389,6 +2389,12 @@ body {
   position: relative;
 }
 
+@media (min-width: 768px) {
+  .item .top .circle-gradient {
+    width: 15%;
+  }
+}
+
 @media (min-width: 1280px) {
   .item .top .circle-gradient {
     width: 10%;
