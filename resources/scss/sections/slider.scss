@@ -119,17 +119,22 @@
     width: 75%;
     text-align: center;
     color: white;
-    font-size: 2%;
     position: absolute;
     transition: transform 1s, top 1s, left 1s, right 1s;
     background-color: #ffffff;
     padding: 4%;
     color: #000000;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 500;
     border-radius: 7%;
     overflow: hidden;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    @media (min-width: 768px) {
+        font-size: .875rem;
+    }
+    @media (min-width: 1280px) {
+        font-size: 1rem;
+    }
     .top {
         padding: 1%;
         display: flex;
