@@ -169,11 +169,11 @@ class SiteController extends Controller
 
             $image->save(storage_path("app/public/" . $order->photo));
 
-            exec("convert -background None -virtual-pixel transparent -background transparent (" . storage_path("app/public/" . $order->photo) . " +distort Perspective '0,0 0,0  880,10 880,-10  880,630 880,680  0,660 0,660')" . storage_path("public/orders/" . $order->id . "/perspective.png"), $output);
-            exec("convert " . storage_path("public/orders/" . $order->id . "/perspective.png") . "  -background transparent -rotate 1 " . storage_path("public/orders/" . $order->id . "/rotate.png"));
-            exec("composite -geometry '+'$wdn'+'$hdn " . storage_path("public/orders/" . $order->id . "/rotate.png") . " " . storage_path("tmp/photo.png") . " " . storage_path("tmp/mask.jpg") . " " . storage_path("public/orders/" . $order->id . "/final.jpg"));
+            exec("convert -background None -virtual-pixel transparent -background transparent " . storage_path("app/public/" . $order->photo) . " +distort Perspective '0,0 0,0  880,10 880,-10  880,630 880,680  0,660 0,660' " . storage_path("app/public/orders/" . $order->id . "/perspective.png"), $output);
+            exec("convert " . storage_path("app/public/orders/" . $order->id . "/perspective.png") . "  -background transparent -rotate 1 " . storage_path("app/public/orders/" . $order->id . "/rotate.png"));
+            exec("composite -geometry '+'$wdn'+'$hdn " . storage_path("app/public/orders/" . $order->id . "/rotate.png") . " " . storage_path("tmp/photo.png") . " " . storage_path("tmp/mask.jpg") . " " . storage_path("app/public/orders/" . $order->id . "/final.jpg"));
 
-            return "convert -background None -virtual-pixel transparent -background transparent (" . storage_path("app/public/" . $order->photo) . " +distort Perspective '0,0 0,0  880,10 880,-10  880,630 880,680  0,660 0,660')" . storage_path("public/orders/" . $order->id . "/perspective.png");
+            return "convert -background None -virtual-pixel transparent -background transparent " . storage_path("app/public/" . $order->photo) . " +distort Perspective '0,0 0,0  880,10 880,-10  880,630 880,680  0,660 0,660' " . storage_path("app/public/orders/" . $order->id . "/perspective.png");
         }
 
         return [$output];
