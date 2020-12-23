@@ -17,7 +17,7 @@ class Order extends Model
     protected $perPage = 100;
 
     protected $fillable = [
-        'name_id', 'age', 'video', 'sent', 'achieve_id', 'hobby_id', 'from_id', 'email', 'gift_id', 'photo', 'hash', 'news', 'email_hash', 'status'
+        'name_id', 'age', 'pic', 'video', 'sent', 'achieve_id', 'hobby_id', 'from_id', 'email', 'gift_id', 'photo', 'hash', 'news', 'email_hash', 'status'
     ];
 
     public function scopeNew($query)

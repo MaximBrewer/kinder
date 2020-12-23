@@ -42,7 +42,7 @@ class sendPhoto extends Command
     {
         $fp = fopen(storage_path('tmp/lock.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $orders = \App\Models\Order::where('video', 3)->orderBy('id', 'desc')->limit(100);
+            $orders = \App\Models\Order::where('video', 3)->orderBy('id', 'desc')->limit(50);
             $orders = $orders->get();
             $promises = [];
             foreach ($orders as $order) {
@@ -52,9 +52,13 @@ class sendPhoto extends Command
                     $order->update([
                         'video' => 1
                     ]);
+                } else {
+                    $order->update([
+                        'video' => 0
+                    ]);
                 }
             }
-            $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->orderBy('id', 'desc')->limit(100);
+            $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->where('pic', 1)->orderBy('id', 'desc')->limit(50);
             $orders->update(['video' => 3]);
             fclose($fp);
         }
@@ -62,14 +66,15 @@ class sendPhoto extends Command
             $orders = $orders->get();
             $promises = [];
             foreach ($orders as $order) {
-                if (is_file(storage_path("app/public/" . $order->photo))) {
+                $pathf = storage_path("app/public/orders/" . $order->id . "/final.jpg");
+                if (is_file($pathf)) {
                     $client = new \GuzzleHttp\Client();
                     $promises[] = $client->postAsync("https://kinderhappynewyear.space/patch", [
                         'multipart' => [
                             [
                                 'name'     => 'photo',
-                                'contents' => fopen(storage_path("app/public/" . $order->photo), "r"),
-                                'filename' => basename(storage_path("app/public/" . $order->photo))
+                                'contents' => fopen($pathf, "r"),
+                                'filename' => basename($pathf)
                             ],
                             [
                                 'name'     => 'order',
