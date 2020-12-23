@@ -24,9 +24,14 @@ class Order
                 } catch (Throwable $e) {
                     report($e);
                 }
+                $cnt = \App\Models\Order::whereIn('status', ['new', 'confirmed'])->count();
+                file_put_contents(
+                    storage_path(('app/public') . '/orders.js'),
+                    'window.App.data.orders = ' . $cnt
+                );
                 file_put_contents(
                     storage_path(('app/public') . '/total.json'),
-                    '{"total":' . \App\Models\Order::whereIn('status', ['new', 'confirmed'])->count() . '}'
+                    '{"total":' . $cnt . '}'
                 );
                 break;
             case "unsubscribed":
