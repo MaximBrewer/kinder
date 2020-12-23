@@ -16,6 +16,7 @@ use TCG\Voyager\Facades\Voyager;
 Route::get('/unsubscribe', '\App\Http\Controllers\SiteController@unsubscribe');
 Route::post('/patch', '\App\Http\Controllers\SiteController@patch');
 Route::get('/test-mail', '\App\Http\Controllers\SiteController@testMail');
+Route::get('/test-html', '\App\Http\Controllers\SiteController@testHtml');
 Route::get('/video/{hash}', '\App\Http\Controllers\SiteController@video');
 Route::get('/video/{hash}/', '\App\Http\Controllers\SiteController@video');
 Route::get('/playlist/{hash}.m3u8', '\App\Http\Controllers\SiteController@playlist');

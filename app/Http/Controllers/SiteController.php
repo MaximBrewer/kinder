@@ -41,7 +41,8 @@ class SiteController extends Controller
 
     public function testHtml(Request $request)
     {
-        return view('mail.html.frame4', ['unsubscribe' => '', 'video' => '']);
+        echo storage_path('app/public/orders/' . 100);
+        // return view('mail.html.frame4', ['unsubscribe' => '', 'video' => '']);
     }
 
 
@@ -80,7 +81,6 @@ class SiteController extends Controller
                 'photo.size' => 'Фото должно быть не болле 16МБ'
             ]
         );
-
         $data = [
             'name_id' => $request->name,
             'age' => $request->age,
@@ -94,39 +94,87 @@ class SiteController extends Controller
             'news' => $request->news == 'true' ? 1 : (int)$request->news,
             'status' => 'new',
         ];
+
         $order = Order::create($data);
+
+        $output = null;
 
         if ($request->file('photo')) {
             $path = $request->file('photo')->store('public/orders/' . $order->id);
 
             $data['photo'] = str_replace("public/", "", $path);
             $fullpath = $_SERVER['DOCUMENT_ROOT'] . '/../storage/app/' . $path;
-            exec("convert $fullpath -resize 600x600\> $fullpath");
-            exec("jpegoptim $fullpath -m85 --strip-all");
+
             $order->update([
                 "photo" => $data['photo']
             ]);
+
+            $image = Image::make(storage_path("app/public/" . $order->photo));
 
             try {
                 $exif = exif_read_data($request->file('photo'));
                 if (!empty($exif['Orientation'])) {
                     switch ($exif['Orientation']) {
                         case 8:
-                            Image::make(storage_path("app/public/" . $order->photo))->rotate(90, 0)->save(storage_path("app/public/" . $order->photo));
+                            $image->rotate(90, 0);
                             break;
                         case 3:
-                            Image::make(storage_path("app/public/" . $order->photo))->rotate(180, 0)->save(storage_path("app/public/" . $order->photo));
+                            $image->rotate(180, 0);
                             break;
                         case 6:
-                            Image::make(storage_path("app/public/" . $order->photo))->rotate(-90, 0)->save(storage_path("app/public/" . $order->photo));
+                            $image->rotate(-90, 0);
                             break;
                     }
                 }
             } catch (\Throwable $e) {
             }
+
+            $image->save(storage_path("app/public/" . $order->photo));
+
+            $w = $image->width();
+            $h = $image->height();
+
+            $mw = 100 * $w * 1 / ($h * 1);
+            $dw = $mw - 75;
+            $crw = 0;
+
+            if ($dw > 0)
+                if ($dw > 10) $crw = 10;
+                else $crw = $dw;
+
+            $crh = 0;
+            if ($dw < 0)
+                if ($dw < -10) $crh = 10;
+                else $crh = $dw * -1;
+
+
+            $image->crop($w - ($w * $crw / 100), $h - ($h * $crh / 100), $w * $crw / 100 / 2, $h * $crh / 100 / 2);
+            $image->resize(660, 880, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $wn = $image->width();
+            $hn = $image->height();
+
+            $img_border = Image::canvas($wn, $hn);
+
+            $img_border->rectangle(0, 0, 660 - 2, $hn - 2, function ($draw) {
+                $draw->border(2, 'rgba(0,0,0,0.4)');
+            });
+
+            $image->insert($img_border);
+
+            $wdn = 720 + (660 - $wn) / 2;
+            $hdn = 85 + (880 - $hn) / 2;
+
+            $image->save(storage_path("app/public/" . $order->photo));
+
+            exec("convert -background None -virtual-pixel transparent -background transparent (" . storage_path("app/public/" . $order->photo) . " +distort Perspective '0,0 0,0  880,10 880,-10  880,630 880,680  0,660 0,660')" . storage_path("public/orders/" . $order->id . "/perspective.png"), $output);
+            exec("convert " . storage_path("public/orders/" . $order->id . "/perspective.png") . "  -background transparent -rotate 1 " . storage_path("public/orders/" . $order->id . "/rotate.png"));
+            exec("composite -geometry '+'$wdn'+'$hdn " . storage_path("public/orders/" . $order->id . "/rotate.png") . " " . storage_path("tmp/photo.png") . " " . storage_path("tmp/mask.jpg") . " " . storage_path("public/orders/" . $order->id . "/final.jpg"));
         }
 
-        return [];
+        return [$output];
     }
 
     private function setChunks($entity, $part, $resolution)
