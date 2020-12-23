@@ -13,7 +13,7 @@ class MakePicture extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'make:picture';
 
     /**
      * The console command description.
