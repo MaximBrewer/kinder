@@ -2437,7 +2437,9 @@ body {
   align-items: center;
 }
 
-.item .top .butwr button {
+.item .top .butwr a {
+  text-decoration: none;
+  color: white !important;
   flex-grow: 1 !important;
   background: #3995ef;
   border-radius: 4px;
@@ -2451,13 +2453,13 @@ body {
 }
 
 @media (min-width: 768px) {
-  .item .top .butwr button {
+  .item .top .butwr a {
     font-size: 1rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .item .top .butwr button {
+  .item .top .butwr a {
     font-size: 1.5rem;
   }
 }

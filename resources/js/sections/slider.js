@@ -99,10 +99,10 @@ const Item = (props) => {
                     <div className="followers">{item.followers}</div>
                 </div>
                 <div className="butwr">
-                    <button className="blue-facebook">
+                    <a href={item.link} className="blue-facebook" target="_blank">
                         <span className="hidden-sm">В профиль</span>
                         <span className="visible-sm">Перейти в профиль</span>
-                    </button>
+                    </a>
                 </div>
             </div>
             <div className="photo" style={{ backgroundImage: `url(${item.photo})` }}></div>
