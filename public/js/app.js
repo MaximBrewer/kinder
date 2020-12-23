@@ -71327,7 +71327,7 @@ var Carousel = function Carousel(props) {
     var level;
     console.log(state.active);
 
-    for (var i = state.active - 2; i < state.active + 3; i++) {
+    for (var i = state.active - 2; i <= state.active; i++) {
       var index = i;
 
       if (i < 0) {
@@ -71372,13 +71372,28 @@ var Carousel = function Carousel(props) {
     id: "carousel",
     className: "noselect"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "arrow arrow-left mobile",
+    onClick: moveLeft
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__["ArrowPrew"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "arrow arrow-left",
     onClick: moveLeft
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__["ArrowPrewSlider"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_addons_css_transition_group__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__["ArrowPrewSlider"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      right: "10%",
+      left: "auto",
+      borderRadius: "55px"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_addons_css_transition_group__WEBPACK_IMPORTED_MODULE_2___default.a, {
     transitionEnterTimeout: 500,
     transitionLeaveTimeout: 300,
     transitionName: state.direction
-  }, generateItems()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, generateItems())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "arrow arrow-right mobile",
+    onClick: moveRight
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__["ArrowNext"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "arrow arrow-right",
     onClick: moveRight
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_icons__WEBPACK_IMPORTED_MODULE_1__["ArrowNextSlider"], null)));
@@ -71397,13 +71412,36 @@ var Item = function Item(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: 'item level' + props.level,
+    "data-id": item.id
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "top"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "circle-gradient"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "avatar",
     style: {
-      backgroundImage: "url(".concat(item.photo, ")"),
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center center"
+      backgroundImage: "url(".concat(item.avatar, ")")
     }
-  });
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "folname"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "name"
+  }, item.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "followers"
+  }, item.followers)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "butwr"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "blue-facebook"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "hidden-sm"
+  }, "\u0412 \u043F\u0440\u043E\u0444\u0438\u043B\u044C"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "visible-sm"
+  }, "\u041F\u0435\u0440\u0435\u0439\u0442\u0438 \u0432 \u043F\u0440\u043E\u0444\u0438\u043B\u044C")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "photo",
+    style: {
+      backgroundImage: "url(".concat(item.photo, ")")
+    }
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Carousel);
@@ -72517,7 +72555,7 @@ function ArrowNextSlider(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
     width: "110",
     height: "105",
-    viewBox: "0 0 110 105",
+    viewBox: "0 21 110 105",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {

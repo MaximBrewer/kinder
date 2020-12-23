@@ -1,5 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ArrowPrewSlider as ArrowPrew, ArrowNextSlider as ArrowNext } from "../utils/icons";
+import {
+    ArrowPrewSlider,
+    ArrowNextSlider,
+    ArrowPrew,
+    ArrowNext
+} from "../utils/icons";
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Carousel = (props) => {
@@ -14,7 +19,7 @@ const Carousel = (props) => {
         var items = []
         var level
         console.log(state.active)
-        for (var i = state.active - 2; i < state.active + 3; i++) {
+        for (var i = state.active - 2; i <= state.active; i++) {
             var index = i
             if (i < 0) {
                 index = state.items.length + i
@@ -48,15 +53,24 @@ const Carousel = (props) => {
 
     return (
         <div id="carousel" className="noselect">
-            <div className="arrow arrow-left" onClick={moveLeft}><ArrowPrew /></div>
-            <ReactCSSTransitionGroup
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={300}
-                transitionName={state.direction}>
-                {generateItems()}
-            </ReactCSSTransitionGroup>
-            <div className="arrow arrow-right" onClick={moveRight}><ArrowNext /></div>
-        </div>
+            <div className="arrow arrow-left mobile" onClick={moveLeft}><ArrowPrew /></div>
+            <div className="arrow arrow-left" onClick={moveLeft}><ArrowPrewSlider /></div>
+            <div style={{
+                position: "absolute", width: "100%", height: "100%",
+                right: "10%",
+                left: "auto",
+                borderRadius: "55px"
+            }}>
+                <ReactCSSTransitionGroup
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}
+                    transitionName={state.direction}>
+                    {generateItems()}
+                </ReactCSSTransitionGroup>
+            </div>
+            <div className="arrow arrow-right mobile" onClick={moveRight}><ArrowNext /></div>
+            <div className="arrow arrow-right" onClick={moveRight}><ArrowNextSlider /></div>
+        </div >
     )
 }
 
@@ -69,14 +83,29 @@ const Item = (props) => {
     })
 
     return (
-        <div className={'item level' + props.level}
-            style={{
-                backgroundImage: `url(${item.photo})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center center",
-            }}
-        >
+        <div className={'item level' + props.level} data-id={item.id}>
+            <div className="top">
+                <div className="circle-gradient">
+                    <div>
+                        <div>
+                            <div className="avatar" style={{
+                                backgroundImage: `url(${item.avatar})`
+                            }}></div>
+                        </div>
+                    </div>
+                </div>
+                <div className="folname">
+                    <div className="name">{item.name}</div>
+                    <div className="followers">{item.followers}</div>
+                </div>
+                <div className="butwr">
+                    <button className="blue-facebook">
+                        <span className="hidden-sm">В профиль</span>
+                        <span className="visible-sm">Перейти в профиль</span>
+                    </button>
+                </div>
+            </div>
+            <div className="photo" style={{ backgroundImage: `url(${item.photo})` }}></div>
         </div>
     )
 }
