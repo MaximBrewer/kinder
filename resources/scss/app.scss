@@ -204,6 +204,9 @@ body {
             width: 100%;
             content: "";
             display: block;
+            @media (min-width: 768px) {
+                padding-top: 6vw;
+            }
         }
         &:before {
             background-image: url(../img/bg/topwave.png);
