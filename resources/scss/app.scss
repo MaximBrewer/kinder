@@ -161,6 +161,58 @@ body {
             }
         }
     }
+    .slider-wrapper {
+        position: relative;
+        > div {
+            background-color: #0398fe;
+            position: relative;
+            overflow: visible;
+            z-index: 2;
+            &:before,
+            &:after {
+                position: absolute;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 50%;
+                height: 120%;
+                top: -10%;
+                content: "";
+                display: block;
+            }
+            &:before {
+                right: 0;
+                background-position: right bottom;
+                background-size: auto 100%;
+                background-image: url(../img/bg/snow-right.png);
+            }
+            &:after {
+                left: 0;
+                background-position: left bottom;
+                background-size: auto 100%;
+                background-image: url(../img/bg/snow-left.png);
+            }
+        }
+        &:before,
+        &:after {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-top: 16vw;
+            width: 100%;
+            content: "";
+            display: block;
+        }
+        &:before {
+            margin-top: -14vw;
+            background-image: url(../img/bg/topwave.png);
+        }
+        &:after {
+            z-index: 1;
+            position: relative;
+            background-image: url(../img/bg/bottomwave.png);
+        }
+    }
     color: $white;
     font-family: "bubbleboddy_neue", sans-serif;
     margin-bottom: -8.6vw;
@@ -334,11 +386,7 @@ body {
         padding-top: 112px;
         min-height: 100%;
         background: url(../img/bg/snow-fall.png) no-repeat center bottom 16vw/80%,
-            linear-gradient(
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 1) 100%
-            ),
-            #3399ff;
+            linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%), #3399ff;
         .sidebar {
             ul {
                 padding: 0;
@@ -586,5 +634,6 @@ body {
 @import "sections/form";
 @import "sections/gifts";
 @import "sections/faq";
+@import "sections/slider";
 @import "sections/example";
 @import "hints/hint";

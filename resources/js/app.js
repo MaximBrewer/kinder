@@ -5,12 +5,13 @@ import Counter from "./utils/counter";
 import Form from "./sections/form";
 import Gifts from "./sections/gifts";
 import Faq from "./sections/faq";
-import { polyfill } from 'es6-promise'; 
+import Slider from "./sections/slider";
+import { polyfill } from 'es6-promise';
 polyfill();
 
 
 /*! https://mths.be/scrollingelement v1.5.2 by @diegoperini & @mathias | MIT license */
-if (!('scrollingElement' in document)) (function() {
+if (!('scrollingElement' in document)) (function () {
 
 	function computeStyle(element) {
 		if (window.getComputedStyle) {
@@ -50,7 +51,7 @@ if (!('scrollingElement' in document)) (function() {
 	// Note: standards mode / quirks mode can be toggled at runtime via
 	// `document.write`.
 	var isCompliantCached;
-	var isCompliant = function() {
+	var isCompliant = function () {
 		var isStandardsMode = /^CSS1/.test(document.compatMode);
 		if (!isStandardsMode) {
 			// In quirks mode, the result is equivalent to the non-compliant
@@ -86,7 +87,7 @@ if (!('scrollingElement' in document)) (function() {
 			isRendered(bodyStyle) && isRendered(htmlStyle);
 	}
 
-	var scrollingElement = function() {
+	var scrollingElement = function () {
 		if (isCompliant()) {
 			return document.documentElement;
 		}
@@ -111,7 +112,7 @@ if (!('scrollingElement' in document)) (function() {
 		// IE ≤ 4 lacks `attachEvent`, so it only gets this one assignment. IE ≤ 7
 		// gets it too, but the value is updated later (see `propertychange`).
 		document.scrollingElement = scrollingElement();
-		document.attachEvent && document.attachEvent('onpropertychange', function() {
+		document.attachEvent && document.attachEvent('onpropertychange', function () {
 			// This is for IE ≤ 7 only.
 			// A `propertychange` event fires when `<body>` is parsed because
 			// `document.activeElement` then changes.
@@ -123,25 +124,25 @@ if (!('scrollingElement' in document)) (function() {
 }());
 
 if (typeof Object.assign != "function") {
-    Object.assign = function(target) {
-        "use strict";
-        if (target == null) {
-            throw new TypeError("Cannot convert undefined or null to object");
-        }
+	Object.assign = function (target) {
+		"use strict";
+		if (target == null) {
+			throw new TypeError("Cannot convert undefined or null to object");
+		}
 
-        target = Object(target);
-        for (var index = 1; index < arguments.length; index++) {
-            var source = arguments[index];
-            if (source != null) {
-                for (var key in source) {
-                    if (Object.prototype.hasOwnProperty.call(source, key)) {
-                        target[key] = source[key];
-                    }
-                }
-            }
-        }
-        return target;
-    };
+		target = Object(target);
+		for (var index = 1; index < arguments.length; index++) {
+			var source = arguments[index];
+			if (source != null) {
+				for (var key in source) {
+					if (Object.prototype.hasOwnProperty.call(source, key)) {
+						target[key] = source[key];
+					}
+				}
+			}
+		}
+		return target;
+	};
 }
 
 window.axios = axios;
@@ -167,3 +168,4 @@ ReactDOM.render(<Counter />, document.getElementById("counterEl"));
 ReactDOM.render(<Form />, document.getElementById("formEl"));
 ReactDOM.render(<Gifts />, document.getElementById("giftsEl"));
 ReactDOM.render(<Faq />, document.getElementById("faqEl"));
+ReactDOM.render(<Slider />, document.getElementById("sliderEl"));

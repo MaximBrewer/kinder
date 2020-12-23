@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Gift::observe(\App\Observers\Gift::class);
         \App\Models\Hobby::observe(\App\Observers\Hobby::class);
         \App\Models\Order::observe(\App\Observers\Order::class);
+        \App\Models\Slide::observe(\App\Observers\Slide::class);
         Voyager::addAction(\App\Actions\RotateAction::class);
         Voyager::addAction(\App\Actions\ConfirmAction::class);
         Voyager::addAction(\App\Actions\DeclineAction::class);
