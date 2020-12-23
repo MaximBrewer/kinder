@@ -72564,7 +72564,7 @@ function ArrowNextSlider(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M40.7638 97.7117L40.7638 28.0404L101.101 62.8761L40.7638 97.7117Z",
     stroke: "white",
-    "stroke-width": "8"
+    strokeWidth: "8"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M40.7638 97.7117L40.7638 28.0404L101.101 62.8761L40.7638 97.7117Z",
     stroke: "url(#paint0_linear)",

@@ -266,7 +266,7 @@ export function ArrowNextSlider(props) {
     return (
         <svg width="110" height="105" viewBox="0 21 110 105" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M40.7638 97.7117L40.7638 28.0404L101.101 62.8761L40.7638 97.7117Z" fill="#3399FF" />
-            <path d="M40.7638 97.7117L40.7638 28.0404L101.101 62.8761L40.7638 97.7117Z" stroke="white" stroke-width="8" />
+            <path d="M40.7638 97.7117L40.7638 28.0404L101.101 62.8761L40.7638 97.7117Z" stroke="white" strokeWidth="8" />
             <path d="M40.7638 97.7117L40.7638 28.0404L101.101 62.8761L40.7638 97.7117Z" stroke="url(#paint0_linear)" strokeWidth="8" />
             <defs>
                 <linearGradient id="paint0_linear" x1="36.7638" y1="21.1122" x2="84.9885" y2="104.64" gradientUnits="userSpaceOnUse">
