@@ -49,8 +49,6 @@
 }
 
 
-@import url( 'https://fonts.googleapis.com/css?family=Nunito');
-
 $default-height: 80%;
 $default-width: 25%;
 $level2-height: $default-height - 8%;
@@ -70,11 +68,6 @@ $level2-bs: .1em .1em .2em #212121;
 $level1-bs: .2em .2em .4em #212121;
 $level0-bs: 0 .4em .8em #212121;
 
-body {
-    padding-top: 1em;
-    background-color: #673AB7;
-    font-family: 'Nunito';
-}
 
 .basedOn {
   text-align: center;
