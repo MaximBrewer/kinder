@@ -139,6 +139,7 @@
         padding: 1%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 2%;
         .circle-gradient {
             margin-right: 2%;
@@ -203,7 +204,7 @@
                 text-transform: uppercase;
                 border: 0;
                 box-shadow: none;
-                padding: 1.5% 3.5%;
+                padding: 3.5% 3.5%;
                 @media (min-width: 768px) {
                     font-size: 1rem;
                 }

@@ -2379,6 +2379,7 @@ body {
   padding: 1%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 2%;
 }
 
@@ -2459,7 +2460,7 @@ body {
   text-transform: uppercase;
   border: 0;
   box-shadow: none;
-  padding: 1.5% 3.5%;
+  padding: 3.5% 3.5%;
 }
 
 @media (min-width: 768px) {
