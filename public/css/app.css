@@ -656,13 +656,6 @@ body {
   display: block;
 }
 
-@media (min-width: 768px) {
-  .nhy-app .slider-wrapper:before,
-  .nhy-app .slider-wrapper:after {
-    padding-top: 6vw;
-  }
-}
-
 .nhy-app .slider-wrapper:before {
   background-image: url(/images/topwave.png?05496d2801ef9e177415c00f6bacc29f);
 }
@@ -674,6 +667,12 @@ body {
   padding-bottom: 14vw;
   background: linear-gradient(#0e9afe, #ffffff);
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .nhy-app .slider-wrapper:after {
+    padding-top: 6vw;
+  }
 }
 
 .nhy-app input,

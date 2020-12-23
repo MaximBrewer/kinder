@@ -204,9 +204,6 @@ body {
             width: 100%;
             content: "";
             display: block;
-            @media (min-width: 768px) {
-                padding-top: 6vw;
-            }
         }
         &:before {
             background-image: url(../img/bg/topwave.png);
@@ -219,6 +216,9 @@ body {
             background: linear-gradient(#0e9afe, #ffffff);
             position: relative;
             // background-image: url(../img/bg/bottomwave.png);
+            @media (min-width: 768px) {
+                padding-top: 6vw;
+            }
         }
     }
     color: $white;
