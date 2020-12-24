@@ -73,6 +73,7 @@ class MakePicture extends Command
             $orders = $orders->get();
             foreach ($orders as $order) {
 
+                echo 1;
                 exec("convert " .  storage_path("app/public/" . $order->photo) . " -resize 1200x1600\> " . storage_path("app/public/" . $order->photo));
 
                 $image = Image::make(storage_path("app/public/" . $order->photo));
@@ -80,6 +81,7 @@ class MakePicture extends Command
                 $w = $image->width();
                 $h = $image->height();
 
+                echo 2;
                 $mw = 100 * $w * 1 / ($h * 1);
                 $dw = $mw - 75;
                 $crw = 0;
@@ -96,6 +98,7 @@ class MakePicture extends Command
 
                 $image->crop(ceil($w - ($w * $crw / 100)), ceil($h - ($h * $crh / 100)), ceil($w * $crw / 100 / 2), ceil($h * $crh / 100 / 2));
 
+                echo 3;
                 $image->resize(660, 880, function ($constraint) {
                     $constraint->aspectRatio();
                 });
@@ -116,6 +119,7 @@ class MakePicture extends Command
 
                 $image->save(storage_path("app/public/" . $order->photo));
 
+                echo 4;
                 exec("convert -background None -virtual-pixel transparent -background transparent " . storage_path("app/public/" . $order->photo) . " +distort Perspective '0,0 0,0  880,10 880,-10  880,630 880,680  0,660 0,660' " . storage_path("app/public/orders/" . $order->id . "/perspective.png"), $output);
                 exec("convert " . storage_path("app/public/orders/" . $order->id . "/perspective.png") . "  -background transparent -rotate 1 " . storage_path("app/public/orders/" . $order->id . "/rotate.png"));
                 exec("composite -geometry '+'$wdn'+'$hdn " . storage_path("app/public/orders/" . $order->id . "/rotate.png") . " " . storage_path("tmp/photo.png") . " " . storage_path("tmp/mask.jpg") . " " . storage_path("app/public/orders/" . $order->id . "/final.jpg"));
@@ -125,6 +129,8 @@ class MakePicture extends Command
                 $order->update([
                     "pic" => 1
                 ]);
+
+                echo 5;
             }
         }
         return 0;
