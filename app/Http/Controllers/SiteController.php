@@ -236,7 +236,7 @@ class SiteController extends Controller
             'hash' => $hash,
             'order' => $order,
             'photo' => $order->photo ? "/storage/" . $order->photo : "",
-            'photo' => $order->pic ? "/storage/app/public/orders/" . $order->id . "/finale.jpg": "",
+            'photo' => $order->pic ? "/storage/app/public/orders/" . $order->id . "/finale.jpg" : "",
             'cdn' => $this->cdn
         ];
 
@@ -302,7 +302,9 @@ class SiteController extends Controller
         else $duration = $this->countDuration($orderFrom->chunks1920);
         $data['part_xiv_duration'] = $duration;
 
-        @mkdir(public_path("playlist"), 0755, true);
+        @mkdir(public_path("playlist/1024"), 0755, true);
+        @mkdir(public_path("playlist/1280"), 0755, true);
+        @mkdir(public_path("playlist/1920"), 0755, true);
         @mkdir(public_path("uploadlist"), 0755, true);
         @mkdir(public_path("video"), 0755, true);
 
@@ -320,117 +322,295 @@ class SiteController extends Controller
     public function playlist(Request $request, $hash)
     {
         $resolution = $request->get('resolution', 1280);
+
         $order = Order::where('hash', $hash)->first();
-        $chunks = unserialize($order->name->{"chunks" . $resolution});
-        $nameChunk = "";
 
-        foreach ($chunks as $key => $chunk) {
-            if ($key) $nameChunk .= PHP_EOL;
-            $nameChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
-            if (!$key) $nameChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+        $chunks1024 = unserialize($order->name->{"chunks1024"});
+        $chunks1280 = unserialize($order->name->{"chunks1280"});
+        $chunks1920 = unserialize($order->name->{"chunks1920"});
 
-            if ($resolution < 1920)
-                $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
-            else
-                $nameChunk .= $this->cdn . "part_ii/" . $order->name->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+        $nameChunk1024 = "";
+        foreach ($chunks1024 as $key => $chunk) {
+            if ($key) {
+                $nameChunk1024 .= PHP_EOL;
+            }
+            $nameChunk1024 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) {
+                $nameChunk1024 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            }
+            $nameChunk1024 .= $this->cdn . "part_ii/" . $order->name->link . "%20%281024xauto%29.mp4/" . $chunk[1];
         }
 
+        $nameChunk1280 = "";
+        foreach ($chunks1280 as $key => $chunk) {
+            if ($key) {
+                $nameChunk1280 .= PHP_EOL;
+            }
+            $nameChunk1280 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) {
+                $nameChunk1280 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            }
+            $nameChunk1280 .= $this->cdn . "part_ii/" . $order->name->link . "%20%281280xauto%29.mp4/" . $chunk[1];
+        }
 
-        $achieveChunk = "";
+        $nameChunk1920 = "";
+        foreach ($chunks1920 as $key => $chunk) {
+            if ($key) {
+                $nameChunk1920 .= PHP_EOL;
+            }
+            $nameChunk1920 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) {
+                $nameChunk1920 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            }
+            $nameChunk1920 .= $this->cdn . "part_ii/" . $order->name->link . "%20%281920x1080%29.mp4/" . $chunk[1];
+        }
+
+        $achieveChunk1024 = "";
+        $achieveChunk1280 = "";
+        $achieveChunk1920 = "";
 
         if ($order->achieve_id) {
 
-            $chunks = unserialize($order->achieve->{"chunks" . $resolution});
+            $chunks1024 = unserialize($order->achieve->{"chunks1024"});
+            $chunks1280 = unserialize($order->achieve->{"chunks1280"});
+            $chunks1920 = unserialize($order->achieve->{"chunks1920"});
 
-            foreach ($chunks as $key => $chunk) {
-                if ($key) $achieveChunk .= PHP_EOL;
-                $achieveChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
-                if (!$key) $achieveChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-                if ($resolution < 1920)
-                    $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
-                else
-                    $achieveChunk .= $this->cdn . "part_v/" . $order->achieve->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+            foreach ($chunks1024 as $key => $chunk) {
+                if ($key) {
+                    $achieveChunk1024 .= PHP_EOL;
+                }
+                $achieveChunk1024 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+                if (!$key) {
+                    $achieveChunk1024 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                }
+                $achieveChunk1024 .= $this->cdn . "part_v/" . $order->achieve->link . "%20%281024xauto%29.mp4/" . $chunk[1];
+            }
+
+            foreach ($chunks1280 as $key => $chunk) {
+                if ($key) {
+                    $achieveChunk1280 .= PHP_EOL;
+                }
+                $achieveChunk1280 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+                if (!$key) {
+                    $achieveChunk1280 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                }
+                $achieveChunk1280 .= $this->cdn . "part_v/" . $order->achieve->link . "%20%281280xauto%29.mp4/" . $chunk[1];
+            }
+
+            foreach ($chunks1920 as $key => $chunk) {
+                if ($key) {
+                    $achieveChunk1920 .= PHP_EOL;
+                }
+                $achieveChunk1920 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+                if (!$key) {
+                    $achieveChunk1920 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                }
+                $achieveChunk1920 .= $this->cdn . "part_v/" . $order->achieve->link . "%20%281920x1080%29.mp4/" . $chunk[1];
             }
         }
 
-        $hobbyChunk = "";
+        $hobbyChunk1024 = "";
+        $hobbyChunk1280 = "";
+        $hobbyChunk1920 = "";
 
         if ($order->hobby_id) {
 
-            $chunks = unserialize($order->hobby->{"chunks" . $resolution});
+            $chunks1024 = unserialize($order->hobby->{"chunks1024"});
+            $chunks1280 = unserialize($order->hobby->{"chunks1280"});
+            $chunks1920 = unserialize($order->hobby->{"chunks1920"});
 
-            foreach ($chunks as $key => $chunk) {
-                if ($key) $hobbyChunk .= PHP_EOL;
-                $hobbyChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
-                if (!$key) $hobbyChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-                if ($resolution < 1920)
-                    $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
-                else
-                    $hobbyChunk .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+            foreach ($chunks1024 as $key => $chunk) {
+                if ($key) {
+                    $hobbyChunk1024 .= PHP_EOL;
+                }
+                $hobbyChunk1024 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+                if (!$key) {
+                    $hobbyChunk1024 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                }
+                $hobbyChunk1024 .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%281024xauto%29.mp4/" . $chunk[1];
+            }
+
+            foreach ($chunks1280 as $key => $chunk) {
+                if ($key) {
+                    $hobbyChunk1280 .= PHP_EOL;
+                }
+                $hobbyChunk1280 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+                if (!$key) {
+                    $hobbyChunk1280 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                }
+                $hobbyChunk1280 .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%281280xauto%29.mp4/" . $chunk[1];
+            }
+
+            foreach ($chunks1920 as $key => $chunk) {
+                if ($key) {
+                    $hobbyChunk1920 .= PHP_EOL;
+                }
+                $hobbyChunk1920 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+                if (!$key) {
+                    $hobbyChunk1920 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+                }
+                $hobbyChunk1920 .= $this->cdn . "part_vi/" . $order->hobby->link . "%20%281920x1080%29.mp4/" . $chunk[1];
             }
         }
 
-        $chunks = unserialize($order->gift->{"chunks" . $resolution});
-        $giftChunk = "";
 
-        foreach ($chunks as $key => $chunk) {
-            if ($key) $giftChunk .= PHP_EOL;
-            $giftChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
-            if (!$key) $giftChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            if ($resolution < 1920)
-                $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
-            else
-                $giftChunk .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+
+        $chunks1024 = unserialize($order->gift->{"chunks1024"});
+        $chunks1280 = unserialize($order->gift->{"chunks1280"});
+        $chunks1920 = unserialize($order->gift->{"chunks1920"});
+
+        $giftChunk1024 = "";
+        foreach ($chunks1024 as $key => $chunk) {
+            if ($key) {
+                $giftChunk1024 .= PHP_EOL;
+            }
+            $giftChunk1024 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) {
+                $giftChunk1024 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            }
+            $giftChunk1024 .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%281024xauto%29.mp4/" . $chunk[1];
         }
 
-        $chunks = unserialize($order->from->{"chunks" . $resolution});
-        $fromChunk = "";
-
-        foreach ($chunks as $key => $chunk) {
-            if ($key) $fromChunk .= PHP_EOL;
-            $fromChunk .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
-            if (!$key) $fromChunk .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
-            if ($resolution < 1920)
-                $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "xauto%29.mp4/" . $chunk[1];
-            else
-                $fromChunk .= $this->cdn . "part_xiv/" . $order->from->link . "%20%28" . $resolution . "x1080%29.mp4/" . $chunk[1];
+        $giftChunk1280 = "";
+        foreach ($chunks1280 as $key => $chunk) {
+            if ($key) {
+                $giftChunk1280 .= PHP_EOL;
+            }
+            $giftChunk1280 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) {
+                $giftChunk1280 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            }
+            $giftChunk1280 .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%281280xauto%29.mp4/" . $chunk[1];
         }
 
-        $partIChunk = view('chunks.part_i.' . $order->name->gender . '.' . $resolution, ['cdn' => $this->cdn]);
-        $partIIIChunk = view('chunks.part_iii.' . $resolution, ['cdn' => $this->cdn]);
-        $partIVChunk = $order->photo ? view('chunks.part_iv.' . $resolution, ['cdn' => $this->cdn]) : PHP_EOL;
-        $partVIIChunk = view('chunks.part_vii.' . $resolution, ['cdn' => $this->cdn]);
-        $partVIIIChunk = view('chunks.part_viii.' . $resolution, ['cdn' => $this->cdn]);
-        $partIXChunk = view('chunks.part_ix.srg' . $resolution, ['cdn' => $this->cdn]);
-        $partXChunk = view('chunks.part_x.' . $resolution, ['cdn' => $this->cdn]);
-        $partXIChunk = view('chunks.part_xi.' . $resolution, ['cdn' => $this->cdn]);
-        $partXIIChunk = view('chunks.part_xii.' . $resolution, ['cdn' => $this->cdn]);
-        $partXVChunk = view('chunks.part_xv.' . $resolution, ['cdn' => $this->cdn]);
-        $partXVIChunk = view('chunks.part_xvi.' . $resolution, ['cdn' => $this->cdn]);
-        $partXVIIChunk = view('chunks.part_xvii.' . $resolution, ['cdn' => $this->cdn]);
+        $giftChunk1920 = "";
+        foreach ($chunks1920 as $key => $chunk) {
+            if ($key) {
+                $giftChunk1920 .= PHP_EOL;
+            }
+            $giftChunk1920 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) {
+                $giftChunk1920 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            }
+            $giftChunk1920 .= $this->cdn . "part_xiii/" . $order->gift->link . "%20%281920x1080%29.mp4/" . $chunk[1];
+        }
 
-        $return = view('playlist', [
-            'partIChunk' => $partIChunk,
-            'nameChunk' => $nameChunk,
-            'partIIIChunk' => $partIIIChunk,
-            'partIVChunk' => $partIVChunk,
-            'achieveChunk' => $achieveChunk,
-            'hobbyChunk' => $hobbyChunk,
-            'partVIIChunk' => $partVIIChunk,
-            'partVIIIChunk' => $partVIIIChunk,
-            'partIXChunk' => $partIXChunk,
-            'partXChunk' => $partXChunk,
-            'partXIChunk' => $partXIChunk,
-            'partXIIChunk' => $partXIIChunk,
-            'giftChunk' => $giftChunk,
-            'fromChunk' => $fromChunk,
-            'partXVChunk' => $partXVChunk,
-            'partXVIChunk' => $partXVIChunk,
-            'partXVIIChunk' => $partXVIIChunk,
-            'cdn' => $this->cdn
-        ]);
 
-        file_put_contents(public_path("playlist/$hash.m3u8"), $return);
+
+        $chunks1024 = unserialize($order->from->{"chunks1024"});
+        $chunks1280 = unserialize($order->from->{"chunks1280"});
+        $chunks1920 = unserialize($order->from->{"chunks1920"});
+
+        $fromChunk1024 = "";
+        foreach ($chunks1024 as $key => $chunk) {
+            if ($key) {
+                $fromChunk1024 .= PHP_EOL;
+            }
+            $fromChunk1024 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) {
+                $fromChunk1024 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            }
+            $fromChunk1024 .= $this->cdn . "part_xiv/" . $order->from->link . "%20%281024xauto%29.mp4/" . $chunk[1];
+        }
+
+        $fromChunk1280 = "";
+        foreach ($chunks1280 as $key => $chunk) {
+            if ($key) {
+                $fromChunk1280 .= PHP_EOL;
+            }
+            $fromChunk1280 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) {
+                $fromChunk1280 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            }
+            $fromChunk1280 .= $this->cdn . "part_xiv/" . $order->from->link . "%20%281280xauto%29.mp4/" . $chunk[1];
+        }
+
+        $fromChunk1920 = "";
+        foreach ($chunks1920 as $key => $chunk) {
+            if ($key) {
+                $fromChunk1920 .= PHP_EOL;
+            }
+            $fromChunk1920 .= "#EXTINF:" . $chunk[0] . "," . PHP_EOL;
+            if (!$key) {
+                $fromChunk1920 .= "#EXT-X-DISCONTINUITY" . PHP_EOL;
+            }
+            $fromChunk1920 .= $this->cdn . "part_xiv/" . $order->from->link . "%20%281920x1080%29.mp4/" . $chunk[1];
+        }
+
+
+        $partIChunk1024 = view('chunks.part_i.' . $order->name->gender . '.1024', ['cdn' => $this->cdn]);
+        $partIChunk1280 = view('chunks.part_i.' . $order->name->gender . '.1280', ['cdn' => $this->cdn]);
+        $partIChunk1920 = view('chunks.part_i.' . $order->name->gender . '.1920', ['cdn' => $this->cdn]);
+
+        $partIIIChunk1024 = view('chunks.part_iii.1024', ['cdn' => $this->cdn]);
+        $partIIIChunk1280 = view('chunks.part_iii.1280', ['cdn' => $this->cdn]);
+        $partIIIChunk1920 = view('chunks.part_iii.1920', ['cdn' => $this->cdn]);
+
+        $partIVChunk1024 = $order->photo ? view('chunks.part_iv.1024', ['cdn' => $this->cdn]) : PHP_EOL;
+        $partIVChunk1280 = $order->photo ? view('chunks.part_iv.1280', ['cdn' => $this->cdn]) : PHP_EOL;
+        $partIVChunk1920 = $order->photo ? view('chunks.part_iv.1920', ['cdn' => $this->cdn]) : PHP_EOL;
+
+        $partVIIChunk1024 = view('chunks.part_vii.1024', ['cdn' => $this->cdn]);
+        $partVIIChunk1280 = view('chunks.part_vii.1280', ['cdn' => $this->cdn]);
+        $partVIIChunk = view('chunks.part_vii.', ['cdn' => $this->cdn]);
+
+        $partVIIIChunk1024 = view('chunks.part_viii.1024', ['cdn' => $this->cdn]);
+        $partVIIIChunk1280 = view('chunks.part_viii.1280', ['cdn' => $this->cdn]);
+        $partVIIIChunk1920 = view('chunks.part_viii.1920', ['cdn' => $this->cdn]);
+
+        $partIXChunk1024 = view('chunks.part_ix.srg1024', ['cdn' => $this->cdn]);
+        $partIXChunk1280 = view('chunks.part_ix.srg1280', ['cdn' => $this->cdn]);
+        $partIXChunk1920 = view('chunks.part_ix.srg1920', ['cdn' => $this->cdn]);
+
+        $partXChunk1024 = view('chunks.part_x.1024', ['cdn' => $this->cdn]);
+        $partXChunk1280 = view('chunks.part_x.1280', ['cdn' => $this->cdn]);
+        $partXChunk1920 = view('chunks.part_x.1920', ['cdn' => $this->cdn]);
+
+        $partXIChunk1024 = view('chunks.part_xi.1024', ['cdn' => $this->cdn]);
+        $partXIChunk1280 = view('chunks.part_xi.1280', ['cdn' => $this->cdn]);
+        $partXIChunk1920 = view('chunks.part_xi.1920', ['cdn' => $this->cdn]);
+
+        $partXIIChunk1024 = view('chunks.part_xii.1024', ['cdn' => $this->cdn]);
+        $partXIIChunk1280 = view('chunks.part_xii.1280', ['cdn' => $this->cdn]);
+        $partXIIChunk1920 = view('chunks.part_xii.1920', ['cdn' => $this->cdn]);
+
+        $partXVChunk1024 = view('chunks.part_xv.1024', ['cdn' => $this->cdn]);
+        $partXVChunk1280 = view('chunks.part_xv.1280', ['cdn' => $this->cdn]);
+        $partXVChunk1920 = view('chunks.part_xv.1920', ['cdn' => $this->cdn]);
+
+        $partXVIChunk1024 = view('chunks.part_xvi.1024', ['cdn' => $this->cdn]);
+        $partXVIChunk1280 = view('chunks.part_xvi.1280', ['cdn' => $this->cdn]);
+        $partXVIChunk1920 = view('chunks.part_xvi.1920', ['cdn' => $this->cdn]);
+
+        $partXVIIChunk1024 = view('chunks.part_xvii.1024', ['cdn' => $this->cdn]);
+        $partXVIIChunk1280 = view('chunks.part_xvii.1280', ['cdn' => $this->cdn]);
+        $partXVIIChunk1920 = view('chunks.part_xvii.1920', ['cdn' => $this->cdn]);
+
+
+        foreach ([1024, 1280, 1920] as $resol) {
+            ${"return" . $resol} = view('playlist', [
+                'partIChunk' => ${"partIChunk" . $resol},
+                'nameChunk' => ${"nameChunk" . $resol},
+                'partIIIChunk' => ${"partIIIChunk" . $resol},
+                'partIVChunk' => ${"partIVChunk" . $resol},
+                'achieveChunk' => ${"achieveChunk" . $resol},
+                'hobbyChunk' => ${"hobbyChunk" . $resol},
+                'partVIIChunk' => ${"partVIIChunk" . $resol},
+                'partVIIIChunk' => ${"partVIIIChunk" . $resol},
+                'partIXChunk' => ${"partIXChunk" . $resol},
+                'partXChunk' => ${"partXChunk" . $resol},
+                'partXIChunk' => ${"partXIChunk" . $resol},
+                'partXIIChunk' => ${"partXIIChunk" . $resol},
+                'giftChunk' => ${"giftChunk" . $resol},
+                'fromChunk' => ${"fromChunk" . $resol},
+                'partXVChunk' => ${"partXVChunk" . $resol},
+                'partXVIChunk' => ${"partXVIChunk" . $resol},
+                'partXVIIChunk' => ${"partXVIIChunk" . $resol},
+                'cdn' => $this->cdn
+            ]);
+            @mkdir(public_path("playlist/1024"), 0755, true);
+            file_put_contents(public_path("playlist/1024/$hash.m3u8"), ${"return" . $resol});
+        }
 
         $returnUpload = json_encode([
             'gender' => $order->name->gender,
@@ -444,7 +624,7 @@ class SiteController extends Controller
 
         file_put_contents(public_path("uploadlist/$hash.m3u8"), $returnUpload);
 
-        return $return;
+        return ${"return" . $resolution};
     }
 
     /**
