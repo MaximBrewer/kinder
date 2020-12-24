@@ -552,7 +552,7 @@ class SiteController extends Controller
 
         $partVIIChunk1024 = view('chunks.part_vii.1024', ['cdn' => $this->cdn]);
         $partVIIChunk1280 = view('chunks.part_vii.1280', ['cdn' => $this->cdn]);
-        $partVIIChunk = view('chunks.part_vii.1920', ['cdn' => $this->cdn]);
+        $partVIIChunk1920 = view('chunks.part_vii.1920', ['cdn' => $this->cdn]);
 
         $partVIIIChunk1024 = view('chunks.part_viii.1024', ['cdn' => $this->cdn]);
         $partVIIIChunk1280 = view('chunks.part_viii.1280', ['cdn' => $this->cdn]);
