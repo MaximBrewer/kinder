@@ -101,8 +101,10 @@ class MakeVideo extends Command
                                 'contents' => $order->id
                             ],
                         ]
-                    ])->then(function ($response) {
-                        echo 'I completed! ' . $response->getBody();
+                    ])->then(function ($response, $pathf, $order) {
+                        echo 'I completed! ' . $response->getBody(). PHP_EOL;
+                        echo $pathf . PHP_EOL;
+                        echo $order->id . PHP_EOL;
                     });
                     echo "Sent" . PHP_EOL;
                     echo $pathf . PHP_EOL;
