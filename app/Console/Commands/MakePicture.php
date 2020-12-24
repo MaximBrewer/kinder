@@ -41,6 +41,27 @@ class MakePicture extends Command
     {
         $fp = fopen(storage_path('tmp/pic.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
+            $this->convert();
+            fclose($fp);
+        } else {
+            $fp = fopen(storage_path('tmp/pic2.cron'), 'r+');
+            if (flock($fp, LOCK_EX | LOCK_NB)) {
+                $this->convert();
+                fclose($fp);
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    private function convert()
+    {
+        $fp = fopen(storage_path('tmp/pic.cron'), 'r+');
+        if (flock($fp, LOCK_EX | LOCK_NB)) {
             $orders = \App\Models\Order::whereNotNull('photo')->where('pic', 0)->orderBy('id', 'desc')->limit(50);
             $orders->update(['pic' => 3]);
             if (isset($orders)) {
