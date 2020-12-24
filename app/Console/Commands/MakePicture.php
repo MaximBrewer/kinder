@@ -43,12 +43,12 @@ class MakePicture extends Command
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $this->convert();
             fclose($fp);
-        } else {
-            $fp = fopen(storage_path('tmp/pic2.cron'), 'r+');
-            if (flock($fp, LOCK_EX | LOCK_NB)) {
-                $this->convert();
-                fclose($fp);
-            }
+            return 0;
+        }
+        $fp = fopen(storage_path('tmp/pic2.cron'), 'r+');
+        if (flock($fp, LOCK_EX | LOCK_NB)) {
+            $this->convert();
+            fclose($fp);
         }
         return 0;
     }
