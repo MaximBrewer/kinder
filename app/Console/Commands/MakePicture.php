@@ -60,6 +60,8 @@ class MakePicture extends Command
      */
     private function convert()
     {
+
+
         $orders = \App\Models\Order::whereNotNull('photo')->where('pic', 0)->orderBy('id', 'desc')->limit(300);
         $orders->update(['pic' => 3]);
         if (isset($orders)) {
@@ -67,6 +69,12 @@ class MakePicture extends Command
             foreach ($orders as $order) {
 
                 $image = Image::make(storage_path("app/public/" . $order->photo));
+
+                $image->resize(1200, 1600, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+
 
                 $w = $image->width();
                 $h = $image->height();
