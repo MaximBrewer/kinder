@@ -608,7 +608,7 @@ class SiteController extends Controller
                 'partXVIIChunk' => ${"partXVIIChunk" . $resol},
                 'cdn' => $this->cdn
             ]);
-            @mkdir(public_path("playlist/1024"), 0755, true);
+            @mkdir(public_path("playlist/" . $resol), 0755, true);
             file_put_contents(public_path("playlist/1024/$hash.m3u8"), ${"return" . $resol});
         }
 
