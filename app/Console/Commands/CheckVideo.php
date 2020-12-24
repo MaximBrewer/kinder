@@ -41,10 +41,10 @@ class CheckVideo extends Command
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $orders = \App\Models\Order::where('video', 3)->orderBy('id', 'desc')->limit(50);
             $orders = $orders->get();
-            $promises = [];
             foreach ($orders as $order) {
                 $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
                 $headers = @get_headers($url);
+                echo $headers[0] . PHP_EOL;
                 if (strpos($headers[0], '200')) {
                     $order->update([
                         'video' => 1
