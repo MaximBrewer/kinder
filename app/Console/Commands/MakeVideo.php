@@ -79,7 +79,7 @@ class MakeVideo extends Command
     private function make()
     {
 
-        $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->where('pic', 1)->orderBy('id', 'desc')->limit(10);
+        $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->where('pic', 1)->orderBy('id', 'desc')->limit(100);
         $orders->update(['video' => 3]);
 
         if (isset($orders)) {
