@@ -113,6 +113,11 @@ class MakeVideo extends Command
                             ],
                         ]
                     ])->then(function ($response) use ($pathf, $order) {
+                        if (strpos($response->getBody(), '200')) {
+                            $order->update([
+                                'video' => 1
+                            ]);
+                        }
                         echo 'I completed! ' . $response->getBody(). PHP_EOL;
                         echo $pathf . PHP_EOL;
                         echo $order->id . PHP_EOL;
