@@ -309,7 +309,7 @@ class SiteController extends Controller
         @mkdir(public_path("video"), 0755, true);
 
         @mkdir(public_path("video/$hash"), 0755, true);
-        // file_put_contents(public_path("video/$hash/index.html"), view('video', $data));
+        file_put_contents(public_path("video/$hash/index.html"), view('video', $data));
 
         return view('video', $data);
     }
