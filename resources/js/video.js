@@ -16,7 +16,7 @@ window.innerWidth > 1024 && (resolution = 1920);
 
 var part_i_duration = 71.517,
     part_iii_duration = 14.272,
-    part_iv_duration = photo ? 5.8 : 0,
+    part_iv_duration = photo || picture ? 5.8 : 0,
     part_vii_duration = 24.845,
     part_viii_duration = 10.033,
     part_ix_duration = 20.9,
@@ -87,7 +87,7 @@ if (Android) {
     elVid.appendChild(elVidP);
     elVidWrap.appendChild(elVid);
     elVidWrap.appendChild(poster);
-    
+
     document.getElementsByTagName("body")[0].appendChild(elVidWrap);
 
 
@@ -141,7 +141,7 @@ if (Android) {
         var ct = currentTime;
         paused = true;
 
-        if (photo) {
+        if (photo || picture) {
             if (ct < tp - 0.5) {
                 photoSetted && removePhoto();
             } else if (ct < tp + part_iv_duration + 0.5) {
@@ -380,10 +380,15 @@ if (Android) {
     };
 
     var photoElement = createEl("photoElement");
-    photoElement.style.background =
-        "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
-        photo +
-        "') no-repeat top left 57.5%/auto 92%, #000000";
+    if (picture) {
+        photoElement.style.background =
+            "url('" + picture + "') no-repeat top left/cover, #000000";
+    } else {
+        photoElement.style.background =
+            "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
+            photo +
+            "') no-repeat top left 57.5%/auto 92%, #000000";
+    }
     document.getElementById("video").appendChild(photoElement);
 
     var ballsElement = createEl("ballsElement");
@@ -486,7 +491,7 @@ if (Android) {
         var ct = player.currentTime();
         paused = true;
 
-        if (photo) {
+        if (photo || picture) {
             if (ct < tp - 0.5) {
                 photoSetted && removePhoto();
             } else if (ct < tp + part_iv_duration + 0.5) {
@@ -802,10 +807,15 @@ if (Android) {
     );
 
     var photoElement = createEl("photoElement");
-    photoElement.style.background =
-        "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
-        photo +
-        "') no-repeat top left 57.5%/auto 92%, #000000";
+    if (picture) {
+        photoElement.style.background =
+            "url('" + picture + "') no-repeat top left/cover, #000000";
+    } else {
+        photoElement.style.background =
+            "url('https://montage-cache.cdnvideo.ru/montage/kindern/part_iv/photo.png') no-repeat 0 0 / 100%, url('" +
+            photo +
+            "') no-repeat top left 57.5%/auto 92%, #000000";
+    }
     document.getElementById("video").appendChild(photoElement);
 
     var ballsElement = createEl("ballsElement");

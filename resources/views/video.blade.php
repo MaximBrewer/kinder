@@ -15,6 +15,7 @@
     <link rel="preload" href="https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/white.png" as="image">
     <link rel="preload" href="https://montage-cache.cdnvideo.ru/montage/kindern/part_xi/gold.png" as="image">
     <link rel="preload" href="{{ $photo }}" as="image">
+    <link rel="preload" href="{{ $picture }}" as="image">
 
 
 </head>
@@ -29,6 +30,7 @@
     <script>
         var hash = "{{ $hash }}"
             , photo = "{{ $photo }}"
+            , picture = "{{ $picture }}"
             , cdn = "{{ $cdn }}"
             , part_ii_duration = "{{ $part_ii_duration }}" * 1
             , part_v_duration = "{{ $part_v_duration }}" * 1
