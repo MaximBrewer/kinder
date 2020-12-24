@@ -48,16 +48,16 @@ class Order
                 case "new":
                     break;
                 case "confirmed":
-                    if (!$order->sent)
-                        try {
-                            $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-                            Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
-                            $order->update([
-                                'sent' => 1
-                            ]);
-                        } catch (Throwable $e) {
-                            report($e);
-                        }
+                    // if (!$order->sent)
+                    //     try {
+                    //         $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+                    //         Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
+                    //         $order->update([
+                    //             'sent' => 1
+                    //         ]);
+                    //     } catch (Throwable $e) {
+                    //         report($e);
+                    //     }
                     break;
                 case "canceled":
                     try {
