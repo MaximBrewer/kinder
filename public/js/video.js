@@ -21974,7 +21974,7 @@ if (Android) {
 
     if (document.getElementById("redImg") && document.getElementById("redImg").style.opacity == "1" && document.getElementById("whiteImg") && document.getElementById("whiteImg").style.opacity == "1" && document.getElementById("goldImg") && document.getElementById("goldImg").style.opacity == "1") {
       setTimeout(function () {
-        currentTime = tg + part_xi_duration + 1.3;
+        currentTime = tg + part_xi_duration + 0.5;
         player.play();
       }, 300);
     }
@@ -22104,10 +22104,10 @@ if (Android) {
 
     if (ct < tg - 0.5) {
       giftsSetted && removeGifts();
-    } else if (ct > tg - 0.5 && ct < tg + part_xi_duration + 0.5) {
+    } else if (ct > tg - 0.5 && ct < tg + part_xi_duration - 0.5) {
       !giftsSetted && setGifts();
       paused = false;
-    } else if (ct > tg + part_xi_duration + 0.5) {
+    } else if (ct > tg + part_xi_duration - 0.5) {
       giftsSetted && removeGifts();
     }
 
@@ -22312,7 +22312,7 @@ if (Android) {
 
     if (document.getElementById("redImg") && document.getElementById("redImg").style.opacity == "1" && document.getElementById("whiteImg") && document.getElementById("whiteImg").style.opacity == "1" && document.getElementById("goldImg") && document.getElementById("goldImg").style.opacity == "1") {
       setTimeout(function () {
-        player.currentTime(tg + part_xi_duration + 1.3);
+        player.currentTime(tg + part_xi_duration + 0.5);
         player.play();
       }, 300);
     }
