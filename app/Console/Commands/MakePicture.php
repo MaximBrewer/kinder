@@ -60,7 +60,7 @@ class MakePicture extends Command
      */
     private function convert()
     {
-        $orders = \App\Models\Order::whereNotNull('photo')->where('pic', 0)->orderBy('id', 'desc')->limit(50);
+        $orders = \App\Models\Order::whereNotNull('photo')->where('pic', 0)->orderBy('id', 'desc')->limit(300);
         $orders->update(['pic' => 3]);
         if (isset($orders)) {
             $orders = $orders->get();
