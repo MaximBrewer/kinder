@@ -68,13 +68,9 @@ class MakePicture extends Command
             $orders = $orders->get();
             foreach ($orders as $order) {
 
+                exec("convert " .  storage_path("app/public/" . $order->photo) . " -resize 1200x1600\> " . storage_path("app/public/" . $order->photo));
+
                 $image = Image::make(storage_path("app/public/" . $order->photo));
-
-                $image->resize(1200, 1600, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-
 
                 $w = $image->width();
                 $h = $image->height();

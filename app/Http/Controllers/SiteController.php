@@ -109,7 +109,7 @@ class SiteController extends Controller
                 "photo" => $data['photo']
             ]);
 
-            exec("convert" .  storage_path("app/public/" . $order->photo) . " -resize 1200x1600\> " . storage_path("app/public/" . $order->photo));
+            exec("convert " .  storage_path("app/public/" . $order->photo) . " -resize 1200x1600\> " . storage_path("app/public/" . $order->photo));
             exec("jpegoptim " . storage_path("app/public/" . $order->photo) . " --strip-all");
 
             $image = Image::make(storage_path("app/public/" . $order->photo));
