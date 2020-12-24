@@ -37,6 +37,7 @@ class CheckVideo extends Command
      */
     public function handle()
     {
+        exec("touch ". storage_path('tmp/check.cron'));
         $fp = fopen(storage_path('tmp/check.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $orders = \App\Models\Order::where('video', 3)->orderBy('id', 'desc')->limit(500);
