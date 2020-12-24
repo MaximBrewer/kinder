@@ -111,6 +111,8 @@ class MakePicture extends Command
                 $order->update([
                     "pic" => 1
                 ]);
+                exec("rm " . storage_path("app/public/orders/" . $order->id . "/perspective.png"));
+                exec("rm " . storage_path("app/public/orders/" . $order->id . "/rotate.png"));
                 echo 5;
             }
         }
