@@ -40,7 +40,7 @@ class CheckVideo extends Command
         exec("touch ". storage_path('tmp/check.cron'));
         $fp = fopen(storage_path('tmp/check.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $orders = \App\Models\Order::where('video', 3)->orderBy('id', 'desc')->limit(500);
+            $orders = \App\Models\Order::where('video', 3)->orderBy('id', 'desc')->limit(2000);
             $orders = $orders->get();
             foreach ($orders as $order) {
                 $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
