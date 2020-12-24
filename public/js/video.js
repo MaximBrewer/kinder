@@ -21793,7 +21793,7 @@ if (Android) {
 
     if (ct < tg - 0.5) {
       giftsSetted && removeGifts();
-    } else if (ct > tg - 0.5 && ct < tg + part_xi_duration + 0.5) {
+    } else if (ct > tg - 0.5 && ct < tg + part_xi_duration - 0.5) {
       !giftsSetted && setGifts();
       paused = false;
     } else if (ct > tg + part_xi_duration + 0.5) {
@@ -21837,6 +21837,7 @@ if (Android) {
 
   var setPhoto = function setPhoto() {
     photoSetted = 1;
+    if (player.isFullscreen()) player.exitFullscreen();
     player.play();
     document.getElementById("photoElement").style.zIndex = "100";
   },
@@ -21847,6 +21848,7 @@ if (Android) {
   },
       setBall = function setBall() {
     ballsSetted = 1;
+    if (player.isFullscreen()) player.exitFullscreen();
     player.play();
     console.log("setBall");
     player.play();
@@ -21869,16 +21871,16 @@ if (Android) {
     document.getElementById("whiteImg").style.opacity = 0;
     document.getElementById("goldImg").style.opacity = 0;
     giftsSetted = 1;
+    if (player.isFullscreen()) player.exitFullscreen();
     player.play();
-    console.log("setGifts"); // if (player.isFullscreen()) player.exitFullscreen();
-
+    console.log("setGifts");
     player.play();
     clearTimeout(setGiftsPause);
     var ct = currentTime;
     document.getElementById("giftsElement").style.zIndex = "100";
     setGiftsPause = setTimeout(function () {
       player.pause();
-    }, (tg + part_xi_duration - ct - 0.5) * 1000);
+    }, (tg + part_xi_duration - ct - 1) * 1000);
   },
       removeGifts = function removeGifts() {
     giftsSetted = 0;
@@ -22107,7 +22109,7 @@ if (Android) {
     } else if (ct > tg - 0.5 && ct < tg + part_xi_duration - 0.5) {
       !giftsSetted && setGifts();
       paused = false;
-    } else if (ct > tg + part_xi_duration + 0.5) {
+    } else if (ct > tg + part_xi_duration - 0.5) {
       giftsSetted && removeGifts();
     }
 
@@ -22160,10 +22162,9 @@ if (Android) {
 
   var setBall = function setBall() {
     ballsSetted = 1;
-    player.play();
-    console.log("setBall");
     if (player.isFullscreen()) player.exitFullscreen();
     player.play();
+    console.log("setBall");
     document.getElementById("ballsElement").style.zIndex = "100";
     document.getElementById("ballsElement").addEventListener("touchstart", chooseBall);
     document.getElementById("ballsElement").addEventListener("click", chooseBall);
@@ -22185,16 +22186,16 @@ if (Android) {
     document.getElementById("whiteImg").style.opacity = 0;
     document.getElementById("goldImg").style.opacity = 0;
     giftsSetted = 1;
-    player.play();
-    console.log("setGifts");
     if (player.isFullscreen()) player.exitFullscreen();
     player.play();
+    console.log("setGifts");
     clearTimeout(setGiftsPause);
     var ct = player.currentTime();
     document.getElementById("giftsElement").style.zIndex = "100";
     setGiftsPause = setTimeout(function () {
+      paused = false;
       player.pause();
-    }, (tg + part_xi_duration - ct - 0.5) * 1000);
+    }, (tg + part_xi_duration - ct - 1) * 1000);
   };
 
   var removeGifts = function removeGifts() {
