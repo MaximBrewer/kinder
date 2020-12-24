@@ -63,7 +63,7 @@ class MakePicture extends Command
 
 
         $orders = \App\Models\Order::whereNotNull('photo')
-            ->where('pic', 0)
+            // ->where('pic', 0)
             ->where('id', 345056)
             ->orderBy('id', 'desc')
             ->limit(300);
