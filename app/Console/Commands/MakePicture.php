@@ -62,7 +62,12 @@ class MakePicture extends Command
     {
 
 
-        $orders = \App\Models\Order::whereNotNull('photo')->where('pic', 0)->orderBy('id', 'desc')->limit(300);
+        $orders = \App\Models\Order::whereNotNull('photo')
+            ->where('pic', 0)
+            ->where('id', 345056)
+            ->orderBy('id', 'desc')
+            ->limit(300);
+
         $orders->update(['pic' => 3]);
         if (isset($orders)) {
             $orders = $orders->get();
