@@ -55,8 +55,6 @@ class CheckVideo extends Command
                     ]);
                 }
             }
-            $orders = \App\Models\Order::whereNotNull('photo')->where('video', 0)->where('pic', 1)->orderBy('id', 'desc')->limit(50);
-            $orders->update(['video' => 3]);
             fclose($fp);
         }
         return 0;
