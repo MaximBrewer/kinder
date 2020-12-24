@@ -22104,11 +22104,13 @@ if (Android) {
 
     if (ct < tg - 0.5) {
       giftsSetted && removeGifts();
+      console.log(1);
     } else if (ct > tg - 0.5 && ct < tg + part_xi_duration - 0.5) {
       !giftsSetted && setGifts();
       paused = false;
     } else if (ct > tg + part_xi_duration - 0.5) {
       giftsSetted && removeGifts();
+      console.log(2);
     }
 
     if (ct < tb + part_viii_duration + part_ix_duration - 1) {
