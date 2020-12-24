@@ -68,7 +68,8 @@ class MakePicture extends Command
                     else $crh = $dw * -1;
 
 
-                $image->crop($w - ($w * $crw / 100), $h - ($h * $crh / 100), $w * $crw / 100 / 2, $h * $crh / 100 / 2);
+                $image->crop(ceil($w - ($w * $crw / 100)), ceil($h - ($h * $crh / 100)), ceil($w * $crw / 100 / 2), ceil($h * $crh / 100 / 2));
+
                 $image->resize(660, 880, function ($constraint) {
                     $constraint->aspectRatio();
                 });
@@ -84,8 +85,8 @@ class MakePicture extends Command
 
                 $image->insert($img_border);
 
-                $wdn = 720 + (660 - $wn) / 2;
-                $hdn = 85 + (880 - $hn) / 2;
+                $wdn = ceil(720 + (660 - $wn) / 2);
+                $hdn = ceil(85 + (880 - $hn) / 2);
 
                 $image->save(storage_path("app/public/" . $order->photo));
 
