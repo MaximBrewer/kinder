@@ -616,8 +616,8 @@ class SiteController extends Controller
             'gender' => $order->name->gender,
             'name' => $order->name->link,
             'photo' => "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts",
-            'achieve' => $order->achieve->link,
-            'hobby' => $order->hobby->link,
+            'achieve' => $order->achieve ? $order->achieve->link : '',
+            'hobby' => $order->hobby ? $order->hobby->link : '',
             'gift' => $order->gift->link,
             'from' => $order->from->link,
         ]);
