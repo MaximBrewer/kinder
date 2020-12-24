@@ -105,6 +105,8 @@ class MakeVideo extends Command
                         echo 'I completed! ' . $response->getBody();
                     });
                     echo "Sent" . PHP_EOL;
+                    echo $pathf . PHP_EOL;
+                    echo $order->id . PHP_EOL;
                 } else {
                     echo "No image" . PHP_EOL;
                     $order->update([
