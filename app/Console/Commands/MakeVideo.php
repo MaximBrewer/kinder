@@ -86,6 +86,17 @@ class MakeVideo extends Command
             $orders = $orders->get();
             $promises = [];
             foreach ($orders as $order) {
+
+                $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
+                $headers = @get_headers($url);
+                echo $headers[0] . PHP_EOL;
+                if (strpos($headers[0], '200')) {
+                    $order->update([
+                        'video' => 1
+                    ]);
+                    continue;
+                }
+
                 $pathf = storage_path("app/public/orders/" . $order->id . "/final.jpg");
                 if (is_file($pathf)) {
                     $client = new \GuzzleHttp\Client();
