@@ -236,7 +236,7 @@ class SiteController extends Controller
             'hash' => $hash,
             'order' => $order,
             'photo' => $order->photo ? "/storage/" . $order->photo : "",
-            'photo' => $order->pic ? "/storage/app/public/orders/" . $order->id . "/finale.jpg" : "",
+            'picture' => $order->pic ? "/storage/app/public/orders/" . $order->id . "/finale.jpg" : "",
             'cdn' => $this->cdn
         ];
 
