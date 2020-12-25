@@ -39,6 +39,7 @@ class MakePicture extends Command
      */
     public function handle()
     {
+        exec("touch " . storage_path('tmp/pic.cron'));
         $fp = fopen(storage_path('tmp/pic.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             try {
@@ -48,6 +49,7 @@ class MakePicture extends Command
             fclose($fp);
             return 0;
         }
+        exec("touch " . storage_path('tmp/pic2.cron'));
         $fp = fopen(storage_path('tmp/pic2.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             try {
