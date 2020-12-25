@@ -609,7 +609,7 @@ class SiteController extends Controller
                 'cdn' => $this->cdn
             ]);
             @mkdir(public_path("playlist/" . $resol), 0755, true);
-            file_put_contents(public_path("playlist/1024/$hash.m3u8"), ${"return" . $resol});
+            file_put_contents(public_path("playlist/$resol/$hash.m3u8"), ${"return" . $resol});
         }
 
         $returnUpload = json_encode([
