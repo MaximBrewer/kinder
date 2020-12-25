@@ -117,6 +117,10 @@ class MakePicture extends Command
                     exec("rm " . storage_path("app/public/orders/" . $order->id . "/perspective.png"));
                     exec("rm " . storage_path("app/public/orders/" . $order->id . "/rotate.png"));
                     echo 5;
+
+                    @unlink(storage_path("app/public/orders/" . $order->id . "/perspective.png"));
+                    @unlink(storage_path("app/public/orders/" . $order->id . "/rotate.png"));
+                    
                 } catch (\Throwable $e) {
                 }
             }

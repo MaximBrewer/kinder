@@ -176,6 +176,9 @@ class SiteController extends Controller
 
                 exec("jpegoptim " . storage_path("app/public/orders/" . $order->id . "/final.jpg") . " --strip-all");
 
+                @unlink(storage_path("app/public/orders/" . $order->id . "/perspective.png"));
+                @unlink(storage_path("app/public/orders/" . $order->id . "/rotate.png"));
+
                 $order->update([
                     "pic" => 1
                 ]);
