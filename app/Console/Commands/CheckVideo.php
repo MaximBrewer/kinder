@@ -50,6 +50,10 @@ class CheckVideo extends Command
                     $order->update([
                         'video' => 1
                     ]);
+                } else {
+                    $order->update([
+                        'video' => 0
+                    ]);
                 }
             }
             fclose($fp);
