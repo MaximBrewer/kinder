@@ -44,31 +44,46 @@ class MakeVideo extends Command
         exec("touch " . storage_path('tmp/video5.cron'));
         $fp = fopen(storage_path('tmp/video1.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $this->make();
+            try {
+                $this->make();
+            } catch (\Throwable $e) {
+            }
             fclose($fp);
             return 0;
         }
         $fp = fopen(storage_path('tmp/video2.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $this->make();
+            try {
+                $this->make();
+            } catch (\Throwable $e) {
+            }
             fclose($fp);
             return 0;
         }
         $fp = fopen(storage_path('tmp/video3.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $this->make();
+            try {
+                $this->make();
+            } catch (\Throwable $e) {
+            }
             fclose($fp);
             return 0;
         }
         $fp = fopen(storage_path('tmp/video4.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $this->make();
+            try {
+                $this->make();
+            } catch (\Throwable $e) {
+            }
             fclose($fp);
             return 0;
         }
         $fp = fopen(storage_path('tmp/video5.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $this->make();
+            try {
+                $this->make();
+            } catch (\Throwable $e) {
+            }
             fclose($fp);
             return 0;
         }
@@ -118,7 +133,7 @@ class MakeVideo extends Command
                                 'video' => 1
                             ]);
                         }
-                        echo 'I completed! ' . $response->getBody(). PHP_EOL;
+                        echo 'I completed! ' . $response->getBody() . PHP_EOL;
                         echo $pathf . PHP_EOL;
                         echo $order->id . PHP_EOL;
                     });

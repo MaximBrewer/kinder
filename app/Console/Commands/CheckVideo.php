@@ -37,24 +37,27 @@ class CheckVideo extends Command
      */
     public function handle()
     {
-        exec("touch ". storage_path('tmp/check.cron'));
+        exec("touch " . storage_path('tmp/check.cron'));
         $fp = fopen(storage_path('tmp/check.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
-            $orders = \App\Models\Order::where('video', 3)->orderBy('id', 'desc')->limit(2000);
-            $orders = $orders->get();
-            foreach ($orders as $order) {
-                $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
-                $headers = @get_headers($url);
-                echo $headers[0] . PHP_EOL;
-                if (strpos($headers[0], '200')) {
-                    $order->update([
-                        'video' => 1
-                    ]);
-                } else {
-                    $order->update([
-                        'video' => 0
-                    ]);
+            try {
+                $orders = \App\Models\Order::where('video', 3)->orderBy('id', 'desc')->limit(2000);
+                $orders = $orders->get();
+                foreach ($orders as $order) {
+                    $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
+                    $headers = @get_headers($url);
+                    echo $headers[0] . PHP_EOL;
+                    if (strpos($headers[0], '200')) {
+                        $order->update([
+                            'video' => 1
+                        ]);
+                    } else {
+                        $order->update([
+                            'video' => 0
+                        ]);
+                    }
                 }
+            } catch (\Throwable $e) {
             }
             fclose($fp);
         }
