@@ -51,25 +51,30 @@ class MakePicture extends Command
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $this->convert();
             fclose($fp);
+            return 0;
         }
         exec("touch " . storage_path('tmp/pic3.cron'));
         $fp = fopen(storage_path('tmp/pic3.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $this->convert();
             fclose($fp);
+            return 0;
         }
         exec("touch " . storage_path('tmp/pic4.cron'));
         $fp = fopen(storage_path('tmp/pic4.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $this->convert();
             fclose($fp);
+            return 0;
         }
         exec("touch " . storage_path('tmp/pic5.cron'));
         $fp = fopen(storage_path('tmp/pic5.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $this->convert();
             fclose($fp);
+            return 0;
         }
+
         return 0;
     }
 

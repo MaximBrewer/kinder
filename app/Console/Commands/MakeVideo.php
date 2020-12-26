@@ -38,10 +38,6 @@ class MakeVideo extends Command
     public function handle()
     {
         exec("touch " . storage_path('tmp/video1.cron'));
-        exec("touch " . storage_path('tmp/video2.cron'));
-        exec("touch " . storage_path('tmp/video3.cron'));
-        exec("touch " . storage_path('tmp/video4.cron'));
-        exec("touch " . storage_path('tmp/video5.cron'));
         $fp = fopen(storage_path('tmp/video1.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             try {
@@ -51,6 +47,7 @@ class MakeVideo extends Command
             fclose($fp);
             return 0;
         }
+        exec("touch " . storage_path('tmp/video2.cron'));
         $fp = fopen(storage_path('tmp/video2.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             try {
@@ -60,6 +57,7 @@ class MakeVideo extends Command
             fclose($fp);
             return 0;
         }
+        exec("touch " . storage_path('tmp/video3.cron'));
         $fp = fopen(storage_path('tmp/video3.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             try {
@@ -69,6 +67,7 @@ class MakeVideo extends Command
             fclose($fp);
             return 0;
         }
+        exec("touch " . storage_path('tmp/video4.cron'));
         $fp = fopen(storage_path('tmp/video4.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             try {
@@ -78,6 +77,7 @@ class MakeVideo extends Command
             fclose($fp);
             return 0;
         }
+        exec("touch " . storage_path('tmp/video5.cron'));
         $fp = fopen(storage_path('tmp/video5.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             try {
