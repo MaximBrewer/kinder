@@ -39,8 +39,8 @@ class MakePicture extends Command
      */
     public function handle()
     {
-        exec("touch " . storage_path('tmp/pic.cron'));
-        $fp = fopen(storage_path('tmp/pic.cron'), 'r+');
+        exec("touch " . storage_path('tmp/pic1.cron'));
+        $fp = fopen(storage_path('tmp/pic1.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $this->convert();
             fclose($fp);
@@ -48,6 +48,24 @@ class MakePicture extends Command
         }
         exec("touch " . storage_path('tmp/pic2.cron'));
         $fp = fopen(storage_path('tmp/pic2.cron'), 'r+');
+        if (flock($fp, LOCK_EX | LOCK_NB)) {
+            $this->convert();
+            fclose($fp);
+        }
+        exec("touch " . storage_path('tmp/pic3.cron'));
+        $fp = fopen(storage_path('tmp/pic3.cron'), 'r+');
+        if (flock($fp, LOCK_EX | LOCK_NB)) {
+            $this->convert();
+            fclose($fp);
+        }
+        exec("touch " . storage_path('tmp/pic4.cron'));
+        $fp = fopen(storage_path('tmp/pic4.cron'), 'r+');
+        if (flock($fp, LOCK_EX | LOCK_NB)) {
+            $this->convert();
+            fclose($fp);
+        }
+        exec("touch " . storage_path('tmp/pic5.cron'));
+        $fp = fopen(storage_path('tmp/pic5.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             $this->convert();
             fclose($fp);
@@ -62,8 +80,6 @@ class MakePicture extends Command
      */
     private function convert()
     {
-
-
         $orders = \App\Models\Order::whereNotNull('photo')
             ->where('pic', 0)
             // ->where('id', 345056)
