@@ -16,7 +16,7 @@ window.innerWidth > 1024 && (resolution = 1920);
 
 var part_i_duration = 71.517,
     part_iii_duration = 14.272,
-    part_iv_duration = photo || picture ? 5.8 : 0,
+    part_iv_duration = 0,
     part_vii_duration = 24.845,
     part_viii_duration = 10.033,
     part_ix_duration = 20.9,
@@ -51,6 +51,16 @@ var pauseTimeout30 = false;
 
 var Android = /(android)/i.test(navigator.userAgent);
 
+function isVideoInFullscreen() {
+    if (document.fullscreenElement && document.fullscreenElement.nodeName == 'VIDEO') {
+        return true;
+    }
+    return false;
+}
+
+var audio = document.getElementById('audio');
+var voice = document.getElementById('voice');
+
 if (Android) {
 
     var elVidWrap = document.createElement("div");
@@ -68,6 +78,17 @@ if (Android) {
     elVidWrap.classList.add("video-addon-js");
     elVidWrap.classList.add("vjs-default-skin");
     elVidWrap.classList.add("vjs-big-play-centered");
+
+    function closeFullscreen() {
+        if (isVideoInFullscreen())
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+            }
+    }
 
     var elVid = document.createElement("video");
     elVid.id = "video_html5_api";
@@ -94,8 +115,6 @@ if (Android) {
     var wrapper = document.getElementById('video');
     var player = document.getElementById('video_html5_api');
     player.allowFullscreen = false;
-
-    var audio = document.getElementById('audio');
 
     var videoSrc = "/playlist/" + hash + ".m3u8?resolution=" + resolution;
     var hls = new Hls();
@@ -226,17 +245,32 @@ if (Android) {
 
     var setPhoto = function () {
         photoSetted = 1;
-        if (player.isFullscreen()) player.exitFullscreen();
-        player.play();
+        closeFullscreen();
+        var ct = currentTime;
+        setTimeout(() => {
+            player.pause();
+            voice.play();
+            setTimeout(() => {
+                player.play()
+            }, 5780)
+            setTimeout(() => {
+                document.getElementById("photoElement") &&
+                    (document.getElementById("photoElement").style.zIndex = "-1");
+            }, 5980)
+        },
+            tp + part_iv_duration - ct
+        );
         document.getElementById("photoElement").style.zIndex = "100";
     }, removePhoto = function () {
         photoSetted = 0;
+        voice.pause();
+        player.play();
         console.log("removePhoto");
         document.getElementById("photoElement") &&
             (document.getElementById("photoElement").style.zIndex = "-1");
     }, setBall = function () {
         ballsSetted = 1;
-        if (player.isFullscreen()) player.exitFullscreen();
+        closeFullscreen();
         player.play();
         console.log("setBall");
         player.play();
@@ -254,6 +288,7 @@ if (Android) {
         }, (tb + part_viii_duration - ct - 0.5) * 1000);
     }, removeBalls = function () {
         ballsSetted = 0;
+        player.play()
         console.log("removeBalls");
         document.getElementById("ballsElement") &&
             (document.getElementById("ballsElement").style.zIndex = "-1");
@@ -262,7 +297,7 @@ if (Android) {
         document.getElementById("whiteImg").style.opacity = 0;
         document.getElementById("goldImg").style.opacity = 0;
         giftsSetted = 1;
-        if (player.isFullscreen()) player.exitFullscreen();
+        closeFullscreen();
         player.play();
         console.log("setGifts");
         player.play();
@@ -299,7 +334,7 @@ if (Android) {
         if (margin + (width - width * 0.375) < clientX) color = "s";
 
         photo = false;
-        player.currentTime = tb + part_viii_duration + (color == "s" ? 0.7 : (color == "g" ? 7.7 : 14.7));
+        player.currentTime = tb + part_viii_duration + (color == "s" ? 0.3 : (color == "g" ? 7.7 : 14.7));
         player.play();
         setTimeout(function () {
             removeBalls();
@@ -451,6 +486,8 @@ if (Android) {
     var touchAudio = function () {
         if (player.paused) player.play();
         if (audio.paused) audio.play();
+        voice.play();
+        voice.pause();
         document.getElementById("video").removeEventListener("click", touchAudio);
         document
             .getElementById("video")
@@ -579,10 +616,25 @@ if (Android) {
     var setPhoto = function () {
         photoSetted = 1;
         if (player.isFullscreen()) player.exitFullscreen();
-        player.play();
+        var ct = currentTime;
+        setTimeout(() => {
+            player.pause();
+            voice.play();
+            setTimeout(() => {
+                player.play()
+            }, 5780)
+            setTimeout(() => {
+                document.getElementById("photoElement") &&
+                    (document.getElementById("photoElement").style.zIndex = "-1");
+            }, 5980)
+        },
+            tp + part_iv_duration - ct
+        );
         document.getElementById("photoElement").style.zIndex = "100";
     },
         removePhoto = function () {
+            player.play()
+            voice.pause();
             photoSetted = 0;
             console.log("removePhoto");
             document.getElementById("photoElement") &&
@@ -610,6 +662,7 @@ if (Android) {
 
     var removeBalls = function () {
         ballsSetted = 0;
+        player.play()
         console.log("removeBalls");
         document.getElementById("ballsElement") &&
             (document.getElementById("ballsElement").style.zIndex = "-1");
@@ -660,7 +713,7 @@ if (Android) {
         if (margin + (width - width * 0.375) < clientX) color = "s";
 
         photo = false;
-        player.currentTime(tb + part_viii_duration + (color == "s" ? 0.7 : (color == "g" ? 7.7 : 14.7)));
+        player.currentTime(tb + part_viii_duration + (color == "s" ? 0.3 : (color == "g" ? 7.7 : 14.7)));
         player.play();
         setTimeout(function () {
             removeBalls();
@@ -721,7 +774,7 @@ if (Android) {
         el.style.backgroundColor = "#000000";
         return el;
     };
-    var audio = document.getElementById("audio");
+
     audio.addEventListener("play", function () {
         console.log("audioPlay");
         audio.volume = volumeInit;
@@ -878,6 +931,8 @@ if (Android) {
         console.log(player);
         player.play();
         audio.play();
+        voice.play();
+        voice.pause();
         document.getElementById("video").removeEventListener("click", touchAudio);
         document
             .getElementById("video")

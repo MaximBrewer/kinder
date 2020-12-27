@@ -27,6 +27,12 @@
             <source src="https://montage-cache.cdnvideo.ru/montage/kindern/music6.wav" type="audio/wav">
         </audio>
     </div>
+    <div style="overflow:hidden;z-index:-1;position:absolute;top:0;left:0;width:1px;height:1px;">
+        <audio id="voice" allowFullscreen="false"  playsinline>
+            <source src="https://montage-cache.cdnvideo.ru/montage/kindern/voice.mp3" type="audio/mpeg">
+            <source src="https://montage-cache.cdnvideo.ru/montage/kindern/voice.wav" type="audio/wav">
+        </audio>
+    </div>
     <script>
         var hash = "{{ $hash }}"
             , photo = "{{ $photo }}"
@@ -43,7 +49,7 @@
 	<script src="//s.platformcraft.ru/video/videojs/video5.19.2.min.js"></script>
 	<script src="//s.platformcraft.ru/video/videojs/plugins/hls/videojs-contrib-hls-5.9.min.js"></script>
     <script src="//s.platformcraft.ru/video/videojs/plugins/videojs.framebyframe.min.js"></script>
-    <script src="/js/video.js?v=8.03"></script>
+    <script src="/js/video.js?v=9.03"></script>
     <style>
         .video-js:after {
             content: none;
