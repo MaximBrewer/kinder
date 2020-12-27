@@ -248,6 +248,7 @@ if (Android) {
         closeFullscreen();
         var ct = currentTime;
         setTimeout(() => {
+            paused = false;
             player.pause();
             voice.play();
             setTimeout(() => {
@@ -618,9 +619,11 @@ if (Android) {
         if (player.isFullscreen()) player.exitFullscreen();
         var ct = currentTime;
         setTimeout(() => {
+            paused = false;
             player.pause();
             voice.play();
             setTimeout(() => {
+                player.currentTime(tp + part_iv_duration + .1)
                 player.play()
             }, 5780)
             setTimeout(() => {
@@ -841,11 +844,13 @@ if (Android) {
                 audio.play();
             });
             this.on("pause", function () {
-                if (paused) audio.pause();
-                else {
-                    pauseTimeout30 = setTimeout(function () {
-                        that.play();
-                    }, 30000);
+                if (!photoSetted) {
+                    if (paused) audio.pause();
+                    else {
+                        pauseTimeout30 = setTimeout(function () {
+                            that.play();
+                        }, 30000);
+                    }
                 }
             });
             this.on("ended", function () {
