@@ -61,7 +61,7 @@ function isVideoInFullscreen() {
 var audio = document.getElementById('audio');
 var voice = document.getElementById('voice');
 
-if (!Android) {
+if (Android) {
 
     var elVidWrap = document.createElement("div");
     elVidWrap.id = "video";
