@@ -42,7 +42,9 @@ class Cron extends Command
      */
     public function handle()
     {
-        $emails = DB::table('tmp')->limit(1000)->get();
+        $emailsR = DB::table('tmp')->limit(1000);
+        $emails = $emailsR->get();
+        $emailsR->delete();
         foreach ($emails as $email) {
             $orders = \App\Models\Order::where('email', $email->mail)->where('status', 'confirmed')->get();
             foreach ($orders as $order) {
@@ -56,7 +58,6 @@ class Cron extends Command
                     report($e);
                 }
             }
-            DB::table('tmp')->where('id', $email->id)->delete();
         }
         $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 0)->orderBy('id', 'desc')->limit(100)->get();
         foreach ($orders as $order) {
