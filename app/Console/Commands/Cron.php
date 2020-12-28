@@ -42,7 +42,7 @@ class Cron extends Command
      */
     public function handle()
     {
-        $emails = DB::table('tmp')->limit(1000)->get();
+        $emails = DB::table('tmp')->limit(500)->get();
         foreach ($emails as $email) {
             $orders = \App\Models\Order::where('status', $email->mail)->where('status', 'confirmed')->get();
             foreach ($orders as $order) {
