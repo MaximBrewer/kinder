@@ -67,11 +67,11 @@ class Transcoder extends Command
             "del_original" => false
         ];
 
-        for ($i = 1; $i <= 1; $i++) {
+        for ($i = 834; $i <= 875; $i++) {
             curl_setopt(
                 $ch,
                 CURLOPT_URL,
-                "https://filespot.platformcraft.ru/2/fs/container/" . $array->user_id . "/object/kindern/part_i/pt1boy.mp4"
+                "https://filespot.platformcraft.ru/2/fs/container/" . $array->user_id . "/object/kindern/part_ii/$i.mp4"
             );
             curl_setopt($ch, CURLOPT_POST, 0);
             $object = json_decode(curl_exec($ch));
