@@ -44,7 +44,7 @@ class Cron extends Command
     {
         $emails = DB::table('tmp')->limit(500)->get();
         foreach ($emails as $email) {
-            $orders = \App\Models\Order::where('status', $email->mail)->where('status', 'confirmed')->get();
+            $orders = \App\Models\Order::where('email', $email->mail)->where('status', 'confirmed')->get();
             foreach ($orders as $order) {
                 try {
                     $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
