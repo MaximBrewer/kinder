@@ -42,7 +42,7 @@ class Cron extends Command
      */
     public function handle()
     {
-        $emailsR = DB::table('tmp')->limit(1000);
+        $emailsR = DB::table('tmp')->limit(300);
         $emails = $emailsR->get();
         $emailsR->delete();
         foreach ($emails as $email) {
