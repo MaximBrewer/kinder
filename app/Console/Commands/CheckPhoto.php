@@ -37,7 +37,7 @@ class CheckPhoto extends Command
      */
     public function handle()
     {
-        $orders = \App\Models\Order::orderBy('id', 'desc')->limit(40000);
+        $orders = \App\Models\Order::orderBy('id', 'desc')->limit(100000);
         $orders = $orders->get();
         foreach ($orders as $order) {
             $url = "/var/www/html/kinder.gpucloud.ru/storage/app/public/orders/334784/final.jpg";
