@@ -42,6 +42,7 @@ class CheckVideo extends Command
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             try {
                 $orders = \App\Models\Order::whereNot('video', 9)->where('pic', 1)->orderBy('id', 'desc')->limit(5000);
+                echo $orders->count();
                 $orders = $orders->get();
                 foreach ($orders as $order) {
                     $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
