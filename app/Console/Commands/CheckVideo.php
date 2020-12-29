@@ -41,7 +41,7 @@ class CheckVideo extends Command
         // $fp = fopen(storage_path('tmp/check.cron'), 'r+');
         // if (flock($fp, LOCK_EX | LOCK_NB)) {
         //     try {
-                $orders = \App\Models\Order::whereNot('video', 9)->where('pic', 1)->orderBy('id', 'desc')->limit(5000);
+                $orders = \App\Models\Order::where('video', '<>', 9)->where('pic', 1)->orderBy('id', 'desc')->limit(5000);
                 echo $orders->count();
                 $orders = $orders->get();
                 foreach ($orders as $order) {
