@@ -490,8 +490,8 @@ if (Android) {
     giftsElement.appendChild(goldImg);
 
     var touchAudio = function () {
-        if (player.paused) player.play();
-        if (audio.paused) audio.play();
+        player.play();
+        audio.play();
         voice.play();
         voice.pause();
         document.getElementById("video").removeEventListener("click", touchAudio);
