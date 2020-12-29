@@ -41,7 +41,7 @@ class CheckVideo extends Command
         $fp = fopen(storage_path('tmp/check.cron'), 'r+');
         if (flock($fp, LOCK_EX | LOCK_NB)) {
             try {
-                $orders = \App\Models\Order::where('video', 3)->orderBy('id', 'desc')->limit(2000);
+                $orders = \App\Models\Order::whereNot('video', 9)->where('pic', 1)->orderBy('id', 'desc')->limit(5000);
                 $orders = $orders->get();
                 foreach ($orders as $order) {
                     $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order->id . ".ts";
@@ -49,7 +49,7 @@ class CheckVideo extends Command
                     echo $headers[0] . PHP_EOL;
                     if (strpos($headers[0], '200')) {
                         $order->update([
-                            'video' => 1
+                            'video' => 9
                         ]);
                     } else {
                         $order->update([
