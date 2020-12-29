@@ -42,7 +42,7 @@ class Cron extends Command
      */
     public function handle()
     {
-        $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(500);
+        $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
         $orders->update(['sent', '4']);
         $orders->get();
         foreach ($orders as $order) {
@@ -56,7 +56,7 @@ class Cron extends Command
                 report($e);
             }
         }
-        $orders = \App\Models\Order::where('status', 'canceled')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(500)->get();
+        $orders = \App\Models\Order::where('status', 'canceled')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000)->get();
         $orders->update(['sent', '4']);
         $orders->get();
         foreach ($orders as $order) {
