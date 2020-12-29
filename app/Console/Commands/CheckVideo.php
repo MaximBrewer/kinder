@@ -37,10 +37,10 @@ class CheckVideo extends Command
      */
     public function handle()
     {
-        // exec("touch " . storage_path('tmp/check.cron'));
-        // $fp = fopen(storage_path('tmp/check.cron'), 'r+');
-        // if (flock($fp, LOCK_EX | LOCK_NB)) {
-        //     try {
+        exec("touch " . storage_path('tmp/check.cron'));
+        $fp = fopen(storage_path('tmp/check.cron'), 'r+');
+        if (flock($fp, LOCK_EX | LOCK_NB)) {
+            try {
                 $orders = \App\Models\Order::where('video', '<>', 9)->where('pic', 1)->orderBy('id', 'desc')->limit(5000);
                 echo $orders->count();
                 $orders = $orders->get();
@@ -58,10 +58,10 @@ class CheckVideo extends Command
                         ]);
                     }
                 }
-        //     } catch (\Throwable $e) {
-        //     }
-        //     fclose($fp);
-        // }
-        // return 0;
+            } catch (\Throwable $e) {
+            }
+            fclose($fp);
+        }
+        return 0;
     }
 }
