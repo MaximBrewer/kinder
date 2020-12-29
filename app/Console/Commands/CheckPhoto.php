@@ -41,7 +41,7 @@ class CheckPhoto extends Command
         $orders = $orders->get();
         foreach ($orders as $order) {
             $url = "/var/www/html/kinder.gpucloud.ru/storage/app/public/orders/" . $order->id . "/final.jpg";
-            echo filesize($url) . PHP_EOL;
+            if(is_file($url)) echo filesize($url) . PHP_EOL;
         }
         return 0;
     }
