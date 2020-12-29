@@ -179,9 +179,15 @@ class SiteController extends Controller
                 @unlink(storage_path("app/public/orders/" . $order->id . "/perspective.png"));
                 @unlink(storage_path("app/public/orders/" . $order->id . "/rotate.png"));
 
-                $order->update([
-                    "pic" => 1
-                ]);
+                if (is_file(storage_path("app/public/orders/" . $order->id . "/final.jpg"))) {
+                    if (filesize(storage_path("app/public/orders/" . $order->id . "/final.jpg")) < 400000) {
+                        @unlink(storage_path("app/public/orders/" . $order->id . "/final.jpg"));
+                    } else {
+                        $order->update([
+                            "pic" => 1
+                        ]);
+                    }
+                }
             } catch (\Throwable $e) {
             }
         }
