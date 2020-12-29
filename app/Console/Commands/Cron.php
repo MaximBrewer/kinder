@@ -42,30 +42,25 @@ class Cron extends Command
      */
     public function handle()
     {
-        $emailsR = DB::table('tmp')->orderBy('id', 'asc')->limit(200);
-        $emails = $emailsR->get();
-        $emailsR->delete();
-        foreach ($emails as $email) {
-            $orders = \App\Models\Order::where('email', $email->mail)->where('sent', '<>', 2)->where('status', 'confirmed')->get();
-            foreach ($orders as $order) {
-                try {
-                    $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-                    Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
-                    $order->update([
-                        'sent' => 2
-                    ]);
-                } catch (Throwable $e) {
-                    report($e);
-                }
-            }
-        }
-        $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 0)->orderBy('id', 'desc')->limit(100)->get();
+        $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(500)->get();
         foreach ($orders as $order) {
             try {
                 $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
                 Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
                 $order->update([
-                    'sent' => 1
+                    'sent' => 3
+                ]);
+            } catch (Throwable $e) {
+                report($e);
+            }
+        }
+        $orders = \App\Models\Order::where('status', 'canceled')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(500)->get();
+        foreach ($orders as $order) {
+            try {
+                $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+                Mail::to($order->email)->send(new \App\Mail\Frame4($unsubscribe));
+                $order->update([
+                    'sent' => 3
                 ]);
             } catch (Throwable $e) {
                 report($e);
