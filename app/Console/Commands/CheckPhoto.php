@@ -45,8 +45,8 @@ class CheckPhoto extends Command
                 echo filesize($url) . ' ' . $order->id . PHP_EOL;
                 @unlink($url);
                 $order->update([
-                    'pic' => 5,
-                    'video' => 5,
+                    'pic' => 0,
+                    'video' => 0,
                 ]);
             }
         }
