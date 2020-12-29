@@ -41,8 +41,7 @@ class SiteController extends Controller
 
     public function testHtml(Request $request)
     {
-        echo storage_path('app/public/orders/' . 100);
-        // return view('mail.html.frame4', ['unsubscribe' => '', 'video' => '']);
+        return view('mail.html.frame3', ['unsubscribe' => '', 'video' => '']);
     }
 
 

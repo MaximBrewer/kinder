@@ -114,34 +114,43 @@ class MakeVideo extends Command
 
                 $pathf = storage_path("app/public/orders/" . $order->id . "/final.jpg");
                 if (is_file($pathf)) {
-                    $client = new \GuzzleHttp\Client();
-                    $promises[] = $client->postAsync("https://kinderhappynewyear.space/patch", [
-                        'multipart' => [
-                            [
-                                'name'     => 'photo',
-                                'contents' => fopen($pathf, "r"),
-                                'filename' => basename($pathf)
-                            ],
-                            [
-                                'name'     => 'order',
-                                'contents' => $order->id
-                            ],
-                        ]
-                    ])->then(function ($response) use ($pathf, $order) {
-                        if (strpos($response->getBody(), '200')) {
-                            $order->update([
-                                'video' => 1
-                            ]);
-                        }
-                        echo 'I completed! ' . $response->getBody() . PHP_EOL;
-                        echo $pathf . PHP_EOL;
-                        echo $order->id . PHP_EOL;
-                    });
-                    echo "Sent " . $order->id . PHP_EOL;
+                    if (filesize($pathf) > 400000) {
+                        $client = new \GuzzleHttp\Client();
+                        $promises[] = $client->postAsync("https://kinderhappynewyear.space/patch", [
+                            'multipart' => [
+                                [
+                                    'name'     => 'photo',
+                                    'contents' => fopen($pathf, "r"),
+                                    'filename' => basename($pathf)
+                                ],
+                                [
+                                    'name'     => 'order',
+                                    'contents' => $order->id
+                                ],
+                            ]
+                        ])->then(function ($response) use ($pathf, $order) {
+                            if (strpos($response->getBody(), '200')) {
+                                $order->update([
+                                    'video' => 1
+                                ]);
+                            }
+                            echo 'I completed! ' . $response->getBody() . PHP_EOL;
+                            echo $pathf . PHP_EOL;
+                            echo $order->id . PHP_EOL;
+                        });
+                        echo "Sent " . $order->id . PHP_EOL;
+                    } else {
+                        @unlink($pathf);
+                        $order->update([
+                            'pic' => 0,
+                            'video' => 0
+                        ]);
+                    }
                 } else {
                     echo "No image" . PHP_EOL;
                     $order->update([
-                        'video' => 2
+                        'pic' => 0,
+                        'video' => 0
                     ]);
                 }
             }
