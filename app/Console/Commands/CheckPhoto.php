@@ -42,6 +42,11 @@ class CheckPhoto extends Command
         foreach ($orders as $order) {
             $url = "/var/www/html/kinder.gpucloud.ru/storage/app/public/orders/" . $order->id . "/final.jpg";
             if(is_file($url) && filesize($url) < 400000) echo filesize($url) . ' ' . $order->id . PHP_EOL;
+            @unlink($url);
+            $order->update([
+                'pic' => 5,
+                'video' => 5,
+            ]);
         }
         return 0;
     }
