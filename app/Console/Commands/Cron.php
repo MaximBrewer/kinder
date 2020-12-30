@@ -44,7 +44,7 @@ class Cron extends Command
     {
         $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
         $orders->update(['sent' => '4']);
-        $orders->get();
+        $orders = $orders->get();
         foreach ($orders as $order) {
             try {
                 $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
@@ -58,7 +58,7 @@ class Cron extends Command
         }
         $orders = \App\Models\Order::where('status', 'canceled')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
         $orders->update(['sent' => '4']);
-        $orders->get();
+        $orders = $orders->get();
         foreach ($orders as $order) {
             try {
                 $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
