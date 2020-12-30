@@ -183,8 +183,7 @@ class SiteController extends Controller
                         @unlink(storage_path("app/public/orders/" . $order->id . "/final.jpg"));
                     } else {
                         $order->update([
-                            "pic" => 1,
-                            "status" => 'confirmed'
+                            "pic" => 1
                         ]);
                     }
                 }
