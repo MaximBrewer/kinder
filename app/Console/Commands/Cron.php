@@ -56,7 +56,7 @@ class Cron extends Command
                 report($e);
             }
         }
-        $orders = \App\Models\Order::where('status', 'canceled')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000)->get();
+        $orders = \App\Models\Order::where('status', 'canceled')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
         $orders->update(['sent' => '4']);
         $orders->get();
         foreach ($orders as $order) {
