@@ -1,4 +1,4 @@
-<table style="margin:0 auto;font-family: Noteworthy;">
+<table style="margin:0 auto;font-family: Noteworthy;color:#000000;">
     <tr style="vertical-align: baseline;">
         <td>
             <a href="https://pokupki.market.yandex.ru/search?cvredirect=2&utm_source=Kinder&utm_medium=website&utm_campaign=KinderNewYear2020&text=%D0%BA%D0%B8%D0%BD%D0%B4%D0%B5%D1%80&glfilter=7893318%3A10715858" class="shop shop-1" style="width: 171px;border-radius: 20px;margin: 0 15px 10px auto;padding: 4px 0;display: block;background: #fff;overflow: hidden;">

@@ -41,7 +41,7 @@ class SiteController extends Controller
 
     public function testHtml(Request $request)
     {
-        return view('mail.html.frame3', ['unsubscribe' => '', 'video' => '']);
+        return view('mail.html.frame4', ['unsubscribe' => '', 'video' => '']);
     }
 
 

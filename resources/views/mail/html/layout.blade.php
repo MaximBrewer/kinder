@@ -776,7 +776,7 @@
 </head>
 
 <body>
-    <div class="div-body" style="background-size: cover;width: 800px;height: 1200px;background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');font-family: Noteworthy;font-weight:bold;">
+    <div class="div-body" style="color:#000000;background-size: cover;width: 800px;height: 1200px;background-image: url('https://kinder.gpucloud.ru/images/mail-bg.jpg');font-family: Noteworthy;font-weight:bold;">
         <div class="body-inner" style="padding: 249px 117px 0px 172px;">
             <div style="min-height: 790px;">
                 <table style="margin:0 0 0 auto;">
