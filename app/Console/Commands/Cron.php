@@ -46,6 +46,7 @@ class Cron extends Command
         $orders->update(['sent' => '4']);
         $orders = $orders->get();
         foreach ($orders as $order) {
+            $orders->update(['sent' => '5']);
             try {
                 $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
                 Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
