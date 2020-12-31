@@ -44,7 +44,7 @@ class Cron extends Command
     {
         $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
         $orders->update(['sent' => '4']);
-        $orders = $orders->get();
+        $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', 4)->get();
         foreach ($orders as $order) {
             echo $order->email . PHP_EOL;
             try {
