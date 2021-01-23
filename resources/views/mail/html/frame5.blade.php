@@ -9,7 +9,10 @@
     </p>
     <p>
         Поделитесь, пожалуйста, мнением о поздравлении от Kinder Деда Мороза. 
-        Опрос займет не больше 3-х минут: <a href="https://clck.ru/Sp7NV" style="color: #F04E23 !important;">https://clck.ru/Sp7NV</a>
+        Опрос займет не больше 3-х минут: 
+    </p>
+    <p>
+        <a href="https://clck.ru/Sp7NV" style="color: #F04E23 !important;">https://clck.ru/Sp7NV</a>
     </p>
 </div>
 <h2 style="color:#000000;font-size: 26px;line-height: 37px;margin-bottom: 20px;text-align: center;color: #f04e23;">
