@@ -46,21 +46,21 @@ class Cron extends Command
             ->where('opros', 0)
             ->where('email', 'pimax1978@icloud.com')
             ->orderBy('id', 'desc')
-            ->groupBy('email')
             ->limit(1000);
         $ordersArray = $orders->get();
         $orders->update(['opros' => 3]);
         echo (count($ordersArray));
         foreach ($ordersArray as $order) {
-            try {
-                $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-                Mail::to($order->email)->send(new \App\Mail\Frame5($unsubscribe));
-                Order::where('email', $order->email)->update([
-                    'opros' => 1
-                ]);
-            } catch (Throwable $e) {
-                report($e);
-            }
+            if ($order->opros == 3)
+                try {
+                    $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+                    Mail::to($order->email)->send(new \App\Mail\Frame5($unsubscribe));
+                    Order::where('email', $order->email)->update([
+                        'opros' => 1
+                    ]);
+                } catch (Throwable $e) {
+                    report($e);
+                }
         }
 
 
