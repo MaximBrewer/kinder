@@ -35,13 +35,13 @@ class SiteController extends Controller
     {
         $order = Order::where('id', '>', 0)->first();
         $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-        Mail::to($request->mail)->send(new \App\Mail\Frame2($unsubscribe, ''));
+        Mail::to($request->mail)->send(new \App\Mail\Frame5($unsubscribe));
     }
 
 
     public function testHtml(Request $request)
     {
-        return view('mail.html.frame4', ['unsubscribe' => '', 'video' => '']);
+        return view('mail.html.frame5', ['unsubscribe' => '']);
     }
 
 

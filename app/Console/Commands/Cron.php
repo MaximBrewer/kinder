@@ -42,36 +42,52 @@ class Cron extends Command
      */
     public function handle()
     {
-        $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
-        $ordersArray = $orders->get();
-        $orders->update(['sent' => '4']);
-        echo(count($ordersArray));
-        foreach ($ordersArray as $order) {
-            try {
-                $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-                Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
-                $order->update([
-                    'sent' => 3
-                ]);
-            } catch (Throwable $e) {
-                report($e);
-            }
-        }
-        $orders = \App\Models\Order::where('status', 'canceled')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
-        $ordersArray = $orders->get();
-        $orders->update(['sent' => '4']);
-        echo(count($ordersArray));
-        foreach ($ordersArray as $order) {
-            try {
-                $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-                Mail::to($order->email)->send(new \App\Mail\Frame4($unsubscribe));
-                $order->update([
-                    'sent' => 3
-                ]);
-            } catch (Throwable $e) {
-                report($e);
-            }
-        }
+        // $orders = \App\Models\Order::where('status', 'confirmed')->where('opros', 0)->orderBy('id', 'desc')->limit(1000);
+        // $ordersArray = $orders->get();
+        // $orders->update(['opros' => 3]);
+        // echo(count($ordersArray));
+        // foreach ($ordersArray as $order) {
+        //     try {
+        //         $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+        //         Mail::to($order->email)->send(new \App\Mail\Frame5($unsubscribe));
+        //         $order->update([
+        //             'opros' => 1
+        //         ]);
+        //     } catch (Throwable $e) {
+        //         report($e);
+        //     }
+        // }
+
+
+        // $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
+        // $ordersArray = $orders->get();
+        // $orders->update(['sent' => '4']);
+        // foreach ($ordersArray as $order) {
+        //     try {
+        //         $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+        //         Mail::to($order->email)->send(new \App\Mail\Frame3($unsubscribe, $order->hash));
+        //         $order->update([
+        //             'sent' => 3
+        //         ]);
+        //     } catch (Throwable $e) {
+        //         report($e);
+        //     }
+        // }
+        // $orders = \App\Models\Order::where('status', 'canceled')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
+        // $ordersArray = $orders->get();
+        // $orders->update(['sent' => '4']);
+        // echo(count($ordersArray));
+        // foreach ($ordersArray as $order) {
+        //     try {
+        //         $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+        //         Mail::to($order->email)->send(new \App\Mail\Frame4($unsubscribe));
+        //         $order->update([
+        //             'sent' => 3
+        //         ]);
+        //     } catch (Throwable $e) {
+        //         report($e);
+        //     }
+        // }
         return 0;
     }
 }
