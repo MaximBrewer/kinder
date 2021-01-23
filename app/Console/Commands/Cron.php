@@ -51,12 +51,12 @@ class Cron extends Command
         $orders->update(['opros' => 3]);
         echo (count($ordersArray));
         foreach ($ordersArray as $o) {
-            $order = Order::find($o->id);
+            $order = \App\Models\Order::find($o->id);
             if ($order->opros == 3)
                 try {
                     $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
                     Mail::to($order->email)->send(new \App\Mail\Frame5($unsubscribe));
-                    Order::where('email', $order->email)->update([
+                    \App\Models\Order::where('email', $order->email)->update([
                         'opros' => 1
                     ]);
                 } catch (Throwable $e) {
