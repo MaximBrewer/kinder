@@ -47,7 +47,7 @@ class Cron extends Command
         if ($count < 82000) {
             $orders = \App\Models\Order::where('status', 'confirmed')
                 ->where('opros', 0)
-                ->where('email', 'pimax1978@icloud.com')
+                // ->where('email', 'pimax1978@icloud.com')
                 ->orderBy('id', 'desc')
                 ->limit(1000);
             $ordersArray = $orders->get();
