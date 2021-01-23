@@ -50,7 +50,8 @@ class Cron extends Command
         $ordersArray = $orders->get();
         $orders->update(['opros' => 3]);
         echo (count($ordersArray));
-        foreach ($ordersArray as $order) {
+        foreach ($ordersArray as $o) {
+            $order = Order::find($o->id);
             if ($order->opros == 3)
                 try {
                     $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
