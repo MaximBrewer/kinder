@@ -52,7 +52,7 @@ class Cron extends Command
                 ->where('opros', 0)
                 // ->where('email', 'pimax1978@icloud.com')
                 ->orderBy('id', 'desc')
-                ->limit(1000);
+                ->limit(300);
             $ordersArray = $orders->get();
             $orders->update(['opros' => 3]);
             echo (count($ordersArray));
