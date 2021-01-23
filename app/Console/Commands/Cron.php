@@ -44,6 +44,9 @@ class Cron extends Command
     {
         @touch('/var/www/html/kinder.gpucloud.ru/count');
         $count = (int)file_get_contents('/var/www/html/kinder.gpucloud.ru/count');
+        var_dump($count);
+        var_dump($count < 10);
+        var_dump($count < 82000);
         if ($count < 82000) {
             $orders = \App\Models\Order::where('status', 'confirmed')
                 ->where('opros', 0)
