@@ -46,6 +46,7 @@ class Cron extends Command
             ->where('opros', 0)
             ->where('email', 'pimax1978@icloud.com')
             ->orderBy('id', 'desc')
+            ->groupBy('email')
             ->limit(1000);
         $ordersArray = $orders->get();
         $orders->update(['opros' => 3]);
@@ -54,7 +55,7 @@ class Cron extends Command
             try {
                 $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
                 Mail::to($order->email)->send(new \App\Mail\Frame5($unsubscribe));
-                $order->update([
+                Order::where('email', $order->email)->update([
                     'opros' => 1
                 ]);
             } catch (Throwable $e) {
