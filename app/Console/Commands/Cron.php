@@ -44,15 +44,13 @@ class Cron extends Command
     {
         @touch('/var/www/html/kinder.gpucloud.ru/count');
         $count = (int)file_get_contents('/var/www/html/kinder.gpucloud.ru/count');
-        var_dump($count);
-        var_dump($count < 10);
-        var_dump($count < 82000);
+        $cnt=0;
         if ($count < 82000) {
             $orders = \App\Models\Order::where('status', 'confirmed')
                 ->where('opros', 0)
                 // ->where('email', 'pimax1978@icloud.com')
                 ->orderBy('id', 'desc')
-                ->limit(300);
+                ->limit(500);
             $ordersArray = $orders->get();
             $orders->update(['opros' => 3]);
             echo (count($ordersArray));
@@ -65,12 +63,13 @@ class Cron extends Command
                         \App\Models\Order::where('email', $order->email)->update([
                             'opros' => 1
                         ]);
-                        $count++;
+                        $cnt++;
                     } catch (Throwable $e) {
                         report($e);
                     }
             }
-            file_put_contents('/var/www/html/kinder.gpucloud.ru/count', $count);
+            $count = (int)file_get_contents('/var/www/html/kinder.gpucloud.ru/count');
+            file_put_contents('/var/www/html/kinder.gpucloud.ru/count', $count + $cnt);
         }
 
 
