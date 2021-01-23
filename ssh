@@ -1,0 +1,130 @@
+
+
+
+
+mkdir 1920 && mkdir 1280 && mkdir 1024
+mkdir 1920/1 && mkdir 1280/1 && mkdir 1024/1
+
+ffmpeg -v error -i 1.mp4 -f mp4 -vcodec libx264 -vf "scale=1920:1080" -r 25 -b 10M -acodec aac -ac 2 -ar 24000 -ab 128k -strict experimental 1920/1.mp4
+ffmpeg -v error -i 1920/1.mp4 -f mp4 -vcodec libx264 -vf "scale=1280:720" -r 25 -b 5M -acodec aac -ac 2 -ar 24000 -ab 128k -strict experimental 1280/1.mp4
+ffmpeg -v error -i 1280/1.mp4 -f mp4 -vcodec libx264 -vf "scale=1024:576" -r 25 -b 3M -acodec aac -ac 2 -ar 24000 -ab 128k -strict experimental 1024/1.mp4
+
+cd 1024 && ffmpeg -i 1.mp4 -codec: copy -start_number 0 -hls_time 5 -hls_list_size 0 -f hls 1_.m3u8
+cd ../1280 && ffmpeg -i 1.mp4 -codec: copy -start_number 0 -hls_time 5 -hls_list_size 0 -f hls 1_.m3u8
+cd ../1920 && ffmpeg -i 1.mp4 -codec: copy -start_number 0 -hls_time 5 -hls_list_size 0 -f hls 1_.m3u8
+
+
+
+
+
+
+
+
+
+
+
+
+ssh -i ~/.ssh/keys/kinder/id_rsa debian@151.236.114.137
+
+cd /var/www/html/kinder.gpucloud.ru
+
+mailgun d+3F&AC#kR3NanR
+
+
+CMS URL: https://cms.prod.kinder.com/ru/ru/user/login
+ 
+Basic Auth:
+ 
+·         User: kinder 
+·         Pass: Kin$der123
+
+ 
+CMS Accounts:
+shushurin.moove
+eee3eb879e43b576f654
+
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAs2A3cvkKg+5T21tpCd+gKelOghLztsfJr3bXAwRnzG2hpycg
+21OdRsTrDYBnPEmWEQMJqyGe2fdxMsWUL7Zy0ggt9cKe00td3U8RRYxISwQsakm9
+WD0t8/XeQZUnjFPe+YJRdRSyg3Wnhk4NZ/ttKK3DJbGDEsP8y/e6bgd52puH1goG
+5ZLU+QfR5Yba9yE7Hiq8jaqzfOLqgfycZmECG0PlUp0jq7SBmIFGAWcEUxhlNedU
+ersT1j/XzrKEYw4RZLIxwiSl3UNCw7Qg4MjbXmqtvKDu7C5Rpe1VItkfVdHnjErK
+xTi/2WHI0pEjuJ5qr7WF+ZFN4cm+md8JuJkBCwIDAQABAoIBAHkfBjIXYfdWDb+4
+CMRHAWJrjLyeSXzpiRF3QJZj+ib6/EXfUPtoiXHI9CMIyizWT4OrNnMc36O0xvYO
+nhJds0iJh2dEhHSOlpIimroIkKQ+7DLVGgqkPQxXwD0ulybVV2HJknFpiWTlJDq3
+J6xIBRyLwJMKO0SHnIKqA3PajniCnZ+xP8fmknIwEJtMGUm9VVmjXCSm3gSEA4nm
+V6LWxLl6wGV1c8XGLSe0FnHH+f9XWGzovW298e+64dsY4vn3a6b0e7RMgPbqZS6N
+zn++3RdLe2lNUV6Ug9UplM45atB3kqmQm7ncilsuQKl2G4sp/rb+pPaAqKAmN6Qk
+dZuycpECgYEA1mVhw7RKhuIBfsr0dnQHBVWVxMTwK0tCCNABEyLvXrg3ZohOgPZd
+cVlUqK1OnuynMPAy/kGDdhQK/vfWvShRWl3G32O5KuishqsvWNVDsf4zsfd87IA2
+7GmoYPsufRaZW4/Hs0ClaRaUoxBtUzJF19V8aM7lxZAWTC7Yh/KzrqkCgYEA1i8g
+XzssMDZUaR/4i4y4F3EZJ5FEwMMqTVL7utJhkIDlb6xNOn9d+hLplvLQTMiTWR7o
+6fqmtLWSvpNs2hy9dSbotvhGOsxaRSztjUFmF35lrN1zURpe64LTWwAXMvmHGXei
+//KIorOApJI7BJB45oUPrUMqY6TUxms1v33NxpMCgYEAlrL4f0mRQTJHfspF/6Ua
+8kLwXTlY3/WsWulqd/sManXuayHQnJGPqQbznQUEyGzsMFgGX/XI5Ay+le27gYZ/
+eJeGHKvKEkEuVBKr2zM8vDZEPAoMQ2j0MkUqV9D3InHqJhPweS0tl6qJm/0F+37Q
+3R9wrXMQy0e2hKJBDX4pktECgYBuq0UXz9RiSQBOnVVojdplSmwL9NTIoU9PSuyF
+OMVuzBtBG4+ABWXCnFkURPx6YD06lG0W0QuoXhWn4TcicC04xlUCjcCECyktiyxn
+i34773SL4JUAOBcJq7yXzbEvBp3W++k+RMxy/TsgTequzhOaUPCrvwO9HuNObwED
+o/ZafwKBgAot/FZaRIPffrt4mWRrQ2lPhl43831Xe+hkAU8TbqqQiBD1oEdMULeY
+dUIzi7vFtjFXsJ7POM51AWvqBEbT7Mv7YEmvy3ArFkELBX1s6588DBh4EeBKaese
+ZinvGBx74BC1bMbj+4Ya8zSNAFn0o1GRF5FT+Snvo3s7JmW2vtcw
+-----END RSA PRIVATE KEY-----
+
+
+
+
+
+ssh -i ~/.ssh/keys/upload/id_rsa debian@151.236.114.144
+
+DKIM 
+
+Name: mail._domainkey.kinder.gpucloud.ru.
+
+Text: "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsN+CBMpLMat1OJAp5o38ptuUG9I2HE0tukq6tgigo1771BAIDPCRWmo0pal6a5C45zpMJX88Qc32qVPrig4faF7Im7sVCbVtgttz9olVuukt1Mn8wdzHAtNMhHnnTvefWEc8eIWUqc3441ymgJFcPPXsNlCC4AB+KGNdA7zmJcp9LqXMlm9WbRoSsPM/0KnB23OYBXJdlWN6m"
+
+
+v=DKIM1;
+h=sha256;
+k=rsa;
+p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsN+CBMpLMat1OJAp5o38ptuUG9I2HE0tukq6tgigo1771BAIDPCRWmo0pal6a5C45zpMJX88Qc32qVPrig4faF7Im7sVCbVtgttz9olVuukt1Mn8wdzHAtNMhHnnTvefWEc8eIWUqc3441ymgJFcPPXsNlCC4AB+KGNdA7zmJcp9$"3wX/rnMUSoTzTfAePCIHg601ZzoZMu9/ZHpobDYeJEuSChG7XMuxO1he3kL8mXy4ocGfHSVtar4NoThl8k+Yr2ZerStfTUzZ+XAXPwmNc2WAy1P1yPCP2szwHyami94eeI4R7ZuQIDAQAB
+
+
+
+
+dkim._domainkey IN      TXT     ( "v=DKIM1; h=sha256; k=rsa; "
+          "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxjHOkMkOWIw3tCj1RZW8/znhFwFk4j2KJPuWYfWnRZ2r0ElwF8NUo5WwNRSWjNVnpiDG8KTZwmmQ7lqgcOn8RlwF4WWTP+mytHbv12sT2lLNwDsyQoyduj9am70O16E35BL9RR0bPjjGRMi6xHyQxfN/1G4ShhO8nBDBqjKRnRoYUvbhpf$
+          "wYWjjWQ67DQSHbF3/+qbUBiDCCABe/xMsRkLLU22vfPVFEdnd8pKZ1ZZlL/B+LIc5wefSD6xb2NLgDVl0O78IKH8Je/HUJ24aQnWtdPIW4NmKlDANY82G29EHACsJhF9NONxLO5QIDAQAB" )  ; ----- DKIM key dkim for kinder.gpucloud.ru
+
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDQmO9AuWRbWPgl/jzDPQodrLfFLFqYYi6bCBnsTOCOJQrFbGgiR1C01j4zLw8XgG3rQ0WAaeg6Z/y39Ah7IONfs5gQuK6eGZMmYwIsZyz2dQoUDmDLCb1WygpkrqsCbyPw3SWGihM4iChOwo7Ovo2mTOWOf5ejeZcP2qqNb9nRMQIDAQAB
+
+          -----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAxjHOkMkOWIw3tCj1RZW8/znhFwFk4j2KJPuWYfWnRZ2r0Elw
+F8NUo5WwNRSWjNVnpiDG8KTZwmmQ7lqgcOn8RlwF4WWTP+mytHbv12sT2lLNwDsy
+Qoyduj9am70O16E35BL9RR0bPjjGRMi6xHyQxfN/1G4ShhO8nBDBqjKRnRoYUvbh
+pfXY08Xbf4Nhv7i1KAkeM86PBS6ZbUwYWjjWQ67DQSHbF3/+qbUBiDCCABe/xMsR
+kLLU22vfPVFEdnd8pKZ1ZZlL/B+LIc5wefSD6xb2NLgDVl0O78IKH8Je/HUJ24aQ
+nWtdPIW4NmKlDANY82G29EHACsJhF9NONxLO5QIDAQABAoIBAQCOxtq0WuLGz1xh
+oQ/wbQqWIrAQzqRKh2K5ebTAJSO3dvqLNhxWQhT7M56Y3pgGJMZiW0J1oYxuDXam
+/wqNzUI7vZdO5MnLRSPD9dqaKT1IDlbCoOJ4JqyJu5Iel3fVxwJof3WNEIbLsELE
+0oYZflMdB2mTMyiNBjLdiwS5A2z66sjPZ1CySX5mTNfyNJeEKdd5ruq5FQaRPiPM
+T0nezyP7luHBmAaTopxpIcHxrNx5J9RqUCKAmVOZbN6Ab/LA+M1paoufUR/n7xnc
+X8Z3m19kkHdIhTb4Zw41rtZ3zA5xjxVTZDCa7s332yJYBQZXgIUIWXuB2JSl0c27
+baF5PnsBAoGBAOnIzfjYqKG528E3rzP0S46PUrArKUebfQDSa3z1e/Gmwo2+6rKm
++VC8eBDDnk6Z/sgoUiHFj/6ymQDS/qtBOjwiFHEKKzHqOTr4cPADwqysPuMmmriv
+eGDu0TfvXNCKzPAG6kNp+X6IjoK/DNaMGu+viH7/coHbyZOO1Idc51LVAoGBANkH
+OF+WC/3SFVFEs9/Ah+rd0uJVFJdCzQGA2uQQNXMCwrW72zGozbvPL7yWE1PsBybW
+0Fy8QhF3DgmzRcNCO868sr2eL55vQZgWI7o+4HImypARR0Nrq5Q7j70MngB01jJp
+sf2xPxyiLKO9WhwqoZ002PWGeZ8OmRcIqZj8OPPRAoGAQVyuEZvpkcXX5e5+ooTz
+tvjlQnHeybF0Qo2SFc7Ah3B7RowRLD+4xtTasL0wfoNZk3aKd/y3ZJtkYbGcGB9V
+e8h/dJdGOl9k/tLFKKW0gPhrYLDDY01T164NepkGlxunbphQWObBJZpiVbW6jiV/
+xnGKNQ+QYTQk6IdvbiUQW70CgYB5NXkcmXaVCdHyE4bKPoMqfz0aPx5C5IIOhuK5
+YPwZAb+xM/vVnktYyvwEPWUKB9ZusKaqRFI54t4qOL+Lr+ArNGQ3VrONruFZiXPm
+vtsnpdaX466DTw0CuskqcnOEGbzPZwyLfYSb/08jG8vJ011zqWJKrhIa7VI+9Q2T
+bbp5IQKBgE1VYkR+pRdZSH7PAAXEIKsOcmx1P46fairaFdfohfOzyuMN67T2waUt
+LDGF3nQ83HlVov7WpU8XAwrOo5t5Y8Q8ov/I5dG/KrPGFV+nSM+HRrT53Rjb4DxX
+jkCZGYJ6pO3nol8DnNgqGk0uMiayQLDJfDzi2Qclbpbbf+arkMuX
+-----END RSA PRIVATE KEY-----
+
+3b9a61288d499351171d4b1eb3ef1081

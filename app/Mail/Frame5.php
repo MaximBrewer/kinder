@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\View;
 
-class Frame1 extends Mailable
+class Frame5 extends Mailable
 {
     use Queueable, SerializesModels;
 
