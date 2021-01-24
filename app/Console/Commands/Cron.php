@@ -42,35 +42,35 @@ class Cron extends Command
      */
     public function handle()
     {
-        @touch('/var/www/html/kinder.gpucloud.ru/count');
-        $count = (int)file_get_contents('/var/www/html/kinder.gpucloud.ru/count');
-        $cnt=0;
-        if ($count < 82000) {
-            $orders = \App\Models\Order::where('status', 'confirmed')
-                ->where('opros', 0)
-                // ->where('email', 'pimax1978@icloud.com')
-                ->orderBy('id', 'desc')
-                ->limit(500);
-            $ordersArray = $orders->get();
-            $orders->update(['opros' => 3]);
-            echo (count($ordersArray));
-            foreach ($ordersArray as $o) {
-                $order = \App\Models\Order::find($o->id);
-                if ($order->opros == 3)
-                    try {
-                        $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
-                        Mail::to($order->email)->send(new \App\Mail\Frame5($unsubscribe));
-                        \App\Models\Order::where('email', $order->email)->update([
-                            'opros' => 1
-                        ]);
-                        $cnt++;
-                    } catch (Throwable $e) {
-                        report($e);
-                    }
-            }
-            $count = (int)file_get_contents('/var/www/html/kinder.gpucloud.ru/count');
-            file_put_contents('/var/www/html/kinder.gpucloud.ru/count', $count + $cnt);
-        }
+        // @touch('/var/www/html/kinder.gpucloud.ru/count');
+        // $count = (int)file_get_contents('/var/www/html/kinder.gpucloud.ru/count');
+        // $cnt=0;
+        // if ($count < 82000) {
+        //     $orders = \App\Models\Order::where('status', 'confirmed')
+        //         ->where('opros', 0)
+        //         // ->where('email', 'pimax1978@icloud.com')
+        //         ->orderBy('id', 'desc')
+        //         ->limit(500);
+        //     $ordersArray = $orders->get();
+        //     $orders->update(['opros' => 3]);
+        //     echo (count($ordersArray));
+        //     foreach ($ordersArray as $o) {
+        //         $order = \App\Models\Order::find($o->id);
+        //         if ($order->opros == 3)
+        //             try {
+        //                 $unsubscribe = "https://kinder.gpucloud.ru/unsubscribe?email=" . $order->email . "&email_hash=" . $order->email_hash;
+        //                 Mail::to($order->email)->send(new \App\Mail\Frame5($unsubscribe));
+        //                 \App\Models\Order::where('email', $order->email)->update([
+        //                     'opros' => 1
+        //                 ]);
+        //                 $cnt++;
+        //             } catch (Throwable $e) {
+        //                 report($e);
+        //             }
+        //     }
+        //     $count = (int)file_get_contents('/var/www/html/kinder.gpucloud.ru/count');
+        //     file_put_contents('/var/www/html/kinder.gpucloud.ru/count', $count + $cnt);
+        // }
 
 
         // $orders = \App\Models\Order::where('status', 'confirmed')->where('sent', '<', 3)->orderBy('id', 'desc')->limit(1000);
